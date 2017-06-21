@@ -47,10 +47,10 @@ class AddTodo extends Component {
 	render() {
 		return (
 			<div className="add-todo">
-				<from onSubmit = {this.onSubmit}>
+				<form onSubmit = {this.onSubmit}>
 					<input className="new-todo" onChange = {this.onInputChange} value = {this.state.value}/>
 					<button className="add-btn" type="submit">添加</button>
-				</from>
+				</form>
 			</div>
 		)
 	}

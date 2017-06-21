@@ -3,7 +3,7 @@ import {
 	view as Todos
 } from './todos/';
 import {
-	view as filter
+	view as Filter
 } from './filter/';
 
 function TodoApp() {

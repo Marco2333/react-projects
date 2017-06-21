@@ -34,8 +34,13 @@ export default (state = [], action) => {
 		case REMOVE_TODO:
 			{
 				return state.filter((todoItem) => {
-					return todoItem !== todoItem.id;
+					return todoItem.id !== action.id;
 				})
+			}
+
+		default:
+			{
+				return state;
 			}
 	}
 }
