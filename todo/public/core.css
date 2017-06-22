@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* ===============
+ * Css reset(重新定义Html元素)
+ * =============== */
+html, body, div, span, iframe,
+h1, h2, h3, h4, h5, h6, p, a, 
+del, dfn, em, img,
+small, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, section, summary {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    font-family: "MicroSoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+ol, ul {
+    list-style: none outside none;
+}
+blockquote, q {
+    quotes: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+strong { 
+    font-weight: bold;
+}
+fieldset, img { 
+    border: medium none;
+}
+caption, th { 
+     text-align: left;
+}
+a:link, a:visited, a:active { 
+    text-decoration: none;
+}
+a:hover { 
+    color: #E4393C; 
+    text-decoration: underline;
+}
+* {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+/* ============================================
+ * 常用宽度、高度、边距、字体、颜色、布局等样式
+ * ============================================*/
+.w {
+     width: 100%
+}
+.h {
+    height: 100%;
+}
+.fl { 
+    float: left;
+}
+.fr { 
+    float: right;
+}
+.none { 
+    display: none;
+}
+.hidden {
+    display: none!important;
+}
+.b{
+    font-weight: bold;
+}
+.cl{
+    clear: left;
+}
+.cr{
+    clear: right;
+}
+.cb{
+    clear: both;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.pf {
+    position: fixed;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.clearfix{
+    *zoom:1;
+}
+.clearfix:after { 
+   content:"";
+   display:table;
+   clear:both;
+}
+.one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

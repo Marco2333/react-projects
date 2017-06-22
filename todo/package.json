@@ -23,6 +23,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
+    "react-addons-perf": "^15.4.2",
+    "redux-immutable-state-invariant": "^2.0.0",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1"
   }

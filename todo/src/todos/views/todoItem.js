@@ -10,28 +10,19 @@ import {
 	removeTodo
 } from '../actions.js';
 
-
-class TodoItem extends Component {
-	// constructor() {
-	// 	super(...arguments);
-	// }
-
-	render() {
-		const {
-			onToggle,
-			onRemove,
-			completed,
-			text
-		} = this.props;
-
-		return (
-			<li className="to-item" style = {{textDecoration: completed ? 'line-through' : 'none'}}>
-				<input type="checkbox" className="toggle" checked = {completed ? "checked" : ""} onClick={onToggle} readOnly />
-				<lable className="text">{text}</lable>
-				<button className="remove" onClick={onRemove}>×</button>
-			</li>
-		);
-	}
+const TodoItem = ({
+	onToggle,
+	onRemove,
+	completed,
+	text
+}) => {
+	return (
+		<li className="todo-item" style = {{textDecoration: completed ? 'line-through' : 'none'}}>
+			<input type="checkbox" className="toggle" checked = {completed ? "checked" : ""} onClick={onToggle} readOnly />
+			<lable className="text">{text}</lable>
+			<button className="remove" onClick={onRemove}>×</button>
+		</li>
+	);
 }
 
 TodoItem.propTypes = {

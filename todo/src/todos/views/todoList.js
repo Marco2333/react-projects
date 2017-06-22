@@ -10,7 +10,6 @@ import {
 	selectVisibleTodos
 } from '../selector.js';
 
-import './todoItem.css';
 
 const TodoList = ({
 	todos
