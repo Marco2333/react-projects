@@ -10,22 +10,27 @@ import {
 	selectVisibleTodos
 } from '../selector.js';
 
+import TransitionGroup from 'react-addons-css-transition-group';
+
+import './todoItem.css';
 
 const TodoList = ({
 	todos
 }) => {
 	return (
 		<ul>
-			{
-				todos.map((item) => (
-					<TodoItem 
-						id={item.id} 
-						key={item.id} 
-						text={item.text} 
-						completed={item.completed} 
-					/>
-				))
-			}
+			<TransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={200}>
+				{
+					todos.map((item) => (
+						<TodoItem 
+							id={item.id} 
+							key={item.id} 
+							text={item.text} 
+							completed={item.completed} 
+						/>
+					))
+				}
+			</TransitionGroup>
 		</ul>
 	)
 };
