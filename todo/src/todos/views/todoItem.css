@@ -1,7 +1,9 @@
+.fade-appear,
 .fade-enter {
 	opacity: 0.01;
 }
 
+.fade-appear.fade-appear-active,
 .fade-enter.fade-enter-active {
 	opacity: 1;
 	transition: opacity 500ms ease-in;

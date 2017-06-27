@@ -5,15 +5,14 @@ const vendors = [
 	'react',
 	'redux',
 	'react-dom',
-	'react-redux',
-	'react-addons-css-transition-group'
+	'react-redux'
 ];
 
 module.exports = {
 	output: {
-		path: path.resolve(__dirname, './public/script'),
+		path: path.resolve(__dirname, './public/script/'),
 		filename: '[name].js',
-		library: '[name]',
+		library: '[name]'
 	},
 	entry: {
 		"lib": vendors

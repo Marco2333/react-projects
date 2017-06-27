@@ -12,10 +12,7 @@ import {
 	reducer as filterReducer
 } from './filter';
 
-import Perf from 'react-addons-perf';
-
-var win = window;
-win.Perf = Perf;
+const win = window;
 
 const reducer = combineReducers({
 	todos: todoReducer,
@@ -25,6 +22,9 @@ const reducer = combineReducers({
 const middlewares = [];
 
 if (process.env.NODE_ENV !== 'production') {
+	const Perf = require('react-addons-perf');
+	win.Perf = Perf;
+
 	middlewares.push(require('redux-immutable-state-invariant').default());
 }
 

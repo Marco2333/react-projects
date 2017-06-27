@@ -3,8 +3,8 @@ const webpack = require('webpack');
 var prod = process.env.NODE_ENV === 'production' ? true : false;
 
 module.exports = {
-	entry: __dirname + "/src/index.js",
-	output: {
+	'entry': __dirname + '/src/index.js',
+	'output': {
 		path: __dirname + "/public/script",
 		filename: 'bundle.js'
 	},
@@ -15,7 +15,7 @@ module.exports = {
 			loader: 'babel-loader'
 		}, {
 			test: /\.css$/,
-			loader: 'style-loader!css-loader'
+			loader: 'style-loader!css-loader?module'
 		}]
 	},
 	plugins: [

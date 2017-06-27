@@ -19,7 +19,7 @@ const TodoList = ({
 }) => {
 	return (
 		<ul>
-			<TransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={200}>
+			<TransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={200} transitionAppear={true} transitionAppearTimeout={500}>
 				{
 					todos.map((item) => (
 						<TodoItem 
