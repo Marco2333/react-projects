@@ -3,7 +3,7 @@ const webpack = require('webpack');
 var prod = process.env.NODE_ENV === 'production' ? true : false;
 
 module.exports = {
-	'entry': __dirname + '/src/index.js',
+	'entry': __dirname + '/app/index.js',
 	'output': {
 		path: __dirname + "/public/script",
 		filename: 'bundle.js'

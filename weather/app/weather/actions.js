@@ -1,4 +1,8 @@
 import {
+	SERVERADDRESS
+} from '../constants.js';
+
+import {
 	FETCH_STARTED,
 	FETCH_SUCCESS,
 	FETCH_FAILURE
@@ -22,8 +26,7 @@ export const fetchWeatherFailure = (error) => ({
 
 export const fetchWeather = (cityCode) => {
 	return (dispatch) => {
-		const apiUrl = `http://www.weather.com.cn/data/cityinfo/${cityCode}.html`;
-
+		const apiUrl = `${SERVERADDRESS}/cityinfo/${cityCode}.html`;
 		const seqId = ++nextSeqId;
 
 		const dispatchIfValid = (action) => {
@@ -36,23 +39,21 @@ export const fetchWeather = (cityCode) => {
 
 		fetch(apiUrl, {
 			method: 'GET',
-			mode: "no-cors",
+			// mode: "no-cors",
 			headers: {
 				"Content-Type": "application/x-www-form-urlencoded"
 			}
 		}).then((response) => {
-			console.log(response);
 			if (response.status !== 200) {
-				console.log(123);
 				throw new Error('Fail to get reaponse with status ' + response.status);
 			}
 
 			response.json().then((responseJson) => {
-				console.log(responseJson.weatherinfo)
 				dispatchIfValid(fetchWeatherSuccess(responseJson.weatherinfo));
 			}).catch((error) => {
 				dispatchIfValid(fetchWeatherFailure(error));
 			});
+
 		}).catch((error) => {
 			dispatchIfValid(fetchWeatherFailure(error));
 		});
