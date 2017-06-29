@@ -1,25 +1,25 @@
 import {
 	createStore,
-	applyMiddleware,
+	combineReducers,
 	compose,
-	combineReducers
+	applyMiddleware
 } from 'redux';
 
-import thunkMiddleware from 'redux-thunk';
-
 import {
-	reducer as weatherReducer
-} from './weather/';
+	routerReducer
+} from 'react-router-redux';
 
+
+let prod = process.env.NODE_ENV === 'produciton' ? true : false;
+
+const middlewares = [];
 const win = window;
 
 const reducer = combineReducers({
-	weather: weatherReducer
+	routing: routerReducer
 });
 
-const middlewares = [thunkMiddleware];
-
-if (process.env.NODE_ENV !== 'production') {
+if (!prod) {
 	const Perf = require('react-addons-perf');
 
 	win.Perf = Perf;
@@ -30,6 +30,6 @@ if (process.env.NODE_ENV !== 'production') {
 const storeEnhancers = compose(
 	applyMiddleware(...middlewares),
 	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
-);
+)
 
 export default createStore(reducer, {}, storeEnhancers);
