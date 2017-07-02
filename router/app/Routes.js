@@ -11,21 +11,36 @@ import {
 } from 'react-router-redux';
 
 import App from './pages/App.js';
-import Index from './pages/Index.js';
-import About from './pages/About.js';
-import NotFound from './pages/404.js';
 import store from './Store.js';
 
-// const history = syncHistoryWithStore(browserHistory, store);
-const history = browserHistory;
+const getIndexPage = (nextState, callback) => {
+	require.ensure([], function(require) {
+		callback(null, require('./pages/Index.js').default);
+	}, 'index');
+};
+
+const getAboutPage = (nextState, callback) => {
+	require.ensure([], function(require) {
+		callback(null, require('./pages/About.js').default);
+	}, 'about');
+};
+
+const getNotFoundPage = (nextState, callback) => {
+	require.ensure([], function(require) {
+		callback(null, require('./pages/404.js').default);
+	}, '404');
+};
+
+
+const history = syncHistoryWithStore(browserHistory, store);
 
 const Routes = () => (
 	<Router history={history}>
 		<Route path="/" component={App}>
-			<IndexRoute component={Index} />
-			<Route path='index' component={Index} />
-			<Route path='about' component={About} />
-			<Route path='*' component={NotFound} />
+			<IndexRoute getComponent={getIndexPage} />
+			<Route path='index' getComponent={getIndexPage} />
+			<Route path='about' getComponent={getAboutPage} />
+			<Route path='*' getComponent={getNotFoundPage} />
 		</Route>
 	</Router>
 )

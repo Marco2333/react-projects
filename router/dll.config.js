@@ -5,6 +5,7 @@ const vendors = [
 	'react',
 	'redux',
 	'react-dom',
+	'react-redux',
 	'react-router',
 	'react-router-redux'
 ];
