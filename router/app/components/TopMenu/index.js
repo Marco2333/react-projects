@@ -15,6 +15,7 @@ const view = () => {
 			<ul>
 				<li style={liStyle}><Link to="/index">Home</Link> </li>
 				<li style={liStyle}><Link to="/about">About</Link></li>
+				<li style={liStyle}><Link to="/counter">Counter</Link></li>
 			</ul>
 		</div>
 	)

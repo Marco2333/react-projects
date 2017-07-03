@@ -19,7 +19,6 @@ const win = window;
 const originalReducers = {
 	routing: routerReducer
 }
-
 const reducer = combineReducers(originalReducers);
 
 if (!prod) {
@@ -39,4 +38,4 @@ const storeEnhancers = compose(
 const store = createStore(reducer, {}, storeEnhancers);
 store._reducers = originalReducers;
 
-export default createStore(reducer, {}, storeEnhancers);
+export default store;

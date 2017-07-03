@@ -7,6 +7,13 @@ import {
 } from 'react-router';
 
 import {
+	combineReducers
+} from 'redux';
+import {
+	Provider
+} from 'react-redux';
+
+import {
 	syncHistoryWithStore
 } from 'react-router-redux';
 
@@ -31,6 +38,27 @@ const getNotFoundPage = (nextState, callback) => {
 	}, '404');
 };
 
+const getCounterPage = (nextState, callback) => {
+	require.ensure([], function(require) {
+		const {
+			page,
+			reducer,
+			stateKey,
+			initialState
+		} = require('./pages/CounterPage.js');
+
+		const state = store.getState();
+		store.reset(combineReducers({
+			...store._reducers,
+			[stateKey]: reducer
+		}), {
+			...state,
+			[stateKey]: initialState
+		});
+		callback(null, page);
+	}, 'counter');
+};
+
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -40,6 +68,7 @@ const Routes = () => (
 			<IndexRoute getComponent={getIndexPage} />
 			<Route path='index' getComponent={getIndexPage} />
 			<Route path='about' getComponent={getAboutPage} />
+			<Route path='counter' getComponent={getCounterPage} />
 			<Route path='*' getComponent={getNotFoundPage} />
 		</Route>
 	</Router>
