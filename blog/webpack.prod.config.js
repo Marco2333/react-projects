@@ -1,8 +1,5 @@
 const webpack = require('webpack');
 
-var prod = process.env.NODE_ENV === 'production' ? true : false;
-
-
 module.exports = {
 	entry: __dirname + "/app/index.js",
 	output: {
@@ -16,6 +13,10 @@ module.exports = {
 			test: /\.js$/,
 			exclude: /node_modules/,
 			loader: 'babel-loader'
+		}, {
+			test: /\.scss$/,
+			exclude: /node_modules/,
+			loader: 'style-loader!css-loader!sass-loader'
 		}]
 	},
 	plugins: [
@@ -23,13 +24,13 @@ module.exports = {
 			context: __dirname,
 			manifest: require('./manifest.json')
 		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'common',
-			filename: 'common.js'
+		new webpack.optimize.UglifyJsPlugin({
+			output: {
+				comments: false
+			},
+			compress: {
+				warnings: false
+			}
 		})
 	]
-}
-
-if (!prod) {
-	module.exports.devtool = 'eval-source-map';
 }

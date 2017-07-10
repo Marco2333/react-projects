@@ -11,7 +11,7 @@ import {
 
 import resetEnhancer from './enhancer/reset.js';
 
-let prod = process.env.NODE_ENV === 'produciton' ? true : false;
+let prod = process.env.NODE_ENV === 'production' ? true : false;
 
 const middlewares = [];
 const win = window;
@@ -26,7 +26,7 @@ if (!prod) {
 
 	win.Perf = Perf;
 
-	middlewares.push(require('redux-immutable-state-invariant').default())
+	middlewares.push(require('redux-immutable-state-invariant').default());
 }
 
 const storeEnhancers = compose(
