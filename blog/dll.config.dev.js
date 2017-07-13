@@ -4,8 +4,7 @@ const vendors = [
 	'react',
 	'redux',
 	'react-dom',
-	'react-redux',
-	'react-bootstrap'
+	'react-redux'
 ];
 
 module.exports = {
@@ -22,14 +21,6 @@ module.exports = {
 			path: 'manifest.json',
 			name: '[name]',
 			context: __dirname
-		}),
-		new webpack.optimize.UglifyJsPlugin({
-			output: {
-				comments: false
-			},
-			compress: {
-				warnings: false
-			}
 		})
 	]
 }

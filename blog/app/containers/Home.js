@@ -1,7 +1,21 @@
-import React from 'react';
+import React, {
+	Component
+} from 'react';
 
-const Home = () => {
-	return <div>Home</div>
-};
+import NavTop from '../components/nav-top-home';
+
+class Home extends Component {
+
+	render() {
+		return (
+			<div>
+				<NavTop />
+			</div>
+
+			
+		)
+
+	}
+}
 
 export default Home;

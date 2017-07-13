@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-	devtool: 'source-map',
+	devtool: 'eval-source-map',
 	entry: __dirname + "/app/index.js",
 	output: {
 		path: __dirname + "/public/script/",
@@ -15,8 +15,8 @@ module.exports = {
 			exclude: /node_modules/,
 			loader: 'babel-loader'
 		}, {
-			test: /\.scss$/,
-			exclude: /node_modules/,
+			test: /\.s?css$/,
+			include: /node_modules/,
 			loader: 'style-loader!css-loader!sass-loader'
 		}]
 	},
@@ -24,6 +24,10 @@ module.exports = {
 		new webpack.DllReferencePlugin({
 			context: __dirname,
 			manifest: require('./manifest.json')
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: ' common',
+			filename: 'common.js'
 		})
 	]
 }
