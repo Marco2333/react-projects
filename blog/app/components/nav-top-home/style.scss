@@ -1,0 +1,32 @@
+@import "../config.scss";
+
+$index-nav-height: 80px;
+
+.index-nav-top {
+    height: $index-nav-height;
+    line-height: $index-nav-height;
+}
+
+.site-logo {
+    width: 200px;
+    height: $index-nav-height;
+    line-height: $index-nav-height;
+    >img {
+        width: 100%;
+        vertical-align: middle;
+        max-height: $index-nav-height;
+    }
+}
+
+.index-nav-top-list {
+    height: $index-nav-height;
+    text-align: right;
+}
+.index-nav-top-item {
+    display: inline-block;
+    padding: 0 14px;
+    font-size: 17px;
+    >a {
+        color: #333;
+    }
+}
