@@ -46,7 +46,7 @@ class CitySelector extends Component {
 	}
 }
 
-const mapDisoatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		onSelectCity: (cityCode) => {
 			dispatch(weatherActions.fetchWeather(cityCode));
@@ -54,4 +54,4 @@ const mapDisoatchToProps = (dispatch) => {
 	}
 };
 
-export default connect(null, mapDisoatchToProps)(CitySelector);
+export default connect(null, mapDispatchToProps)(CitySelector);

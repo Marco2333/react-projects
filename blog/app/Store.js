@@ -1,38 +1,30 @@
-import {
-	createStore,
-	combineReducers,
-	compose,
-	applyMiddleware
-} from 'redux';
+import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 
-import {
-	routerReducer
-} from 'react-router-redux';
+import {routerReducer} from 'react-router-redux';
+import thunkMiddleware from 'redux-thunk';
 
 import resetEnhancer from './enhancer/reset.js';
 
 let prod = process.env.NODE_ENV === 'producion' ? true : false;
 
-const middlewares = [];
+const middlewares = [thunkMiddleware];
 const win = window;
 
 const originalReducers = {
-	routing: routerReducer
+    routing: routerReducer
 }
 const reducer = combineReducers(originalReducers);
 
 if (!prod) {
-	const Perf = require('react-addons-perf');
-
-	win.Perf = Perf;
-
-	middlewares.push(require('redux-immutable-state-invariant').default());
+    const Perf = require('react-addons-perf');
+    win.Perf = Perf;
+    middlewares.push(require('redux-immutable-state-invariant').default());
 }
 
 const storeEnhancers = compose(
-	resetEnhancer,
-	applyMiddleware(...middlewares),
-	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
+    resetEnhancer, 
+    applyMiddleware(...middlewares), 
+    (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
 )
 
 const store = createStore(reducer, {}, storeEnhancers);

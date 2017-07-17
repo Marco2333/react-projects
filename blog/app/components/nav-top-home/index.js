@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReacDOM from 'react-dom';
 
 import {Link} from 'react-router'
 
