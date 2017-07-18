@@ -4,7 +4,8 @@ var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '283319',
-    database: 'blog'
+    database: 'blog',
+    dateStrings: true
 });
 
 function query(sql, callback) {

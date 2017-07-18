@@ -22,16 +22,17 @@ export const getArticalList = (current = 1, count = 20, type = 0) => {
         dispatch(fetchArticalsStarted());
 
         fetch(apiUrl).then((response) => {
+            
             if(response.status !== 200) {
                 throw new Error('Fail to get reaponse with status ' + response.status);
                 dispatch(fetchArticalsFailure("LOADING FAILED! Error code: " + response.status));
             }
 
-            response.json.then((responseJson) => {
+            response.json().then((responseJson) => {
                 if(responseJson.status == 0) {
-                    dispatch(fetchArticalsFailure(response.message));
+                    dispatch(fetchArticalsFailure(responseJson.message));
                 }
-                dispatch(fetchArticalsSuccess(response.articals));
+                dispatch(fetchArticalsSuccess(responseJson.articals));
             }).catch((error) => {
                 dispatch(fetchArticalsFailure(error));
             })

@@ -1,0 +1,25 @@
+.list-head-carousel-wrap {
+    height: 36px;
+    margin: 15px 0;
+    font-size: 13px;
+    padding-left: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 0 6px #aaa;
+}
+.list-head-carousel-title {
+    display: inline-block;
+}
+.list-head-carousel {
+    position: relative;
+    > p {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 36px;
+        padding: 0;
+        line-height: 36px;
+        opacity: 0;
+        transition: opacity ease-in 1000ms;
+    }
+}

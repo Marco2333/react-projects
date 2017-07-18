@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 //静态文件目录
 app.use(express.static(path.join(__dirname, '../public')));
-app.use('*', routes);
+app.use('/', routes);
 
 // development error handler
 // will print stacktrace

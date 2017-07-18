@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Carousel} from 'antd';
 
-import "./style.scss";
+import "./index.scss";
 
 import bannerImg from "../../../public/image/banner.jpg";
 

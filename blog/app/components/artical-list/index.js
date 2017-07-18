@@ -1,45 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import view, {stateKey} from './view';
+import reducer from './reducer';
+import * as actions from './actions';
 
-import {getArticalList} from './actions';
-import ArticalItem from '../artical-item';
+export {
+    actions,
+    reducer,
+    stateKey
+};
 
-class ArticalList extends Component {
-    componentDidMount() {
-		const {current, count} = this.props;
-		this.props.getArticalList(current, count);
-    }
-    
-    render() {
-        const {articalList} = this.props;
-        return (
-            <div className="artical-list">
-                {
-                    articalList ? articalList.map(artical => {
-                        return (
-                            <div key={artical.id}>
-                                <ArticalItem {...artical}/>
-                            </div>
-                        )
-                    }) : ''
-                }
-            </div>
-        )
-    }
-}
-
-const mapStateToProps = (state) => {
-    return {
-        articalList: state.articals
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getArticalList: (current, count, type) => {
-            dispatch(getArticalList(current, count, type))
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticalList);
+export default view;

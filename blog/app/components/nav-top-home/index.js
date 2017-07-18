@@ -6,7 +6,7 @@ import {Row, Col} from 'antd';
 
 import logoImg from "../../../public/image/logo.png";
 
-import "./style.scss";
+import "./index.scss";
 
 class NavTopHome extends Component {
     // state = {
