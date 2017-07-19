@@ -1,0 +1,84 @@
+@import "../../config/config.scss";
+
+.nav-side {
+    font-size: 13px;
+    > .panel {
+        margin: 15px 0 25px;
+        box-shadow: 0 0 6px #aaa;
+    }
+    li {
+        color: $link-color;
+        line-height: 23px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    ul > li {
+        list-style: square inside;
+    }
+    ol > li {
+        list-style: decimal inside;
+    }
+}
+
+.user-introduction {
+    text-align: center;
+    > img {
+        width: 100%;
+        min-width: 90%;
+    }
+    .statistics {
+        color: #333;
+        font-size: 14px;
+    }
+    .spliter {
+       border-left: 1px solid #aaa; 
+    }
+    .statistic-item {
+        display: inline-block;
+        margin: 5px 9px;
+    }
+}
+.user-portrait {
+    color: #333;
+    font-size: 14px;
+    > img {
+        width: 110px;
+        height: 110px;
+        margin-top: -70px;
+        border-radius: 100%;
+        transition: transform .8s ease-in-out;
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+    > h3 {
+        font-size: 21px;
+        font-weight: bold;
+    }
+    > p {
+        padding: 5px 15px; 
+    }
+}
+
+.followme-link {
+    display: inline-block;
+    width: 41px;
+    height: 41px;
+    margin: 0 6px;
+    line-height: 39px;
+    text-align: center;
+    font-size: 26px;
+    background-color: #fff;
+    border: 1px solid rgba(60,60,60,.1);
+    transition: background-color .3s ease-in;
+    &:hover {
+        background-color: #333;
+        > a {
+            color: #fff;
+        }
+    }
+    > a {
+        color: #333;
+    }
+}

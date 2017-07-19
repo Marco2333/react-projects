@@ -9,15 +9,15 @@ import store from './Store.js';
 
 const getHomePage = (nextProps, callback) => {
     require.ensure([], function (require) {
-        const {Home, reducer, stateKey, initialState} = require('./containers/Home.js');
+        const {Home, reducer, initialState} = require('./containers/Home.js');
 
         const state = store.getState();
         store.reset(combineReducers({
             ...store._reducers,
-            [stateKey]: reducer
+            ...reducer
         }), {
             ...state,
-            [stateKey]: initialState
+            ...initialState
         });
 
         callback(null, Home);

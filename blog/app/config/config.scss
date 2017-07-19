@@ -1,8 +1,25 @@
 $main-color: #3197EF;
+$link-color: #108ee9;
 
 body {
     background-color: #f9f9f9;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    color: #333;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+.panel-body {
+    padding: 15px;
+}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;

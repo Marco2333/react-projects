@@ -1,24 +1,32 @@
+$list-head-height: 36px;
+
 .list-head-carousel-wrap {
-    height: 36px;
+    height: $list-head-height;
     margin: 15px 0;
     font-size: 13px;
-    padding-left: 8px;
     background-color: #fafafa;
     box-shadow: 0 0 6px #aaa;
 }
 .list-head-carousel-title {
     display: inline-block;
+    height: $list-head-height;
+    margin: 0 15px 0 25px;
+    line-height: $list-head-height;
+    vertical-align: top;
 }
 .list-head-carousel {
     position: relative;
+    display: inline-block;
+    height: $list-head-height;
+    width: 200px;
     > p {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
-        height: 36px;
+        height: $list-head-height;
         padding: 0;
-        line-height: 36px;
+        line-height: $list-head-height;
         opacity: 0;
         transition: opacity ease-in 1000ms;
     }

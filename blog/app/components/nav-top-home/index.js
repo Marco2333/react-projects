@@ -33,7 +33,7 @@ class NavTopHome extends Component {
                                 <Link to="/artical">文章</Link>
                             </li>
                             <li className="index-nav-top-item" key="archive">
-                                <Link to="/archive">归档</Link>
+                                <Link to="/archive">时间轴</Link>
                             </li>
                             <li className="index-nav-top-item" key="gather">
                                 <Link to="/gather">滴滴答</Link>

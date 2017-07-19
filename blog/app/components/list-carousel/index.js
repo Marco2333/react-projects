@@ -21,13 +21,13 @@ class ListCarousel extends Component {
     }
 
     render() {
-        const {title = "文章列表", links} = this.props;
+        const {title = "最新文章", links} = this.props;
         return (
             <div className="list-head-carousel-wrap">
-               { // <div className="list-head-carousel-title">
-                //     {title}: 
-                // </div>
-                }
+                <div className="list-head-carousel-title">
+                    {title}: 
+                </div>
+                
                 <div className="list-head-carousel">
                     {
                         links.map((link, index) => (
