@@ -1,18 +1,18 @@
-import {FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE} from './actionTypes';
+import {ARTICALS_STARTED, ARTICALS_SUCCESS, ARTICALS_FAILURE} from './actionType';
 
-import {SERVERADDRESS} from "../../config/config.js";
+import {SERVERADDRESS} from "../../../config/config";
 
 export const fetchArticalsStarted = () => ({
-    type: FETCH_STARTED
+    type: ARTICALS_STARTED
 });
 
 export const fetchArticalsSuccess = (articals) => ({
-    type: FETCH_SUCCESS,
+    type: ARTICALS_SUCCESS,
     articals
 });
 
 export const fetchArticalsFailure = (message) => ({
-    type: FETCH_FAILURE,
+    type: ARTICALS_FAILURE,
     message
 });
 
@@ -34,9 +34,11 @@ export const getArticalList = (current = 1, count = 20, type = 0) => {
                 }
                 dispatch(fetchArticalsSuccess(responseJson.articals));
             }).catch((error) => {
+                console.log(error);
                 dispatch(fetchArticalsFailure(error));
             })
         }).catch((error) => {
+            console.log(error);
             dispatch(fetchArticalsFailure(error));
         });
     }

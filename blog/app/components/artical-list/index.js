@@ -1,11 +1,21 @@
-import view, {stateKey} from './view';
-import reducer from './reducer';
-import * as actions from './actions';
+import React from 'react';
 
-export {
-    actions,
-    reducer,
-    stateKey
-};
+import ArticalItem from '../artical-item';
 
-export default view;
+const ArticalList = ({articals}) => {
+    return (
+        <div className="artical-list">
+            {
+                articals ? articals.map(artical => {
+                    return (
+                        <div key={artical.id}>
+                            <ArticalItem {...artical}/>
+                        </div>
+                    )
+                }) : ''
+            }
+        </div>
+    )
+}
+
+export default ArticalList;

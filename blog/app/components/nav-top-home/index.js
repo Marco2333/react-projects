@@ -27,13 +27,13 @@ class NavTopHome extends Component {
                     <Col xs={0} sm={16} md={12} lg={12}>
                         <ul className="index-nav-top-list">
                             <li className="index-nav-top-item" key="home">
-                                <Link to="/index">主页</Link>
+                                <Link to="/home">主页</Link>
                             </li>
                             <li className="index-nav-top-item" key="artical">
                                 <Link to="/artical">文章</Link>
                             </li>
                             <li className="index-nav-top-item" key="archive">
-                                <Link to="/archive">时间轴</Link>
+                                <Link to="/timeline">时间轴</Link>
                             </li>
                             <li className="index-nav-top-item" key="gather">
                                 <Link to="/gather">滴滴答</Link>

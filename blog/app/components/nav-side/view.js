@@ -12,7 +12,8 @@ import bgImg from "../../../public/image/portrait_bg.jpg";
 import meImg from "../../../public/image/me.jpg";
 
 
-export const stateKey = "navSide";
+export const stateKey = "nav-side";
+export const initialState = {};
 
 class NavSide extends Component {
     componentDidMount() {

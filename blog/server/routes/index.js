@@ -29,7 +29,9 @@ router.get('/get-artical-list', function(req, res, next) {
         order by created_at desc limit ${(current - 1) * count}, ${count}`;
     } else{
         sql = `select ${field} from blog join category on blog.category = category.id
-         where type = ${+type} and status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
+         where type = ${+type} and blog.status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
+
+        console.log(sql);
     }
     db.query(sql, function(err, rows) {
         let out = []

@@ -1,0 +1,55 @@
+@import '../../config/config.scss';
+
+$nav-top-height: 42px;
+$nav-top-color: #ff6100;
+
+.site-logo {
+    height: 100px;
+    line-height: 100px;
+    > img {
+        width: 180px;
+        vertical-align: middle;
+    }
+    // > .spliter {
+    //     border-left: 1px solid #aaa;
+    // }
+    // > .site-sub-logo {
+    //     color: $nav-top-color;
+    // }
+}
+
+.nav-top-search {
+    height: 100px;
+    line-height: 100px;
+    text-align: right;
+    input {
+        max-width: 300px;
+        border-radius: 1px;
+    }
+}
+.nav-top {
+    height: $nav-top-height;
+    background-color: #474546;
+    box-shadow: 0 0 8px #444;
+}
+.nav-top-item {
+    float: left;
+    border-right: solid #666565 1px; 
+    > a {
+        display: inline-block;
+        height: $nav-top-height;
+        padding: 0 30px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: $nav-top-height;
+        &:hover {
+            color: $nav-top-color;
+            background-color: #000;
+            border-color: #000; 
+        } 
+    }
+    &:first-child {
+            border-left: solid #666565 1px;
+    }
+}

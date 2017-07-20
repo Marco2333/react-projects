@@ -13,11 +13,22 @@ class ListCarousel extends Component {
     }
 
     componentDidMount() {
-        setInterval( () =>
+        let length = this.props.links && this.props.links.length || 0;
+        if(length === 0) {
+            return;
+        }
+
+        this._handle = setInterval( () =>
             this.setState({
-                index: (this.state.index + 1) % this.props.links.length
+                index: (this.state.index + 1) % length
             })
         , 5000)
+
+        console.log(this._handle, 'hhed');
+    }
+
+    componentWillUnmount = () => {
+        clearInterval(this._handle);
     }
 
     render() {
