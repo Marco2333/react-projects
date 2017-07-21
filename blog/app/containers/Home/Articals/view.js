@@ -14,28 +14,6 @@ class Articals extends Component {
 		const {current = 1, count = 10, type = 1} = this.props;
 		this.props.getArticalList(current, count, type);
     }
-    // componentWillReceiveProps(nextProps){
-    //     console.log("Will Receive Props");
-    //     // const {current = 1, count = 10, type = 1} = this.props;
-	// 	// this.props.getArticalList(current, count, type);
-    // }
-
-    // shouldComponentUpdate() {
-    //     console.log("should update");
-    //     return true;
-    // }
-
-    // componentWillUpdate() {
-    //     console.log("will update");
-    // }
-
-    // componentDidUpdate() {
-    //     console.log("Did update");
-    // }
-
-    // componentWillUnmount() {
-    //     console.log("will unmount");
-    // }
 
     render() {
         const {articalList, carousel} = this.props;

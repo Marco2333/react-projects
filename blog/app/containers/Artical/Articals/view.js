@@ -26,7 +26,6 @@ class Articals extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(123);
     return {
         articalList: state[stateKey] && state[stateKey].articals || null
     }

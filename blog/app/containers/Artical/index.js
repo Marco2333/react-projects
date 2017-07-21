@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {Row, Col} from 'antd';
-
 import ArticalList, {reducer as articalsReducer, stateKey as articalsSK, initialState as articalsIS} from './Articals';
 
 const Artical = () => {

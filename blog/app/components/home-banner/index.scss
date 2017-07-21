@@ -1,0 +1,19 @@
+.day-word {
+    position: relative;
+    padding: 20px 0;
+    > img {
+        width: 100%;
+    }
+    > p {
+        position: absolute;
+        right: 23px;
+        top: 38%;
+        width: 60%;
+        color: #fff;
+        font-size: 16px;
+    }
+}
+
+.home-banner {
+    margin: 20px 0 5px;
+}

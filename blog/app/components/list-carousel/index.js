@@ -23,8 +23,6 @@ class ListCarousel extends Component {
                 index: (this.state.index + 1) % length
             })
         , 5000)
-
-        console.log(this._handle, 'hhed');
     }
 
     componentWillUnmount = () => {

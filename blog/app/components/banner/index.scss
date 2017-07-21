@@ -1,7 +1,55 @@
-.ant-carousel .slick-slide {
-    max-height: 230px;
+@import '../../config/config.scss';
+
+.banner-list {
+    position: relative;
+    padding-right: 10px;
 }
 
-.slick-dots > li {
-    background: #000;
+.banner-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity ease-in 600ms;
+    > img {
+        width: 100%;
+    }
+}
+
+.banner-preview {
+    padding: 0 10px;
+    background-color: #fff;
+}
+.banner-preview-item {
+    margin: 4px 0;
+    > img {
+        width: 100%;
+    }
+}
+
+.banner-preview-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 25%;
+    padding: 0 3px;
+    transition: top ease-in-out 600ms;
+}
+.banner-preview-arraw-inner {
+    position: relative;
+    height: 100%;
+    border: 1px solid #e3e3e3;
+    &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        border: 5px solid #e3e3e3;
+        border-left: none;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+    }
 }

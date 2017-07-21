@@ -18,7 +18,11 @@ $list-head-height: 36px;
     position: relative;
     display: inline-block;
     height: $list-head-height;
-    width: 200px;
+    width: 500px;
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     > p {
         position: absolute;
         top: 0;

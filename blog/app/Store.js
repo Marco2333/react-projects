@@ -5,13 +5,16 @@ import thunkMiddleware from 'redux-thunk';
 
 import resetEnhancer from './enhancer/reset.js';
 
+import {reducer as naveSideReducer, stateKey} from './components/nav-side';
+
 let prod = process.env.NODE_ENV === 'producion' ? true : false;
 
 const middlewares = [thunkMiddleware];
 const win = window;
 
 const originalReducers = {
-    routing: routerReducer
+    routing: routerReducer,
+    [stateKey]: naveSideReducer
 }
 const reducer = combineReducers(originalReducers);
 

@@ -24,6 +24,15 @@ body {
     padding: 15px;
 }
 
+.clearfix{
+    *zoom:1;
+}
+.clearfix:after { 
+   content:"";
+   display:table;
+   clear:both;
+}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -42,6 +51,6 @@ body {
 }
 @media (min-width: 1200px) {
     .container {
-        width: 1170px;
+        width: 1100px;
     }
 }
