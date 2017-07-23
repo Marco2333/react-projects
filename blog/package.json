@@ -23,8 +23,10 @@
     "react-redux": "^5.0.5",
     "react-router": "^3.0.5",
     "react-router-redux": "^4.0.8",
+    "react-syntax-highlighter": "^5.6.2",
     "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "syntaxhighlighter": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

@@ -1,6 +1,6 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
-/***/ 260:
+/***/ 383:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13,11 +13,11 @@ exports.Home = exports.initialState = exports.reducer = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Articals = __webpack_require__(270);
+var _Articals = __webpack_require__(594);
 
 var _Articals2 = _interopRequireDefault(_Articals);
 
@@ -64,7 +64,7 @@ exports.Home = Home;
 
 /***/ }),
 
-/***/ 262:
+/***/ 458:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74,11 +74,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _articalItem = __webpack_require__(263);
+var _articalItem = __webpack_require__(459);
 
 var _articalItem2 = _interopRequireDefault(_articalItem);
 
@@ -104,7 +104,7 @@ exports.default = ArticalList;
 
 /***/ }),
 
-/***/ 263:
+/***/ 459:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -114,27 +114,27 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _css = __webpack_require__(71);
+var _css = __webpack_require__(50);
 
-var _row = __webpack_require__(72);
+var _row = __webpack_require__(51);
 
 var _row2 = _interopRequireDefault(_row);
 
-var _css2 = __webpack_require__(73);
+var _css2 = __webpack_require__(52);
 
-var _col = __webpack_require__(74);
+var _col = __webpack_require__(53);
 
 var _col2 = _interopRequireDefault(_col);
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(35);
+var _reactRouter = __webpack_require__(49);
 
-__webpack_require__(264);
+__webpack_require__(460);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -178,7 +178,7 @@ var ArticalItem = function (_Component) {
                         { xs: 0, sm: 8 },
                         _react2.default.createElement(
                             _reactRouter.Link,
-                            { to: '/artical/' + id },
+                            { to: '/artical-detail/' + id },
                             _react2.default.createElement('img', { src: img_url, alt: '' })
                         )
                     ),
@@ -190,7 +190,7 @@ var ArticalItem = function (_Component) {
                             { className: 'artical-body' },
                             _react2.default.createElement(
                                 _reactRouter.Link,
-                                { to: '/artical/' + id },
+                                { to: '/artical-detail/' + id },
                                 _react2.default.createElement(
                                     'h4',
                                     null,
@@ -232,7 +232,7 @@ var ArticalItem = function (_Component) {
                                 { className: 'artical-link' },
                                 _react2.default.createElement(
                                     _reactRouter.Link,
-                                    { to: '/artical/' + id },
+                                    { to: '/artical-detail/' + id },
                                     '\u9605\u8BFB\u5168\u6587 >>'
                                 )
                             )
@@ -243,7 +243,7 @@ var ArticalItem = function (_Component) {
                     { className: 'artical-body' },
                     _react2.default.createElement(
                         _reactRouter.Link,
-                        { to: '/artical/' + id },
+                        { to: '/artical-detail/' + id },
                         _react2.default.createElement(
                             'h4',
                             null,
@@ -285,7 +285,7 @@ var ArticalItem = function (_Component) {
                         { className: 'artical-link' },
                         _react2.default.createElement(
                             _reactRouter.Link,
-                            { to: '/artical/' + id },
+                            { to: '/artical-detail/' + id },
                             '\u9605\u8BFB\u5168\u6587 >>'
                         )
                     )
@@ -301,13 +301,13 @@ exports.default = ArticalItem;
 
 /***/ }),
 
-/***/ 264:
+/***/ 460:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(265);
+var content = __webpack_require__(461);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -315,7 +315,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(11)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -333,22 +333,22 @@ if(false) {
 
 /***/ }),
 
-/***/ 265:
+/***/ 461:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(10)(undefined);
+exports = module.exports = __webpack_require__(5)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "body {\n  background-color: #f9f9f9; }\n\n.text-center {\n  text-align: center; }\n\n.bg-white {\n  background-color: #fff; }\n\n.panel-heading {\n  padding: 10px 15px;\n  color: #333;\n  font-size: 16px;\n  background-color: #f8f8f8;\n  border-bottom: 1px solid #ddd; }\n\n.panel-body {\n  padding: 15px; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n\n.container {\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto; }\n\n@media (min-width: 768px) {\n  .container {\n    width: 750px; } }\n\n@media (min-width: 992px) {\n  .container {\n    width: 970px; } }\n\n@media (min-width: 1200px) {\n  .container {\n    width: 1100px; } }\n\n.artical-item {\n  margin: 25px 0;\n  padding: 18px 25px 15px;\n  font-size: 16px;\n  background-color: #fff;\n  box-shadow: 0 0 5px #aaa;\n  transition: box-shadow ease-in 300ms; }\n  .artical-item:hover {\n    box-shadow: 0 0 15px #333; }\n\n.artical-body h4 {\n  font-size: 16px;\n  font-weight: bold; }\n\n.artical-body > p {\n  margin: 8px 0;\n  color: #999;\n  font-size: 13px; }\n\n.artical-abstract {\n  color: #333;\n  font-size: 15px; }\n\n.artical-link {\n  display: inline-block;\n  margin-top: 9px;\n  font-size: 12px; }\n  .artical-link > a {\n    color: #3197EF;\n    font-weight: bold; }\n", ""]);
+exports.push([module.i, "body {\n  background-color: #f9f9f9; }\n\n.text-center {\n  text-align: center; }\n\n.bg-white {\n  background-color: #fff; }\n\n.panel-heading {\n  padding: 10px 15px;\n  color: #333;\n  font-size: 16px;\n  background-color: #f8f8f8;\n  border-bottom: 1px solid #ddd; }\n\n.panel-body {\n  padding: 15px; }\n\n.fl {\n  float: left; }\n\n.pagination {\n  margin: 15px 0;\n  text-align: right; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n\n.container {\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto; }\n\n@media (min-width: 768px) {\n  .container {\n    width: 750px; } }\n\n@media (min-width: 992px) {\n  .container {\n    width: 970px; } }\n\n@media (min-width: 1200px) {\n  .container {\n    width: 1100px; } }\n\n.artical-item {\n  margin: 25px 0;\n  padding: 18px 25px 15px;\n  font-size: 16px;\n  background-color: #fff;\n  box-shadow: 0 0 5px #aaa;\n  transition: box-shadow ease-in 300ms; }\n  .artical-item:hover {\n    box-shadow: 0 0 15px #333; }\n\n.artical-body h4 {\n  font-size: 16px;\n  font-weight: bold; }\n\n.artical-body > p {\n  margin: 8px 0;\n  color: #999;\n  font-size: 13px; }\n\n.artical-abstract {\n  color: #333;\n  font-size: 15px; }\n\n.artical-link {\n  display: inline-block;\n  margin-top: 9px;\n  font-size: 12px; }\n  .artical-link > a {\n    color: #3197EF;\n    font-weight: bold; }\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 266:
+/***/ 522:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -359,9 +359,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getArticalList = exports.fetchArticalsFailure = exports.fetchArticalsSuccess = exports.fetchArticalsStarted = undefined;
 
-var _actionType = __webpack_require__(267);
+var _actionType = __webpack_require__(523);
 
-var _config = __webpack_require__(116);
+var _config = __webpack_require__(166);
 
 var fetchArticalsStarted = exports.fetchArticalsStarted = function fetchArticalsStarted() {
     return {
@@ -417,7 +417,7 @@ var getArticalList = exports.getArticalList = function getArticalList() {
 
 /***/ }),
 
-/***/ 267:
+/***/ 523:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -432,7 +432,7 @@ var ARTICALS_FAILURE = exports.ARTICALS_FAILURE = 'HOME_ARTICALS/FAILURE';
 
 /***/ }),
 
-/***/ 270:
+/***/ 594:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -443,15 +443,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.actions = exports.initialState = exports.stateKey = exports.reducer = undefined;
 
-var _view = __webpack_require__(271);
+var _view = __webpack_require__(595);
 
 var _view2 = _interopRequireDefault(_view);
 
-var _reducer = __webpack_require__(275);
+var _reducer = __webpack_require__(599);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
-var _actions = __webpack_require__(266);
+var _actions = __webpack_require__(522);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -467,7 +467,7 @@ exports.default = _view2.default;
 
 /***/ }),
 
-/***/ 271:
+/***/ 595:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -480,21 +480,21 @@ exports.initialState = exports.stateKey = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(70);
+var _reactRedux = __webpack_require__(106);
 
-var _articalList = __webpack_require__(262);
+var _articalList = __webpack_require__(458);
 
 var _articalList2 = _interopRequireDefault(_articalList);
 
-var _listCarousel = __webpack_require__(272);
+var _listCarousel = __webpack_require__(596);
 
 var _listCarousel2 = _interopRequireDefault(_listCarousel);
 
-var _actions = __webpack_require__(266);
+var _actions = __webpack_require__(522);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -572,7 +572,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 272:
+/***/ 596:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -584,13 +584,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(35);
+var _reactRouter = __webpack_require__(49);
 
-__webpack_require__(273);
+__webpack_require__(597);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -679,13 +679,13 @@ exports.default = ListCarousel;
 
 /***/ }),
 
-/***/ 273:
+/***/ 597:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(274);
+var content = __webpack_require__(598);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -693,7 +693,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(11)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -711,10 +711,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 274:
+/***/ 598:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(10)(undefined);
+exports = module.exports = __webpack_require__(5)(undefined);
 // imports
 
 
@@ -726,7 +726,7 @@ exports.push([module.i, ".list-head-carousel-wrap {\n  height: 36px;\n  margin: 
 
 /***/ }),
 
-/***/ 275:
+/***/ 599:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -738,11 +738,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _status = __webpack_require__(117);
+var _status = __webpack_require__(167);
 
 var Status = _interopRequireWildcard(_status);
 
-var _actionType = __webpack_require__(267);
+var _actionType = __webpack_require__(523);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 

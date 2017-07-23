@@ -6,9 +6,10 @@ export const fetchArticalsStarted = () => ({
     type: ARTICALS_STARTED
 });
 
-export const fetchArticalsSuccess = (articals) => ({
+export const fetchArticalsSuccess = (articals, total) => ({
     type: ARTICALS_SUCCESS,
-    articals
+    articals,
+    total
 });
 
 export const fetchArticalsFailure = (message) => ({
@@ -32,11 +33,13 @@ export const getArticalList = (current = 1, count = 20, type = 0) => {
                 if(responseJson.status == 0) {
                     dispatch(fetchArticalsFailure(responseJson.message));
                 }
-                dispatch(fetchArticalsSuccess(responseJson.articals));
+                dispatch(fetchArticalsSuccess(responseJson.articals, responseJson.total));
             }).catch((error) => {
+                console.log(error);
                 dispatch(fetchArticalsFailure(error));
             })
         }).catch((error) => {
+            console.log(error);
             dispatch(fetchArticalsFailure(error));
         });
     }

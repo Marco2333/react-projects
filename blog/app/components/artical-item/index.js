@@ -15,11 +15,11 @@ class ArticalItem extends Component {
                     img_url ? (
                         <Row>
                             <Col xs={0} sm={8}>
-                                <Link to={`/artical/${id}`}><img src={img_url} alt=""/></Link>
+                                <Link to={`/artical-detail/${id}`}><img src={img_url} alt=""/></Link>
                             </Col>
                             <Col xs={24} sm={16}>
                                 <div className="artical-body">
-                                    <Link to={`/artical/${id}`}><h4>{title}</h4></Link>
+                                    <Link to={`/artical-detail/${id}`}><h4>{title}</h4></Link>
                                     <p>
                                         <span>post @ {created_at}</span>
                                         &nbsp;&nbsp;
@@ -30,13 +30,13 @@ class ArticalItem extends Component {
                                     <div className="artical-abstract">
                                         {abstract} ...
                                     </div>
-                                    <p className="artical-link"><Link to={`/artical/${id}`}>阅读全文 >></Link></p>
+                                    <p className="artical-link"><Link to={`/artical-detail/${id}`}>阅读全文 >></Link></p>
                                 </div>
                             </Col>
                         </Row>
                     ) : (
                         <div className="artical-body">
-                            <Link to={`/artical/${id}`}><h4>{title}</h4></Link>
+                            <Link to={`/artical-detail/${id}`}><h4>{title}</h4></Link>
                             <p>
                                 <span>post @ {created_at}</span>
                                 &nbsp;&nbsp;
@@ -47,7 +47,7 @@ class ArticalItem extends Component {
                             <div className="artical-abstract">
                                 {abstract} ...
                             </div>
-                            <span className="artical-link"><Link to={`/artical/${id}`}>阅读全文 >></Link></span> 
+                            <span className="artical-link"><Link to={`/artical-detail/${id}`}>阅读全文 >></Link></span> 
                         </div>
                     )
                 }

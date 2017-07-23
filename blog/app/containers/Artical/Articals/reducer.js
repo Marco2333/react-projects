@@ -12,7 +12,8 @@ export default(state = {status: Status.LOADING}, action) => {
             return {
                 ...state,
                 status: Status.SUCCESS,
-                articals: action.articals
+                articals: action.articals,
+                total: action.total
             }
         }
         case ARTICALS_FAILURE: {

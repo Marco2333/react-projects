@@ -65,7 +65,7 @@ class NavSide extends Component {
                                 articals ? 
                                 articals.map(artical => (
                                     <li key={artical.id}>
-                                        <Link to={`/artical/${artical.id}`}>{artical.title}</Link>
+                                        <Link to={`/artical-detail/${artical.id}`}>{artical.title}</Link>
                                     </li>
                                 ))
                                 : ''

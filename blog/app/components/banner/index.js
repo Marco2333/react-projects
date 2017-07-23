@@ -31,7 +31,7 @@ class Banner extends Component {
 
     render() {
         let imgList = [bannerImg1, bannerImg2, bannerImg3, bannerImg4];
-        console.log( `${this.state.index * 25} %`);
+       
         return (
             <div className="banner-wrap">
                 <Row>

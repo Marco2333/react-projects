@@ -4,12 +4,9 @@ import ArticalList, {reducer as articalsReducer, stateKey as articalsSK, initial
 
 const Artical = () => {
     return (
-        <div>
-            <ArticalList current={1} count={15} type={1} />
-        </div>
+        <ArticalList />
     )
 }
-
 
 const initialState = {
     [articalsSK]: articalsIS

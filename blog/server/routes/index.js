@@ -17,7 +17,6 @@ function escape2Html(str) {
     });
 }
 
-/* GET home page. */
 router.get('/get-artical-list', function(req, res, next) {
     let {current = 1, count = 10, type = 0} = req.query;
     // if 
@@ -30,8 +29,6 @@ router.get('/get-artical-list', function(req, res, next) {
     } else{
         sql = `select ${field} from blog join category on blog.category = category.id
          where type = ${+type} and blog.status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
-
-        console.log(sql);
     }
     db.query(sql, function(err, rows) {
         let out = []
@@ -47,7 +44,14 @@ router.get('/get-artical-list', function(req, res, next) {
                 'theme': item.theme
             })
         }
-        res.json({"status": 1, "articals": out});
+
+        if(type == 0) {
+            db.query("select count(*) as total from blog", function(err, rows) {
+                res.json({"status": 1, "articals": out, "total": rows[0]['total']});
+            })
+        } else {
+            res.json({"status": 1, "articals": out});
+        }
     })
 });
 
@@ -101,8 +105,27 @@ router.get('/get-navside-info', function(req, res, next) {
     })
 });
 
-router.get('*', function(req, res, next) {
-	res.sendfile(path.join(__dirname, '../../public/index.html')); // 发送静态文件
+router.get('/get-artical-detail/:id', function(req, res, next) {
+    let {id} = req.params;
+    
+    let sql = `select blog.id, title, body, tag, theme, category, created_at, updated_at, 
+    type, views from blog join category on blog.category = category.id where blog.id = ${id} and blog.status = 1`;
+
+    db.query(sql, function(err, rows) {
+        if(err) {
+            res.json({"status": 0, "message": err});
+        }
+
+        res.json({"status": 1, "infos": rows ? rows[0] : {}});
+    })
 });
+
+// router.get('/artical-detail/:90', function(req, res, next) {
+// 	res.sendfile(path.join(__dirname, '../../public/detail.html')); // 发送静态文件
+// });
+
+// router.get('*', function(req, res, next) {
+// 	res.sendfile(path.join(__dirname, '../../public/detail.html')); // 发送静态文件
+// });
 
 module.exports = router;
