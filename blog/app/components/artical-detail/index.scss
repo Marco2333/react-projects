@@ -1,0 +1,35 @@
+.artical-detail {
+    padding: 15px 35px;
+    margin: 15px 0;
+    font-size: 14px;
+    box-shadow: 0 0 6px #666;
+}
+
+.blog-title {
+    padding: 7px 0;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.blog-top {
+    color: #aaa;
+    margin-top: -2px;
+    margin-bottom: 11px;
+    >.spliter {
+        height: 11px;
+        margin: 0 8px;
+        border-color: #ccc;
+        display: inline-block;
+        vertical-align: -2px;
+        border-left: 1px solid #aaa;
+    }
+}
+
+.blog-content {
+    margin: 22px 0;
+    font-size: 15px;
+    word-spacing: 2px;
+    line-height: 22px;
+    overflow: auto;
+    word-wrap: break-word;
+}

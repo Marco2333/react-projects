@@ -1,0 +1,3 @@
+export const FETCH_STARTED = 'SEARCH/STARTED';
+export const FETCH_SUCCESS = 'SEARCH/SUCCESS';
+export const FETCH_FAILURE = 'SEARCH/FAILURE';

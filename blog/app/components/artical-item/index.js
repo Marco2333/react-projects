@@ -43,6 +43,8 @@ class ArticalItem extends Component {
                                 <span>category: {theme}</span>
                                 &nbsp;&nbsp;
                                 <span>Tag: {tag}</span>
+                                &nbsp;&nbsp;
+                                <span>浏览: {views}</span>
                             </p>
                             <div className="artical-abstract">
                                 {abstract} ...

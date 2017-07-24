@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([3],{
 
 /***/ 383:
 /***/ (function(module, exports, __webpack_require__) {
@@ -17,7 +17,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Articals = __webpack_require__(594);
+var _Articals = __webpack_require__(842);
 
 var _Articals2 = _interopRequireDefault(_Articals);
 
@@ -64,7 +64,7 @@ exports.Home = Home;
 
 /***/ }),
 
-/***/ 458:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78,7 +78,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _articalItem = __webpack_require__(459);
+var _articalItem = __webpack_require__(829);
 
 var _articalItem2 = _interopRequireDefault(_articalItem);
 
@@ -104,7 +104,7 @@ exports.default = ArticalList;
 
 /***/ }),
 
-/***/ 459:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -134,7 +134,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(49);
 
-__webpack_require__(460);
+__webpack_require__(830);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -272,6 +272,13 @@ var ArticalItem = function (_Component) {
                             null,
                             'Tag: ',
                             tag
+                        ),
+                        '\xA0\xA0',
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            '\u6D4F\u89C8: ',
+                            views
                         )
                     ),
                     _react2.default.createElement(
@@ -301,13 +308,13 @@ exports.default = ArticalItem;
 
 /***/ }),
 
-/***/ 460:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(461);
+var content = __webpack_require__(831);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -333,7 +340,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 461:
+/***/ 831:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(undefined);
@@ -348,7 +355,7 @@ exports.push([module.i, "body {\n  background-color: #f9f9f9; }\n\n.text-center 
 
 /***/ }),
 
-/***/ 522:
+/***/ 832:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -359,9 +366,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getArticalList = exports.fetchArticalsFailure = exports.fetchArticalsSuccess = exports.fetchArticalsStarted = undefined;
 
-var _actionType = __webpack_require__(523);
+var _actionType = __webpack_require__(833);
 
-var _config = __webpack_require__(166);
+var _config = __webpack_require__(169);
 
 var fetchArticalsStarted = exports.fetchArticalsStarted = function fetchArticalsStarted() {
     return {
@@ -417,7 +424,7 @@ var getArticalList = exports.getArticalList = function getArticalList() {
 
 /***/ }),
 
-/***/ 523:
+/***/ 833:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -432,7 +439,7 @@ var ARTICALS_FAILURE = exports.ARTICALS_FAILURE = 'HOME_ARTICALS/FAILURE';
 
 /***/ }),
 
-/***/ 594:
+/***/ 842:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -443,15 +450,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.actions = exports.initialState = exports.stateKey = exports.reducer = undefined;
 
-var _view = __webpack_require__(595);
+var _view = __webpack_require__(843);
 
 var _view2 = _interopRequireDefault(_view);
 
-var _reducer = __webpack_require__(599);
+var _reducer = __webpack_require__(847);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
-var _actions = __webpack_require__(522);
+var _actions = __webpack_require__(832);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -467,7 +474,7 @@ exports.default = _view2.default;
 
 /***/ }),
 
-/***/ 595:
+/***/ 843:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -486,15 +493,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(106);
 
-var _articalList = __webpack_require__(458);
+var _articalList = __webpack_require__(828);
 
 var _articalList2 = _interopRequireDefault(_articalList);
 
-var _listCarousel = __webpack_require__(596);
+var _listCarousel = __webpack_require__(844);
 
 var _listCarousel2 = _interopRequireDefault(_listCarousel);
 
-var _actions = __webpack_require__(522);
+var _actions = __webpack_require__(832);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -572,7 +579,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 596:
+/***/ 844:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -590,7 +597,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(49);
 
-__webpack_require__(597);
+__webpack_require__(845);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -679,13 +686,13 @@ exports.default = ListCarousel;
 
 /***/ }),
 
-/***/ 597:
+/***/ 845:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(598);
+var content = __webpack_require__(846);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -711,7 +718,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 598:
+/***/ 846:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(undefined);
@@ -726,7 +733,7 @@ exports.push([module.i, ".list-head-carousel-wrap {\n  height: 36px;\n  margin: 
 
 /***/ }),
 
-/***/ 599:
+/***/ 847:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -738,11 +745,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _status = __webpack_require__(167);
+var _status = __webpack_require__(170);
 
 var Status = _interopRequireWildcard(_status);
 
-var _actionType = __webpack_require__(523);
+var _actionType = __webpack_require__(833);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 

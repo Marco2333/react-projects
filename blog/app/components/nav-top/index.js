@@ -9,6 +9,28 @@ import logoImg from "../../../public/image/logo.png";
 import "./index.scss";
 
 class NavTop extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            keyword: ''
+        };
+
+        this.onSearch = this.onSearch.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    static contextTypes = {
+        router: React.PropTypes.object
+    }
+
+    onSearch(keyword) {
+        this.context.router.push(`/search/${keyword}`);
+    }
+
+    handleChange(event) {
+        this.setState({keyword: event.target.value});
+    }
+
     render() {
         return (
             <div className="bg-white">
@@ -16,15 +38,15 @@ class NavTop extends Component {
                     <Row>
                         <Col xs={24} sm={18}>
                             <div className="site-logo">
-                               <img src={logoImg} alt=""/>
-                            { //         <span className="spliter"></span>
-                            //       <span className="site-sub-logo">莫名其妙</span>
-                            }   
+                                <img src={logoImg} alt=""/>
+                                {   //  <span className="spliter"></span>
+                                    //  <span className="site-sub-logo">莫名其妙</span>
+                                }   
                             </div>
                         </Col>
                         <Col xs={0} sm={6}>
                             <div className="nav-top-search">
-                                <Input.Search size="large"/>
+                                <Input.Search size="large" value={this.state.keyword} onSearch={this.onSearch} onChange={this.handleChange} />
                             </div>
                         </Col>
                     </Row>       
@@ -39,7 +61,7 @@ class NavTop extends Component {
                                 <Link to="/artical">文章</Link>
                             </li>
                             <li className="nav-top-item">
-                                <Link to="/timeline">时间轴</Link>
+                                <Link to="/timeline">时间线</Link>
                             </li>
                             <li className="nav-top-item">
                                 <Link to="/gather">滴滴答</Link>

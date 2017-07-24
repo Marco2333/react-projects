@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 import {Row, Col, BackTop} from 'antd';
 
@@ -9,14 +10,19 @@ import NavSide from '../components/nav-side';
 import NavTop from '../components/nav-top';
 import Footer from '../components/footer';
 
-export default({children, routes, params}) => {    
+function itemRender(route, params, routes, paths) {
+    const last = routes.indexOf(route) === routes.length - 1;
+    return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName + '123'}</Link>;
+}
+
+export default({children, route, params, routes, paths}) => {    
     let isHome = routes.length === 2 && routes[1].name === 'home';
 
     return (
         <div>
             <NavTop/> 
             <div className="container">                    
-                <Breadcrumb routes={routes} params={params}/>
+                <Breadcrumb routes={routes} params={params} itemRender={itemRender}/>
             </div>
             {isHome ? <Banner/> : null}
 

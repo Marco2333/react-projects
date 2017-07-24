@@ -1,0 +1,32 @@
+@import '../../config/config.scss';
+
+.timeline-wrap {
+    margin: 15px 0;
+    padding: 15px 35px;
+    box-shadow: 0 0 8px #666;
+    background-color: #fff;
+}
+
+.timeline-select {
+    padding: 10px 0 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.timeline-body {
+    margin: 20px 5px;
+}
+
+.timeline-item {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.timeline-time {
+    position: relative;
+    top: -4px;
+    margin-top: 10px;
+    color: $main-color;
+    font-weight: bold;
+    font-size: 17px;
+}

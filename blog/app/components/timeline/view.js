@@ -1,0 +1,148 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
+
+import {Select, Timeline, Pagination, Icon} from 'antd';
+
+import {getTimeline} from './actions';
+
+import "./index.scss";
+
+export const stateKey = 'timeline';
+export const initialState = {};
+
+class TimeLine extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            category: '0',
+            current: 1,
+            count: 30
+        }
+
+        this.onChange = this.onChange.bind(this);
+        this.onPageChange = this.onPageChange.bind(this);
+    }
+
+    componentDidMount() {
+        let {current, category, count} = this.state;
+        this.props.getTimeline(current, count, category);
+    }
+
+    onChange(value) {
+        this.setState({
+            category: value,
+            current: 1
+        });
+
+        let {current, count} = this.state;
+        this.props.getTimeline(current, count, value);
+    }
+
+    onPageChange(page, count) {
+        this.setState({
+            current: page,
+            count: count
+        });
+
+        let {category} = this.state;
+        this.props.getTimeline(page, count, category);
+    }
+
+    render() {
+        const {items, categorys, total, pagination = true} = this.props;
+        const Option = Select.Option;
+
+        let {count, current, category} = this.state;
+
+        categorys && categorys[0].id != 0 ? categorys.unshift({id: 0, theme: "全部"}) : "";
+
+        let tlItems = [];
+
+        items && items.forEach((item, index, arr) => {
+            let colorArr = ['blue', 'red', 'green'];
+            let timeStr = item.created_at.substring(0, item.created_at.lastIndexOf("-"));
+                
+            if (index === 0 || timeStr != arr[index - 1].created_at.substring(0, arr[index - 1].created_at.lastIndexOf("-"))) {
+                tlItems.push({
+                    type: 'time',
+                    key: timeStr
+                });
+                tlItems.push({
+                   type: 'item',
+                   id: item.id,
+                   color: colorArr[index % 3],
+                   title: item.title
+                })
+            }
+            else {
+                tlItems.push({
+                type: 'item',
+                   id: item.id,
+                   color: colorArr[index % 3],
+                   title: item.title
+                })
+            }
+        })
+
+        return (
+            <div className="timeline-wrap">
+                <div className="timeline-select">
+                    <Select style={{ width: 200}} value={category} onChange={this.onChange}>
+                        {
+                            categorys && categorys.map((item) => (
+                                <Option value={item.id + ""} key={item.id}>{item.theme}</Option>
+                            ))
+                        }
+                    </Select>
+                </div>
+                <div className="timeline-body">
+                    <Timeline>
+                        {
+                            items && tlItems.map((item) => (
+                                item.type === 'time' 
+                                ?
+                                    <Timeline.Item key={item.key} color="blue"
+                                        dot={<Icon type="clock-circle-o" style={{ fontSize: '16px'}} />}>
+                                        <p className="timeline-time">{item.key}</p>
+                                    </Timeline.Item>
+                                :
+                                    <Timeline.Item key={item.id} color={item.color}>
+                                        <Link to={`artical-detail/${item.id}`}>
+                                            <p className="timeline-item">{item.title}</p>
+                                        </Link>
+                                    </Timeline.Item>
+                            ))
+                        }
+                    </Timeline>
+                </div>
+                {
+                    pagination && total ?
+                    <div className="pagination">
+                        <Pagination defaultCurrent={1} pageSize={count} current={current} 
+                        total={total} onChange={this.onPageChange}/> 
+                    </div>
+                    : null
+                }
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        items: state[stateKey] && state[stateKey]["items"] || null,
+        categorys: state[stateKey] && state[stateKey]["categorys"] || null,
+        total: state[stateKey] && state[stateKey]["total"],
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getTimeline: (current, count, category) => {
+            dispatch(getTimeline(current, count, category))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimeLine);
