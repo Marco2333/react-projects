@@ -1,7 +1,7 @@
 import React from 'react';
 import {combineReducers} from 'redux';
 
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import {syncHistoryWithStore} from 'react-router-redux';
 
@@ -166,7 +166,7 @@ const getTagPage = (nextProps, callback) => {
     }, 'tag');
 }
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 const Routes = () => (
     <Router history={history}>

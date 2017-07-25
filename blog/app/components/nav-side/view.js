@@ -113,7 +113,7 @@ class NavSide extends Component {
                                 links ?
                                 links.map(link => (
                                     <li key={link.id}>
-                                        <Link to={link.url}>{link.text}</Link>
+                                        <a href={link.url} target="_blank">{link.text}</a>
                                     </li>
                                 ))
                                 : ''

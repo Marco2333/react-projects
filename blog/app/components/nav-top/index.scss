@@ -1,55 +1,108 @@
 @import '../../config/config.scss';
 
-$nav-top-height: 42px;
-$nav-top-color: #ff6100;
+$nav-top-height: 40px;
+$pop-item-height: 52px;
+$nav-top-color: #56adf9;
+
+.nav-top-wrap {
+    position: relative;
+    background: linear-gradient(#444,#666);
+}
+
+.nav-top-popover {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+.popover-item {
+    width: 190px;
+    height: $pop-item-height;
+    line-height: $pop-item-height;
+    font-size: 15px;
+    text-align: center;
+    max-width: 100%;
+    > a {
+        display: inline-block;
+        width: 100%;
+        height: $pop-item-height;
+        color: #444;
+        &:hover {
+            background-color: #ecf6fd;
+        }
+    }
+    &.active {
+        > a {
+            color: $main-color;
+            border-right: 3px solid $main-color;
+            background-color: #ecf6fd;
+        }
+    }
+}
+.ant-popover-inner-content {
+    padding: 0; 
+}
 
 .site-logo {
-    height: 100px;
-    line-height: 100px;
-    > img {
-        width: 180px;
-        vertical-align: middle;
+    height: 110px;
+    > h2 {
+        font-size: 38px;
+        color: #fff;
     }
-    // > .spliter {
-    //     border-left: 1px solid #aaa;
-    // }
-    // > .site-sub-logo {
-    //     color: $nav-top-color;
-    // }
+    span:first-child {
+        margin-right: 1px;
+        color: $main-color;
+    }
+    > p {
+        margin: -3px 0 0 3px;
+        color: #fff;
+    }
 }
 
-.nav-top-search {
-    height: 100px;
-    line-height: 100px;
-    text-align: right;
-    input {
-        max-width: 300px;
-        border-radius: 1px;
-    }
-}
 .nav-top {
     height: $nav-top-height;
-    background-color: #474546;
-    box-shadow: 0 0 8px #444;
+    background-color: #444;
+    box-shadow: 0 0 3px #3a3a3a;
 }
 .nav-top-item {
     float: left;
-    border-right: solid #666565 1px; 
     > a {
         display: inline-block;
         height: $nav-top-height;
-        padding: 0 30px;
+        padding: 0 26px;
         color: #fff;
         font-size: 14px;
         font-weight: bold;
         line-height: $nav-top-height;
         &:hover {
             color: $nav-top-color;
-            background-color: #000;
-            border-color: #000; 
+            background-color: #333;
+            border-color: #333; 
         } 
     }
-    &:first-child {
-            border-left: solid #666565 1px;
+}
+
+.nav-top-search {
+    float: right;
+    height: $nav-top-height;
+    line-height: $nav-top-height;
+    text-align: right;
+    input {
+        max-width: 300px;
+        border-radius: 1px;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-top-wrap {
+        box-shadow: 0 0 10px #666;  
+    }
+    .site-logo {
+        height: 80px;
+        text-align: center;
+        > h2 {
+            font-size: 30px;
+        } 
     }
 }

@@ -196,7 +196,7 @@ router.get('/search', function(req, res, next) {
                     'id': item.id,
                     'title': item.title,
                     'tag': item.tag,
-                    'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 150),
+                    'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
                     'created_at': item.created_at,
                     'views': item.views,
                     'theme': item.theme
@@ -259,7 +259,7 @@ router.get('/get-category', function(req, res, next) {
                 'id': item.id,
                 'title': item.title,
                 'tag': item.tag,
-                'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 150),
+                'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
                 'created_at': item.created_at,
                 'views': item.views,
                 'theme': item.theme
@@ -290,7 +290,7 @@ router.get('/get-tag', function(req, res, next) {
                 'id': item.id,
                 'title': item.title,
                 'tag': item.tag,
-                'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 150),
+                'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
                 'created_at': item.created_at,
                 'views': item.views,
                 'theme': item.theme

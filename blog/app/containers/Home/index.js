@@ -6,9 +6,7 @@ import ArticalList, {initialState as articalsIS, reducer as articalsReducer, sta
 class Home extends Component {
     render() {
         return (
-            <div>
-                <ArticalList current={1} count={15} type={1} carousel={true}/>
-            </div>
+            <ArticalList current={1} count={15} type={1} carousel={true}/>
         )
     }
 }

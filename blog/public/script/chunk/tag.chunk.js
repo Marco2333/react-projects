@@ -1,6 +1,36 @@
-webpackJsonp([8],{
+webpackJsonp([5],{
 
-/***/ 828:
+/***/ 389:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.initialState = exports.stateKey = exports.reducer = exports.Tag = undefined;
+
+var _tag = __webpack_require__(879);
+
+var _tag2 = _interopRequireDefault(_tag);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var reducer = _defineProperty({}, _tag.stateKey, _tag.reducer);
+
+var initialState = _defineProperty({}, _tag.stateKey, _tag.initialState);
+
+exports.Tag = _tag2.default;
+exports.reducer = reducer;
+exports.stateKey = _tag.stateKey;
+exports.initialState = initialState;
+
+/***/ }),
+
+/***/ 588:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14,7 +44,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _articalItem = __webpack_require__(829);
+var _articalItem = __webpack_require__(589);
 
 var _articalItem2 = _interopRequireDefault(_articalItem);
 
@@ -40,7 +70,7 @@ exports.default = ArticalList;
 
 /***/ }),
 
-/***/ 829:
+/***/ 589:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68,9 +98,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(49);
+var _reactRouter = __webpack_require__(39);
 
-__webpack_require__(830);
+__webpack_require__(590);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -244,13 +274,13 @@ exports.default = ArticalItem;
 
 /***/ }),
 
-/***/ 830:
+/***/ 590:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(831);
+var content = __webpack_require__(591);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -276,7 +306,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 831:
+/***/ 591:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(undefined);
@@ -284,44 +314,14 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  background-color: #f9f9f9; }\n\n.text-center {\n  text-align: center; }\n\n.bg-white {\n  background-color: #fff; }\n\n.panel-heading {\n  padding: 10px 15px;\n  color: #333;\n  font-size: 16px;\n  background-color: #f8f8f8;\n  border-bottom: 1px solid #ddd; }\n\n.panel-body {\n  padding: 15px; }\n\n.fl {\n  float: left; }\n\n.pagination {\n  margin: 15px 0;\n  text-align: right; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n\n.container {\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto; }\n\n@media (min-width: 768px) {\n  .container {\n    width: 750px; } }\n\n@media (min-width: 992px) {\n  .container {\n    width: 970px; } }\n\n@media (min-width: 1200px) {\n  .container {\n    width: 1100px; } }\n\n.artical-item {\n  margin: 25px 0;\n  padding: 18px 25px 15px;\n  font-size: 16px;\n  background-color: #fff;\n  box-shadow: 0 0 5px #aaa;\n  transition: box-shadow ease-in 300ms; }\n  .artical-item:hover {\n    box-shadow: 0 0 15px #333; }\n\n.artical-body h4 {\n  font-size: 16px;\n  font-weight: bold; }\n\n.artical-body > p {\n  margin: 8px 0;\n  color: #999;\n  font-size: 13px; }\n\n.artical-abstract {\n  color: #333;\n  font-size: 15px; }\n\n.artical-link {\n  display: inline-block;\n  margin-top: 9px;\n  font-size: 12px; }\n  .artical-link > a {\n    color: #3197EF;\n    font-weight: bold; }\n", ""]);
+exports.push([module.i, "body {\n  background-color: #f9f9f9; }\n\n.text-center {\n  text-align: center; }\n\n.panel-heading {\n  padding: 10px 15px;\n  color: #333;\n  font-size: 16px;\n  background-color: #f8f8f8;\n  border-bottom: 1px solid #ddd; }\n\n.panel-body {\n  padding: 15px; }\n\n.fl {\n  float: left; }\n\n.pagination {\n  margin: 15px 0;\n  text-align: right; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n\n.container {\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto; }\n\n@media (min-width: 768px) {\n  .container {\n    width: 750px; } }\n\n@media (min-width: 992px) {\n  .container {\n    width: 970px; } }\n\n@media (min-width: 1200px) {\n  .container {\n    width: 1100px; } }\n\n.artical-item {\n  margin: 25px 0;\n  padding: 18px 25px 15px;\n  font-size: 16px;\n  background-color: #fff;\n  box-shadow: 0 0 5px #aaa;\n  transition: box-shadow ease-in 300ms; }\n  .artical-item:hover {\n    box-shadow: 0 0 15px #333; }\n\n.artical-body h4 {\n  font-size: 16px;\n  font-weight: bold; }\n\n.artical-body > p {\n  margin: 8px 0;\n  color: #999;\n  font-size: 13px; }\n\n.artical-abstract {\n  color: #333;\n  font-size: 14px; }\n\n.artical-link {\n  display: inline-block;\n  margin-top: 9px;\n  font-size: 12px; }\n  .artical-link > a {\n    color: #3197EF;\n    font-weight: bold; }\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 876:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.initialState = exports.stateKey = exports.reducer = exports.Tag = undefined;
-
-var _tag = __webpack_require__(879);
-
-var _tag2 = _interopRequireDefault(_tag);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var reducer = _defineProperty({}, _tag.stateKey, _tag.reducer);
-
-var initialState = _defineProperty({}, _tag.stateKey, _tag.initialState);
-
-exports.Tag = _tag2.default;
-exports.reducer = reducer;
-exports.stateKey = _tag.stateKey;
-exports.initialState = initialState;
-
-/***/ }),
-
-/***/ 877:
+/***/ 846:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -332,7 +332,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getTag = exports.tagFailure = exports.tagSuccess = exports.tagStarted = undefined;
 
-var _actionTypes = __webpack_require__(878);
+var _actionTypes = __webpack_require__(847);
 
 var _config = __webpack_require__(169);
 
@@ -386,7 +386,7 @@ var getTag = exports.getTag = function getTag(tag) {
 
 /***/ }),
 
-/***/ 878:
+/***/ 847:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -416,7 +416,7 @@ var _view = __webpack_require__(880);
 
 var _view2 = _interopRequireDefault(_view);
 
-var _actions = __webpack_require__(877);
+var _actions = __webpack_require__(846);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -455,11 +455,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(106);
 
-var _articalList = __webpack_require__(828);
+var _articalList = __webpack_require__(588);
 
 var _articalList2 = _interopRequireDefault(_articalList);
 
-var _actions = __webpack_require__(877);
+var _actions = __webpack_require__(846);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -548,7 +548,7 @@ var _status = __webpack_require__(170);
 
 var Status = _interopRequireWildcard(_status);
 
-var _actionTypes = __webpack_require__(878);
+var _actionTypes = __webpack_require__(847);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 

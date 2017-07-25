@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([6],{
 
 /***/ 385:
 /***/ (function(module, exports, __webpack_require__) {
@@ -11,17 +11,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initialState = exports.stateKey = exports.reducer = exports.ArticalDetail = undefined;
 
-var _articalDetail = __webpack_require__(851);
+var _articalDetail = __webpack_require__(857);
 
 var _articalDetail2 = _interopRequireDefault(_articalDetail);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-exports.default = function () {
-    return React.createElement(_articalDetail2.default, null);
-};
 
 var reducer = _defineProperty({}, _articalDetail.stateKey, _articalDetail.reducer);
 
@@ -34,7 +30,7 @@ exports.initialState = initialState;
 
 /***/ }),
 
-/***/ 836:
+/***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45,7 +41,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getArticalDetail = exports.fetchADetailFailure = exports.fetchADetailSuccess = exports.fetchADetailStarted = undefined;
 
-var _actionTypes = __webpack_require__(837);
+var _actionTypes = __webpack_require__(839);
 
 var _config = __webpack_require__(169);
 
@@ -97,7 +93,7 @@ var getArticalDetail = exports.getArticalDetail = function getArticalDetail(id) 
 
 /***/ }),
 
-/***/ 837:
+/***/ 839:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -112,7 +108,7 @@ var FETCH_FAILURE = exports.FETCH_FAILURE = 'ADETAIL/FAILURE';
 
 /***/ }),
 
-/***/ 851:
+/***/ 857:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -123,15 +119,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initialState = exports.stateKey = exports.reducer = exports.actions = undefined;
 
-var _view = __webpack_require__(852);
+var _view = __webpack_require__(858);
 
 var _view2 = _interopRequireDefault(_view);
 
-var _actions = __webpack_require__(836);
+var _actions = __webpack_require__(838);
 
 var actions = _interopRequireWildcard(_actions);
 
-var _reducer = __webpack_require__(855);
+var _reducer = __webpack_require__(861);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -147,7 +143,7 @@ exports.default = _view2.default;
 
 /***/ }),
 
-/***/ 852:
+/***/ 858:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -166,9 +162,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(106);
 
-var _actions = __webpack_require__(836);
+var _actions = __webpack_require__(838);
 
-__webpack_require__(853);
+__webpack_require__(859);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -287,13 +283,13 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispathToProps)(A
 
 /***/ }),
 
-/***/ 853:
+/***/ 859:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(854);
+var content = __webpack_require__(860);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -319,7 +315,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 854:
+/***/ 860:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(undefined);
@@ -334,7 +330,7 @@ exports.push([module.i, ".artical-detail {\n  padding: 15px 35px;\n  margin: 15p
 
 /***/ }),
 
-/***/ 855:
+/***/ 861:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -350,7 +346,7 @@ var _status = __webpack_require__(170);
 
 var Status = _interopRequireWildcard(_status);
 
-var _actionTypes = __webpack_require__(837);
+var _actionTypes = __webpack_require__(839);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 

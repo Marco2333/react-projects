@@ -10,10 +10,11 @@ import NavSide from '../components/nav-side';
 import NavTop from '../components/nav-top';
 import Footer from '../components/footer';
 
-function itemRender(route, params, routes, paths) {
-    const last = routes.indexOf(route) === routes.length - 1;
-    return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName + '123'}</Link>;
-}
+// function itemRender(route, params, routes, paths) {
+//     console.log(123);
+//     const last = routes.indexOf(route) === routes.length - 1;
+//     return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName + '123'}</Link>;
+// }
 
 export default({children, route, params, routes, paths}) => {    
     let isHome = routes.length === 2 && routes[1].name === 'home';
@@ -22,7 +23,7 @@ export default({children, route, params, routes, paths}) => {
         <div>
             <NavTop/> 
             <div className="container">                    
-                <Breadcrumb routes={routes} params={params} itemRender={itemRender}/>
+                <Breadcrumb routes={routes} params={params} />
             </div>
             {isHome ? <Banner/> : null}
 

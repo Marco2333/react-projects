@@ -29,7 +29,6 @@ class Articals extends Component {
                             } 
                       })} /> : null 
                 }
-                
                 <ArticalList articals={articalList}/>
             </div>
         )
