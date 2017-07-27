@@ -1,787 +1,103 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
-/***/ 383:
+/***/ 626:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Home = exports.initialState = exports.reducer = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Articals = __webpack_require__(848);
-
-var _Articals2 = _interopRequireDefault(_Articals);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Home = function (_Component) {
-    _inherits(Home, _Component);
-
-    function Home() {
-        _classCallCheck(this, Home);
-
-        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-    }
-
-    _createClass(Home, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(_Articals2.default, { current: 1, count: 15, type: 1, carousel: true });
-        }
-    }]);
-
-    return Home;
-}(_react.Component);
-
-var initialState = _defineProperty({}, _Articals.stateKey, _Articals.initialState);
-
-var reducer = _defineProperty({}, _Articals.stateKey, _Articals.reducer);
-
-exports.reducer = reducer;
-exports.initialState = initialState;
-exports.Home = Home;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.Home = exports.initialState = exports.reducer = undefined;\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Articals = __webpack_require__(949);\n\nvar _Articals2 = _interopRequireDefault(_Articals);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Home = function (_Component) {\n    _inherits(Home, _Component);\n\n    function Home() {\n        _classCallCheck(this, Home);\n\n        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));\n    }\n\n    _createClass(Home, [{\n        key: 'render',\n        value: function render() {\n            return _react2.default.createElement(_Articals2.default, { current: 1, count: 15, type: 1, carousel: true });\n        }\n    }]);\n\n    return Home;\n}(_react.Component);\n\nvar initialState = _defineProperty({}, _Articals.stateKey, _Articals.initialState);\n\nvar reducer = _defineProperty({}, _Articals.stateKey, _Articals.reducer);\n\nexports.reducer = reducer;\nexports.initialState = initialState;\nexports.Home = Home;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29udGFpbmVycy9Ib21lL2luZGV4LmpzPzJhMWQiXSwibmFtZXMiOlsiSG9tZSIsImluaXRpYWxTdGF0ZSIsInJlZHVjZXIiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBOzs7O0FBR0E7Ozs7Ozs7Ozs7Ozs7O0lBRU1BLEk7Ozs7Ozs7Ozs7O2lDQUNPO0FBQ0wsbUJBQ0ksb0RBQWEsU0FBUyxDQUF0QixFQUF5QixPQUFPLEVBQWhDLEVBQW9DLE1BQU0sQ0FBMUMsRUFBNkMsVUFBVSxJQUF2RCxHQURKO0FBR0g7Ozs7OztBQUdMLElBQU1DLDhFQUFOOztBQUlBLElBQU1DLG9FQUFOOztRQUlRQSxPLEdBQUFBLE87UUFBU0QsWSxHQUFBQSxZO1FBQWNELEksR0FBQUEsSSIsImZpbGUiOiI2MjYuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHtDb21wb25lbnR9IGZyb20gJ3JlYWN0JztcclxuXHJcblxyXG5pbXBvcnQgQXJ0aWNhbExpc3QsIHtpbml0aWFsU3RhdGUgYXMgYXJ0aWNhbHNJUywgcmVkdWNlciBhcyBhcnRpY2Fsc1JlZHVjZXIsIHN0YXRlS2V5IGFzIGFydGljYWxzU0t9IGZyb20gJy4vQXJ0aWNhbHMnO1xyXG5cclxuY2xhc3MgSG9tZSBleHRlbmRzIENvbXBvbmVudCB7XHJcbiAgICByZW5kZXIoKSB7XHJcbiAgICAgICAgcmV0dXJuIChcclxuICAgICAgICAgICAgPEFydGljYWxMaXN0IGN1cnJlbnQ9ezF9IGNvdW50PXsxNX0gdHlwZT17MX0gY2Fyb3VzZWw9e3RydWV9Lz5cclxuICAgICAgICApXHJcbiAgICB9XHJcbn1cclxuXHJcbmNvbnN0IGluaXRpYWxTdGF0ZSA9IHtcclxuICAgIFthcnRpY2Fsc1NLXTogYXJ0aWNhbHNJU1xyXG59O1xyXG5cclxuY29uc3QgcmVkdWNlciA9IHtcclxuICAgIFthcnRpY2Fsc1NLXTogYXJ0aWNhbHNSZWR1Y2VyXHJcbn1cclxuXHJcbmV4cG9ydCB7cmVkdWNlciwgaW5pdGlhbFN0YXRlLCBIb21lfTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9hcHAvY29udGFpbmVycy9Ib21lL2luZGV4LmpzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///626\n");
 
 /***/ }),
 
-/***/ 588:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _articalItem = __webpack_require__(589);
-
-var _articalItem2 = _interopRequireDefault(_articalItem);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ArticalList = function ArticalList(_ref) {
-    var articals = _ref.articals;
-
-    return _react2.default.createElement(
-        'div',
-        { className: 'artical-list' },
-        articals ? articals.map(function (artical) {
-            return _react2.default.createElement(
-                'div',
-                { key: artical.id },
-                _react2.default.createElement(_articalItem2.default, artical)
-            );
-        }) : ''
-    );
-};
-
-exports.default = ArticalList;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _articalItem = __webpack_require__(775);\n\nvar _articalItem2 = _interopRequireDefault(_articalItem);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ArticalList = function ArticalList(_ref) {\n    var articals = _ref.articals;\n\n    return _react2.default.createElement(\n        'div',\n        { className: 'artical-list' },\n        articals ? articals.map(function (artical) {\n            return _react2.default.createElement(\n                'div',\n                { key: artical.id },\n                _react2.default.createElement(_articalItem2.default, artical)\n            );\n        }) : ''\n    );\n};\n\nexports.default = ArticalList;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9hcnRpY2FsLWxpc3QvaW5kZXguanM/YWU2NSJdLCJuYW1lcyI6WyJBcnRpY2FsTGlzdCIsImFydGljYWxzIiwibWFwIiwiYXJ0aWNhbCIsImlkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7OztBQUVBOzs7Ozs7QUFFQSxJQUFNQSxjQUFjLFNBQWRBLFdBQWMsT0FBZ0I7QUFBQSxRQUFkQyxRQUFjLFFBQWRBLFFBQWM7O0FBQ2hDLFdBQ0k7QUFBQTtBQUFBLFVBQUssV0FBVSxjQUFmO0FBRVFBLG1CQUFXQSxTQUFTQyxHQUFULENBQWEsbUJBQVc7QUFDL0IsbUJBQ0k7QUFBQTtBQUFBLGtCQUFLLEtBQUtDLFFBQVFDLEVBQWxCO0FBQ0kscUVBQWlCRCxPQUFqQjtBQURKLGFBREo7QUFLSCxTQU5VLENBQVgsR0FNSztBQVJiLEtBREo7QUFhSCxDQWREOztrQkFnQmVILFciLCJmaWxlIjoiNzc0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuXHJcbmltcG9ydCBBcnRpY2FsSXRlbSBmcm9tICcuLi9hcnRpY2FsLWl0ZW0nO1xyXG5cclxuY29uc3QgQXJ0aWNhbExpc3QgPSAoe2FydGljYWxzfSkgPT4ge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFydGljYWwtbGlzdFwiPlxyXG4gICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICBhcnRpY2FscyA/IGFydGljYWxzLm1hcChhcnRpY2FsID0+IHtcclxuICAgICAgICAgICAgICAgICAgICByZXR1cm4gKFxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGtleT17YXJ0aWNhbC5pZH0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8QXJ0aWNhbEl0ZW0gey4uLmFydGljYWx9Lz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgKVxyXG4gICAgICAgICAgICAgICAgfSkgOiAnJ1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICApXHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IEFydGljYWxMaXN0O1xuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL2FwcC9jb21wb25lbnRzL2FydGljYWwtbGlzdC9pbmRleC5qcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///774\n");
 
 /***/ }),
 
-/***/ 589:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _css = __webpack_require__(50);
-
-var _row = __webpack_require__(51);
-
-var _row2 = _interopRequireDefault(_row);
-
-var _css2 = __webpack_require__(52);
-
-var _col = __webpack_require__(53);
-
-var _col2 = _interopRequireDefault(_col);
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(39);
-
-__webpack_require__(590);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ArticalItem = function (_Component) {
-    _inherits(ArticalItem, _Component);
-
-    function ArticalItem() {
-        _classCallCheck(this, ArticalItem);
-
-        return _possibleConstructorReturn(this, (ArticalItem.__proto__ || Object.getPrototypeOf(ArticalItem)).apply(this, arguments));
-    }
-
-    _createClass(ArticalItem, [{
-        key: 'render',
-        value: function render() {
-            var _props = this.props,
-                id = _props.id,
-                title = _props.title,
-                theme = _props.theme,
-                tag = _props.tag,
-                created_at = _props.created_at,
-                abstract = _props.abstract,
-                views = _props.views,
-                img_url = _props.img_url;
-
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'artical-item' },
-                img_url ? _react2.default.createElement(
-                    _row2.default,
-                    null,
-                    _react2.default.createElement(
-                        _col2.default,
-                        { xs: 0, sm: 8 },
-                        _react2.default.createElement(
-                            _reactRouter.Link,
-                            { to: '/artical-detail/' + id },
-                            _react2.default.createElement('img', { src: img_url, alt: '' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _col2.default,
-                        { xs: 24, sm: 16 },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'artical-body' },
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { to: '/artical-detail/' + id },
-                                _react2.default.createElement(
-                                    'h4',
-                                    null,
-                                    title
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                _react2.default.createElement(
-                                    'span',
-                                    null,
-                                    'post @ ',
-                                    created_at
-                                ),
-                                '\xA0\xA0',
-                                _react2.default.createElement(
-                                    'span',
-                                    null,
-                                    'category: ',
-                                    theme
-                                ),
-                                '\xA0\xA0',
-                                _react2.default.createElement(
-                                    'span',
-                                    null,
-                                    'Tag: ',
-                                    tag
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'artical-abstract' },
-                                abstract,
-                                ' ...'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                { className: 'artical-link' },
-                                _react2.default.createElement(
-                                    _reactRouter.Link,
-                                    { to: '/artical-detail/' + id },
-                                    '\u9605\u8BFB\u5168\u6587 >>'
-                                )
-                            )
-                        )
-                    )
-                ) : _react2.default.createElement(
-                    'div',
-                    { className: 'artical-body' },
-                    _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/artical-detail/' + id },
-                        _react2.default.createElement(
-                            'h4',
-                            null,
-                            title
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            'post @ ',
-                            created_at
-                        ),
-                        '\xA0\xA0',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            'category: ',
-                            theme
-                        ),
-                        '\xA0\xA0',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            'Tag: ',
-                            tag
-                        ),
-                        '\xA0\xA0',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            '\u6D4F\u89C8: ',
-                            views
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'artical-abstract' },
-                        abstract,
-                        ' ...'
-                    ),
-                    _react2.default.createElement(
-                        'span',
-                        { className: 'artical-link' },
-                        _react2.default.createElement(
-                            _reactRouter.Link,
-                            { to: '/artical-detail/' + id },
-                            '\u9605\u8BFB\u5168\u6587 >>'
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return ArticalItem;
-}(_react.Component);
-
-exports.default = ArticalItem;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _css = __webpack_require__(78);\n\nvar _row = __webpack_require__(79);\n\nvar _row2 = _interopRequireDefault(_row);\n\nvar _css2 = __webpack_require__(80);\n\nvar _col = __webpack_require__(81);\n\nvar _col2 = _interopRequireDefault(_col);\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouter = __webpack_require__(59);\n\n__webpack_require__(776);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar ArticalItem = function (_Component) {\n    _inherits(ArticalItem, _Component);\n\n    function ArticalItem() {\n        _classCallCheck(this, ArticalItem);\n\n        return _possibleConstructorReturn(this, (ArticalItem.__proto__ || Object.getPrototypeOf(ArticalItem)).apply(this, arguments));\n    }\n\n    _createClass(ArticalItem, [{\n        key: 'render',\n        value: function render() {\n            var _props = this.props,\n                id = _props.id,\n                title = _props.title,\n                theme = _props.theme,\n                tag = _props.tag,\n                created_at = _props.created_at,\n                abstract = _props.abstract,\n                views = _props.views,\n                img_url = _props.img_url;\n\n\n            return _react2.default.createElement(\n                'div',\n                { className: 'artical-item' },\n                img_url ? _react2.default.createElement(\n                    _row2.default,\n                    null,\n                    _react2.default.createElement(\n                        _col2.default,\n                        { xs: 0, sm: 8 },\n                        _react2.default.createElement(\n                            _reactRouter.Link,\n                            { to: '/artical-detail/' + id },\n                            _react2.default.createElement('img', { src: img_url, alt: '' })\n                        )\n                    ),\n                    _react2.default.createElement(\n                        _col2.default,\n                        { xs: 24, sm: 16 },\n                        _react2.default.createElement(\n                            'div',\n                            { className: 'artical-body' },\n                            _react2.default.createElement(\n                                _reactRouter.Link,\n                                { to: '/artical-detail/' + id },\n                                _react2.default.createElement(\n                                    'h4',\n                                    null,\n                                    title\n                                )\n                            ),\n                            _react2.default.createElement(\n                                'p',\n                                null,\n                                _react2.default.createElement(\n                                    'span',\n                                    null,\n                                    'post @ ',\n                                    created_at\n                                ),\n                                '\\xA0\\xA0',\n                                _react2.default.createElement(\n                                    'span',\n                                    null,\n                                    'category: ',\n                                    theme\n                                ),\n                                '\\xA0\\xA0',\n                                _react2.default.createElement(\n                                    'span',\n                                    null,\n                                    'Tag: ',\n                                    tag\n                                )\n                            ),\n                            _react2.default.createElement(\n                                'div',\n                                { className: 'artical-abstract' },\n                                abstract,\n                                ' ...'\n                            ),\n                            _react2.default.createElement(\n                                'p',\n                                { className: 'artical-link' },\n                                _react2.default.createElement(\n                                    _reactRouter.Link,\n                                    { to: '/artical-detail/' + id },\n                                    '\\u9605\\u8BFB\\u5168\\u6587 >>'\n                                )\n                            )\n                        )\n                    )\n                ) : _react2.default.createElement(\n                    'div',\n                    { className: 'artical-body' },\n                    _react2.default.createElement(\n                        _reactRouter.Link,\n                        { to: '/artical-detail/' + id },\n                        _react2.default.createElement(\n                            'h4',\n                            null,\n                            title\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'p',\n                        null,\n                        _react2.default.createElement(\n                            'span',\n                            null,\n                            'post @ ',\n                            created_at\n                        ),\n                        '\\xA0\\xA0',\n                        _react2.default.createElement(\n                            'span',\n                            null,\n                            'category: ',\n                            theme\n                        ),\n                        '\\xA0\\xA0',\n                        _react2.default.createElement(\n                            'span',\n                            null,\n                            'Tag: ',\n                            tag\n                        ),\n                        '\\xA0\\xA0',\n                        _react2.default.createElement(\n                            'span',\n                            null,\n                            '\\u6D4F\\u89C8: ',\n                            views\n                        )\n                    ),\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'artical-abstract' },\n                        abstract,\n                        ' ...'\n                    ),\n                    _react2.default.createElement(\n                        'span',\n                        { className: 'artical-link' },\n                        _react2.default.createElement(\n                            _reactRouter.Link,\n                            { to: '/artical-detail/' + id },\n                            '\\u9605\\u8BFB\\u5168\\u6587 >>'\n                        )\n                    )\n                )\n            );\n        }\n    }]);\n\n    return ArticalItem;\n}(_react.Component);\n\nexports.default = ArticalItem;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9hcnRpY2FsLWl0ZW0vaW5kZXguanM/NTVlZiJdLCJuYW1lcyI6WyJBcnRpY2FsSXRlbSIsInByb3BzIiwiaWQiLCJ0aXRsZSIsInRoZW1lIiwidGFnIiwiY3JlYXRlZF9hdCIsImFic3RyYWN0Iiwidmlld3MiLCJpbWdfdXJsIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBOzs7O0FBRUE7O0FBR0E7Ozs7Ozs7Ozs7SUFFTUEsVzs7Ozs7Ozs7Ozs7aUNBQ087QUFBQSx5QkFDaUUsS0FBS0MsS0FEdEU7QUFBQSxnQkFDRUMsRUFERixVQUNFQSxFQURGO0FBQUEsZ0JBQ01DLEtBRE4sVUFDTUEsS0FETjtBQUFBLGdCQUNhQyxLQURiLFVBQ2FBLEtBRGI7QUFBQSxnQkFDb0JDLEdBRHBCLFVBQ29CQSxHQURwQjtBQUFBLGdCQUN5QkMsVUFEekIsVUFDeUJBLFVBRHpCO0FBQUEsZ0JBQ3FDQyxRQURyQyxVQUNxQ0EsUUFEckM7QUFBQSxnQkFDK0NDLEtBRC9DLFVBQytDQSxLQUQvQztBQUFBLGdCQUNzREMsT0FEdEQsVUFDc0RBLE9BRHREOzs7QUFHTCxtQkFDSTtBQUFBO0FBQUEsa0JBQUssV0FBVSxjQUFmO0FBRVFBLDBCQUNJO0FBQUE7QUFBQTtBQUNJO0FBQUE7QUFBQSwwQkFBSyxJQUFJLENBQVQsRUFBWSxJQUFJLENBQWhCO0FBQ0k7QUFBQTtBQUFBLDhCQUFNLHlCQUF1QlAsRUFBN0I7QUFBbUMsbUVBQUssS0FBS08sT0FBVixFQUFtQixLQUFJLEVBQXZCO0FBQW5DO0FBREoscUJBREo7QUFJSTtBQUFBO0FBQUEsMEJBQUssSUFBSSxFQUFULEVBQWEsSUFBSSxFQUFqQjtBQUNJO0FBQUE7QUFBQSw4QkFBSyxXQUFVLGNBQWY7QUFDSTtBQUFBO0FBQUEsa0NBQU0seUJBQXVCUCxFQUE3QjtBQUFtQztBQUFBO0FBQUE7QUFBS0M7QUFBTDtBQUFuQyw2QkFESjtBQUVJO0FBQUE7QUFBQTtBQUNJO0FBQUE7QUFBQTtBQUFBO0FBQWNHO0FBQWQsaUNBREo7QUFBQTtBQUdJO0FBQUE7QUFBQTtBQUFBO0FBQWlCRjtBQUFqQixpQ0FISjtBQUFBO0FBS0k7QUFBQTtBQUFBO0FBQUE7QUFBWUM7QUFBWjtBQUxKLDZCQUZKO0FBU0k7QUFBQTtBQUFBLGtDQUFLLFdBQVUsa0JBQWY7QUFDS0Usd0NBREw7QUFBQTtBQUFBLDZCQVRKO0FBWUk7QUFBQTtBQUFBLGtDQUFHLFdBQVUsY0FBYjtBQUE0QjtBQUFBO0FBQUEsc0NBQU0seUJBQXVCTCxFQUE3QjtBQUFBO0FBQUE7QUFBNUI7QUFaSjtBQURKO0FBSkosaUJBREosR0F1Qkk7QUFBQTtBQUFBLHNCQUFLLFdBQVUsY0FBZjtBQUNJO0FBQUE7QUFBQSwwQkFBTSx5QkFBdUJBLEVBQTdCO0FBQW1DO0FBQUE7QUFBQTtBQUFLQztBQUFMO0FBQW5DLHFCQURKO0FBRUk7QUFBQTtBQUFBO0FBQ0k7QUFBQTtBQUFBO0FBQUE7QUFBY0c7QUFBZCx5QkFESjtBQUFBO0FBR0k7QUFBQTtBQUFBO0FBQUE7QUFBaUJGO0FBQWpCLHlCQUhKO0FBQUE7QUFLSTtBQUFBO0FBQUE7QUFBQTtBQUFZQztBQUFaLHlCQUxKO0FBQUE7QUFPSTtBQUFBO0FBQUE7QUFBQTtBQUFXRztBQUFYO0FBUEoscUJBRko7QUFXSTtBQUFBO0FBQUEsMEJBQUssV0FBVSxrQkFBZjtBQUNLRCxnQ0FETDtBQUFBO0FBQUEscUJBWEo7QUFjSTtBQUFBO0FBQUEsMEJBQU0sV0FBVSxjQUFoQjtBQUErQjtBQUFBO0FBQUEsOEJBQU0seUJBQXVCTCxFQUE3QjtBQUFBO0FBQUE7QUFBL0I7QUFkSjtBQXpCWixhQURKO0FBOENIOzs7Ozs7a0JBR1VGLFciLCJmaWxlIjoiNzc1LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7Q29tcG9uZW50fSBmcm9tICdyZWFjdCc7XHJcblxyXG5pbXBvcnQge0xpbmt9IGZyb20gJ3JlYWN0LXJvdXRlcic7XHJcbmltcG9ydCB7Um93LCBDb2x9IGZyb20gJ2FudGQnO1xyXG5cclxuaW1wb3J0ICcuL2luZGV4LnNjc3MnO1xyXG5cclxuY2xhc3MgQXJ0aWNhbEl0ZW0gZXh0ZW5kcyBDb21wb25lbnQge1xyXG4gICAgcmVuZGVyKCkge1xyXG4gICAgICAgIGNvbnN0IHtpZCwgdGl0bGUsIHRoZW1lLCB0YWcsIGNyZWF0ZWRfYXQsIGFic3RyYWN0LCB2aWV3cywgaW1nX3VybH0gPSB0aGlzLnByb3BzO1xyXG5cclxuICAgICAgICByZXR1cm4gKFxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFydGljYWwtaXRlbVwiPlxyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIGltZ191cmwgPyAoXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxSb3c+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8Q29sIHhzPXswfSBzbT17OH0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPExpbmsgdG89e2AvYXJ0aWNhbC1kZXRhaWwvJHtpZH1gfT48aW1nIHNyYz17aW1nX3VybH0gYWx0PVwiXCIvPjwvTGluaz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvQ29sPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPENvbCB4cz17MjR9IHNtPXsxNn0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhcnRpY2FsLWJvZHlcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPExpbmsgdG89e2AvYXJ0aWNhbC1kZXRhaWwvJHtpZH1gfT48aDQ+e3RpdGxlfTwvaDQ+PC9MaW5rPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPnBvc3QgQCB7Y3JlYXRlZF9hdH08L3NwYW4+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAmbmJzcDsmbmJzcDtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPmNhdGVnb3J5OiB7dGhlbWV9PC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJm5ic3A7Jm5ic3A7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj5UYWc6IHt0YWd9PC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYXJ0aWNhbC1hYnN0cmFjdFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge2Fic3RyYWN0fSAuLi5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImFydGljYWwtbGlua1wiPjxMaW5rIHRvPXtgL2FydGljYWwtZGV0YWlsLyR7aWR9YH0+6ZiF6K+75YWo5paHID4+PC9MaW5rPjwvcD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvQ29sPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L1Jvdz5cclxuICAgICAgICAgICAgICAgICAgICApIDogKFxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFydGljYWwtYm9keVwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPExpbmsgdG89e2AvYXJ0aWNhbC1kZXRhaWwvJHtpZH1gfT48aDQ+e3RpdGxlfTwvaDQ+PC9MaW5rPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPHA+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4+cG9zdCBAIHtjcmVhdGVkX2F0fTwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAmbmJzcDsmbmJzcDtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj5jYXRlZ29yeToge3RoZW1lfTwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAmbmJzcDsmbmJzcDtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj5UYWc6IHt0YWd9PC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZuYnNwOyZuYnNwO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPua1j+iniDoge3ZpZXdzfTwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvcD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYXJ0aWNhbC1hYnN0cmFjdFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHthYnN0cmFjdH0gLi4uXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImFydGljYWwtbGlua1wiPjxMaW5rIHRvPXtgL2FydGljYWwtZGV0YWlsLyR7aWR9YH0+6ZiF6K+75YWo5paHID4+PC9MaW5rPjwvc3Bhbj4gXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgIClcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgKVxyXG4gICAgfVxyXG59XHJcblxyXG5leHBvcnQgZGVmYXVsdCBBcnRpY2FsSXRlbTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9hcHAvY29tcG9uZW50cy9hcnRpY2FsLWl0ZW0vaW5kZXguanMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///775\n");
 
 /***/ }),
 
-/***/ 590:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(591);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(6)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss", function() {
-			var newContent = require("!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(777);\nif(typeof content === 'string') content = [[module.i, content, '']];\n// Prepare cssTransformation\nvar transform;\n\nvar options = {}\noptions.transform = transform\n// add the styles to the DOM\nvar update = __webpack_require__(5)(content, options);\nif(content.locals) module.exports = content.locals;\n// Hot Module Replacement\nif(false) {\n\t// When the styles change, update the <style> tags\n\tif(!content.locals) {\n\t\tmodule.hot.accept(\"!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss\", function() {\n\t\t\tvar newContent = require(\"!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss\");\n\t\t\tif(typeof newContent === 'string') newContent = [[module.id, newContent, '']];\n\t\t\tupdate(newContent);\n\t\t});\n\t}\n\t// When the module is disposed, remove the <style> tags\n\tmodule.hot.dispose(function() { update(); });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9hcnRpY2FsLWl0ZW0vaW5kZXguc2Nzcz8yMDFkIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxHQUFHO0FBQ0g7QUFDQTtBQUNBLGdDQUFnQyxVQUFVLEVBQUU7QUFDNUMiLCJmaWxlIjoiNzc2LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gc3R5bGUtbG9hZGVyOiBBZGRzIHNvbWUgY3NzIHRvIHRoZSBET00gYnkgYWRkaW5nIGEgPHN0eWxlPiB0YWdcblxuLy8gbG9hZCB0aGUgc3R5bGVzXG52YXIgY29udGVudCA9IHJlcXVpcmUoXCIhIS4uLy4uLy4uL25vZGVfbW9kdWxlcy8ubnBtaW5zdGFsbC9jc3MtbG9hZGVyLzAuMjguNC9jc3MtbG9hZGVyL2luZGV4LmpzIS4uLy4uLy4uL25vZGVfbW9kdWxlcy9zYXNzLWxvYWRlci9saWIvbG9hZGVyLmpzIS4vaW5kZXguc2Nzc1wiKTtcbmlmKHR5cGVvZiBjb250ZW50ID09PSAnc3RyaW5nJykgY29udGVudCA9IFtbbW9kdWxlLmlkLCBjb250ZW50LCAnJ11dO1xuLy8gUHJlcGFyZSBjc3NUcmFuc2Zvcm1hdGlvblxudmFyIHRyYW5zZm9ybTtcblxudmFyIG9wdGlvbnMgPSB7fVxub3B0aW9ucy50cmFuc2Zvcm0gPSB0cmFuc2Zvcm1cbi8vIGFkZCB0aGUgc3R5bGVzIHRvIHRoZSBET01cbnZhciB1cGRhdGUgPSByZXF1aXJlKFwiIS4uLy4uLy4uL25vZGVfbW9kdWxlcy8ubnBtaW5zdGFsbC9zdHlsZS1sb2FkZXIvMC4xOC4yL3N0eWxlLWxvYWRlci9saWIvYWRkU3R5bGVzLmpzXCIpKGNvbnRlbnQsIG9wdGlvbnMpO1xuaWYoY29udGVudC5sb2NhbHMpIG1vZHVsZS5leHBvcnRzID0gY29udGVudC5sb2NhbHM7XG4vLyBIb3QgTW9kdWxlIFJlcGxhY2VtZW50XG5pZihtb2R1bGUuaG90KSB7XG5cdC8vIFdoZW4gdGhlIHN0eWxlcyBjaGFuZ2UsIHVwZGF0ZSB0aGUgPHN0eWxlPiB0YWdzXG5cdGlmKCFjb250ZW50LmxvY2Fscykge1xuXHRcdG1vZHVsZS5ob3QuYWNjZXB0KFwiISEuLi8uLi8uLi9ub2RlX21vZHVsZXMvLm5wbWluc3RhbGwvY3NzLWxvYWRlci8wLjI4LjQvY3NzLWxvYWRlci9pbmRleC5qcyEuLi8uLi8uLi9ub2RlX21vZHVsZXMvc2Fzcy1sb2FkZXIvbGliL2xvYWRlci5qcyEuL2luZGV4LnNjc3NcIiwgZnVuY3Rpb24oKSB7XG5cdFx0XHR2YXIgbmV3Q29udGVudCA9IHJlcXVpcmUoXCIhIS4uLy4uLy4uL25vZGVfbW9kdWxlcy8ubnBtaW5zdGFsbC9jc3MtbG9hZGVyLzAuMjguNC9jc3MtbG9hZGVyL2luZGV4LmpzIS4uLy4uLy4uL25vZGVfbW9kdWxlcy9zYXNzLWxvYWRlci9saWIvbG9hZGVyLmpzIS4vaW5kZXguc2Nzc1wiKTtcblx0XHRcdGlmKHR5cGVvZiBuZXdDb250ZW50ID09PSAnc3RyaW5nJykgbmV3Q29udGVudCA9IFtbbW9kdWxlLmlkLCBuZXdDb250ZW50LCAnJ11dO1xuXHRcdFx0dXBkYXRlKG5ld0NvbnRlbnQpO1xuXHRcdH0pO1xuXHR9XG5cdC8vIFdoZW4gdGhlIG1vZHVsZSBpcyBkaXNwb3NlZCwgcmVtb3ZlIHRoZSA8c3R5bGU+IHRhZ3Ncblx0bW9kdWxlLmhvdC5kaXNwb3NlKGZ1bmN0aW9uKCkgeyB1cGRhdGUoKTsgfSk7XG59XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9hcHAvY29tcG9uZW50cy9hcnRpY2FsLWl0ZW0vaW5kZXguc2Nzc1xuLy8gbW9kdWxlIGlkID0gNzc2XG4vLyBtb2R1bGUgY2h1bmtzID0gMSAyIDMgNSA2Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///776\n");
 
 /***/ }),
 
-/***/ 591:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "body {\n  background-color: #f9f9f9; }\n\n.text-center {\n  text-align: center; }\n\n.panel-heading {\n  padding: 10px 15px;\n  color: #333;\n  font-size: 16px;\n  background-color: #f8f8f8;\n  border-bottom: 1px solid #ddd; }\n\n.panel-body {\n  padding: 15px; }\n\n.fl {\n  float: left; }\n\n.pagination {\n  margin: 15px 0;\n  text-align: right; }\n\n.clearfix {\n  *zoom: 1; }\n\n.clearfix:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n\n.container {\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto; }\n\n@media (min-width: 768px) {\n  .container {\n    width: 750px; } }\n\n@media (min-width: 992px) {\n  .container {\n    width: 970px; } }\n\n@media (min-width: 1200px) {\n  .container {\n    width: 1100px; } }\n\n.artical-item {\n  margin: 25px 0;\n  padding: 18px 25px 15px;\n  font-size: 16px;\n  background-color: #fff;\n  box-shadow: 0 0 5px #aaa;\n  transition: box-shadow ease-in 300ms; }\n  .artical-item:hover {\n    box-shadow: 0 0 15px #333; }\n\n.artical-body h4 {\n  font-size: 16px;\n  font-weight: bold; }\n\n.artical-body > p {\n  margin: 8px 0;\n  color: #999;\n  font-size: 13px; }\n\n.artical-abstract {\n  color: #333;\n  font-size: 14px; }\n\n.artical-link {\n  display: inline-block;\n  margin-top: 9px;\n  font-size: 12px; }\n  .artical-link > a {\n    color: #3197EF;\n    font-weight: bold; }\n", ""]);
-
-// exports
-
+eval("exports = module.exports = __webpack_require__(4)(undefined);\n// imports\n\n\n// module\nexports.push([module.i, \"body {\\n  background-color: #f9f9f9; }\\n\\n.text-center {\\n  text-align: center; }\\n\\n.panel-heading {\\n  padding: 10px 15px;\\n  color: #333;\\n  font-size: 16px;\\n  background-color: #f8f8f8;\\n  border-bottom: 1px solid #ddd; }\\n\\n.panel-body {\\n  padding: 15px; }\\n\\n.fl {\\n  float: left; }\\n\\n.pagination {\\n  margin: 15px 0;\\n  text-align: right; }\\n\\n.clearfix {\\n  *zoom: 1; }\\n\\n.clearfix:after {\\n  content: \\\"\\\";\\n  display: table;\\n  clear: both; }\\n\\n.container {\\n  padding-right: 15px;\\n  padding-left: 15px;\\n  margin-right: auto;\\n  margin-left: auto; }\\n\\n@media (min-width: 768px) {\\n  .container {\\n    width: 750px; } }\\n\\n@media (min-width: 992px) {\\n  .container {\\n    width: 970px; } }\\n\\n@media (min-width: 1200px) {\\n  .container {\\n    width: 1100px; } }\\n\\n.artical-item {\\n  margin: 25px 0;\\n  padding: 18px 25px 15px;\\n  font-size: 16px;\\n  background-color: #fff;\\n  box-shadow: 0 0 5px #aaa;\\n  transition: box-shadow ease-in 300ms; }\\n  .artical-item:hover {\\n    box-shadow: 0 0 15px #333; }\\n\\n.artical-body h4 {\\n  font-size: 16px;\\n  font-weight: bold; }\\n\\n.artical-body > p {\\n  margin: 8px 0;\\n  color: #999;\\n  font-size: 13px; }\\n\\n.artical-abstract {\\n  color: #333;\\n  font-size: 14px; }\\n\\n.artical-link {\\n  display: inline-block;\\n  margin-top: 9px;\\n  font-size: 12px; }\\n  .artical-link > a {\\n    color: #3197EF;\\n    font-weight: bold; }\\n\", \"\"]);\n\n// exports\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9hcnRpY2FsLWl0ZW0vaW5kZXguc2Nzcz8yZTA5Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7OztBQUdBO0FBQ0EsK0JBQWdDLDhCQUE4QixFQUFFLGtCQUFrQix1QkFBdUIsRUFBRSxvQkFBb0IsdUJBQXVCLGdCQUFnQixvQkFBb0IsOEJBQThCLGtDQUFrQyxFQUFFLGlCQUFpQixrQkFBa0IsRUFBRSxTQUFTLGdCQUFnQixFQUFFLGlCQUFpQixtQkFBbUIsc0JBQXNCLEVBQUUsZUFBZSxhQUFhLEVBQUUscUJBQXFCLGtCQUFrQixtQkFBbUIsZ0JBQWdCLEVBQUUsZ0JBQWdCLHdCQUF3Qix1QkFBdUIsdUJBQXVCLHNCQUFzQixFQUFFLCtCQUErQixnQkFBZ0IsbUJBQW1CLEVBQUUsRUFBRSwrQkFBK0IsZ0JBQWdCLG1CQUFtQixFQUFFLEVBQUUsZ0NBQWdDLGdCQUFnQixvQkFBb0IsRUFBRSxFQUFFLG1CQUFtQixtQkFBbUIsNEJBQTRCLG9CQUFvQiwyQkFBMkIsNkJBQTZCLHlDQUF5QyxFQUFFLHlCQUF5QixnQ0FBZ0MsRUFBRSxzQkFBc0Isb0JBQW9CLHNCQUFzQixFQUFFLHVCQUF1QixrQkFBa0IsZ0JBQWdCLG9CQUFvQixFQUFFLHVCQUF1QixnQkFBZ0Isb0JBQW9CLEVBQUUsbUJBQW1CLDBCQUEwQixvQkFBb0Isb0JBQW9CLEVBQUUsdUJBQXVCLHFCQUFxQix3QkFBd0IsRUFBRTs7QUFFbjRDIiwiZmlsZSI6Ijc3Ny5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydHMgPSBtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCIuLi8uLi8uLi9ub2RlX21vZHVsZXMvLm5wbWluc3RhbGwvY3NzLWxvYWRlci8wLjI4LjQvY3NzLWxvYWRlci9saWIvY3NzLWJhc2UuanNcIikodW5kZWZpbmVkKTtcbi8vIGltcG9ydHNcblxuXG4vLyBtb2R1bGVcbmV4cG9ydHMucHVzaChbbW9kdWxlLmlkLCBcImJvZHkge1xcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y5ZjlmOTsgfVxcblxcbi50ZXh0LWNlbnRlciB7XFxuICB0ZXh0LWFsaWduOiBjZW50ZXI7IH1cXG5cXG4ucGFuZWwtaGVhZGluZyB7XFxuICBwYWRkaW5nOiAxMHB4IDE1cHg7XFxuICBjb2xvcjogIzMzMztcXG4gIGZvbnQtc2l6ZTogMTZweDtcXG4gIGJhY2tncm91bmQtY29sb3I6ICNmOGY4Zjg7XFxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RkZDsgfVxcblxcbi5wYW5lbC1ib2R5IHtcXG4gIHBhZGRpbmc6IDE1cHg7IH1cXG5cXG4uZmwge1xcbiAgZmxvYXQ6IGxlZnQ7IH1cXG5cXG4ucGFnaW5hdGlvbiB7XFxuICBtYXJnaW46IDE1cHggMDtcXG4gIHRleHQtYWxpZ246IHJpZ2h0OyB9XFxuXFxuLmNsZWFyZml4IHtcXG4gICp6b29tOiAxOyB9XFxuXFxuLmNsZWFyZml4OmFmdGVyIHtcXG4gIGNvbnRlbnQ6IFxcXCJcXFwiO1xcbiAgZGlzcGxheTogdGFibGU7XFxuICBjbGVhcjogYm90aDsgfVxcblxcbi5jb250YWluZXIge1xcbiAgcGFkZGluZy1yaWdodDogMTVweDtcXG4gIHBhZGRpbmctbGVmdDogMTVweDtcXG4gIG1hcmdpbi1yaWdodDogYXV0bztcXG4gIG1hcmdpbi1sZWZ0OiBhdXRvOyB9XFxuXFxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XFxuICAuY29udGFpbmVyIHtcXG4gICAgd2lkdGg6IDc1MHB4OyB9IH1cXG5cXG5AbWVkaWEgKG1pbi13aWR0aDogOTkycHgpIHtcXG4gIC5jb250YWluZXIge1xcbiAgICB3aWR0aDogOTcwcHg7IH0gfVxcblxcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcXG4gIC5jb250YWluZXIge1xcbiAgICB3aWR0aDogMTEwMHB4OyB9IH1cXG5cXG4uYXJ0aWNhbC1pdGVtIHtcXG4gIG1hcmdpbjogMjVweCAwO1xcbiAgcGFkZGluZzogMThweCAyNXB4IDE1cHg7XFxuICBmb250LXNpemU6IDE2cHg7XFxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xcbiAgYm94LXNoYWRvdzogMCAwIDVweCAjYWFhO1xcbiAgdHJhbnNpdGlvbjogYm94LXNoYWRvdyBlYXNlLWluIDMwMG1zOyB9XFxuICAuYXJ0aWNhbC1pdGVtOmhvdmVyIHtcXG4gICAgYm94LXNoYWRvdzogMCAwIDE1cHggIzMzMzsgfVxcblxcbi5hcnRpY2FsLWJvZHkgaDQge1xcbiAgZm9udC1zaXplOiAxNnB4O1xcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7IH1cXG5cXG4uYXJ0aWNhbC1ib2R5ID4gcCB7XFxuICBtYXJnaW46IDhweCAwO1xcbiAgY29sb3I6ICM5OTk7XFxuICBmb250LXNpemU6IDEzcHg7IH1cXG5cXG4uYXJ0aWNhbC1hYnN0cmFjdCB7XFxuICBjb2xvcjogIzMzMztcXG4gIGZvbnQtc2l6ZTogMTRweDsgfVxcblxcbi5hcnRpY2FsLWxpbmsge1xcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xcbiAgbWFyZ2luLXRvcDogOXB4O1xcbiAgZm9udC1zaXplOiAxMnB4OyB9XFxuICAuYXJ0aWNhbC1saW5rID4gYSB7XFxuICAgIGNvbG9yOiAjMzE5N0VGO1xcbiAgICBmb250LXdlaWdodDogYm9sZDsgfVxcblwiLCBcIlwiXSk7XG5cbi8vIGV4cG9ydHNcblxuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIC4vbm9kZV9tb2R1bGVzLy5ucG1pbnN0YWxsL2Nzcy1sb2FkZXIvMC4yOC40L2Nzcy1sb2FkZXIhLi9ub2RlX21vZHVsZXMvc2Fzcy1sb2FkZXIvbGliL2xvYWRlci5qcyEuL2FwcC9jb21wb25lbnRzL2FydGljYWwtaXRlbS9pbmRleC5zY3NzXG4vLyBtb2R1bGUgaWQgPSA3Nzdcbi8vIG1vZHVsZSBjaHVua3MgPSAxIDIgMyA1IDYiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///777\n");
 
 /***/ }),
 
-/***/ 834:
+/***/ 933:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.getArticalList = exports.fetchArticalsFailure = exports.fetchArticalsSuccess = exports.fetchArticalsStarted = undefined;
-
-var _actionType = __webpack_require__(835);
-
-var _config = __webpack_require__(169);
-
-var fetchArticalsStarted = exports.fetchArticalsStarted = function fetchArticalsStarted() {
-    return {
-        type: _actionType.ARTICALS_STARTED
-    };
-};
-
-var fetchArticalsSuccess = exports.fetchArticalsSuccess = function fetchArticalsSuccess(articals) {
-    return {
-        type: _actionType.ARTICALS_SUCCESS,
-        articals: articals
-    };
-};
-
-var fetchArticalsFailure = exports.fetchArticalsFailure = function fetchArticalsFailure(message) {
-    return {
-        type: _actionType.ARTICALS_FAILURE,
-        message: message
-    };
-};
-
-var getArticalList = exports.getArticalList = function getArticalList() {
-    var current = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-    var count = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
-    var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-
-    return function (dispatch) {
-        var apiUrl = _config.SERVERADDRESS + '/get-artical-list?current=' + current + '&count=' + count + '&type=' + type;
-        dispatch(fetchArticalsStarted());
-
-        fetch(apiUrl).then(function (response) {
-
-            if (response.status !== 200) {
-                throw new Error('Fail to get reaponse with status ' + response.status);
-                dispatch(fetchArticalsFailure("LOADING FAILED! Error code: " + response.status));
-            }
-
-            response.json().then(function (responseJson) {
-                if (responseJson.status == 0) {
-                    dispatch(fetchArticalsFailure(responseJson.message));
-                }
-                dispatch(fetchArticalsSuccess(responseJson.articals));
-            }).catch(function (error) {
-                console.log(error);
-                dispatch(fetchArticalsFailure(error));
-            });
-        }).catch(function (error) {
-            console.log(error);
-            dispatch(fetchArticalsFailure(error));
-        });
-    };
-};
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.getArticalList = exports.fetchArticalsFailure = exports.fetchArticalsSuccess = exports.fetchArticalsStarted = undefined;\n\nvar _actionType = __webpack_require__(934);\n\nvar _config = __webpack_require__(271);\n\nvar fetchArticalsStarted = exports.fetchArticalsStarted = function fetchArticalsStarted() {\n    return {\n        type: _actionType.ARTICALS_STARTED\n    };\n};\n\nvar fetchArticalsSuccess = exports.fetchArticalsSuccess = function fetchArticalsSuccess(articals) {\n    return {\n        type: _actionType.ARTICALS_SUCCESS,\n        articals: articals\n    };\n};\n\nvar fetchArticalsFailure = exports.fetchArticalsFailure = function fetchArticalsFailure(message) {\n    return {\n        type: _actionType.ARTICALS_FAILURE,\n        message: message\n    };\n};\n\nvar getArticalList = exports.getArticalList = function getArticalList() {\n    var current = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;\n    var count = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;\n    var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;\n\n    return function (dispatch) {\n        var apiUrl = _config.SERVERADDRESS + '/get-artical-list?current=' + current + '&count=' + count + '&type=' + type;\n        dispatch(fetchArticalsStarted());\n\n        fetch(apiUrl).then(function (response) {\n\n            if (response.status !== 200) {\n                throw new Error('Fail to get reaponse with status ' + response.status);\n                dispatch(fetchArticalsFailure(\"LOADING FAILED! Error code: \" + response.status));\n            }\n\n            response.json().then(function (responseJson) {\n                if (responseJson.status == 0) {\n                    dispatch(fetchArticalsFailure(responseJson.message));\n                }\n                dispatch(fetchArticalsSuccess(responseJson.articals));\n            }).catch(function (error) {\n                console.log(error);\n                dispatch(fetchArticalsFailure(error));\n            });\n        }).catch(function (error) {\n            console.log(error);\n            dispatch(fetchArticalsFailure(error));\n        });\n    };\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29udGFpbmVycy9Ib21lL0FydGljYWxzL2FjdGlvbnMuanM/MjhhNSJdLCJuYW1lcyI6WyJmZXRjaEFydGljYWxzU3RhcnRlZCIsInR5cGUiLCJmZXRjaEFydGljYWxzU3VjY2VzcyIsImFydGljYWxzIiwiZmV0Y2hBcnRpY2Fsc0ZhaWx1cmUiLCJtZXNzYWdlIiwiZ2V0QXJ0aWNhbExpc3QiLCJjdXJyZW50IiwiY291bnQiLCJkaXNwYXRjaCIsImFwaVVybCIsImZldGNoIiwidGhlbiIsInJlc3BvbnNlIiwic3RhdHVzIiwiRXJyb3IiLCJqc29uIiwicmVzcG9uc2VKc29uIiwiY2F0Y2giLCJlcnJvciIsImNvbnNvbGUiLCJsb2ciXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7QUFFQTs7QUFFTyxJQUFNQSxzREFBdUIsU0FBdkJBLG9CQUF1QjtBQUFBLFdBQU87QUFDdkNDO0FBRHVDLEtBQVA7QUFBQSxDQUE3Qjs7QUFJQSxJQUFNQyxzREFBdUIsU0FBdkJBLG9CQUF1QixDQUFDQyxRQUFEO0FBQUEsV0FBZTtBQUMvQ0YsMENBRCtDO0FBRS9DRTtBQUYrQyxLQUFmO0FBQUEsQ0FBN0I7O0FBS0EsSUFBTUMsc0RBQXVCLFNBQXZCQSxvQkFBdUIsQ0FBQ0MsT0FBRDtBQUFBLFdBQWM7QUFDOUNKLDBDQUQ4QztBQUU5Q0k7QUFGOEMsS0FBZDtBQUFBLENBQTdCOztBQUtBLElBQU1DLDBDQUFpQixTQUFqQkEsY0FBaUIsR0FBdUM7QUFBQSxRQUF0Q0MsT0FBc0MsdUVBQTVCLENBQTRCO0FBQUEsUUFBekJDLEtBQXlCLHVFQUFqQixFQUFpQjtBQUFBLFFBQWJQLElBQWEsdUVBQU4sQ0FBTTs7QUFDakUsV0FBTyxVQUFDUSxRQUFELEVBQWM7QUFDakIsWUFBTUMsZ0VBQXNESCxPQUF0RCxlQUF1RUMsS0FBdkUsY0FBcUZQLElBQTNGO0FBQ0FRLGlCQUFTVCxzQkFBVDs7QUFFQVcsY0FBTUQsTUFBTixFQUFjRSxJQUFkLENBQW1CLFVBQUNDLFFBQUQsRUFBYzs7QUFFN0IsZ0JBQUdBLFNBQVNDLE1BQVQsS0FBb0IsR0FBdkIsRUFBNEI7QUFDeEIsc0JBQU0sSUFBSUMsS0FBSixDQUFVLHNDQUFzQ0YsU0FBU0MsTUFBekQsQ0FBTjtBQUNBTCx5QkFBU0wscUJBQXFCLGlDQUFpQ1MsU0FBU0MsTUFBL0QsQ0FBVDtBQUNIOztBQUVERCxxQkFBU0csSUFBVCxHQUFnQkosSUFBaEIsQ0FBcUIsVUFBQ0ssWUFBRCxFQUFrQjtBQUNuQyxvQkFBR0EsYUFBYUgsTUFBYixJQUF1QixDQUExQixFQUE2QjtBQUN6QkwsNkJBQVNMLHFCQUFxQmEsYUFBYVosT0FBbEMsQ0FBVDtBQUNIO0FBQ0RJLHlCQUFTUCxxQkFBcUJlLGFBQWFkLFFBQWxDLENBQVQ7QUFDSCxhQUxELEVBS0dlLEtBTEgsQ0FLUyxVQUFDQyxLQUFELEVBQVc7QUFDaEJDLHdCQUFRQyxHQUFSLENBQVlGLEtBQVo7QUFDQVYseUJBQVNMLHFCQUFxQmUsS0FBckIsQ0FBVDtBQUNILGFBUkQ7QUFTSCxTQWhCRCxFQWdCR0QsS0FoQkgsQ0FnQlMsVUFBQ0MsS0FBRCxFQUFXO0FBQ2hCQyxvQkFBUUMsR0FBUixDQUFZRixLQUFaO0FBQ0FWLHFCQUFTTCxxQkFBcUJlLEtBQXJCLENBQVQ7QUFDSCxTQW5CRDtBQW9CSCxLQXhCRDtBQXlCSCxDQTFCTSIsImZpbGUiOiI5MzMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0FSVElDQUxTX1NUQVJURUQsIEFSVElDQUxTX1NVQ0NFU1MsIEFSVElDQUxTX0ZBSUxVUkV9IGZyb20gJy4vYWN0aW9uVHlwZSc7XHJcblxyXG5pbXBvcnQge1NFUlZFUkFERFJFU1N9IGZyb20gXCIuLi8uLi8uLi9jb25maWcvY29uZmlnXCI7XHJcblxyXG5leHBvcnQgY29uc3QgZmV0Y2hBcnRpY2Fsc1N0YXJ0ZWQgPSAoKSA9PiAoe1xyXG4gICAgdHlwZTogQVJUSUNBTFNfU1RBUlRFRFxyXG59KTtcclxuXHJcbmV4cG9ydCBjb25zdCBmZXRjaEFydGljYWxzU3VjY2VzcyA9IChhcnRpY2FscykgPT4gKHtcclxuICAgIHR5cGU6IEFSVElDQUxTX1NVQ0NFU1MsXHJcbiAgICBhcnRpY2Fsc1xyXG59KTtcclxuXHJcbmV4cG9ydCBjb25zdCBmZXRjaEFydGljYWxzRmFpbHVyZSA9IChtZXNzYWdlKSA9PiAoe1xyXG4gICAgdHlwZTogQVJUSUNBTFNfRkFJTFVSRSxcclxuICAgIG1lc3NhZ2VcclxufSk7XHJcblxyXG5leHBvcnQgY29uc3QgZ2V0QXJ0aWNhbExpc3QgPSAoY3VycmVudCA9IDEsIGNvdW50ID0gMjAsIHR5cGUgPSAwKSA9PiB7XHJcbiAgICByZXR1cm4gKGRpc3BhdGNoKSA9PiB7XHJcbiAgICAgICAgY29uc3QgYXBpVXJsID0gYCR7U0VSVkVSQUREUkVTU30vZ2V0LWFydGljYWwtbGlzdD9jdXJyZW50PSR7Y3VycmVudH0mY291bnQ9JHtjb3VudH0mdHlwZT0ke3R5cGV9YDtcclxuICAgICAgICBkaXNwYXRjaChmZXRjaEFydGljYWxzU3RhcnRlZCgpKTtcclxuXHJcbiAgICAgICAgZmV0Y2goYXBpVXJsKS50aGVuKChyZXNwb25zZSkgPT4ge1xyXG4gICAgICAgICAgICBcclxuICAgICAgICAgICAgaWYocmVzcG9uc2Uuc3RhdHVzICE9PSAyMDApIHtcclxuICAgICAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcignRmFpbCB0byBnZXQgcmVhcG9uc2Ugd2l0aCBzdGF0dXMgJyArIHJlc3BvbnNlLnN0YXR1cyk7XHJcbiAgICAgICAgICAgICAgICBkaXNwYXRjaChmZXRjaEFydGljYWxzRmFpbHVyZShcIkxPQURJTkcgRkFJTEVEISBFcnJvciBjb2RlOiBcIiArIHJlc3BvbnNlLnN0YXR1cykpO1xyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgICAgICByZXNwb25zZS5qc29uKCkudGhlbigocmVzcG9uc2VKc29uKSA9PiB7XHJcbiAgICAgICAgICAgICAgICBpZihyZXNwb25zZUpzb24uc3RhdHVzID09IDApIHtcclxuICAgICAgICAgICAgICAgICAgICBkaXNwYXRjaChmZXRjaEFydGljYWxzRmFpbHVyZShyZXNwb25zZUpzb24ubWVzc2FnZSkpO1xyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgZGlzcGF0Y2goZmV0Y2hBcnRpY2Fsc1N1Y2Nlc3MocmVzcG9uc2VKc29uLmFydGljYWxzKSk7XHJcbiAgICAgICAgICAgIH0pLmNhdGNoKChlcnJvcikgPT4ge1xyXG4gICAgICAgICAgICAgICAgY29uc29sZS5sb2coZXJyb3IpO1xyXG4gICAgICAgICAgICAgICAgZGlzcGF0Y2goZmV0Y2hBcnRpY2Fsc0ZhaWx1cmUoZXJyb3IpKTtcclxuICAgICAgICAgICAgfSlcclxuICAgICAgICB9KS5jYXRjaCgoZXJyb3IpID0+IHtcclxuICAgICAgICAgICAgY29uc29sZS5sb2coZXJyb3IpO1xyXG4gICAgICAgICAgICBkaXNwYXRjaChmZXRjaEFydGljYWxzRmFpbHVyZShlcnJvcikpO1xyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG59XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vYXBwL2NvbnRhaW5lcnMvSG9tZS9BcnRpY2Fscy9hY3Rpb25zLmpzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///933\n");
 
 /***/ }),
 
-/***/ 835:
+/***/ 934:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var ARTICALS_STARTED = exports.ARTICALS_STARTED = 'HOME_ARTICALS/STARTED';
-var ARTICALS_SUCCESS = exports.ARTICALS_SUCCESS = 'HOME_ARTICALS/SUCCESS';
-var ARTICALS_FAILURE = exports.ARTICALS_FAILURE = 'HOME_ARTICALS/FAILURE';
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar ARTICALS_STARTED = exports.ARTICALS_STARTED = 'HOME_ARTICALS/STARTED';\nvar ARTICALS_SUCCESS = exports.ARTICALS_SUCCESS = 'HOME_ARTICALS/SUCCESS';\nvar ARTICALS_FAILURE = exports.ARTICALS_FAILURE = 'HOME_ARTICALS/FAILURE';//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29udGFpbmVycy9Ib21lL0FydGljYWxzL2FjdGlvblR5cGUuanM/NjI5MyJdLCJuYW1lcyI6WyJBUlRJQ0FMU19TVEFSVEVEIiwiQVJUSUNBTFNfU1VDQ0VTUyIsIkFSVElDQUxTX0ZBSUxVUkUiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQU8sSUFBTUEsOENBQW1CLHVCQUF6QjtBQUNBLElBQU1DLDhDQUFtQix1QkFBekI7QUFDQSxJQUFNQyw4Q0FBbUIsdUJBQXpCIiwiZmlsZSI6IjkzNC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBBUlRJQ0FMU19TVEFSVEVEID0gJ0hPTUVfQVJUSUNBTFMvU1RBUlRFRCc7XHJcbmV4cG9ydCBjb25zdCBBUlRJQ0FMU19TVUNDRVNTID0gJ0hPTUVfQVJUSUNBTFMvU1VDQ0VTUyc7XHJcbmV4cG9ydCBjb25zdCBBUlRJQ0FMU19GQUlMVVJFID0gJ0hPTUVfQVJUSUNBTFMvRkFJTFVSRSc7XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vYXBwL2NvbnRhaW5lcnMvSG9tZS9BcnRpY2Fscy9hY3Rpb25UeXBlLmpzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///934\n");
 
 /***/ }),
 
-/***/ 848:
+/***/ 949:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.actions = exports.initialState = exports.stateKey = exports.reducer = undefined;
-
-var _view = __webpack_require__(849);
-
-var _view2 = _interopRequireDefault(_view);
-
-var _reducer = __webpack_require__(853);
-
-var _reducer2 = _interopRequireDefault(_reducer);
-
-var _actions = __webpack_require__(834);
-
-var actions = _interopRequireWildcard(_actions);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.reducer = _reducer2.default;
-exports.stateKey = _view.stateKey;
-exports.initialState = _view.initialState;
-exports.actions = actions;
-exports.default = _view2.default;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.actions = exports.initialState = exports.stateKey = exports.reducer = undefined;\n\nvar _view = __webpack_require__(950);\n\nvar _view2 = _interopRequireDefault(_view);\n\nvar _reducer = __webpack_require__(954);\n\nvar _reducer2 = _interopRequireDefault(_reducer);\n\nvar _actions = __webpack_require__(933);\n\nvar actions = _interopRequireWildcard(_actions);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.reducer = _reducer2.default;\nexports.stateKey = _view.stateKey;\nexports.initialState = _view.initialState;\nexports.actions = actions;\nexports.default = _view2.default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29udGFpbmVycy9Ib21lL0FydGljYWxzL2luZGV4LmpzPzg2ZDAiXSwibmFtZXMiOlsiYWN0aW9ucyIsInJlZHVjZXIiLCJzdGF0ZUtleSIsImluaXRpYWxTdGF0ZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOzs7O0FBQ0E7Ozs7QUFDQTs7SUFBWUEsTzs7Ozs7O1FBR1JDLE87UUFDQUMsUTtRQUNBQyxZO1FBQ0FILE8sR0FBQUEsTyIsImZpbGUiOiI5NDkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgQXJ0aWNhbExpc3QsIHtzdGF0ZUtleSwgaW5pdGlhbFN0YXRlfSBmcm9tICcuL3ZpZXcnO1xyXG5pbXBvcnQgcmVkdWNlciBmcm9tICcuL3JlZHVjZXInO1xyXG5pbXBvcnQgKiBhcyBhY3Rpb25zIGZyb20gJy4vYWN0aW9ucyc7XHJcblxyXG5leHBvcnQge1xyXG4gICAgcmVkdWNlcixcclxuICAgIHN0YXRlS2V5LFxyXG4gICAgaW5pdGlhbFN0YXRlLFxyXG4gICAgYWN0aW9uc1xyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXJ0aWNhbExpc3Q7XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vYXBwL2NvbnRhaW5lcnMvSG9tZS9BcnRpY2Fscy9pbmRleC5qcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///949\n");
 
 /***/ }),
 
-/***/ 849:
+/***/ 950:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.initialState = exports.stateKey = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(106);
-
-var _articalList = __webpack_require__(588);
-
-var _articalList2 = _interopRequireDefault(_articalList);
-
-var _listCarousel = __webpack_require__(850);
-
-var _listCarousel2 = _interopRequireDefault(_listCarousel);
-
-var _actions = __webpack_require__(834);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var stateKey = exports.stateKey = "home-articals";
-var initialState = exports.initialState = [];
-
-var Articals = function (_Component) {
-    _inherits(Articals, _Component);
-
-    function Articals() {
-        _classCallCheck(this, Articals);
-
-        return _possibleConstructorReturn(this, (Articals.__proto__ || Object.getPrototypeOf(Articals)).apply(this, arguments));
-    }
-
-    _createClass(Articals, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _props = this.props,
-                _props$current = _props.current,
-                current = _props$current === undefined ? 1 : _props$current,
-                _props$count = _props.count,
-                count = _props$count === undefined ? 10 : _props$count,
-                _props$type = _props.type,
-                type = _props$type === undefined ? 1 : _props$type;
-
-            this.props.getArticalList(current, count, type);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _props2 = this.props,
-                articalList = _props2.articalList,
-                carousel = _props2.carousel;
-
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                articalList && carousel ? _react2.default.createElement(_listCarousel2.default, { links: articalList.map(function (artical) {
-                        return {
-                            link: '/artical-detail/' + artical.id,
-                            value: '' + artical.title
-                        };
-                    }) }) : null,
-                _react2.default.createElement(_articalList2.default, { articals: articalList })
-            );
-        }
-    }]);
-
-    return Articals;
-}(_react.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        articalList: state[stateKey].articals || null
-    };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        getArticalList: function getArticalList(current, count, type) {
-            dispatch((0, _actions.getArticalList)(current, count, type));
-        }
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Articals);
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.initialState = exports.stateKey = undefined;\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(176);\n\nvar _articalList = __webpack_require__(774);\n\nvar _articalList2 = _interopRequireDefault(_articalList);\n\nvar _listCarousel = __webpack_require__(951);\n\nvar _listCarousel2 = _interopRequireDefault(_listCarousel);\n\nvar _actions = __webpack_require__(933);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar stateKey = exports.stateKey = \"home-articals\";\nvar initialState = exports.initialState = [];\n\nvar Articals = function (_Component) {\n    _inherits(Articals, _Component);\n\n    function Articals() {\n        _classCallCheck(this, Articals);\n\n        return _possibleConstructorReturn(this, (Articals.__proto__ || Object.getPrototypeOf(Articals)).apply(this, arguments));\n    }\n\n    _createClass(Articals, [{\n        key: 'componentDidMount',\n        value: function componentDidMount() {\n            var _props = this.props,\n                _props$current = _props.current,\n                current = _props$current === undefined ? 1 : _props$current,\n                _props$count = _props.count,\n                count = _props$count === undefined ? 10 : _props$count,\n                _props$type = _props.type,\n                type = _props$type === undefined ? 1 : _props$type;\n\n            this.props.getArticalList(current, count, type);\n        }\n    }, {\n        key: 'render',\n        value: function render() {\n            var _props2 = this.props,\n                articalList = _props2.articalList,\n                carousel = _props2.carousel;\n\n\n            return _react2.default.createElement(\n                'div',\n                null,\n                articalList && carousel ? _react2.default.createElement(_listCarousel2.default, { links: articalList.map(function (artical) {\n                        return {\n                            link: '/artical-detail/' + artical.id,\n                            value: '' + artical.title\n                        };\n                    }) }) : null,\n                _react2.default.createElement(_articalList2.default, { articals: articalList })\n            );\n        }\n    }]);\n\n    return Articals;\n}(_react.Component);\n\nvar mapStateToProps = function mapStateToProps(state) {\n    return {\n        articalList: state[stateKey].articals || null\n    };\n};\n\nvar mapDispatchToProps = function mapDispatchToProps(dispatch) {\n    return {\n        getArticalList: function getArticalList(current, count, type) {\n            dispatch((0, _actions.getArticalList)(current, count, type));\n        }\n    };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Articals);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29udGFpbmVycy9Ib21lL0FydGljYWxzL3ZpZXcuanM/OGMyNiJdLCJuYW1lcyI6WyJzdGF0ZUtleSIsImluaXRpYWxTdGF0ZSIsIkFydGljYWxzIiwicHJvcHMiLCJjdXJyZW50IiwiY291bnQiLCJ0eXBlIiwiZ2V0QXJ0aWNhbExpc3QiLCJhcnRpY2FsTGlzdCIsImNhcm91c2VsIiwibWFwIiwibGluayIsImFydGljYWwiLCJpZCIsInZhbHVlIiwidGl0bGUiLCJtYXBTdGF0ZVRvUHJvcHMiLCJzdGF0ZSIsImFydGljYWxzIiwibWFwRGlzcGF0Y2hUb1Byb3BzIiwiZGlzcGF0Y2giXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBOzs7O0FBQ0E7O0FBRUE7Ozs7QUFDQTs7OztBQUVBOzs7Ozs7Ozs7O0FBRU8sSUFBTUEsOEJBQVcsZUFBakI7QUFDQSxJQUFNQyxzQ0FBZSxFQUFyQjs7SUFFREMsUTs7Ozs7Ozs7Ozs7NENBQ2tCO0FBQUEseUJBQ3NCLEtBQUtDLEtBRDNCO0FBQUEsd0NBQ2ZDLE9BRGU7QUFBQSxnQkFDZkEsT0FEZSxrQ0FDTCxDQURLO0FBQUEsc0NBQ0ZDLEtBREU7QUFBQSxnQkFDRkEsS0FERSxnQ0FDTSxFQUROO0FBQUEscUNBQ1VDLElBRFY7QUFBQSxnQkFDVUEsSUFEViwrQkFDaUIsQ0FEakI7O0FBRXRCLGlCQUFLSCxLQUFMLENBQVdJLGNBQVgsQ0FBMEJILE9BQTFCLEVBQW1DQyxLQUFuQyxFQUEwQ0MsSUFBMUM7QUFDRzs7O2lDQUVRO0FBQUEsMEJBQzJCLEtBQUtILEtBRGhDO0FBQUEsZ0JBQ0VLLFdBREYsV0FDRUEsV0FERjtBQUFBLGdCQUNlQyxRQURmLFdBQ2VBLFFBRGY7OztBQUdMLG1CQUNJO0FBQUE7QUFBQTtBQUNNRCwrQkFBZUMsUUFBZixHQUNJLHdEQUFjLE9BQ1pELFlBQVlFLEdBQVosQ0FBZ0IsbUJBQVc7QUFDdkIsK0JBQU87QUFDSEMsdURBQXlCQyxRQUFRQyxFQUQ5QjtBQUVIQyx3Q0FBVUYsUUFBUUc7QUFGZix5QkFBUDtBQUlMLHFCQUxDLENBREYsR0FESixHQU9hLElBUm5CO0FBVUksdUVBQWEsVUFBVVAsV0FBdkI7QUFWSixhQURKO0FBY0g7Ozs7OztBQUdMLElBQU1RLGtCQUFrQixTQUFsQkEsZUFBa0IsQ0FBQ0MsS0FBRCxFQUFXO0FBQy9CLFdBQU87QUFDSFQscUJBQWFTLE1BQU1qQixRQUFOLEVBQWdCa0IsUUFBaEIsSUFBNEI7QUFEdEMsS0FBUDtBQUdILENBSkQ7O0FBTUEsSUFBTUMscUJBQXFCLFNBQXJCQSxrQkFBcUIsQ0FBQ0MsUUFBRCxFQUFjO0FBQ3JDLFdBQU87QUFDSGIsd0JBQWdCLHdCQUFDSCxPQUFELEVBQVVDLEtBQVYsRUFBaUJDLElBQWpCLEVBQTBCO0FBQ3RDYyxxQkFBUyw2QkFBZWhCLE9BQWYsRUFBd0JDLEtBQXhCLEVBQStCQyxJQUEvQixDQUFUO0FBQ0g7QUFIRSxLQUFQO0FBS0gsQ0FORDs7a0JBUWUseUJBQVFVLGVBQVIsRUFBeUJHLGtCQUF6QixFQUE2Q2pCLFFBQTdDLEMiLCJmaWxlIjoiOTUwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7Q29tcG9uZW50fSAgZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQge2Nvbm5lY3R9IGZyb20gJ3JlYWN0LXJlZHV4JztcclxuXHJcbmltcG9ydCBBcnRpY2FsTGlzdCBmcm9tICcuLi8uLi8uLi9jb21wb25lbnRzL2FydGljYWwtbGlzdCc7XHJcbmltcG9ydCBMaXN0Q2Fyb3VzZWwgZnJvbSAnLi4vLi4vLi4vY29tcG9uZW50cy9saXN0LWNhcm91c2VsJztcclxuXHJcbmltcG9ydCB7Z2V0QXJ0aWNhbExpc3R9IGZyb20gJy4vYWN0aW9ucyc7XHJcblxyXG5leHBvcnQgY29uc3Qgc3RhdGVLZXkgPSBcImhvbWUtYXJ0aWNhbHNcIjtcclxuZXhwb3J0IGNvbnN0IGluaXRpYWxTdGF0ZSA9IFtdO1xyXG5cclxuY2xhc3MgQXJ0aWNhbHMgZXh0ZW5kcyBDb21wb25lbnQge1xyXG4gICAgY29tcG9uZW50RGlkTW91bnQoKSB7XHJcblx0XHRjb25zdCB7Y3VycmVudCA9IDEsIGNvdW50ID0gMTAsIHR5cGUgPSAxfSA9IHRoaXMucHJvcHM7XHJcblx0XHR0aGlzLnByb3BzLmdldEFydGljYWxMaXN0KGN1cnJlbnQsIGNvdW50LCB0eXBlKTtcclxuICAgIH1cclxuXHJcbiAgICByZW5kZXIoKSB7XHJcbiAgICAgICAgY29uc3Qge2FydGljYWxMaXN0LCBjYXJvdXNlbH0gPSB0aGlzLnByb3BzO1xyXG4gICAgICAgIFxyXG4gICAgICAgIHJldHVybiAoXHJcbiAgICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgICAgICB7IGFydGljYWxMaXN0ICYmIGNhcm91c2VsIFxyXG4gICAgICAgICAgICAgICAgICAgID8gPExpc3RDYXJvdXNlbCBsaW5rcz17XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFydGljYWxMaXN0Lm1hcChhcnRpY2FsID0+IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGluazogYC9hcnRpY2FsLWRldGFpbC8ke2FydGljYWwuaWR9YCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogYCR7YXJ0aWNhbC50aXRsZX1gXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9IFxyXG4gICAgICAgICAgICAgICAgICAgICAgfSl9IC8+IDogbnVsbCBcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIDxBcnRpY2FsTGlzdCBhcnRpY2Fscz17YXJ0aWNhbExpc3R9Lz5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgKVxyXG4gICAgfVxyXG59XHJcblxyXG5jb25zdCBtYXBTdGF0ZVRvUHJvcHMgPSAoc3RhdGUpID0+IHtcclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgYXJ0aWNhbExpc3Q6IHN0YXRlW3N0YXRlS2V5XS5hcnRpY2FscyB8fCBudWxsXHJcbiAgICB9XHJcbn1cclxuXHJcbmNvbnN0IG1hcERpc3BhdGNoVG9Qcm9wcyA9IChkaXNwYXRjaCkgPT4ge1xyXG4gICAgcmV0dXJuIHtcclxuICAgICAgICBnZXRBcnRpY2FsTGlzdDogKGN1cnJlbnQsIGNvdW50LCB0eXBlKSA9PiB7XHJcbiAgICAgICAgICAgIGRpc3BhdGNoKGdldEFydGljYWxMaXN0KGN1cnJlbnQsIGNvdW50LCB0eXBlKSlcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IGNvbm5lY3QobWFwU3RhdGVUb1Byb3BzLCBtYXBEaXNwYXRjaFRvUHJvcHMpKEFydGljYWxzKTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9hcHAvY29udGFpbmVycy9Ib21lL0FydGljYWxzL3ZpZXcuanMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///950\n");
 
 /***/ }),
 
-/***/ 850:
+/***/ 951:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(39);
-
-__webpack_require__(851);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ListCarousel = function (_Component) {
-    _inherits(ListCarousel, _Component);
-
-    function ListCarousel(props) {
-        _classCallCheck(this, ListCarousel);
-
-        var _this = _possibleConstructorReturn(this, (ListCarousel.__proto__ || Object.getPrototypeOf(ListCarousel)).call(this, props));
-
-        _this.componentWillUnmount = function () {
-            clearInterval(_this._handle);
-        };
-
-        _this.state = {
-            index: 0
-        };
-        return _this;
-    }
-
-    _createClass(ListCarousel, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            var length = this.props.links && this.props.links.length || 0;
-            if (length === 0) {
-                return;
-            }
-
-            this._handle = setInterval(function () {
-                return _this2.setState({
-                    index: (_this2.state.index + 1) % length
-                });
-            }, 5000);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
-
-            var _props = this.props,
-                _props$title = _props.title,
-                title = _props$title === undefined ? "最新文章" : _props$title,
-                links = _props.links;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'list-head-carousel-wrap' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'list-head-carousel-title' },
-                    title,
-                    ':'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'list-head-carousel' },
-                    links.map(function (link, index) {
-                        return _react2.default.createElement(
-                            'p',
-                            { style: index === _this3.state.index ? { opacity: 1 } : null, key: index },
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { to: link.link },
-                                link.value
-                            )
-                        );
-                    })
-                )
-            );
-        }
-    }]);
-
-    return ListCarousel;
-}(_react.Component);
-
-exports.default = ListCarousel;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(0);\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouter = __webpack_require__(59);\n\n__webpack_require__(952);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar ListCarousel = function (_Component) {\n    _inherits(ListCarousel, _Component);\n\n    function ListCarousel(props) {\n        _classCallCheck(this, ListCarousel);\n\n        var _this = _possibleConstructorReturn(this, (ListCarousel.__proto__ || Object.getPrototypeOf(ListCarousel)).call(this, props));\n\n        _this.componentWillUnmount = function () {\n            clearInterval(_this._handle);\n        };\n\n        _this.state = {\n            index: 0\n        };\n        return _this;\n    }\n\n    _createClass(ListCarousel, [{\n        key: 'componentDidMount',\n        value: function componentDidMount() {\n            var _this2 = this;\n\n            var length = this.props.links && this.props.links.length || 0;\n            if (length === 0) {\n                return;\n            }\n\n            this._handle = setInterval(function () {\n                return _this2.setState({\n                    index: (_this2.state.index + 1) % length\n                });\n            }, 5000);\n        }\n    }, {\n        key: 'render',\n        value: function render() {\n            var _this3 = this;\n\n            var _props = this.props,\n                _props$title = _props.title,\n                title = _props$title === undefined ? \"最新文章\" : _props$title,\n                links = _props.links;\n\n            return _react2.default.createElement(\n                'div',\n                { className: 'list-head-carousel-wrap' },\n                _react2.default.createElement(\n                    'div',\n                    { className: 'list-head-carousel-title' },\n                    title,\n                    ':'\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'list-head-carousel' },\n                    links.map(function (link, index) {\n                        return _react2.default.createElement(\n                            'p',\n                            { style: index === _this3.state.index ? { opacity: 1 } : null, key: index },\n                            _react2.default.createElement(\n                                _reactRouter.Link,\n                                { to: link.link },\n                                link.value\n                            )\n                        );\n                    })\n                )\n            );\n        }\n    }]);\n\n    return ListCarousel;\n}(_react.Component);\n\nexports.default = ListCarousel;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9saXN0LWNhcm91c2VsL2luZGV4LmpzP2U4ZTIiXSwibmFtZXMiOlsiTGlzdENhcm91c2VsIiwicHJvcHMiLCJjb21wb25lbnRXaWxsVW5tb3VudCIsImNsZWFySW50ZXJ2YWwiLCJfaGFuZGxlIiwic3RhdGUiLCJpbmRleCIsImxlbmd0aCIsImxpbmtzIiwic2V0SW50ZXJ2YWwiLCJzZXRTdGF0ZSIsInRpdGxlIiwibWFwIiwibGluayIsIm9wYWNpdHkiLCJ2YWx1ZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTs7OztBQUVBOztBQUVBOzs7Ozs7Ozs7O0lBRU1BLFk7OztBQUNGLDBCQUFZQyxLQUFaLEVBQW1CO0FBQUE7O0FBQUEsZ0lBQ1RBLEtBRFM7O0FBQUEsY0FvQm5CQyxvQkFwQm1CLEdBb0JJLFlBQU07QUFDekJDLDBCQUFjLE1BQUtDLE9BQW5CO0FBQ0gsU0F0QmtCOztBQUVmLGNBQUtDLEtBQUwsR0FBYTtBQUNUQyxtQkFBTztBQURFLFNBQWI7QUFGZTtBQUtsQjs7Ozs0Q0FFbUI7QUFBQTs7QUFDaEIsZ0JBQUlDLFNBQVMsS0FBS04sS0FBTCxDQUFXTyxLQUFYLElBQW9CLEtBQUtQLEtBQUwsQ0FBV08sS0FBWCxDQUFpQkQsTUFBckMsSUFBK0MsQ0FBNUQ7QUFDQSxnQkFBR0EsV0FBVyxDQUFkLEVBQWlCO0FBQ2I7QUFDSDs7QUFFRCxpQkFBS0gsT0FBTCxHQUFlSyxZQUFhO0FBQUEsdUJBQ3hCLE9BQUtDLFFBQUwsQ0FBYztBQUNWSiwyQkFBTyxDQUFDLE9BQUtELEtBQUwsQ0FBV0MsS0FBWCxHQUFtQixDQUFwQixJQUF5QkM7QUFEdEIsaUJBQWQsQ0FEd0I7QUFBQSxhQUFiLEVBSWIsSUFKYSxDQUFmO0FBS0g7OztpQ0FNUTtBQUFBOztBQUFBLHlCQUMyQixLQUFLTixLQURoQztBQUFBLHNDQUNFVSxLQURGO0FBQUEsZ0JBQ0VBLEtBREYsZ0NBQ1UsTUFEVjtBQUFBLGdCQUNrQkgsS0FEbEIsVUFDa0JBLEtBRGxCOztBQUVMLG1CQUNJO0FBQUE7QUFBQSxrQkFBSyxXQUFVLHlCQUFmO0FBQ0k7QUFBQTtBQUFBLHNCQUFLLFdBQVUsMEJBQWY7QUFDS0cseUJBREw7QUFBQTtBQUFBLGlCQURKO0FBS0k7QUFBQTtBQUFBLHNCQUFLLFdBQVUsb0JBQWY7QUFFUUgsMEJBQU1JLEdBQU4sQ0FBVSxVQUFDQyxJQUFELEVBQU9QLEtBQVA7QUFBQSwrQkFDTjtBQUFBO0FBQUEsOEJBQUcsT0FBT0EsVUFBVSxPQUFLRCxLQUFMLENBQVdDLEtBQXJCLEdBQTZCLEVBQUNRLFNBQVMsQ0FBVixFQUE3QixHQUE0QyxJQUF0RCxFQUE2RCxLQUFLUixLQUFsRTtBQUNJO0FBQUE7QUFBQSxrQ0FBTSxJQUFJTyxLQUFLQSxJQUFmO0FBQXNCQSxxQ0FBS0U7QUFBM0I7QUFESix5QkFETTtBQUFBLHFCQUFWO0FBRlI7QUFMSixhQURKO0FBaUJIOzs7Ozs7a0JBR1VmLFkiLCJmaWxlIjoiOTUxLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7Q29tcG9uZW50fSBmcm9tICdyZWFjdCc7XHJcblxyXG5pbXBvcnQge0xpbmt9IGZyb20gJ3JlYWN0LXJvdXRlcic7XHJcblxyXG5pbXBvcnQgJy4vaW5kZXguc2Nzcyc7XHJcblxyXG5jbGFzcyBMaXN0Q2Fyb3VzZWwgZXh0ZW5kcyBDb21wb25lbnQge1xyXG4gICAgY29uc3RydWN0b3IocHJvcHMpIHtcclxuICAgICAgICBzdXBlcihwcm9wcyk7XHJcbiAgICAgICAgdGhpcy5zdGF0ZSA9IHtcclxuICAgICAgICAgICAgaW5kZXg6IDBcclxuICAgICAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgICAgICAgbGV0IGxlbmd0aCA9IHRoaXMucHJvcHMubGlua3MgJiYgdGhpcy5wcm9wcy5saW5rcy5sZW5ndGggfHwgMDtcclxuICAgICAgICBpZihsZW5ndGggPT09IDApIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgdGhpcy5faGFuZGxlID0gc2V0SW50ZXJ2YWwoICgpID0+XHJcbiAgICAgICAgICAgIHRoaXMuc2V0U3RhdGUoe1xyXG4gICAgICAgICAgICAgICAgaW5kZXg6ICh0aGlzLnN0YXRlLmluZGV4ICsgMSkgJSBsZW5ndGhcclxuICAgICAgICAgICAgfSlcclxuICAgICAgICAsIDUwMDApXHJcbiAgICB9XHJcblxyXG4gICAgY29tcG9uZW50V2lsbFVubW91bnQgPSAoKSA9PiB7XHJcbiAgICAgICAgY2xlYXJJbnRlcnZhbCh0aGlzLl9oYW5kbGUpO1xyXG4gICAgfVxyXG5cclxuICAgIHJlbmRlcigpIHtcclxuICAgICAgICBjb25zdCB7dGl0bGUgPSBcIuacgOaWsOaWh+eroFwiLCBsaW5rc30gPSB0aGlzLnByb3BzO1xyXG4gICAgICAgIHJldHVybiAoXHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibGlzdC1oZWFkLWNhcm91c2VsLXdyYXBcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibGlzdC1oZWFkLWNhcm91c2VsLXRpdGxlXCI+XHJcbiAgICAgICAgICAgICAgICAgICAge3RpdGxlfTogXHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJsaXN0LWhlYWQtY2Fyb3VzZWxcIj5cclxuICAgICAgICAgICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGxpbmtzLm1hcCgobGluaywgaW5kZXgpID0+IChcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwIHN0eWxlPXtpbmRleCA9PT0gdGhpcy5zdGF0ZS5pbmRleCA/IHtvcGFjaXR5OiAxfSA6IG51bGwgfSBrZXk9e2luZGV4fT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TGluayB0bz17bGluay5saW5rfT57bGluay52YWx1ZX08L0xpbms+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICkpXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIClcclxuICAgIH1cclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgTGlzdENhcm91c2VsO1xuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL2FwcC9jb21wb25lbnRzL2xpc3QtY2Fyb3VzZWwvaW5kZXguanMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///951\n");
 
 /***/ }),
 
-/***/ 851:
+/***/ 952:
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(852);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(6)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss", function() {
-			var newContent = require("!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(953);\nif(typeof content === 'string') content = [[module.i, content, '']];\n// Prepare cssTransformation\nvar transform;\n\nvar options = {}\noptions.transform = transform\n// add the styles to the DOM\nvar update = __webpack_require__(5)(content, options);\nif(content.locals) module.exports = content.locals;\n// Hot Module Replacement\nif(false) {\n\t// When the styles change, update the <style> tags\n\tif(!content.locals) {\n\t\tmodule.hot.accept(\"!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss\", function() {\n\t\t\tvar newContent = require(\"!!../../../node_modules/.npminstall/css-loader/0.28.4/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./index.scss\");\n\t\t\tif(typeof newContent === 'string') newContent = [[module.id, newContent, '']];\n\t\t\tupdate(newContent);\n\t\t});\n\t}\n\t// When the module is disposed, remove the <style> tags\n\tmodule.hot.dispose(function() { update(); });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9saXN0LWNhcm91c2VsL2luZGV4LnNjc3M/ZWM4YSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsR0FBRztBQUNIO0FBQ0E7QUFDQSxnQ0FBZ0MsVUFBVSxFQUFFO0FBQzVDIiwiZmlsZSI6Ijk1Mi5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHN0eWxlLWxvYWRlcjogQWRkcyBzb21lIGNzcyB0byB0aGUgRE9NIGJ5IGFkZGluZyBhIDxzdHlsZT4gdGFnXG5cbi8vIGxvYWQgdGhlIHN0eWxlc1xudmFyIGNvbnRlbnQgPSByZXF1aXJlKFwiISEuLi8uLi8uLi9ub2RlX21vZHVsZXMvLm5wbWluc3RhbGwvY3NzLWxvYWRlci8wLjI4LjQvY3NzLWxvYWRlci9pbmRleC5qcyEuLi8uLi8uLi9ub2RlX21vZHVsZXMvc2Fzcy1sb2FkZXIvbGliL2xvYWRlci5qcyEuL2luZGV4LnNjc3NcIik7XG5pZih0eXBlb2YgY29udGVudCA9PT0gJ3N0cmluZycpIGNvbnRlbnQgPSBbW21vZHVsZS5pZCwgY29udGVudCwgJyddXTtcbi8vIFByZXBhcmUgY3NzVHJhbnNmb3JtYXRpb25cbnZhciB0cmFuc2Zvcm07XG5cbnZhciBvcHRpb25zID0ge31cbm9wdGlvbnMudHJhbnNmb3JtID0gdHJhbnNmb3JtXG4vLyBhZGQgdGhlIHN0eWxlcyB0byB0aGUgRE9NXG52YXIgdXBkYXRlID0gcmVxdWlyZShcIiEuLi8uLi8uLi9ub2RlX21vZHVsZXMvLm5wbWluc3RhbGwvc3R5bGUtbG9hZGVyLzAuMTguMi9zdHlsZS1sb2FkZXIvbGliL2FkZFN0eWxlcy5qc1wiKShjb250ZW50LCBvcHRpb25zKTtcbmlmKGNvbnRlbnQubG9jYWxzKSBtb2R1bGUuZXhwb3J0cyA9IGNvbnRlbnQubG9jYWxzO1xuLy8gSG90IE1vZHVsZSBSZXBsYWNlbWVudFxuaWYobW9kdWxlLmhvdCkge1xuXHQvLyBXaGVuIHRoZSBzdHlsZXMgY2hhbmdlLCB1cGRhdGUgdGhlIDxzdHlsZT4gdGFnc1xuXHRpZighY29udGVudC5sb2NhbHMpIHtcblx0XHRtb2R1bGUuaG90LmFjY2VwdChcIiEhLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5ucG1pbnN0YWxsL2Nzcy1sb2FkZXIvMC4yOC40L2Nzcy1sb2FkZXIvaW5kZXguanMhLi4vLi4vLi4vbm9kZV9tb2R1bGVzL3Nhc3MtbG9hZGVyL2xpYi9sb2FkZXIuanMhLi9pbmRleC5zY3NzXCIsIGZ1bmN0aW9uKCkge1xuXHRcdFx0dmFyIG5ld0NvbnRlbnQgPSByZXF1aXJlKFwiISEuLi8uLi8uLi9ub2RlX21vZHVsZXMvLm5wbWluc3RhbGwvY3NzLWxvYWRlci8wLjI4LjQvY3NzLWxvYWRlci9pbmRleC5qcyEuLi8uLi8uLi9ub2RlX21vZHVsZXMvc2Fzcy1sb2FkZXIvbGliL2xvYWRlci5qcyEuL2luZGV4LnNjc3NcIik7XG5cdFx0XHRpZih0eXBlb2YgbmV3Q29udGVudCA9PT0gJ3N0cmluZycpIG5ld0NvbnRlbnQgPSBbW21vZHVsZS5pZCwgbmV3Q29udGVudCwgJyddXTtcblx0XHRcdHVwZGF0ZShuZXdDb250ZW50KTtcblx0XHR9KTtcblx0fVxuXHQvLyBXaGVuIHRoZSBtb2R1bGUgaXMgZGlzcG9zZWQsIHJlbW92ZSB0aGUgPHN0eWxlPiB0YWdzXG5cdG1vZHVsZS5ob3QuZGlzcG9zZShmdW5jdGlvbigpIHsgdXBkYXRlKCk7IH0pO1xufVxuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIC4vYXBwL2NvbXBvbmVudHMvbGlzdC1jYXJvdXNlbC9pbmRleC5zY3NzXG4vLyBtb2R1bGUgaWQgPSA5NTJcbi8vIG1vZHVsZSBjaHVua3MgPSA1Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///952\n");
 
 /***/ }),
 
-/***/ 852:
+/***/ 953:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".list-head-carousel-wrap {\n  height: 36px;\n  margin: 15px 0;\n  font-size: 13px;\n  background-color: #fafafa;\n  box-shadow: 0 0 6px #aaa; }\n\n.list-head-carousel-title {\n  display: inline-block;\n  height: 36px;\n  margin: 0 15px 0 25px;\n  line-height: 36px;\n  vertical-align: top; }\n\n.list-head-carousel {\n  position: relative;\n  display: inline-block;\n  height: 36px;\n  width: 500px;\n  max-width: 60%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  .list-head-carousel > p {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    height: 36px;\n    padding: 0;\n    line-height: 36px;\n    opacity: 0;\n    transition: opacity ease-in 1000ms; }\n", ""]);
-
-// exports
-
+eval("exports = module.exports = __webpack_require__(4)(undefined);\n// imports\n\n\n// module\nexports.push([module.i, \".list-head-carousel-wrap {\\n  height: 36px;\\n  margin: 15px 0;\\n  font-size: 13px;\\n  background-color: #fafafa;\\n  box-shadow: 0 0 6px #aaa; }\\n\\n.list-head-carousel-title {\\n  display: inline-block;\\n  height: 36px;\\n  margin: 0 15px 0 25px;\\n  line-height: 36px;\\n  vertical-align: top; }\\n\\n.list-head-carousel {\\n  position: relative;\\n  display: inline-block;\\n  height: 36px;\\n  width: 500px;\\n  max-width: 60%;\\n  overflow: hidden;\\n  text-overflow: ellipsis;\\n  white-space: nowrap; }\\n  .list-head-carousel > p {\\n    position: absolute;\\n    top: 0;\\n    bottom: 0;\\n    left: 0;\\n    height: 36px;\\n    padding: 0;\\n    line-height: 36px;\\n    opacity: 0;\\n    transition: opacity ease-in 1000ms; }\\n\", \"\"]);\n\n// exports\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29tcG9uZW50cy9saXN0LWNhcm91c2VsL2luZGV4LnNjc3M/YzE0NyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBOzs7QUFHQTtBQUNBLG1EQUFvRCxpQkFBaUIsbUJBQW1CLG9CQUFvQiw4QkFBOEIsNkJBQTZCLEVBQUUsK0JBQStCLDBCQUEwQixpQkFBaUIsMEJBQTBCLHNCQUFzQix3QkFBd0IsRUFBRSx5QkFBeUIsdUJBQXVCLDBCQUEwQixpQkFBaUIsaUJBQWlCLG1CQUFtQixxQkFBcUIsNEJBQTRCLHdCQUF3QixFQUFFLDZCQUE2Qix5QkFBeUIsYUFBYSxnQkFBZ0IsY0FBYyxtQkFBbUIsaUJBQWlCLHdCQUF3QixpQkFBaUIseUNBQXlDLEVBQUU7O0FBRWh1QiIsImZpbGUiOiI5NTMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnRzID0gbW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKFwiLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5ucG1pbnN0YWxsL2Nzcy1sb2FkZXIvMC4yOC40L2Nzcy1sb2FkZXIvbGliL2Nzcy1iYXNlLmpzXCIpKHVuZGVmaW5lZCk7XG4vLyBpbXBvcnRzXG5cblxuLy8gbW9kdWxlXG5leHBvcnRzLnB1c2goW21vZHVsZS5pZCwgXCIubGlzdC1oZWFkLWNhcm91c2VsLXdyYXAge1xcbiAgaGVpZ2h0OiAzNnB4O1xcbiAgbWFyZ2luOiAxNXB4IDA7XFxuICBmb250LXNpemU6IDEzcHg7XFxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmFmYWZhO1xcbiAgYm94LXNoYWRvdzogMCAwIDZweCAjYWFhOyB9XFxuXFxuLmxpc3QtaGVhZC1jYXJvdXNlbC10aXRsZSB7XFxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XFxuICBoZWlnaHQ6IDM2cHg7XFxuICBtYXJnaW46IDAgMTVweCAwIDI1cHg7XFxuICBsaW5lLWhlaWdodDogMzZweDtcXG4gIHZlcnRpY2FsLWFsaWduOiB0b3A7IH1cXG5cXG4ubGlzdC1oZWFkLWNhcm91c2VsIHtcXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcXG4gIGhlaWdodDogMzZweDtcXG4gIHdpZHRoOiA1MDBweDtcXG4gIG1heC13aWR0aDogNjAlO1xcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcXG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDsgfVxcbiAgLmxpc3QtaGVhZC1jYXJvdXNlbCA+IHAge1xcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XFxuICAgIHRvcDogMDtcXG4gICAgYm90dG9tOiAwO1xcbiAgICBsZWZ0OiAwO1xcbiAgICBoZWlnaHQ6IDM2cHg7XFxuICAgIHBhZGRpbmc6IDA7XFxuICAgIGxpbmUtaGVpZ2h0OiAzNnB4O1xcbiAgICBvcGFjaXR5OiAwO1xcbiAgICB0cmFuc2l0aW9uOiBvcGFjaXR5IGVhc2UtaW4gMTAwMG1zOyB9XFxuXCIsIFwiXCJdKTtcblxuLy8gZXhwb3J0c1xuXG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9ub2RlX21vZHVsZXMvLm5wbWluc3RhbGwvY3NzLWxvYWRlci8wLjI4LjQvY3NzLWxvYWRlciEuL25vZGVfbW9kdWxlcy9zYXNzLWxvYWRlci9saWIvbG9hZGVyLmpzIS4vYXBwL2NvbXBvbmVudHMvbGlzdC1jYXJvdXNlbC9pbmRleC5zY3NzXG4vLyBtb2R1bGUgaWQgPSA5NTNcbi8vIG1vZHVsZSBjaHVua3MgPSA1Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///953\n");
 
 /***/ }),
 
-/***/ 853:
+/***/ 954:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _status = __webpack_require__(170);
-
-var Status = _interopRequireWildcard(_status);
-
-var _actionType = __webpack_require__(835);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { status: Status.LOADING };
-    var action = arguments[1];
-
-    switch (action.type) {
-        case _actionType.ARTICALS_STARTED:
-            {
-                return {
-                    status: Status.LOADING
-                };
-            }
-        case _actionType.ARTICALS_SUCCESS:
-            {
-                return _extends({}, state, {
-                    status: Status.SUCCESS,
-                    articals: action.articals
-                });
-            }
-        case _actionType.ARTICALS_FAILURE:
-            {
-                return {
-                    status: Status.FAILURE,
-                    error: Status.message
-                };
-            }
-        default:
-            {
-                return state;
-            }
-    }
-};
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nvar _status = __webpack_require__(272);\n\nvar Status = _interopRequireWildcard(_status);\n\nvar _actionType = __webpack_require__(934);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nexports.default = function () {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { status: Status.LOADING };\n    var action = arguments[1];\n\n    switch (action.type) {\n        case _actionType.ARTICALS_STARTED:\n            {\n                return {\n                    status: Status.LOADING\n                };\n            }\n        case _actionType.ARTICALS_SUCCESS:\n            {\n                return _extends({}, state, {\n                    status: Status.SUCCESS,\n                    articals: action.articals\n                });\n            }\n        case _actionType.ARTICALS_FAILURE:\n            {\n                return {\n                    status: Status.FAILURE,\n                    error: Status.message\n                };\n            }\n        default:\n            {\n                return state;\n            }\n    }\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvY29udGFpbmVycy9Ib21lL0FydGljYWxzL3JlZHVjZXIuanM/ZGEwYiJdLCJuYW1lcyI6WyJTdGF0dXMiLCJzdGF0ZSIsInN0YXR1cyIsIkxPQURJTkciLCJhY3Rpb24iLCJ0eXBlIiwiU1VDQ0VTUyIsImFydGljYWxzIiwiRkFJTFVSRSIsImVycm9yIiwibWVzc2FnZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTs7SUFBWUEsTTs7QUFDWjs7OztrQkFFYyxZQUE4QztBQUFBLFFBQTdDQyxLQUE2Qyx1RUFBckMsRUFBQ0MsUUFBUUYsT0FBT0csT0FBaEIsRUFBcUM7QUFBQSxRQUFYQyxNQUFXOztBQUN4RCxZQUFPQSxPQUFPQyxJQUFkO0FBQ0k7QUFBdUI7QUFDbkIsdUJBQU87QUFDSEgsNEJBQVFGLE9BQU9HO0FBRFosaUJBQVA7QUFHSDtBQUNEO0FBQXVCO0FBQ25CLG9DQUNPRixLQURQO0FBRUlDLDRCQUFRRixPQUFPTSxPQUZuQjtBQUdJQyw4QkFBVUgsT0FBT0c7QUFIckI7QUFLSDtBQUNEO0FBQXVCO0FBQ25CLHVCQUFPO0FBQ0hMLDRCQUFRRixPQUFPUSxPQURaO0FBRUhDLDJCQUFPVCxPQUFPVTtBQUZYLGlCQUFQO0FBSUg7QUFDRDtBQUFTO0FBQ0wsdUJBQU9ULEtBQVA7QUFDSDtBQXJCTDtBQXVCSCxDIiwiZmlsZSI6Ijk1NC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIFN0YXR1cyBmcm9tIFwiLi4vLi4vLi4vY29uZmlnL3N0YXR1c1wiO1xyXG5pbXBvcnQge0FSVElDQUxTX1NUQVJURUQsIEFSVElDQUxTX1NVQ0NFU1MsIEFSVElDQUxTX0ZBSUxVUkV9IGZyb20gXCIuL2FjdGlvblR5cGVcIjtcclxuXHJcbmV4cG9ydCBkZWZhdWx0KHN0YXRlID0ge3N0YXR1czogU3RhdHVzLkxPQURJTkd9LCBhY3Rpb24pID0+IHtcclxuICAgIHN3aXRjaChhY3Rpb24udHlwZSkge1xyXG4gICAgICAgIGNhc2UgQVJUSUNBTFNfU1RBUlRFRDoge1xyXG4gICAgICAgICAgICByZXR1cm4ge1xyXG4gICAgICAgICAgICAgICAgc3RhdHVzOiBTdGF0dXMuTE9BRElOR1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGNhc2UgQVJUSUNBTFNfU1VDQ0VTUzoge1xyXG4gICAgICAgICAgICByZXR1cm4ge1xyXG4gICAgICAgICAgICAgICAgLi4uc3RhdGUsXHJcbiAgICAgICAgICAgICAgICBzdGF0dXM6IFN0YXR1cy5TVUNDRVNTLFxyXG4gICAgICAgICAgICAgICAgYXJ0aWNhbHM6IGFjdGlvbi5hcnRpY2Fsc1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGNhc2UgQVJUSUNBTFNfRkFJTFVSRToge1xyXG4gICAgICAgICAgICByZXR1cm4ge1xyXG4gICAgICAgICAgICAgICAgc3RhdHVzOiBTdGF0dXMuRkFJTFVSRSxcclxuICAgICAgICAgICAgICAgIGVycm9yOiBTdGF0dXMubWVzc2FnZVxyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGRlZmF1bHQ6IHtcclxuICAgICAgICAgICAgcmV0dXJuIHN0YXRlXHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vYXBwL2NvbnRhaW5lcnMvSG9tZS9BcnRpY2Fscy9yZWR1Y2VyLmpzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///954\n");
 
 /***/ })
 
 });
-//# sourceMappingURL=home.chunk.js.map

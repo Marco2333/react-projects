@@ -1,0 +1,3 @@
+export const FETCH_STARTED = 'NOTE/STARTED';
+export const FETCH_SUCCESS = 'NOTE/SUCCESS';
+export const FETCH_FAILURE = 'NOTE/FAILURE';

@@ -20,14 +20,14 @@ function escape2Html(str) {
 router.get('/get-artical-list', function(req, res, next) {
     let {current = 1, count = 10, type = 0} = req.query;
     let sql = "";
-    let field = "blog.id, title, body, tag, created_at, views, theme";
+    let field = "artical.id, title, body, tag, created_at, views, theme";
 
     if(type == 0) {
-        sql = `select ${field} from blog join category on blog.category = category.id where blog.status = 1
+        sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1
         order by created_at desc limit ${(current - 1) * count}, ${count}`;
     } else{
-        sql = `select ${field} from blog join category on blog.category = category.id
-         where type = ${+type} and blog.status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
+        sql = `select ${field} from artical join category on artical.category = category.id
+         where type = ${+type} and artical.status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
     }
     db.query(sql, function(err, rows) {
         let out = []
@@ -37,7 +37,7 @@ router.get('/get-artical-list', function(req, res, next) {
                 'id': item.id,
                 'title': item.title,
                 'tag': item.tag,
-                'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 150),
+                'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
                 'created_at': item.created_at,
                 'views': item.views,
                 'theme': item.theme
@@ -45,7 +45,7 @@ router.get('/get-artical-list', function(req, res, next) {
         }
 
         if(type == 0) {
-            db.query("select count(*) as total from blog", function(err, rows) {
+            db.query("select count(*) as total from artical", function(err, rows) {
                 res.json({"status": 1, "articals": out, "total": rows[0]['total']});
             })
         } else {
@@ -57,11 +57,11 @@ router.get('/get-artical-list', function(req, res, next) {
 router.get('/get-navside-info', function(req, res, next) {
     let sqls = [
         "select value from config where (name = 'intro' or name = 'view_count') and status = 1",
-        "select id, title from blog order by created_at desc limit 10",
+        "select id, title from artical order by created_at desc limit 10",
         "select id, theme from category where status = 1",
         "select id, text, url from link where status = 1",
-        "select distinct tag from blog where status = 1 order by created_at desc limit 15",
-        "select count(*) as count from blog where status = 1"
+        "select distinct tag from artical where status = 1 order by created_at desc limit 15",
+        "select count(*) as count from artical where status = 1"
     ];
 
     let ps = [];
@@ -88,8 +88,8 @@ router.get('/get-navside-info', function(req, res, next) {
 
         let infos = {
             portrait: {
-                'intro': out[0][1]['value'],
-                'viewCount': out[0][0]['value'],
+                'intro': out[0][0]['value'],
+                'viewCount': out[0][1]['value'],
                 'articalCount': out[5][0]['count']
             },
             articals: out[1],
@@ -107,8 +107,8 @@ router.get('/get-navside-info', function(req, res, next) {
 router.get('/get-artical-detail/:id', function(req, res, next) {
     let {id} = req.params;
     
-    let sql = `select blog.id, title, body, tag, theme, category, created_at, updated_at, 
-    type, views from blog join category on blog.category = category.id where blog.id = ${id} and blog.status = 1`;
+    let sql = `select artical.id, title, body, tag, theme, category, created_at, updated_at, 
+    type, views from artical join category on artical.category = category.id where artical.id = ${id} and artical.status = 1`;
 
     db.query(sql, function(err, rows) {
         if(err) {
@@ -128,21 +128,21 @@ router.get('/get-timeline', function(req, res, next) {
     let {current = 1, count = 30, category = 0} = req.query;
     
     let sql = "";
-    let field = "blog.id, title, created_at";
+    let field = "artical.id, title, created_at";
 
     if(category == 0) {
-        sql = `select ${field} from blog where blog.status = 1
+        sql = `select ${field} from artical where artical.status = 1
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = 'select count(*) as total from blog where status = 1';
+        sql = 'select count(*) as total from artical where status = 1';
         sqls.push(sql);
     } else{
-        sql = `select ${field} from blog where category = ${+category} and blog.status = 1 
+        sql = `select ${field} from artical where category = ${+category} and artical.status = 1 
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = `select count(*) as total from blog where status = 1 and category = ${+category}`;
+        sql = `select count(*) as total from artical where status = 1 and category = ${+category}`;
 
         sqls.push(sql);
     }
@@ -180,8 +180,8 @@ router.get('/search', function(req, res, next) {
        res.json({"status": 1, "articals": []}); 
     }
 
-    let field = "blog.id, title, body, tag, created_at, views, theme";
-    let sql = `select ${field} from blog join category on blog.category = category.id where blog.status = 1 and (body like '%${keyword}%' or title like 
+    let field = "artical.id, title, body, tag, created_at, views, theme";
+    let sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1 and (body like '%${keyword}%' or title like 
         '%${keyword}%' or tag like '%${keyword}%') order by created_at desc limit ${(current - 1) * count}, ${count}`;
     
     db.query(sql, function(err, rows) {
@@ -203,7 +203,7 @@ router.get('/search', function(req, res, next) {
                 })
             }
 
-            db.query(`select count(*) as total from blog where blog.status = 1 and (body like '%${keyword}%' or title like 
+            db.query(`select count(*) as total from artical where artical.status = 1 and (body like '%${keyword}%' or title like 
              '%${keyword}%' or tag like '%${keyword}%')`, function(err, rows) {
                 res.json({"status": 1, "articals": out, "total": rows[0]['total']});
             })
@@ -218,21 +218,21 @@ router.get('/get-category', function(req, res, next) {
     
     let sqls = [];
     let sql = "";
-    let field = "blog.id, title, body, tag, created_at, views, theme";
+    let field = "artical.id, title, body, tag, created_at, views, theme";
 
     if(category == 0) {
-        sql = `select ${field} from blog join category on blog.category = category.id where blog.status = 1
+        sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = 'select count(*) as total from blog where status = 1';
+        sql = 'select count(*) as total from artical where status = 1';
         sqls.push(sql);
     } else{
-        sql = `select ${field} from blog join category on blog.category = category.id where category = ${+category} and blog.status = 1 
+        sql = `select ${field} from artical join category on artical.category = category.id where category = ${+category} and artical.status = 1 
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = `select count(*) as total from blog where status = 1 and category = ${+category}`;
+        sql = `select count(*) as total from artical where status = 1 and category = ${+category}`;
 
         sqls.push(sql);
     }
@@ -278,8 +278,8 @@ router.get('/get-category', function(req, res, next) {
 
 router.get('/get-tag', function(req, res, next) {
     let {tag} = req.query;
-    let field = "blog.id, title, body, tag, created_at, views, theme";
-    let sql = `select ${field} from blog join category on blog.category = category.id where blog.status = 1 
+    let field = "artical.id, title, body, tag, created_at, views, theme";
+    let sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1 
         and tag like '%${tag}%' order by created_at desc`;
     
     db.query(sql, function(err, rows) {
@@ -299,6 +299,26 @@ router.get('/get-tag', function(req, res, next) {
         res.json({"status": 1, "articals": out});
     })
 });
+
+router.get('/get-note', function(req, res, next) {
+    let {current = 1, count = 15} = req.query;
+    let field = "id, title, detail, tag, created_at";
+    let sql = `select ${field} from gather where status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
+    
+    db.query(sql, function(err, rows) {
+		console.log(err);
+        if(err) {
+            res.json({"status": 0, "message": ''});
+        }
+        else {
+            db.query('select count(*) as total from gather where status = 1 ', function(err, t) {
+                res.json({"status": 1, "notes": rows, "total": t[0]['total']});
+            })
+        }
+    })
+});
+
+
 
 router.get('*', function(req, res, next) {
 	res.sendfile(path.join(__dirname, '../../public/index.html')); // 发送静态文件

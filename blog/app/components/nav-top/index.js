@@ -54,7 +54,7 @@ class NavTop extends Component {
             {key: "timeline", text: '归档'},
             {key: "gather", text: '点滴'},
             {key: "life", text: '慢生活'},
-            {key: "gossip", text: '碎言碎语'}
+            // {key: "gossip", text: '碎言碎语'}
         ];
 
         let currLink = this.state.link;

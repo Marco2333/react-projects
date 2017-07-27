@@ -1,0 +1,40 @@
+.note-wrap {
+	font-size: 12px;
+	padding: 10px 17px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 4px #555;
+	transition: box-shadow ease-in 300ms;
+	&:hover {
+		box-shadow: 0 0 15px #222;
+	}
+}
+
+.note-author {
+	text-align: right;
+}
+
+.note-abstract {
+	margin: 10px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.note-title {
+	color: #555;
+	font-size: 14px;
+	font-weight: bold;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.note-modal-tag {
+	margin-top: -8px;
+}
+.note-modal-detail {
+	margin: 13px 0 6px;
+	color: #555;
+	font-size: 14px;
+}

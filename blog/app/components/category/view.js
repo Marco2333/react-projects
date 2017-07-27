@@ -49,7 +49,7 @@ class Category extends Component {
     render() {
         let {articalList, total, pagination = true} = this.props;
         let {count, current} = this.state;
-        console.log(this.props);
+        
         return (
             <div>
                 <ArticalList articals={articalList}/>

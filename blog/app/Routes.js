@@ -166,6 +166,27 @@ const getTagPage = (nextProps, callback) => {
     }, 'tag');
 }
 
+const getGatherPage = (nextProps, callback) => {
+    
+    require.ensure([], function (require) {
+        const {Gather, reducer, initialState, stateKey} = require('./containers/Gather');
+
+        const state = store.getState(); 
+
+        store._reducers = {...store._reducers, ...reducer};
+
+        let currState = {...initialState, ...state};
+
+        store.reset(combineReducers({
+            ...store._reducers
+        }), {
+            ...currState
+        });
+        
+        callback(null, Gather);
+    }, 'gather');
+}
+
 const history = syncHistoryWithStore(hashHistory, store);
 
 const Routes = () => (
@@ -178,7 +199,8 @@ const Routes = () => (
             <Route name="timeline" breadcrumbName="Timeline" path="timeline" getComponent={getTimelinePage} />
             <Route name="search" breadcrumbName="Search" path="search/:keyword" getComponent={getSearchPage} />
             <Route name="category" breadcrumbName="Category" path="category/:id" getComponent={getCategoryPage} />
-            <Route name="tag" breadcrumbName="标签" path="tag/:tag" getComponent={getTagPage} />
+			<Route name="tag" breadcrumbName="标签" path="tag/:tag" getComponent={getTagPage} />
+			<Route name="gather" breadcrumbName="点滴" path="gather" getComponent={getGatherPage} />
         </Route>
     </Router>
 )

@@ -34,7 +34,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		8: 0
+/******/ 		9: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -91,7 +91,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "chunk/" + ({"0":"timeline","1":"artical","2":"search","3":"category","4":"home","5":"tag","6":"artical-detail","7":"main"}[chunkId]||chunkId) + ".chunk.js";
+/******/ 		script.src = __webpack_require__.p + "chunk/" + ({"0":"timeline","1":"artical","2":"search","3":"category","4":"gather","5":"home","6":"tag","7":"artical-detail","8":"main"}[chunkId]||chunkId) + ".chunk.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -148,4 +148,3 @@
 /******/ })
 /************************************************************************/
 /******/ ([]);
-//# sourceMappingURL=common.js.map
