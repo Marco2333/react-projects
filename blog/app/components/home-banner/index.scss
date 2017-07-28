@@ -1,6 +1,7 @@
 .day-word {
     position: relative;
-    padding: 8px 0;
+	padding: 12px 10px 9px;
+    box-shadow: 0 0 5px #555;
     > img {
         width: 100%;
     }
@@ -10,7 +11,7 @@
         top: 38%;
         width: 60%;
         color: #fff;
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 

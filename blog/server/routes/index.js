@@ -319,6 +319,23 @@ router.get('/get-note', function(req, res, next) {
 });
 
 
+router.get('/get-gossip', function(req, res, next) {
+    let {current = 1, count = 30} = req.query;
+    let sql = `select * from gossip order by created_at desc limit ${(current - 1) * count}, ${count}`;
+    
+    db.query(sql, function(err, rows) {
+		console.log(rows);
+        if(err) {
+            res.json({"status": 0, "message": ''});
+        }
+        else {
+            db.query('select count(*) as total from gossip', function(err, t) {
+                res.json({"status": 1, "gossips": rows, "total": t[0]['total']});
+            })
+        }
+    })
+});
+
 
 router.get('*', function(req, res, next) {
 	res.sendfile(path.join(__dirname, '../../public/index.html')); // 发送静态文件

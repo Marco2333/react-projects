@@ -1,14 +1,14 @@
 @import "../../config/config.scss";
 
 .nav-side {
-    font-size: 13px;
+    font-size: 12px;
     > .panel {
         margin: 15px 0 25px;
         box-shadow: 0 0 6px #aaa;
     }
     li {
         color: $link-color;
-        line-height: 23px;
+        line-height: 21px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -36,7 +36,7 @@
     }
     .statistic-item {
         display: inline-block;
-        margin: 5px 9px;
+        margin: 3px 9px 1px;
     }
 }
 .user-portrait {
@@ -45,7 +45,7 @@
     > img {
         width: 110px;
         height: 110px;
-        margin-top: -70px;
+        margin-top: -80px;
         border-radius: 100%;
         transition: transform .8s ease-in-out;
         &:hover {

@@ -45,7 +45,7 @@ class Banner extends Component {
 
         return (
             <div className="banner-wrap">
-                <Row>
+                <Row gutter={5}>
                     <Col xs={19} sm={19}>
                         <div className="banner-list clearfix">
                             {

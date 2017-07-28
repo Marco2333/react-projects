@@ -187,6 +187,27 @@ const getGatherPage = (nextProps, callback) => {
     }, 'gather');
 }
 
+const getGossipPage = (nextProps, callback) => {
+    
+    require.ensure([], function (require) {
+        const {Gossip, reducer, initialState, stateKey} = require('./containers/Gossip');
+
+        const state = store.getState(); 
+
+        store._reducers = {...store._reducers, ...reducer};
+
+        let currState = {...initialState, ...state};
+
+        store.reset(combineReducers({
+            ...store._reducers
+        }), {
+            ...currState
+        });
+        
+        callback(null, Gossip);
+    }, 'gossip');
+}
+
 const history = syncHistoryWithStore(hashHistory, store);
 
 const Routes = () => (
@@ -201,6 +222,7 @@ const Routes = () => (
             <Route name="category" breadcrumbName="Category" path="category/:id" getComponent={getCategoryPage} />
 			<Route name="tag" breadcrumbName="标签" path="tag/:tag" getComponent={getTagPage} />
 			<Route name="gather" breadcrumbName="点滴" path="gather" getComponent={getGatherPage} />
+			<Route name="gossip" breadcrumbName="慢生活" path="gossip" getComponent={getGossipPage} />
         </Route>
     </Router>
 )

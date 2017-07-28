@@ -17,7 +17,7 @@ const HomeBanner = () => {
                 <Col xs={0} sm={0} md={9}>
                     <div className="day-word">
                         <img src={boardImg} alt=""/>
-                        <p>毕竟不是作家，写不出那么好的文章。-- 因为没有丰富阅历和经验！</p>
+                        <p>毕竟不是作家，写不出那么好的文章。 -- 因为没有丰富阅历和经验！</p>
                     </div>
                 </Col>
             </Row>

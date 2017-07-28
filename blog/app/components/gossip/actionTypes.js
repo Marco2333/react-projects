@@ -1,0 +1,3 @@
+export const FETCH_STARTED = 'GOSSIP/STARTED';
+export const FETCH_SUCCESS = 'GOSSIP/SUCCESS';
+export const FETCH_FAILURE = 'GOSSIP/FAILURE';

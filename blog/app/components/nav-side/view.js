@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {Icon} from 'antd';
 
+import ICloud from '../icloud';
+
 import {getNavInfo} from './actions';
 
 import './index.scss';
@@ -44,7 +46,7 @@ class NavSide extends Component {
                     <div className="panel-heading">FOLLOW ME</div>
                     <div className="panel-body text-center">
                         <p className="followme-link">
-                            <a href="https://github.com/Marco2333" target="_blank"><Icon type="github"/></a>
+                            <a href="https://github.com/Marco2333" target="_blank"> <Icon type="github"/></a>
                         </p>
                         <p className="followme-link" style={{transform: "rotate(180deg)"}}>
                             <a href="https://github.com/Marco2333" target="_blank"><Icon type="github"/></a>
@@ -91,18 +93,8 @@ class NavSide extends Component {
                 </div>
                 <div className="panel">
                     <div className="panel-heading">云标签</div>
-                    <div className="panel-body">
-                        <ul>
-                            {
-                                tags ?
-                                tags.map((tag, index) => (
-                                    <li key={index}>
-                                        <Link to={`/tag/${tag}`}>{tag}</Link>
-                                    </li>
-                                ))
-                                : ''
-                            }
-                        </ul> 
+					<div className="panel-body">
+						<ICloud tags={tags} />
                     </div>
                 </div>
                 <div className="panel">

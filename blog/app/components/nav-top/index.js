@@ -53,7 +53,7 @@ class NavTop extends Component {
             {key: "artical", text: '文章'},
             {key: "timeline", text: '归档'},
             {key: "gather", text: '点滴'},
-            {key: "life", text: '慢生活'},
+            {key: "gossip", text: '慢生活'},
             // {key: "gossip", text: '碎言碎语'}
         ];
 

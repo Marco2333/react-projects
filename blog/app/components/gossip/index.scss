@@ -1,0 +1,31 @@
+@import '../../config/config.scss';
+
+.gossip-wrap {
+	margin-top: 15px;
+	padding: 35px 25px 20px 40px;
+	box-shadow: 0 0 5px #555;
+}
+
+.gossip-item {
+	position: relative;
+    top: -6px;
+    padding: 20px 28px 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    border-radius: 10px;
+    background: #f0f0f0;
+}
+
+.gossip-author {
+	margin-top: 13px;
+	color: #777;
+	font-size: 13px;
+	text-align: right;
+}
+
+.gossip-img {
+	padding: 5px 0 10px;
+	> img {
+		width: 100%;
+	}
+}
