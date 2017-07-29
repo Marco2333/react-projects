@@ -1,11 +1,11 @@
-import TimeLine, {stateKey, reducer as tlReducer, initialState as tliState} from '../components/timeline';
+import TimeLine, {stateKey, reducer as tlReducer, initialState as tlState} from '../components/timeline';
 
 const reducer = {
     [stateKey]: tlReducer
 }
 
 const initialState = {
-    [stateKey]: tliState
+    [stateKey]: tlState
 }
 
 export {

@@ -9,23 +9,40 @@ class ListCarousel extends Component {
         super(props);
         this.state = {
             index: 0
-        }
+		}
     }
 
     componentDidMount() {
-        let length = this.props.links && this.props.links.length || 0;
+		let length = this.props.links && this.props.links.length || 0;
+		
         if(length === 0) {
             return;
         }
 
-        this._handle = setInterval( () =>
-            this.setState({
+        this._handle = setInterval( () => 
+			 this.setState({
                 index: (this.state.index + 1) % length
             })
         , 5000)
-    }
+	}
+	
+	componentWillReceiveProps(nextProps) {
+		clearInterval(this._handle);
 
-    componentWillUnmount = () => {
+		let length = nextProps.links && nextProps.links.length || 0;
+
+        if(length === 0) {
+            return;
+		}
+		
+        this._handle = setInterval( () => 
+			this.setState({
+                index: (this.state.index + 1) % length
+            })
+        , 5000)
+	}
+
+    componentWillUnmount() {
         clearInterval(this._handle);
     }
 

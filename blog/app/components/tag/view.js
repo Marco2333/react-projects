@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import {connect} from 'react-redux';
 
-import ArticalList from '../../components/artical-list';
+import ArticleList from '../../components/article-list';
 
 import {getTag} from './actions';
 
@@ -26,10 +26,10 @@ class Tag extends Component {
     }
     
     render() {
-        let {articalList} = this.props;
+        let {articleList} = this.props;
     
         return (
-            <ArticalList articals={articalList} /> 
+            <ArticleList articles={articleList} /> 
         )
     }
 }
@@ -37,7 +37,7 @@ class Tag extends Component {
 const mapStateToProps = (state) => {
     return {
         tag: state[stateKey] && state[stateKey].tag || '',
-        articalList: state[stateKey] && state[stateKey].articals || null
+        articleList: state[stateKey] && state[stateKey].articles || null
     }
 }
 

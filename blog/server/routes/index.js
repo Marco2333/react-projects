@@ -17,17 +17,97 @@ function escape2Html(str) {
     });
 }
 
-router.get('/get-artical-list', function(req, res, next) {
+router.get('/get-articles', function(req, res, next) {
+	let {current, count, type, category, keyword, tag} = req.query;
+
+	let field = "article.id, title, body, tag, created_at, views, theme";
+	let sql = `select ${field} from article join category on article.category = category.id`,
+		condition = " where article.status = 1",
+		totalSql = '';
+
+	if(tag != null) {
+		condition += ` and tag like '%${tag}%'`;
+	}
+	if(keyword != null && keyword.trim() !== '') {
+		condition += ` and (body like '%${keyword}%' or title like 
+        '%${keyword}%' or tag like '%${keyword}%')`;
+	}
+	if(category != null && +category !== 0) {
+		condition += ` and category = ${+category}`;
+	}
+	if(type != null && +type !== 0) {
+		condition += ` and type = ${+type}`;
+	}
+	sql += condition;
+	sql += " order by created_at desc";
+
+	if(count != null) {
+		if(current != null) {
+			sql += ` limit ${(current - 1) * count}, ${count}`;
+			totalSql += "select count(*) as total from article" + condition;
+		}
+		else {
+			sql += ` limit ${count}`;
+		}
+	}
+	console.log(sql);
+	db.query(sql, function(err, rows) {
+		let info = {};
+		let articles = [];
+
+		if(err) {
+			console.log(err);
+			res.json({'status': 0, 'message': 'error'});
+		}
+
+		else {
+			rows.forEach(item => {
+				articles.push({
+					'id': item.id,
+					'title': item.title,
+					'tag': item.tag,
+					'abstract': escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
+					'created_at': item.created_at,
+					'views': item.views,
+					'theme': item.theme
+				})
+			});
+			info['articles'] = articles;
+
+			if(current != null) {
+				db.query(totalSql, function(err, totalRows) {
+					if(err) {
+						console.log(err);
+						res.json({'status': 0, 'message': 'error'});
+					}
+					else {
+						info['total'] = totalRows[0]['total'];
+						res.json({'status': 1, 'info': info});
+					}
+				})
+			}
+			else {
+				res.json({'status': 1, 'info': info});
+			}
+		}
+	})
+})
+
+
+
+
+
+router.get('/get-article-list', function(req, res, next) {
     let {current = 1, count = 10, type = 0} = req.query;
     let sql = "";
-    let field = "artical.id, title, body, tag, created_at, views, theme";
+    let field = "article.id, title, body, tag, created_at, views, theme";
 
     if(type == 0) {
-        sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1
+        sql = `select ${field} from article join category on article.category = category.id where article.status = 1
         order by created_at desc limit ${(current - 1) * count}, ${count}`;
     } else{
-        sql = `select ${field} from artical join category on artical.category = category.id
-         where type = ${+type} and artical.status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
+        sql = `select ${field} from article join category on article.category = category.id
+         where type = ${+type} and article.status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
     }
     db.query(sql, function(err, rows) {
         let out = []
@@ -45,11 +125,11 @@ router.get('/get-artical-list', function(req, res, next) {
         }
 
         if(type == 0) {
-            db.query("select count(*) as total from artical", function(err, rows) {
-                res.json({"status": 1, "articals": out, "total": rows[0]['total']});
+            db.query("select count(*) as total from article", function(err, rows) {
+                res.json({"status": 1, "articles": out, "total": rows[0]['total']});
             })
         } else {
-            res.json({"status": 1, "articals": out});
+            res.json({"status": 1, "articles": out});
         }
     })
 });
@@ -57,11 +137,11 @@ router.get('/get-artical-list', function(req, res, next) {
 router.get('/get-navside-info', function(req, res, next) {
     let sqls = [
         "select value from config where (name = 'intro' or name = 'view_count') and status = 1",
-        "select id, title from artical order by created_at desc limit 10",
+        "select id, title from article order by created_at desc limit 10",
         "select id, theme from category where status = 1",
         "select id, text, url from link where status = 1",
-        "select distinct tag from artical where status = 1 order by created_at desc limit 15",
-        "select count(*) as count from artical where status = 1"
+        "select distinct tag from article where status = 1 order by created_at desc limit 15",
+        "select count(*) as count from article where status = 1"
     ];
 
     let ps = [];
@@ -90,9 +170,9 @@ router.get('/get-navside-info', function(req, res, next) {
             portrait: {
                 'intro': out[0][0]['value'],
                 'viewCount': out[0][1]['value'],
-                'articalCount': out[5][0]['count']
+                'articleCount': out[5][0]['count']
             },
-            articals: out[1],
+            articles: out[1],
             categorys: out[2],
             links: out[3],
             tags: tags
@@ -104,11 +184,11 @@ router.get('/get-navside-info', function(req, res, next) {
     })
 });
 
-router.get('/get-artical-detail/:id', function(req, res, next) {
+router.get('/get-article-detail/:id', function(req, res, next) {
     let {id} = req.params;
     
-    let sql = `select artical.id, title, body, tag, theme, category, created_at, updated_at, 
-    type, views from artical join category on artical.category = category.id where artical.id = ${id} and artical.status = 1`;
+    let sql = `select article.id, title, body, tag, theme, category, created_at, updated_at, 
+    type, views from article join category on article.category = category.id where article.id = ${id} and article.status = 1`;
 
     db.query(sql, function(err, rows) {
         if(err) {
@@ -128,21 +208,21 @@ router.get('/get-timeline', function(req, res, next) {
     let {current = 1, count = 30, category = 0} = req.query;
     
     let sql = "";
-    let field = "artical.id, title, created_at";
+    let field = "article.id, title, created_at";
 
     if(category == 0) {
-        sql = `select ${field} from artical where artical.status = 1
+        sql = `select ${field} from article where article.status = 1
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = 'select count(*) as total from artical where status = 1';
+        sql = 'select count(*) as total from article where status = 1';
         sqls.push(sql);
     } else{
-        sql = `select ${field} from artical where category = ${+category} and artical.status = 1 
+        sql = `select ${field} from article where category = ${+category} and article.status = 1 
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = `select count(*) as total from artical where status = 1 and category = ${+category}`;
+        sql = `select count(*) as total from article where status = 1 and category = ${+category}`;
 
         sqls.push(sql);
     }
@@ -161,12 +241,12 @@ router.get('/get-timeline', function(req, res, next) {
 
     let p = Promise.all(ps);
     p.then(function(out) {
-        let infos = {
-            categorys: out[0],
+        let info = {
+            categories: out[0],
             items: out[1],
             total: out[2][0]['total'],
         };
-        res.json({"status": 1, "infos": infos});
+        res.json({"status": 1, "info": info});
     }).catch(function(err) {
         console.log(err);
         res.json({"status": 0, "message": ''});
@@ -177,11 +257,11 @@ router.get('/search', function(req, res, next) {
     let {current = 1, count = 15, keyword} = req.query;
 
     if(keyword == '') {
-       res.json({"status": 1, "articals": []}); 
+       res.json({"status": 1, "articles": []}); 
     }
 
-    let field = "artical.id, title, body, tag, created_at, views, theme";
-    let sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1 and (body like '%${keyword}%' or title like 
+    let field = "article.id, title, body, tag, created_at, views, theme";
+    let sql = `select ${field} from article join category on article.category = category.id where article.status = 1 and (body like '%${keyword}%' or title like 
         '%${keyword}%' or tag like '%${keyword}%') order by created_at desc limit ${(current - 1) * count}, ${count}`;
     
     db.query(sql, function(err, rows) {
@@ -203,9 +283,9 @@ router.get('/search', function(req, res, next) {
                 })
             }
 
-            db.query(`select count(*) as total from artical where artical.status = 1 and (body like '%${keyword}%' or title like 
+            db.query(`select count(*) as total from article where article.status = 1 and (body like '%${keyword}%' or title like 
              '%${keyword}%' or tag like '%${keyword}%')`, function(err, rows) {
-                res.json({"status": 1, "articals": out, "total": rows[0]['total']});
+                res.json({"status": 1, "articles": out, "total": rows[0]['total']});
             })
         }
     })
@@ -218,21 +298,21 @@ router.get('/get-category', function(req, res, next) {
     
     let sqls = [];
     let sql = "";
-    let field = "artical.id, title, body, tag, created_at, views, theme";
+    let field = "article.id, title, body, tag, created_at, views, theme";
 
     if(category == 0) {
-        sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1
+        sql = `select ${field} from article join category on article.category = category.id where article.status = 1
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = 'select count(*) as total from artical where status = 1';
+        sql = 'select count(*) as total from article where status = 1';
         sqls.push(sql);
     } else{
-        sql = `select ${field} from artical join category on artical.category = category.id where category = ${+category} and artical.status = 1 
+        sql = `select ${field} from article join category on article.category = category.id where category = ${+category} and article.status = 1 
             order by created_at desc limit ${(current - 1) * count}, ${count}`;
         sqls.push(sql);
 
-        sql = `select count(*) as total from artical where status = 1 and category = ${+category}`;
+        sql = `select count(*) as total from article where status = 1 and category = ${+category}`;
 
         sqls.push(sql);
     }
@@ -266,7 +346,7 @@ router.get('/get-category', function(req, res, next) {
             })
         }
         let infos = {
-            articals: aritcals,
+            articles: aritcals,
             total: out[1][0]['total']
         };
         res.json({"status": 1, "infos": infos});
@@ -278,8 +358,8 @@ router.get('/get-category', function(req, res, next) {
 
 router.get('/get-tag', function(req, res, next) {
     let {tag} = req.query;
-    let field = "artical.id, title, body, tag, created_at, views, theme";
-    let sql = `select ${field} from artical join category on artical.category = category.id where artical.status = 1 
+    let field = "article.id, title, body, tag, created_at, views, theme";
+    let sql = `select ${field} from article join category on article.category = category.id where article.status = 1 
         and tag like '%${tag}%' order by created_at desc`;
     
     db.query(sql, function(err, rows) {
@@ -296,7 +376,7 @@ router.get('/get-tag', function(req, res, next) {
                 'theme': item.theme
             })
         }
-        res.json({"status": 1, "articals": out});
+        res.json({"status": 1, "articles": out});
     })
 });
 

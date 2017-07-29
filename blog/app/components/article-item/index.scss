@@ -1,6 +1,6 @@
 @import "../../config/config.scss";
 
-.artical-item {
+.article-item {
     margin: 25px 0;
     padding: 18px 25px 15px;
     font-size: 16px;
@@ -8,11 +8,11 @@
     box-shadow: 0 0 5px #aaa;
     transition: box-shadow ease-in 300ms;
     &:hover {
-         box-shadow: 0 0 15px #333;
+        box-shadow: 0 0 15px #333;
     }
 }
 
-.artical-body {
+.article-body {
     h4 {
         font-size: 16px;
         font-weight: bold;
@@ -23,16 +23,17 @@
         font-size: 13px;
     }
 }
-.artical-abstract {
+
+.article-abstract {
     color: #333;
     font-size: 14px;
 }
 
-.artical-link {
+.article-link {
     display: inline-block;
     margin-top: 9px;
     font-size: 12px;
-    > a {
+    >a {
         color: $main-color;
         font-weight: bold;
     }

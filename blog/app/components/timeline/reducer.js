@@ -13,7 +13,7 @@ export default(state = {status: Status.LOADING}, action) => {
             return {
                 ...state,
                 status: Status.SUCCESS,
-                ...action.infos
+                ...action.info
             }
         }
         case FETCH_FAILURE: {

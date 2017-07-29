@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {getArticalDetail} from './actions';
+import {getArticleDetail} from './actions';
 
 import './index.scss';
 
-export const stateKey = 'artical-detail';
+export const stateKey = 'article-detail';
 export const initialState = { };
 
-class ArticalDetail extends Component {
+class ArticleDetail extends Component {
 
     componentDidMount() {
         let {id, getDetail} = this.props; 
-        console.log('hh');
         getDetail(id);
     }
 
@@ -20,7 +19,6 @@ class ArticalDetail extends Component {
         let {id, getDetail} = this.props;
 
         if (id != nextProps.id) {
-            console.log(123);
             getDetail(nextProps.id);
         }
     }
@@ -28,7 +26,7 @@ class ArticalDetail extends Component {
     render() {
         const {title, body, tag, category, created_at, updated_at, views, type} = this.props.detail;
         return (
-            <div className="artical-detail">
+            <div className="article-detail">
                 <h3 className="blog-title">
                     {
                         type == 2 ? "[转]"
@@ -64,9 +62,9 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
     return {
         getDetail: (id) => {
-            dispatch(getArticalDetail(id))
+            dispatch(getArticleDetail(id))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispathToProps)(ArticalDetail);
+export default connect(mapStateToProps, mapDispathToProps)(ArticleDetail);

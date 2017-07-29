@@ -1,6 +1,6 @@
 import {FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE} from './actionTypes';
 
-import {SERVERADDRESS} from "../../config/config.js";
+import {SERVER_ADDRESS} from "../../config/config.js";
 
 export const gossipStarted = () => ({
     type: FETCH_STARTED
@@ -19,13 +19,13 @@ export const gossipFailure = (message) => ({
 
 export const getGossip = (current = 1, count = 30) => {
     return (dispatch) => {
-        const apiUrl = `${SERVERADDRESS}/get-gossip?current=${current}&count=${count}`;
+        const apiUrl = `${SERVER_ADDRESS}/get-gossip?current=${current}&count=${count}`;
         dispatch(gossipStarted());
 
         fetch(apiUrl).then((response) => {
             
             if(response.status !== 200) {
-                throw new Error('Fail to get reaponse with status ' + response.status);
+                throw new Error('Fail to get response with status ' + response.status);
                 dispatch(gossipFailure("LOADING FAILED! Error code: " + response.status));
             }
 

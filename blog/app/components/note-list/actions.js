@@ -1,6 +1,6 @@
 import {FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE} from './actionTypes';
 
-import {SERVERADDRESS} from "../../config/config.js";
+import {SERVER_ADDRESS} from "../../config/config.js";
 
 export const noteStarted = () => ({
     type: FETCH_STARTED
@@ -19,13 +19,13 @@ export const noteFailure = (message) => ({
 
 export const getNote = (current, count) => {
     return (dispatch) => {
-        const apiUrl = `${SERVERADDRESS}/get-note?count=${count}&current=${current}`;
+        const apiUrl = `${SERVER_ADDRESS}/get-note?count=${count}&current=${current}`;
         dispatch(noteStarted());
 
         fetch(apiUrl).then((response) => {
             
             if(response.status !== 200) {
-                throw new Error('Fail to get reaponse with status ' + response.status);
+                throw new Error('Fail to get response with status ' + response.status);
                 dispatch(noteFailure("LOADING FAILED! Error code: " + response.status));
             }
 

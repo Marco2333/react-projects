@@ -1,6 +1,6 @@
 import {FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE} from './actionTypes';
 
-import {SERVERADDRESS} from "../../config/config.js";
+import {SERVER_ADDRESS} from "../../config/config.js";
 
 export const categoryStarted = () => ({
     type: FETCH_STARTED
@@ -18,13 +18,13 @@ export const categoryFailure = (message) => ({
 
 export const getCategory = (current, count, category) => {
     return (dispatch) => {
-        const apiUrl = `${SERVERADDRESS}/get-category?category=${category}&count=${count}&current=${current}`;
+        const apiUrl = `${SERVER_ADDRESS}/get-category?category=${category}&count=${count}&current=${current}`;
         dispatch(categoryStarted());
 
         fetch(apiUrl).then((response) => {
             
             if(response.status !== 200) {
-                throw new Error('Fail to get reaponse with status ' + response.status);
+                throw new Error('Fail to get response with status ' + response.status);
                 dispatch(categoryFailure("LOADING FAILED! Error code: " + response.status));
             }
 

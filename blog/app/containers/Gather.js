@@ -1,11 +1,11 @@
-import Gather, {stateKey, reducer as nlReducer, initialState as nliState} from '../components/note-list';
+import Gather, {stateKey, reducer as nReducer, initialState as nState} from '../components/note-list';
 
 const reducer = {
-    [stateKey]: nlReducer
+    [stateKey]: nReducer
 }
 
 const initialState = {
-    [stateKey]: nliState
+    [stateKey]: nState
 }
 
 export {

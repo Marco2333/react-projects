@@ -1,22 +1,26 @@
-import * as Status from "../../../config/status";
-import {ARTICALS_STARTED, ARTICALS_SUCCESS, ARTICALS_FAILURE} from "./actionType";
+import * as Status from "../../config/status";
+import {FETCH_START, FETCH_SUCCEED, FETCH_FAIL} from "./actionTypes";
 
-export default(state = {status: Status.LOADING}, action) => {
+import {initialState} from './view';
+
+export default(state = initialState, action) => {
     switch(action.type) {
-        case ARTICALS_STARTED: {
+        case FETCH_START: {
             return {
+                ...state,
                 status: Status.LOADING
             }
         }
-        case ARTICALS_SUCCESS: {
+        case FETCH_SUCCEED: {
             return {
                 ...state,
                 status: Status.SUCCESS,
-                articals: action.articals
+                ...action.info
             }
         }
-        case ARTICALS_FAILURE: {
+        case FETCH_FAIL: {
             return {
+                ...state,
                 status: Status.FAILURE,
                 error: Status.message
             }

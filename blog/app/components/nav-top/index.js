@@ -50,7 +50,7 @@ class NavTop extends Component {
     render() {
         const links = [
             {key: "home", text: '主页'},
-            {key: "artical", text: '文章'},
+            {key: "article", text: '文章'},
             {key: "timeline", text: '归档'},
             {key: "gather", text: '点滴'},
             {key: "gossip", text: '慢生活'},

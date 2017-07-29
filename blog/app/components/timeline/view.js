@@ -50,12 +50,12 @@ class TimeLine extends Component {
     }
 
     render() {
-        const {items, categorys, total, pagination = true} = this.props;
+        const {items, categories, total, pagination = true} = this.props;
         const Option = Select.Option;
 
         let {count, current, category} = this.state;
 
-        categorys && categorys[0].id != 0 ? categorys.unshift({id: 0, theme: "全部"}) : "";
+        categories && categories[0].id != 0 ? categories.unshift({id: 0, theme: "全部"}) : "";
 
         let tlItems = [];
 
@@ -88,9 +88,9 @@ class TimeLine extends Component {
         return (
             <div className="timeline-wrap">
                 <div className="timeline-select">
-                    <Select style={{ width: 200}} value={category} onChange={this.onChange}>
+                    <Select style={{ width: 200}} defaultValue="全部"  onChange={this.onChange}>
                         {
-                            categorys && categorys.map((item) => (
+                            categories && categories.map((item) => (
                                 <Option value={item.id + ""} key={item.id}>{item.theme}</Option>
                             ))
                         }
@@ -108,7 +108,7 @@ class TimeLine extends Component {
                                     </Timeline.Item>
                                 :
                                     <Timeline.Item key={item.id} color={item.color}>
-                                        <Link to={`artical-detail/${item.id}`}>
+                                        <Link to={`article-detail/${item.id}`}>
                                             <p className="timeline-item">{item.title}</p>
                                         </Link>
                                     </Timeline.Item>
@@ -132,7 +132,7 @@ class TimeLine extends Component {
 const mapStateToProps = (state) => {
     return {
         items: state[stateKey] && state[stateKey]["items"] || null,
-        categorys: state[stateKey] && state[stateKey]["categorys"] || null,
+        categories: state[stateKey] && state[stateKey]["categories"] || null,
         total: state[stateKey] && state[stateKey]["total"],
     }
 }

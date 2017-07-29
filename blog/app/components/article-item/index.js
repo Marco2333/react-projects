@@ -5,21 +5,21 @@ import {Row, Col} from 'antd';
 
 import './index.scss';
 
-class ArticalItem extends Component {
+class ArticleItem extends Component {
     render() {
         const {id, title, theme, tag, created_at, abstract, views, img_url} = this.props;
 
         return (
-            <div className="artical-item">
+            <div className="article-item">
                 {
                     img_url ? (
                         <Row>
                             <Col xs={0} sm={8}>
-                                <Link to={`/artical-detail/${id}`}><img src={img_url} alt=""/></Link>
+                                <Link to={`/article-detail/${id}`}><img src={img_url} alt=""/></Link>
                             </Col>
                             <Col xs={24} sm={16}>
-                                <div className="artical-body">
-                                    <Link to={`/artical-detail/${id}`}><h4>{title}</h4></Link>
+                                <div className="article-body">
+                                    <Link to={`/article-detail/${id}`}><h4>{title}</h4></Link>
                                     <p>
                                         <span>post @ {created_at}</span>
                                         &nbsp;&nbsp;
@@ -27,16 +27,16 @@ class ArticalItem extends Component {
                                         &nbsp;&nbsp;
                                         <span>Tag: {tag}</span>
                                     </p>
-                                    <div className="artical-abstract">
+                                    <div className="article-abstract">
                                         {abstract} ...
                                     </div>
-                                    <p className="artical-link"><Link to={`/artical-detail/${id}`}>阅读全文 >></Link></p>
+                                    <p className="article-link"><Link to={`/article-detail/${id}`}>阅读全文 >></Link></p>
                                 </div>
                             </Col>
                         </Row>
                     ) : (
-                        <div className="artical-body">
-                            <Link to={`/artical-detail/${id}`}><h4>{title}</h4></Link>
+                        <div className="article-body">
+                            <Link to={`/article-detail/${id}`}><h4>{title}</h4></Link>
                             <p>
                                 <span>post @ {created_at}</span>
                                 &nbsp;&nbsp;
@@ -46,10 +46,10 @@ class ArticalItem extends Component {
                                 &nbsp;&nbsp;
                                 <span>浏览: {views}</span>
                             </p>
-                            <div className="artical-abstract">
+                            <div className="article-abstract">
                                 {abstract} ...
                             </div>
-                            <span className="artical-link"><Link to={`/artical-detail/${id}`}>阅读全文 >></Link></span> 
+                            <span className="article-link"><Link to={`/article-detail/${id}`}>阅读全文 >></Link></span> 
                         </div>
                     )
                 }
@@ -58,4 +58,4 @@ class ArticalItem extends Component {
     }
 }
 
-export default ArticalItem;
+export default ArticleItem;

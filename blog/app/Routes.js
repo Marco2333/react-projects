@@ -9,27 +9,27 @@ import store from './Store.js';
 
 import App from './containers/App';
 
-const getHomePage = (nextProps, callback) => {
+const getHomePage = (location, callback) => {
     require.ensure([], function (require) {
-        const {Home, reducer, initialState} = require('./containers/Home');
+        const {Home, reducer, initialState} = require('./containers/Home.js');
         
         const state = store.getState();
 
         store._reducers = {...store._reducers, ...reducer};
         store.reset(combineReducers({
-            ...store._reducers
+			...store._reducers
         }), {
-            ...initialState,
-            ...state
+			...initialState,
+			...state
         });
         
         callback(null, Home);
     }, 'home');
 }
 
-const getArticalPage = (nextProps, callback) => {
+const getArticlePage = (location, callback) => {
     require.ensure([], function (require) {
-        const {Artical, reducer, initialState} = require('./containers/Artical');
+        const {Article, reducer, initialState} = require('./containers/Article');
 
         const state = store.getState(); 
 
@@ -38,28 +38,26 @@ const getArticalPage = (nextProps, callback) => {
         store.reset(combineReducers({
             ...store._reducers
         }), {
-            ...initialState,
-            ...state
+			...initialState,
+			...state
         });
         
-        callback(null, Artical);
-    }, 'artical');
+        callback(null, Article);
+    }, 'article');
 }
 
-const getArticalDetailPage = (nextProps, callback) => {
+const getArticleDetailPage = (location, callback) => {
     
     require.ensure([], function (require) {
-        const {ArticalDetail, reducer, initialState, stateKey} = require('./containers/ArticalDetail');
+        const {ArticleDetail, reducer, initialState, stateKey} = require('./containers/ArticleDetail');
 
         const state = store.getState(); 
 
         store._reducers = {...store._reducers, ...reducer};
 
-        let currState = {...initialState, ...state};
+        let currState = {...state, ...initialState};
 
-        currState[stateKey] ? 
-        currState[stateKey] = {...currState[stateKey], id: nextProps['params']['id']}
-        : currState[stateKey] = {id: nextProps['params']['id']};
+        currState[stateKey]['id'] = location['params']['id'];
 
         store.reset(combineReducers({
             ...store._reducers
@@ -67,11 +65,11 @@ const getArticalDetailPage = (nextProps, callback) => {
             ...currState
         });
         
-        callback(null, ArticalDetail);
-    }, 'artical-detail');
+        callback(null, ArticleDetail);
+    }, 'article-detail');
 }
 
-const getTimelinePage = (nextProps, callback) => {
+const getTimelinePage = (location, callback) => {
     
     require.ensure([], function (require) {
         const {TimeLine, reducer, initialState, stateKey} = require('./containers/Timeline');
@@ -91,7 +89,7 @@ const getTimelinePage = (nextProps, callback) => {
     }, 'timeline');
 }
 
-const getSearchPage = (nextProps, callback) => {
+const getSearchPage = (location, callback) => {
     
     require.ensure([], function (require) {
         const {Search, reducer, initialState, stateKey} = require('./containers/Search');
@@ -103,8 +101,8 @@ const getSearchPage = (nextProps, callback) => {
         let currState = {...initialState, ...state};
 
         currState[stateKey] ? 
-        currState[stateKey] = {...currState[stateKey], keyword: nextProps['params']['keyword']}
-        : currState[stateKey] = {keyword: nextProps['params']['keyword']};
+        currState[stateKey] = {...currState[stateKey], keyword: location['params']['keyword']}
+        : currState[stateKey] = {keyword: location['params']['keyword']};
 
         store.reset(combineReducers({
             ...store._reducers
@@ -116,7 +114,7 @@ const getSearchPage = (nextProps, callback) => {
     }, 'search');
 }
 
-const getCategoryPage = (nextProps, callback) => {
+const getCategoryPage = (location, callback) => {
     
     require.ensure([], function (require) {
         const {Category, reducer, initialState, stateKey} = require('./containers/Category');
@@ -127,9 +125,7 @@ const getCategoryPage = (nextProps, callback) => {
 
         let currState = {...initialState, ...state};
 
-        currState[stateKey] ? 
-        currState[stateKey] = {...currState[stateKey], category: nextProps['params']['id']}
-        : currState[stateKey] = {category: nextProps['params']['id']};
+    	currState[stateKey]['category'] = location['params']['id'];
 
         store.reset(combineReducers({
             ...store._reducers
@@ -141,7 +137,7 @@ const getCategoryPage = (nextProps, callback) => {
     }, 'category');
 }
 
-const getTagPage = (nextProps, callback) => {
+const getTagPage = (location, callback) => {
     
     require.ensure([], function (require) {
         const {Tag, reducer, initialState, stateKey} = require('./containers/Tag');
@@ -153,8 +149,8 @@ const getTagPage = (nextProps, callback) => {
         let currState = {...initialState, ...state};
 
         currState[stateKey] ? 
-        currState[stateKey] = {...currState[stateKey], tag: nextProps['params']['tag']}
-        : currState[stateKey] = {tag: nextProps['params']['tag']};
+        currState[stateKey] = {...currState[stateKey], tag: location['params']['tag']}
+        : currState[stateKey] = {tag: location['params']['tag']};
 
         store.reset(combineReducers({
             ...store._reducers
@@ -166,7 +162,7 @@ const getTagPage = (nextProps, callback) => {
     }, 'tag');
 }
 
-const getGatherPage = (nextProps, callback) => {
+const getGatherPage = (location, callback) => {
     
     require.ensure([], function (require) {
         const {Gather, reducer, initialState, stateKey} = require('./containers/Gather');
@@ -187,7 +183,7 @@ const getGatherPage = (nextProps, callback) => {
     }, 'gather');
 }
 
-const getGossipPage = (nextProps, callback) => {
+const getGossipPage = (location, callback) => {
     
     require.ensure([], function (require) {
         const {Gossip, reducer, initialState, stateKey} = require('./containers/Gossip');
@@ -215,8 +211,8 @@ const Routes = () => (
         <Route path="/" breadcrumbName="首页" component={App}>
             <IndexRoute name="home" getComponent={getHomePage}/>
             <Route name="home" path="/home" getComponent={getHomePage}/>
-            <Route name="artical" breadcrumbName="文章" path="artical" getComponent={getArticalPage} />
-            <Route name="artical-detail" breadcrumbName="文章详情" path="artical-detail/:id" getComponent={getArticalDetailPage}/>
+            <Route name="article" breadcrumbName="文章" path="article" getComponent={getArticlePage} />
+            <Route name="article-detail" breadcrumbName="文章详情" path="article-detail/:id" getComponent={getArticleDetailPage}/>
             <Route name="timeline" breadcrumbName="Timeline" path="timeline" getComponent={getTimelinePage} />
             <Route name="search" breadcrumbName="Search" path="search/:keyword" getComponent={getSearchPage} />
             <Route name="category" breadcrumbName="Category" path="category/:id" getComponent={getCategoryPage} />

@@ -23,7 +23,7 @@ class NavSide extends Component {
     }
 
     render() {
-        const {portrait, articals, categorys, tags, links} = this.props;
+        const {portrait, articles, categorys, tags, links} = this.props;
 
         return (
             <div className="nav-side">
@@ -36,7 +36,7 @@ class NavSide extends Component {
                             <p>{portrait ? portrait.intro : ''}</p>
                         </div>
                         <div className="statistics">
-                            <span className="statistic-item">随笔 - {portrait ? portrait.articalCount : ''}</span>
+                            <span className="statistic-item">随笔 - {portrait ? portrait.articleCount : ''}</span>
                             <span className="spliter"></span>
                             <span className="statistic-item">访问 - {portrait ? portrait.viewCount : ''}</span>
                         </div>
@@ -45,16 +45,16 @@ class NavSide extends Component {
                 <div className="panel">
                     <div className="panel-heading">FOLLOW ME</div>
                     <div className="panel-body text-center">
-                        <p className="followme-link">
+                        <p className="follow-link">
                             <a href="https://github.com/Marco2333" target="_blank"> <Icon type="github"/></a>
                         </p>
-                        <p className="followme-link" style={{transform: "rotate(180deg)"}}>
+                        <p className="follow-link" style={{transform: "rotate(180deg)"}}>
                             <a href="https://github.com/Marco2333" target="_blank"><Icon type="github"/></a>
                         </p>
-                        <p className="followme-link" style={{transform: "rotate(90deg)"}}>
+                        <p className="follow-link" style={{transform: "rotate(90deg)"}}>
                             <a href="https://github.com/Marco2333" target="_blank"><Icon type="github"/></a>
                         </p>
-                        <p className="followme-link" style={{transform: "rotate(270deg)"}}>
+                        <p className="follow-link" style={{transform: "rotate(270deg)"}}>
                             <a href="https://github.com/Marco2333" target="_blank"><Icon type="github"/></a>
                         </p>
                     </div>
@@ -64,10 +64,10 @@ class NavSide extends Component {
                     <div className="panel-body">
                         <ol>
                             {
-                                articals ? 
-                                articals.map(artical => (
-                                    <li key={artical.id}>
-                                        <Link to={`/artical-detail/${artical.id}`}>{artical.title}</Link>
+                                articles ? 
+                                articles.map(article => (
+                                    <li key={article.id}>
+                                        <Link to={`/article-detail/${article.id}`}>{article.title}</Link>
                                     </li>
                                 ))
                                 : ''

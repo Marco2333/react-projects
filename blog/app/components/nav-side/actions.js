@@ -1,6 +1,6 @@
 import {FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE} from './actionTypes';
 
-import {SERVERADDRESS} from "../../config/config.js";
+import {SERVER_ADDRESS} from "../../config/config.js";
 
 export const fetchNavInfoStarted = () => ({
     type: FETCH_STARTED
@@ -18,13 +18,13 @@ export const fetchNavInfoFailure = (message) => ({
 
 export const getNavInfo = () => {
     return (dispatch) => {
-        const apiUrl = `${SERVERADDRESS}/get-navside-info`;
+        const apiUrl = `${SERVER_ADDRESS}/get-navside-info`;
         dispatch(fetchNavInfoStarted());
 
         fetch(apiUrl).then((response) => {
             
             if(response.status !== 200) {
-                throw new Error('Fail to get reaponse with status ' + response.status);
+                throw new Error('Fail to get resWponse with status ' + response.status);
                 dispatch(fetchNavInfoFailure("LOADING FAILED! Error code: " + response.status));
             }
 

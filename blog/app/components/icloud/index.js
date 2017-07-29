@@ -39,7 +39,7 @@ export default ({tags}) => {
 			{
 				res && res.map((tag, index) => (
 					<Link key={tag} to={`/tag/${tag}`}>
-						<span className="icloud-item" style={{backgroundColor: colors[Math.floor(5 * Math.random())]}}>{tag}</span>
+						<span className="icloud-item" style={{backgroundColor: colors[index % 5]}}>{tag}</span>
 					</Link>
 				))
 			}

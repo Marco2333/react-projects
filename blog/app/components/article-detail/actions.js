@@ -1,6 +1,6 @@
 import {FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE} from './actionTypes';
 
-import {SERVERADDRESS} from "../../config/config.js";
+import {SERVER_ADDRESS} from "../../config/config.js";
 
 export const fetchADetailStarted = () => ({
     type: FETCH_STARTED
@@ -16,15 +16,15 @@ export const fetchADetailFailure = (message) => ({
     message
 });
 
-export const getArticalDetail = (id) => {
+export const getArticleDetail = (id) => {
     return (dispatch) => {
-        const apiUrl = `${SERVERADDRESS}/get-artical-detail/${id}`;
+        const apiUrl = `${SERVER_ADDRESS}/get-article-detail/${id}`;
         dispatch(fetchADetailStarted());
 
         fetch(apiUrl).then((response) => {
             
             if(response.status !== 200) {
-                throw new Error('Fail to get reaponse with status ' + response.status);
+                throw new Error('Fail to get response with status ' + response.status);
                 dispatch(fetchADetailFailure("LOADING FAILED! Error code: " + response.status));
             }
 

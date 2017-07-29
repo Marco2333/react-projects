@@ -29,8 +29,8 @@ class NavTopHome extends Component {
                             <li className="index-nav-top-item" key="home">
                                 <Link to="/home">主页</Link>
                             </li>
-                            <li className="index-nav-top-item" key="artical">
-                                <Link to="/artical">文章</Link>
+                            <li className="index-nav-top-item" key="article">
+                                <Link to="/article">文章</Link>
                             </li>
                             <li className="index-nav-top-item" key="archive">
                                 <Link to="/timeline">时间轴</Link>

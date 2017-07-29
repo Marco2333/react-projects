@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import { Pagination } from 'antd';
 
-import ArticalList from '../../components/artical-list';
+import ArticleList from '../../components/article-list';
 
 import {getCategory} from './actions';
 
@@ -47,12 +47,12 @@ class Category extends Component {
     }
     
     render() {
-        let {articalList, total, pagination = true} = this.props;
+        let {articleList, total, pagination = true} = this.props;
         let {count, current} = this.state;
         
         return (
             <div>
-                <ArticalList articals={articalList}/>
+                <ArticleList articles={articleList}/>
                 {
                     pagination && total ?
                     <div className="pagination">
@@ -70,7 +70,7 @@ class Category extends Component {
 const mapStateToProps = (state) => {
     return {
         category: state[stateKey] && state[stateKey].category || 0,
-        articalList: state[stateKey] && state[stateKey].articals || null,
+        articleList: state[stateKey] && state[stateKey].articles || null,
         total: state[stateKey] && state[stateKey].total || null
     }
 }
