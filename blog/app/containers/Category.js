@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Articles, {stateKey, reducer as cReducer, initialState as cState} from '../components/articles';
+import Articles, {stateKey, reducer as articleReducer, initialState as articleState} from '../components/articles';
 
 const Category = () => (
 	<Articles />
 )
 
 const reducer = {
-    [stateKey]: cReducer
+    [stateKey]: articleReducer
 }
 
 const initialState = {
-    [stateKey]: cState
+    [stateKey]: articleState
 }
 
 export {

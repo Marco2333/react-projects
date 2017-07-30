@@ -1,11 +1,17 @@
-import Search, {stateKey, reducer as sReducer, initialState as siState} from '../components/search';
+import React from 'react';
+
+import Articles, {stateKey, reducer as articleReducer, initialState as articleState} from '../components/articles';
+
+const Search = () => (
+	<Articles />
+)
 
 const reducer = {
-    [stateKey]: sReducer
+    [stateKey]: articleReducer
 }
 
 const initialState = {
-    [stateKey]: siState
+    [stateKey]: articleState
 }
 
 export {

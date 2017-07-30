@@ -2,26 +2,34 @@ import React from 'react';
 import {combineReducers} from 'redux';
 
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
-
 import {syncHistoryWithStore} from 'react-router-redux';
 
 import store from './Store.js';
-
 import App from './containers/App';
+
+
+const resetState = (reducer, initialState, stateKey, setting = {}) => {
+	const state = store.getState();
+
+	store._reducers = {...store._reducers, ...reducer};
+
+	let {_cover = true, ...params} = setting,
+		currentState = _cover ? {...state, ...initialState} : {...initialState, ...state};
+
+	currentState[stateKey] = {...currentState[stateKey], ...params};
+	
+	store.reset(combineReducers({
+		...store._reducers
+	}), {
+		...currentState
+	});
+}
 
 const getHomePage = (location, callback) => {
     require.ensure([], function (require) {
-        const {Home, reducer, initialState} = require('./containers/Home.js');
-        
-        const state = store.getState();
-
-        store._reducers = {...store._reducers, ...reducer};
-        store.reset(combineReducers({
-			...store._reducers
-        }), {
-			...initialState,
-			...state
-        });
+		const {Home, reducer, initialState, stateKey} = require('./containers/Home.js');
+		
+        resetState(reducer, initialState, stateKey, {'_reset': true});
         
         callback(null, Home);
     }, 'home');
@@ -29,18 +37,9 @@ const getHomePage = (location, callback) => {
 
 const getArticlePage = (location, callback) => {
     require.ensure([], function (require) {
-        const {Article, reducer, initialState} = require('./containers/Article');
+        const {Article, reducer, initialState, stateKey} = require('./containers/Article');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-			...initialState,
-			...state
-        });
+		resetState(reducer, initialState, stateKey, {'_reset': true});
         
         callback(null, Article);
     }, 'article');
@@ -51,19 +50,7 @@ const getArticleDetailPage = (location, callback) => {
     require.ensure([], function (require) {
         const {ArticleDetail, reducer, initialState, stateKey} = require('./containers/ArticleDetail');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        let currState = {...state, ...initialState};
-
-        currState[stateKey]['id'] = location['params']['id'];
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...currState
-        });
+		resetState(reducer, initialState, stateKey, {'id': location['params']['id']});
         
         callback(null, ArticleDetail);
     }, 'article-detail');
@@ -74,16 +61,7 @@ const getTimelinePage = (location, callback) => {
     require.ensure([], function (require) {
         const {TimeLine, reducer, initialState, stateKey} = require('./containers/Timeline');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...initialState, 
-            ...state
-        });
+		resetState(reducer, initialState, stateKey, {'_cover': false});
         
         callback(null, TimeLine);
     }, 'timeline');
@@ -94,21 +72,7 @@ const getSearchPage = (location, callback) => {
     require.ensure([], function (require) {
         const {Search, reducer, initialState, stateKey} = require('./containers/Search');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        let currState = {...initialState, ...state};
-
-        currState[stateKey] ? 
-        currState[stateKey] = {...currState[stateKey], keyword: location['params']['keyword']}
-        : currState[stateKey] = {keyword: location['params']['keyword']};
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...currState
-        });
+		resetState(reducer, initialState, stateKey, {'_reset': true, keyword: location['params']['keyword']});
         
         callback(null, Search);
     }, 'search');
@@ -119,19 +83,7 @@ const getCategoryPage = (location, callback) => {
     require.ensure([], function (require) {
         const {Category, reducer, initialState, stateKey} = require('./containers/Category');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        let currState = {...initialState, ...state};
-
-    	currState[stateKey]['category'] = location['params']['id'];
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...currState
-        });
+		resetState(reducer, initialState, stateKey, {'_reset': true, category: location['params']['id']});
         
         callback(null, Category);
     }, 'category');
@@ -142,21 +94,7 @@ const getTagPage = (location, callback) => {
     require.ensure([], function (require) {
         const {Tag, reducer, initialState, stateKey} = require('./containers/Tag');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        let currState = {...initialState, ...state};
-
-        currState[stateKey] ? 
-        currState[stateKey] = {...currState[stateKey], tag: location['params']['tag']}
-        : currState[stateKey] = {tag: location['params']['tag']};
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...currState
-        });
+		resetState(reducer, initialState, stateKey, {'_reset': true, tag: location['params']['tag']});
         
         callback(null, Tag);
     }, 'tag');
@@ -167,17 +105,7 @@ const getGatherPage = (location, callback) => {
     require.ensure([], function (require) {
         const {Gather, reducer, initialState, stateKey} = require('./containers/Gather');
 
-        const state = store.getState(); 
-
-        store._reducers = {...store._reducers, ...reducer};
-
-        let currState = {...initialState, ...state};
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...currState
-        });
+		resetState(reducer, initialState, stateKey, {'_cover': false});
         
         callback(null, Gather);
     }, 'gather');
@@ -188,18 +116,8 @@ const getGossipPage = (location, callback) => {
     require.ensure([], function (require) {
         const {Gossip, reducer, initialState, stateKey} = require('./containers/Gossip');
 
-        const state = store.getState(); 
+		resetState(reducer, initialState, stateKey, {'_cover': false});
 
-        store._reducers = {...store._reducers, ...reducer};
-
-        let currState = {...initialState, ...state};
-
-        store.reset(combineReducers({
-            ...store._reducers
-        }), {
-            ...currState
-        });
-        
         callback(null, Gossip);
     }, 'gossip');
 }

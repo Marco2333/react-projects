@@ -7,9 +7,9 @@ import resetEnhancer from './enhancer/reset.js';
 
 import {reducer as naveSideReducer, stateKey} from './components/nav-side';
 
-let prod = process.env.NODE_ENV === 'producion' ? true : false;
+let prod = process.env.NODE_ENV === 'production' ? true : false;
 
-const middlewares = [thunkMiddleware];
+const middleware = [thunkMiddleware];
 const win = window;
 
 const originalReducers = {
@@ -21,12 +21,12 @@ const reducer = combineReducers(originalReducers);
 if (!prod) {
     const Perf = require('react-addons-perf');
     win.Perf = Perf;
-    middlewares.push(require('redux-immutable-state-invariant').default());
+    middleware.push(require('redux-immutable-state-invariant').default());
 }
 
 const storeEnhancers = compose(
     resetEnhancer, 
-    applyMiddleware(...middlewares), 
+    applyMiddleware(...middleware), 
     (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
 )
 

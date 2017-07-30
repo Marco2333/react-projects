@@ -19,8 +19,6 @@ class Articles extends Component {
 			'count': this.props.count || 15,
 			'current': this.props.pagination === false ? undefined : 1
 		}
-
-		console.log(123);
 	}
 
     componentDidMount() {
@@ -29,18 +27,23 @@ class Articles extends Component {
 		if(pagination === true)
 			params['current'] = 1;
 
+		console.log(1);
 		getArticles(params);
     }
 
 	componentWillReceiveProps(nextProps) {
-		if(this.props.category != null && nextProps.category != this.props.category ) {
-			const {getArticles, pagination = true, ...params} = this.nextProps;
-
+		if(nextProps._reset) {
+			const {getArticles, pagination = true, ...params} = this.props;
 			if(pagination === true)
 				params['current'] = 1;
 
-			// getArticles(params);
+			console.log(3);
+			getArticles(params);
 		}
+	}
+
+	componentWillUnmount() {
+		console.log(-1);
 	}
 	
 

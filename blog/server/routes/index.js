@@ -50,7 +50,7 @@ router.get('/get-articles', function(req, res, next) {
 			sql += ` limit ${count}`;
 		}
 	}
-	console.log(sql);
+	
 	db.query(sql, function(err, rows) {
 		let info = {};
 		let articles = [];

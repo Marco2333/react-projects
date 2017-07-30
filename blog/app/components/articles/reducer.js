@@ -8,7 +8,8 @@ export default(state = initialState, action) => {
         case FETCH_START: {
             return {
                 ...state,
-                status: Status.LOADING
+				status: Status.LOADING,
+				_reset: false
             }
         }
         case FETCH_SUCCEED: {

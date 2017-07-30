@@ -1,3 +1,0 @@
-export const FETCH_STARTED = 'TAG/STARTED';
-export const FETCH_SUCCESS = 'TAG/SUCCESS';
-export const FETCH_FAILURE = 'TAG/FAILURE';
