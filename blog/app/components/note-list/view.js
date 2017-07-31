@@ -7,10 +7,7 @@ import Note from '../note';
 
 import {getNote} from './actions';
 
-import './index.scss';
-
 export const stateKey = "notes";
-export const initialState = {};
 
 class NoteList extends Component {
     constructor(props) {

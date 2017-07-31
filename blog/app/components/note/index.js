@@ -25,7 +25,7 @@ class Note extends Component {
     render() {
         const {title, created_at, detail, tag} = this.props;
         return (
-            <div className="note-wrap" onClick={this.showDetail}>
+            <div className="note-wrap wow zoomIn animated" onClick={this.showDetail}>
                 <p className="note-title">
                     {title}
                 </p>

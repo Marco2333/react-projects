@@ -173,11 +173,22 @@ router.get('/get-navside-info', function(req, res, next) {
                 'articleCount': out[5][0]['count']
             },
             articles: out[1],
-            categorys: out[2],
+            categories: out[2],
             links: out[3],
             tags: tags
         };
-        res.json({"status": 1, "infos": infos});
+        res.json({
+			status: 1, 
+			portrait: {
+                'intro': out[0][0]['value'],
+                'viewCount': out[0][1]['value'],
+                'articleCount': out[5][0]['count']
+            },
+            articles: out[1],
+            categories: out[2],
+            links: out[3],
+			tags: tags
+		});
 
     }).catch(function(err) {
         res.json({"status": 0, "message": ''});
@@ -194,8 +205,8 @@ router.get('/get-article-detail/:id', function(req, res, next) {
         if(err) {
             res.json({"status": 0, "message": err});
         }
-
-        res.json({"status": 1, "infos": rows ? rows[0] : {}});
+	
+        res.json({"status": 1, "_info": rows ? rows[0] : {}});
     })
 });
 
@@ -241,12 +252,12 @@ router.get('/get-timeline', function(req, res, next) {
 
     let p = Promise.all(ps);
     p.then(function(out) {
-        let info = {
-            categories: out[0],
+		res.json({
+			"status": 1,  
+			categories: out[0],
             items: out[1],
-            total: out[2][0]['total'],
-        };
-        res.json({"status": 1, "info": info});
+			total: out[2][0]['total']
+		});
     }).catch(function(err) {
         console.log(err);
         res.json({"status": 0, "message": ''});
@@ -332,10 +343,10 @@ router.get('/get-category', function(req, res, next) {
     let p = Promise.all(ps);
     p.then(function(out) {
         // console.log(out);
-        let aritcals = []
+        let articles = []
         for(i in out[0]) {
             item = out[0][i];
-            aritcals.push({
+            articles.push({
                 'id': item.id,
                 'title': item.title,
                 'tag': item.tag,
@@ -346,7 +357,7 @@ router.get('/get-category', function(req, res, next) {
             })
         }
         let infos = {
-            articles: aritcals,
+            articles: articles,
             total: out[1][0]['total']
         };
         res.json({"status": 1, "infos": infos});
@@ -386,7 +397,6 @@ router.get('/get-note', function(req, res, next) {
     let sql = `select ${field} from gather where status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
     
     db.query(sql, function(err, rows) {
-		console.log(err);
         if(err) {
             res.json({"status": 0, "message": ''});
         }

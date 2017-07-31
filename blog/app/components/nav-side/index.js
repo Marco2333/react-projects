@@ -1,11 +1,11 @@
-import view, {stateKey, initialState} from './view';
+import view, {stateKey} from './view';
 import * as actions from './actions';
-import reducer from './reducer';
+import reducer, {initialState} from './reducer';
 
 export {
+    actions,
     reducer,
     stateKey,
-    actions,
     initialState
 }
 

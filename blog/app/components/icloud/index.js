@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import {strLen} from '../../common/str';
+import {strLen} from '../../common/string';
 
 import './index.scss';
 

@@ -27,19 +27,15 @@ const resetState = (reducer, initialState, stateKey, setting = {}) => {
 
 const getHomePage = (location, callback) => {
     require.ensure([], function (require) {
-		const {Home, reducer, initialState, stateKey} = require('./containers/Home.js');
+		const {Home} = require('./containers/Home.js');
 		
-        resetState(reducer, initialState, stateKey, {'_reset': true});
-        
         callback(null, Home);
     }, 'home');
 }
 
 const getArticlePage = (location, callback) => {
     require.ensure([], function (require) {
-        const {Article, reducer, initialState, stateKey} = require('./containers/Article');
-
-		resetState(reducer, initialState, stateKey, {'_reset': true});
+        const {Article} = require('./containers/Article');
         
         callback(null, Article);
     }, 'article');
@@ -70,9 +66,7 @@ const getTimelinePage = (location, callback) => {
 const getSearchPage = (location, callback) => {
     
     require.ensure([], function (require) {
-        const {Search, reducer, initialState, stateKey} = require('./containers/Search');
-
-		resetState(reducer, initialState, stateKey, {'_reset': true, keyword: location['params']['keyword']});
+        const {Search} = require('./containers/Search');
         
         callback(null, Search);
     }, 'search');
@@ -81,9 +75,7 @@ const getSearchPage = (location, callback) => {
 const getCategoryPage = (location, callback) => {
     
     require.ensure([], function (require) {
-        const {Category, reducer, initialState, stateKey} = require('./containers/Category');
-
-		resetState(reducer, initialState, stateKey, {'_reset': true, category: location['params']['id']});
+        const {Category} = require('./containers/Category');
         
         callback(null, Category);
     }, 'category');
@@ -92,9 +84,7 @@ const getCategoryPage = (location, callback) => {
 const getTagPage = (location, callback) => {
     
     require.ensure([], function (require) {
-        const {Tag, reducer, initialState, stateKey} = require('./containers/Tag');
-
-		resetState(reducer, initialState, stateKey, {'_reset': true, tag: location['params']['tag']});
+        const {Tag} = require('./containers/Tag');
         
         callback(null, Tag);
     }, 'tag');

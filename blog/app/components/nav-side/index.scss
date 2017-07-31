@@ -1,8 +1,9 @@
 @import "../../config/config.scss";
+
 .nav-side {
     font-size: 12px;
     >.panel {
-        margin: 15px 0 25px;
+        margin-bottom: 25px;
         box-shadow: 0 0 6px #aaa;
     }
     li {

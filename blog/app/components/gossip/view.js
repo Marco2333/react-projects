@@ -8,7 +8,7 @@ import {getGossip} from './actions';
 import "./index.scss";
 
 export const stateKey = 'gossip';
-export const initialState = {};
+
 
 class Gossip extends Component {
     constructor(props) {
@@ -46,7 +46,7 @@ class Gossip extends Component {
                         {
                             gossips && gossips.map((item, index) => (
 								<Timeline.Item key={item.id}>
-									<div className="gossip-item">
+									<div className="gossip-item wow fadeInLeft animated">
 										{
 											item.img 
 											?
@@ -89,8 +89,8 @@ class Gossip extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        gossips: state[stateKey] && state[stateKey]["gossips"] || null,
-        total: state[stateKey] && state[stateKey]["total"],
+        gossips: state[stateKey]["gossips"],
+        total: state[stateKey]["total"],
     }
 }
 

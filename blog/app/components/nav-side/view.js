@@ -13,17 +13,15 @@ import './index.scss';
 import bgImg from "../../../public/image/portrait_bg.jpg";
 import meImg from "../../../public/image/me.jpg";
 
-
 export const stateKey = "nav-side";
-export const initialState = {};
 
 class NavSide extends Component {
     componentDidMount() {
-        this.props.getNavInfo();
+		this.props.getNavInfo();
     }
 
     render() {
-        const {portrait, articles, categorys, tags, links} = this.props;
+        const {portrait, articles, categories, tags, links} = this.props;
 
         return (
             <div className="nav-side">
@@ -31,7 +29,7 @@ class NavSide extends Component {
                     <img src={bgImg} alt=""/>
                     <div className="panel-body">
                         <div className="user-portrait">
-                            <img src={meImg} alt=""/>
+                            <img className="wow bounce animated" src={meImg} alt=""/>
                             <h3>Marco</h3>
                             <p>{portrait ? portrait.intro : ''}</p>
                         </div>
@@ -80,8 +78,8 @@ class NavSide extends Component {
                     <div className="panel-body">
                         <ul>
                             {
-                                categorys ?
-                                categorys.map(category => (
+                                categories ?
+                                categories.map(category => (
                                     <li key={category.id}>
                                         <Link to={`/category/${category.id}`}>{category.theme}</Link>
                                     </li>

@@ -9,7 +9,6 @@ import {getTimeline} from './actions';
 import "./index.scss";
 
 export const stateKey = 'timeline';
-export const initialState = {};
 
 class TimeLine extends Component {
     constructor(props) {
@@ -26,7 +25,7 @@ class TimeLine extends Component {
 
     componentDidMount() {
         let {current, category, count} = this.state;
-        this.props.getTimeline(current, count, category);
+		this.props.getTimeline(current, count, category);
     }
 
     onChange(value) {
@@ -104,12 +103,12 @@ class TimeLine extends Component {
                                 ?
                                     <Timeline.Item key={item.key} color="blue"
                                         dot={<Icon type="clock-circle-o" style={{ fontSize: '16px'}} />}>
-                                        <p className="timeline-time">{item.key}</p>
+                                        <p className="timeline-time wow zoomIn animated">{item.key}</p>
                                     </Timeline.Item>
                                 :
                                     <Timeline.Item key={item.id} color={item.color}>
                                         <Link to={`article-detail/${item.id}`}>
-                                            <p className="timeline-item">{item.title}</p>
+                                            <p className="timeline-item wow zoomIn animated">{item.title}</p>
                                         </Link>
                                     </Timeline.Item>
                             ))

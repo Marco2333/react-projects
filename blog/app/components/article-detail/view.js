@@ -5,8 +5,7 @@ import {getArticleDetail} from './actions';
 
 import './index.scss';
 
-export const stateKey = 'article-detail';
-export const initialState = { };
+export const stateKey = 'detail';
 
 class ArticleDetail extends Component {
 
@@ -54,12 +53,12 @@ class ArticleDetail extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        id: state[stateKey] && state[stateKey].id || null,
-        detail: state[stateKey] || {}
+        id: state[stateKey].id || null,
+        detail: state[stateKey]
     }
 }
 
-const mapDispathToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         getDetail: (id) => {
             dispatch(getArticleDetail(id))
@@ -67,4 +66,4 @@ const mapDispathToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispathToProps)(ArticleDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleDetail);

@@ -1,3 +1,3 @@
-export const FETCH_STARTED = 'NOTE/STARTED';
-export const FETCH_SUCCESS = 'NOTE/SUCCESS';
-export const FETCH_FAILURE = 'NOTE/FAILURE';
+export const FETCH_START = 'NOTE/START';
+export const FETCH_SUCCEED = 'NOTE/SUCCEED';
+export const FETCH_FAIL = 'NOTE/FAIL';

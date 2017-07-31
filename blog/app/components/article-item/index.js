@@ -10,7 +10,7 @@ class ArticleItem extends Component {
         const {id, title, theme, tag, created_at, abstract, views, img_url} = this.props;
 
         return (
-            <div className="article-item">
+            <div className="article-item wow zoomIn animated">
                 {
                     img_url ? (
                         <Row>

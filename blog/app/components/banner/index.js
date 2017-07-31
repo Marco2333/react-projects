@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import {Row, Col} from 'antd';
 
-
 import "./index.scss";
 
 import bannerImg1 from "../../../public/image/s-banner1.jpg";

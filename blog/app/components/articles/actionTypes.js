@@ -1,3 +1,0 @@
-export const FETCH_START = 'ARTICLE/START';
-export const FETCH_SUCCEED = 'ARTICLE/SUCCEED';
-export const FETCH_FAIL = 'ARTICLE/FAIL';
