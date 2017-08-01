@@ -22,10 +22,10 @@ class ArticleItem extends Component {
                                     <Link to={`/article-detail/${id}`}><h4>{title}</h4></Link>
                                     <p>
                                         <span>post @ {created_at}</span>
-                                        &nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;
                                         <span>category: {theme}</span>
-                                        &nbsp;&nbsp;
-                                        <span>Tag: {tag}</span>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <span>浏览: {views}</span>
                                     </p>
                                     <div className="article-abstract">
                                         {abstract} ...
@@ -39,11 +39,9 @@ class ArticleItem extends Component {
                             <Link to={`/article-detail/${id}`}><h4>{title}</h4></Link>
                             <p>
                                 <span>post @ {created_at}</span>
-                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 <span>category: {theme}</span>
-                                &nbsp;&nbsp;
-                                <span>Tag: {tag}</span>
-                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 <span>浏览: {views}</span>
                             </p>
                             <div className="article-abstract">

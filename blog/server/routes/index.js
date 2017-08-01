@@ -94,9 +94,6 @@ router.get('/get-articles', function(req, res, next) {
 })
 
 
-
-
-
 router.get('/get-article-list', function(req, res, next) {
     let {current = 1, count = 10, type = 0} = req.query;
     let sql = "";
@@ -198,7 +195,7 @@ router.get('/get-navside-info', function(req, res, next) {
 router.get('/get-article-detail/:id', function(req, res, next) {
     let {id} = req.params;
     
-    let sql = `select article.id, title, body, tag, theme, category, created_at, updated_at, 
+    let sql = `select article.id, title, body, tag, theme, created_at, updated_at, 
     type, views from article join category on article.category = category.id where article.id = ${id} and article.status = 1`;
 
     db.query(sql, function(err, rows) {
@@ -424,6 +421,11 @@ router.get('/get-gossip', function(req, res, next) {
             })
         }
     })
+});
+
+
+router.get('/article-detail/:id', function(req, res, next) {
+	res.sendfile(path.join(__dirname, '../../public/detail.html')); // 发送静态文件
 });
 
 

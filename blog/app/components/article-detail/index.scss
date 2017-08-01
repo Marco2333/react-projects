@@ -1,6 +1,5 @@
 .article-detail {
     padding: 15px 35px;
-    margin: 15px 0;
     font-size: 14px;
     box-shadow: 0 0 6px #666;
 }
@@ -16,12 +15,11 @@
     margin-top: -2px;
     margin-bottom: 11px;
     >.spliter {
-        height: 11px;
+        height: 13px;
         margin: 0 8px;
-        border-color: #ccc;
         display: inline-block;
         vertical-align: -2px;
-        border-left: 1px solid #aaa;
+        border-left: 1px solid #ccc;
     }
 }
 

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import {Icon} from 'antd';
+
 import {getArticleDetail} from './actions';
 
 import './index.scss';
@@ -23,7 +25,7 @@ class ArticleDetail extends Component {
     }
 
     render() {
-        const {title, body, tag, category, created_at, updated_at, views, type} = this.props.detail;
+        const {title, body, tag, theme, created_at, updated_at, views, type} = this.props.detail;
         return (
             <div className="article-detail">
                 <h3 className="blog-title">
@@ -40,9 +42,12 @@ class ArticleDetail extends Component {
                             updated_at ? updated_at : created_at
                         }
                     </span>
-                    <span className="spliter"></span>
-                    <span>浏览 : &nbsp;  {views}</span><span className="spliter"></span>
-                    <span>标签 : &nbsp;  {tag}</span>
+					<span className="spliter"></span>
+                    <span>{theme}</span>
+					<span className="spliter"></span>
+                    <span><Icon type="tag" />&nbsp;  {tag}</span>
+					<span className="spliter"></span>
+                    <span>浏览&nbsp;  {views}</span>
                 </div>
                 <div className="blog-content" dangerouslySetInnerHTML={{__html: body}}></div>
                 <script src=""></script>                  

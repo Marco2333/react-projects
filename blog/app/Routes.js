@@ -1,7 +1,7 @@
 import React from 'react';
 import {combineReducers} from 'redux';
 
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
 import store from './Store.js';
@@ -112,7 +112,7 @@ const getGossipPage = (location, callback) => {
     }, 'gossip');
 }
 
-const history = syncHistoryWithStore(hashHistory, store);
+const history = syncHistoryWithStore(browserHistory, store);
 
 const Routes = () => (
     <Router history={history}>
