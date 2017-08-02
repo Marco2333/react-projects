@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 
 import {Icon} from 'antd';
 
+// import SyntaxHighlighter from 'syntaxhighlighter';
+
 import {getArticleDetail} from './actions';
 
 import './index.scss';
@@ -13,7 +15,8 @@ class ArticleDetail extends Component {
 
     componentDidMount() {
         let {id, getDetail} = this.props; 
-        getDetail(id);
+		getDetail(id);
+		// console.log(SyntaxHighlighter);
     }
 
     componentWillReceiveProps(nextProps) {

@@ -27,7 +27,10 @@ module.exports = {
             }, {
                 test: /\.(png|jpg|gif)$/,
                 loader: 'url-loader?limit=40000'
-            }
+            }, {
+				test: require.resolve('syntaxhighlighter/src/index.js'), 
+				loader: 'exports-loader?this.SyntaxHighlighter'
+			}
         ]
     },
     plugins: [

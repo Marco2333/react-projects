@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Marco</title>
 	<link href="/static/syntaxhighlighter/styles/shCoreFadeToGrey.css"rel="stylesheet" type="text/css" >
+	<style>
+		.syntaxhighlighter {margin: 3px 0 6px!important;}
+		.syntaxhighlighter .gutter {padding: 2px 0!important;}
+	</style>
 </head>
 <body>
 	<div id="react-root"></div>
@@ -19,10 +23,8 @@
 	<script src="/static/syntaxhighlighter/scripts/shBrushBash.js" type="text/javascript"></script>
 	<script src="/static/syntaxhighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
 	<script>
-		window.onload = function() {
-			console.log(SyntaxHighlighter);
-			SyntaxHighlighter.all();
-		}
+		console.log(123);
+		SyntaxHighlighter.all();
 	</script>
 </body>
 </html>	

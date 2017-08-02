@@ -10,7 +10,7 @@ import boardImg from '../../../public/image/bord.jpg';
 const HomeBanner = () => {
     return (
         <div className="container home-banner">
-            <Row gutter={8}>
+            <Row gutter={12}>
                 <Col sm={24} md={15}>
                     <Banner/>
                 </Col>

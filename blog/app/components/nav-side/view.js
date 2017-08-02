@@ -29,7 +29,7 @@ class NavSide extends Component {
                     <img src={bgImg} alt=""/>
                     <div className="panel-body">
                         <div className="user-portrait">
-                            <img className="wow bounce animated" src={meImg} alt=""/>
+                            <img src={meImg} alt=""/>
                             <h3>Marco</h3>
                             <p>{portrait ? portrait.intro : ''}</p>
                         </div>
