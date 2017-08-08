@@ -4,8 +4,11 @@ import {connect} from 'react-redux';
 import {Icon} from 'antd';
 
 // import SyntaxHighlighter from 'syntaxhighlighter';
+import Highlight from 'react-highlight';
 
 import {getArticleDetail} from './actions';
+
+import '../../../node_modules/highlight.js/styles/monokai.css'
 
 import './index.scss';
 
@@ -52,8 +55,8 @@ class ArticleDetail extends Component {
 					<span className="spliter"></span>
                     <span>浏览&nbsp;  {views}</span>
                 </div>
-                <div className="blog-content" dangerouslySetInnerHTML={{__html: body}}></div>
-                <script src=""></script>                  
+				<div className="blog-content" dangerouslySetInnerHTML={{__html: body}}>
+				</div>           
             </div>
         )
     }

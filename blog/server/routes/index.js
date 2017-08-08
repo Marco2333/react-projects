@@ -117,9 +117,9 @@ router.get('/get-navside-info', function(req, res, next) {
 });
 
 
-router.get('/article-detail/:id', function(req, res, next) {
-	res.sendfile(path.join(__dirname, '../../public/detail.html')); // 发送静态文件
-});
+// router.get('/article-detail/:id', function(req, res, next) {
+// 	res.sendfile(path.join(__dirname, '../../public/detail.html')); // 发送静态文件
+// });
 
 
 router.get('*', function(req, res, next) {

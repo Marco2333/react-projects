@@ -1,8 +1,9 @@
+var db = require('../db.js');
 var Str = require('../common/string');
 
 module.exports.getArticles = function(req, res, next) {
 	let {current, count, type, category, keyword, tag} = req.query;
-
+	
 	let field = "article.id, title, body, tag, created_at, views, theme";
 	let sql = `select ${field} from article join category on article.category = category.id`,
 		condition = " where article.status = 1",
@@ -56,7 +57,7 @@ module.exports.getArticles = function(req, res, next) {
 				})
 			});
 			info['articles'] = articles;
-
+			console.log(123);
 			if(current != null) {
 				db.query(totalSql, function(err, totalRows) {
 					if(err) {

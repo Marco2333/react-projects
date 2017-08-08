@@ -1,6 +1,8 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+	devtool: 'source-map',
 	entry: __dirname + "/app/index.js",
 	output: {
 		path: __dirname + "/public/script/",
@@ -9,16 +11,42 @@ module.exports = {
 		publicPath: '/script/'
 	},
 	module: {
-		loaders: [{
-			test: /\.js$/,
-			exclude: /node_modules/,
-			loader: 'babel-loader'
-		}, {
-			test: /\.scss$/,
-			exclude: /node_modules/,
-			loader: 'style-loader!css-loader!sass-loader'
-		}]
-	},
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            }, {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'url-loader?limit=40000'
+            }, {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: {
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true //css压缩
+                        }
+                    }
+                })
+            }, {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true //css压缩
+                            }
+                        },
+                        'sass-loader'
+                    ]
+                })
+            }
+        ]
+    },
 	plugins: [
 		new webpack.DllReferencePlugin({
 			context: __dirname,
@@ -31,6 +59,7 @@ module.exports = {
 			compress: {
 				warnings: false
 			}
-		})
+		}),
+		new ExtractTextPlugin("../style/style.css")
 	]
 }
