@@ -5,7 +5,6 @@ const Article = require('../controller/article');
 var db = require('../db.js');
 var path = require('path');
 var express = require('express');
-
 var router = express.Router();
 
 
@@ -15,19 +14,12 @@ router.get('/get-article-detail/:id', Article.getArticleDetail);
 
 router.get('/get-timeline', Article.getTimeline);
 
-router.get('/search', Article.search);
-
-router.get('/get-tag', Article.getArticleByTag);
 
 
 router.get('/get-note', function(req, res, next) {
     let {current = 1, count = 15} = req.query;
 	let field = "id, title, detail, tag, created_at";
-
-	current = mysql.escape(current);
-	count = mysql.escape(count);
-
-    let sql = `select ${field} from gather where status = 1 order by created_at desc limit ${(current - 1) * count}, ${count}`;
+    let sql = `select ${field} from gather where status = 1 order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
     
     db.query(sql, function(err, rows) {
         if(err) {
@@ -44,13 +36,9 @@ router.get('/get-note', function(req, res, next) {
 
 router.get('/get-gossip', function(req, res, next) {
     let {current = 1, count = 30} = req.query;
-    let sql = `select * from gossip order by created_at desc limit ${(current - 1) * count}, ${count}`;
-	
-	current = mysql.escape(current);
-	count = mysql.escape(count);
-	
+    let sql = `select * from gossip order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
+
     db.query(sql, function(err, rows) {
-		console.log(rows);
         if(err) {
             res.json({"status": 0, "message": ''});
         }

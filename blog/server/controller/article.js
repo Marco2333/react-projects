@@ -12,31 +12,31 @@ module.exports.getArticles = function(req, res, next) {
 		totalSql = '';
 
 	if(tag != null) {
-		condition += ` and tag like '%${mysql.escape(tag)}%'`;
+		tag = mysql.escape(`%${tag}%`);
+		condition += ` and tag like ${tag}`;
 	}
 	if(keyword != null && keyword.trim() !== '') {
-		keyword = mysql.escape(keyword);
-		condition += ` and (body like '%${keyword}%' or title like 
-        '%${keyword}%' or tag like '%${keyword}%')`;
+		keyword = mysql.escape(`%${keyword}%`);
+		condition += ` and (body like ${keyword} or title like 
+        ${keyword} or tag like ${keyword})`;
 	}
 	if(category != null && +category !== 0) {
-		condition += ` and category = ${+mysql.escape(category)}`;
+		condition += ` and category = ${+category}`;
 	}
 	if(type != null && +type !== 0) {
-		condition += ` and type = ${+mysql.escape(type)}`;
+		condition += ` and type = ${+type}`;
 	}
+
 	sql += condition;
 	sql += " order by created_at desc";
 
 	if(count != null) {
-		count = mysql.escape(count);
 		if(current != null) {
-			current = mysql.escape(current);
-			sql += ` limit ${(current - 1) * count}, ${count}`;
+			sql += ` limit ${(+current - 1) * +count}, ${+count}`;
 			totalSql += "select count(*) as total from article" + condition;
 		}
 		else {
-			sql += ` limit ${count}`;
+			sql += ` limit ${+count}`;
 		}
 	}
 	
@@ -108,21 +108,17 @@ module.exports.getTimeline = function(req, res, next) {
     
     let sql = "";
 	let field = "article.id, title, created_at";
-	
-	current = mysql.escape(current);
-	count = mysql.escape(current);
-	category = mysql.escape(category);
 
     if(category == 0) {
         sql = `select ${field} from article where article.status = 1
-            order by created_at desc limit ${(current - 1) * count}, ${count}`;
+            order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
         sqls.push(sql);
 
         sql = 'select count(*) as total from article where status = 1';
         sqls.push(sql);
     } else{
         sql = `select ${field} from article where category = ${+category} and article.status = 1 
-            order by created_at desc limit ${(current - 1) * count}, ${count}`;
+            order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
         sqls.push(sql);
 
         sql = `select count(*) as total from article where status = 1 and category = ${+category}`;
@@ -153,71 +149,5 @@ module.exports.getTimeline = function(req, res, next) {
     }).catch(function(err) {
         console.log(err);
         res.json({"status": 0, "message": ''});
-    })
-}
-
-module.exports.search = function(req, res, next) {
-	let {current = 1, count = 15, keyword} = req.query;
-
-    if(keyword == '' || keyword.length > 15) {
-       res.json({"status": 1, "articles": []}); 
-    }
-
-	current = mysql.escape(current);
-	count = mysql.escape(current);
-	keyword = mysql.escape(keyword);
-
-    let field = "article.id, title, body, tag, created_at, views, theme";
-    let sql = `select ${field} from article join category on article.category = category.id where article.status = 1 and (body like '%${keyword}%' or title like 
-        '%${keyword}%' or tag like '%${keyword}%') order by created_at desc limit ${(current - 1) * count}, ${count}`;
-    
-    db.query(sql, function(err, rows) {
-        if(err) {
-            res.json({"status": 0, "message": ''});
-        }
-        else {
-            let out = []
-            for(i in rows) {
-                item = rows[i];
-                out.push({
-                    'id': item.id,
-                    'title': item.title,
-                    'tag': item.tag,
-                    'abstract': Str.escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
-                    'created_at': item.created_at,
-                    'views': item.views,
-                    'theme': item.theme
-                })
-            }
-
-            db.query(`select count(*) as total from article where article.status = 1 and (body like '%${keyword}%' or title like 
-             '%${keyword}%' or tag like '%${keyword}%')`, function(err, rows) {
-                res.json({"status": 1, "articles": out, "total": rows[0]['total']});
-            })
-        }
-    })
-}
-
-module.exports.getArticleByTag = function(req, res, next) {
-	let {tag} = req.query;
-    let field = "article.id, title, body, tag, created_at, views, theme";
-    let sql = `select ${field} from article join category on article.category = category.id where article.status = 1 
-        and tag like '%${mysql.escape(tag)}%' order by created_at desc`;
-    
-    db.query(sql, function(err, rows) {
-        let out = []
-        for(i in rows) {
-            item = rows[i];
-            out.push({
-                'id': item.id,
-                'title': item.title,
-                'tag': item.tag,
-                'abstract': Str.escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
-                'created_at': item.created_at,
-                'views': item.views,
-                'theme': item.theme
-            })
-        }
-        res.json({"status": 1, "articles": out});
     })
 }
