@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    devtool: 'cheap-eval-source-map',
+    devtool: 'cheap-module-eval-source-map',
     entry: __dirname + "/app/index.js",
     output: {
         path: __dirname + "/public/script/",
@@ -37,7 +37,13 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("../style/style.css"), 
-        new webpack.DllReferencePlugin({context: __dirname, manifest: require('./manifest.json')}),
-        new webpack.optimize.CommonsChunkPlugin({name: ' common', filename: 'common.js'})
+        new webpack.DllReferencePlugin({
+			context: __dirname, 
+			manifest: require('./manifest.json')
+		}),
+        new webpack.optimize.CommonsChunkPlugin({
+			name: ' common', 
+			filename: 'common.js'
+		})
     ]
 }

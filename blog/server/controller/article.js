@@ -1,3 +1,5 @@
+var mysql = require('mysql');
+
 var db = require('../db.js');
 var Str = require('../common/string');
 
@@ -10,23 +12,26 @@ module.exports.getArticles = function(req, res, next) {
 		totalSql = '';
 
 	if(tag != null) {
-		condition += ` and tag like '%${tag}%'`;
+		condition += ` and tag like '%${mysql.escape(tag)}%'`;
 	}
 	if(keyword != null && keyword.trim() !== '') {
+		keyword = mysql.escape(keyword);
 		condition += ` and (body like '%${keyword}%' or title like 
         '%${keyword}%' or tag like '%${keyword}%')`;
 	}
 	if(category != null && +category !== 0) {
-		condition += ` and category = ${+category}`;
+		condition += ` and category = ${+mysql.escape(category)}`;
 	}
 	if(type != null && +type !== 0) {
-		condition += ` and type = ${+type}`;
+		condition += ` and type = ${+mysql.escape(type)}`;
 	}
 	sql += condition;
 	sql += " order by created_at desc";
 
 	if(count != null) {
+		count = mysql.escape(count);
 		if(current != null) {
+			current = mysql.escape(current);
 			sql += ` limit ${(current - 1) * count}, ${count}`;
 			totalSql += "select count(*) as total from article" + condition;
 		}
@@ -57,7 +62,7 @@ module.exports.getArticles = function(req, res, next) {
 				})
 			});
 			info['articles'] = articles;
-			console.log(123);
+			
 			if(current != null) {
 				db.query(totalSql, function(err, totalRows) {
 					if(err) {
@@ -81,14 +86,16 @@ module.exports.getArticleDetail = function(req, res, next) {
 	let {id} = req.params;
     
     let sql = `select article.id, title, body, tag, theme, created_at, updated_at, 
-    type, views from article join category on article.category = category.id where article.id = ${id} and article.status = 1`;
+		type, views from article join category on article.category = category.id where 
+		article.id = ${mysql.escape(id)} and article.status = 1`;
 
     db.query(sql, function(err, rows) {
         if(err) {
             res.json({"status": 0, "message": err});
         }
-	
-        res.json({"status": 1, "_info": rows ? rows[0] : {}});
+		else {
+			res.json({"status": 1, "_info": rows ? rows[0] : {}});
+		}
     })
 }
 
@@ -100,7 +107,11 @@ module.exports.getTimeline = function(req, res, next) {
     let {current = 1, count = 30, category = 0} = req.query;
     
     let sql = "";
-    let field = "article.id, title, created_at";
+	let field = "article.id, title, created_at";
+	
+	current = mysql.escape(current);
+	count = mysql.escape(current);
+	category = mysql.escape(category);
 
     if(category == 0) {
         sql = `select ${field} from article where article.status = 1
@@ -148,9 +159,13 @@ module.exports.getTimeline = function(req, res, next) {
 module.exports.search = function(req, res, next) {
 	let {current = 1, count = 15, keyword} = req.query;
 
-    if(keyword == '') {
+    if(keyword == '' || keyword.length > 15) {
        res.json({"status": 1, "articles": []}); 
     }
+
+	current = mysql.escape(current);
+	count = mysql.escape(current);
+	keyword = mysql.escape(keyword);
 
     let field = "article.id, title, body, tag, created_at, views, theme";
     let sql = `select ${field} from article join category on article.category = category.id where article.status = 1 and (body like '%${keyword}%' or title like 
@@ -187,7 +202,7 @@ module.exports.getArticleByTag = function(req, res, next) {
 	let {tag} = req.query;
     let field = "article.id, title, body, tag, created_at, views, theme";
     let sql = `select ${field} from article join category on article.category = category.id where article.status = 1 
-        and tag like '%${tag}%' order by created_at desc`;
+        and tag like '%${mysql.escape(tag)}%' order by created_at desc`;
     
     db.query(sql, function(err, rows) {
         let out = []

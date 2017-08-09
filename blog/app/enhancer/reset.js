@@ -1,6 +1,6 @@
 const RESET_ACTION_TYPE = '@@RESET';
 
-const resetReducerCreater = (reducer, resetState) => (state, action) => {
+const resetReducerCreator = (reducer, resetState) => (state, action) => {
 	if (action.type === RESET_ACTION_TYPE) {
 		return resetState;
 	} else {
@@ -12,7 +12,7 @@ const reset = (createStore) => (reducer, preloadedState, enhancer) => {
 	const store = createStore(reducer, preloadedState, enhancer);
 
 	const reset = (resetReducer, resetState) => {
-		const newReducer = resetReducerCreater(resetReducer, resetState);
+		const newReducer = resetReducerCreator(resetReducer, resetState);
 		store.replaceReducer(newReducer);
 		store.dispatch({
 			type: RESET_ACTION_TYPE,
