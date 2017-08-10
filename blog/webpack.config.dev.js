@@ -38,11 +38,6 @@ module.exports = {
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require('./manifest.json')
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'common',
-            filename: 'common.js',
-            minChunks: 2
-        })
+		})
     ]
 }

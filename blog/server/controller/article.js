@@ -147,7 +147,7 @@ module.exports.getTimeline = function(req, res, next) {
     let p = Promise.all(ps);
     p.then(function(out) {
 		res.json({
-			"status": 1,  
+			status: 1,  
 			categories: out[0],
             items: out[1],
 			total: out[2][0]['total']

@@ -57,10 +57,6 @@ module.exports = {
                 warnings: false
             }
         }),
-        new ExtractTextPlugin("../style/style.css")，
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['common'],
-            minChunks: 2
-        })
+        new ExtractTextPlugin("../style/style.css")
     ]
 }

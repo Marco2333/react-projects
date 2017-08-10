@@ -1,12 +1,20 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, {
+    Component
+} from 'react';
+import {
+    connect
+} from 'react-redux';
 
-import {Icon} from 'antd';
+import {
+    Icon
+} from 'antd';
 
 // import SyntaxHighlighter from 'syntaxhighlighter';
-import Highlight from 'react-highlight';
+// import Highlight from 'react-highlight';
 
-import {getArticleDetail} from './actions';
+import {
+    getArticleDetail
+} from './actions';
 
 import '../../../node_modules/highlight.js/styles/monokai.css'
 
@@ -17,13 +25,19 @@ export const stateKey = 'detail';
 class ArticleDetail extends Component {
 
     componentDidMount() {
-        let {id, getDetail} = this.props; 
-		getDetail(id);
-		// console.log(SyntaxHighlighter);
+        let {
+            id,
+            getDetail
+        } = this.props;
+        getDetail(id);
+        // console.log(SyntaxHighlighter);
     }
 
     componentWillReceiveProps(nextProps) {
-        let {id, getDetail} = this.props;
+        let {
+            id,
+            getDetail
+        } = this.props;
 
         if (id != nextProps.id) {
             getDetail(nextProps.id);
@@ -31,7 +45,16 @@ class ArticleDetail extends Component {
     }
 
     render() {
-        const {title, body, tag, theme, created_at, updated_at, views, type} = this.props.detail;
+        const {
+            title,
+            body,
+            tag,
+            theme,
+            created_at,
+            updated_at,
+            views,
+            type
+        } = this.props.detail;
         return (
             <div className="article-detail">
                 <h3 className="blog-title">

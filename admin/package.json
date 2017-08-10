@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"build": "webpack --config webpack.config.prod.js --env production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.prod.js --env production",
     "dev": "webpack --config webpack.config.dev.js --watch"
   },
   "author": "Marco",
@@ -15,6 +15,7 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "morgan": "^1.8.2",
     "mysql": "^2.14.1",
     "react": "^15.6.1",

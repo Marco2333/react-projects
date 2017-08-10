@@ -2,18 +2,14 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    devtool: 'cheap-module-eval-source-map',
-    entry: {
-        bundle: __dirname + "/app/index.js",
-		vendor: ['react', 'react-dom', 'redux', 'redux-thunk', 
-				'react-router', 'react-redux', 'react-router-redux']
+	devtool: 'cheap-module-eval-source-map',
+	entry: __dirname + "/app/index.js",
+    output: {
+        path: __dirname + "/public/script/",
+        filename: "bundle.js",
+        chunkFilename: 'chunk/[name].chunk.js',
+        publicPath: '/script/'
     },
-   	output: {
-		path: __dirname + "/public/script/",
-		filename: "[name].js",
-		chunkFilename: 'chunk/[name].chunk.js',
-		publicPath: '/script/'
-	},
     module: {
         rules: [
             {
@@ -39,10 +35,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("../style/style.css"), 
-		new webpack.optimize.CommonsChunkPlugin({
-			name: ["common", 'vendor'],
-            minChunks: 2
+        new ExtractTextPlugin("../style/style.css"),  
+		new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./manifest.json')
 		})
     ]
 }

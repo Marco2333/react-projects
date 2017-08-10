@@ -1,10 +1,9 @@
-var mysql = require('mysql');
-
-const Article = require('../controller/article');
-
-var db = require('../db.js');
 var path = require('path');
 var express = require('express');
+
+var db = require('../db.js');
+var Article = require('../controller/article');
+
 var router = express.Router();
 
 
@@ -15,19 +14,26 @@ router.get('/get-article-detail/:id', Article.getArticleDetail);
 router.get('/get-timeline', Article.getTimeline);
 
 
-
 router.get('/get-note', function(req, res, next) {
-    let {current = 1, count = 15} = req.query;
-	let field = "id, title, detail, tag, created_at";
+    let {
+        current = 1, count = 15
+    } = req.query;
+    let field = "id, title, detail, tag, created_at";
     let sql = `select ${field} from gather where status = 1 order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
-    
+
     db.query(sql, function(err, rows) {
-        if(err) {
-            res.json({"status": 0, "message": ''});
-        }
-        else {
+        if (err) {
+            res.json({
+                "status": 0,
+                "message": ''
+            });
+        } else {
             db.query('select count(*) as total from gather where status = 1 ', function(err, t) {
-                res.json({"status": 1, "notes": rows, "total": t[0]['total']});
+                res.json({
+                    "status": 1,
+                    "notes": rows,
+                    "total": t[0]['total']
+                });
             })
         }
     })
@@ -35,16 +41,24 @@ router.get('/get-note', function(req, res, next) {
 
 
 router.get('/get-gossip', function(req, res, next) {
-    let {current = 1, count = 30} = req.query;
+    let {
+        current = 1, count = 30
+    } = req.query;
     let sql = `select * from gossip order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
 
     db.query(sql, function(err, rows) {
-        if(err) {
-            res.json({"status": 0, "message": ''});
-        }
-        else {
+        if (err) {
+            res.json({
+                "status": 0,
+                "message": ''
+            });
+        } else {
             db.query('select count(*) as total from gossip', function(err, t) {
-                res.json({"status": 1, "gossips": rows, "total": t[0]['total']});
+                res.json({
+                    "status": 1,
+                    "gossips": rows,
+                    "total": t[0]['total']
+                });
             })
         }
     })
@@ -65,7 +79,7 @@ router.get('/get-navside-info', function(req, res, next) {
     for (sql of sqls) {
         ps.push(new Promise(function(resolve, reject) {
             db.query(sql, function(err, rows) {
-                if(err) {
+                if (err) {
                     reject(err);
                 }
                 resolve(rows);
@@ -76,12 +90,12 @@ router.get('/get-navside-info', function(req, res, next) {
     let p = Promise.all(ps);
     p.then(function(out) {
         let tags = [];
-        
+
         for (item of out[4]) {
             tags.push(...(item['tag'].trim().replace(/\s/, ' ').split(" ")))
         }
 
-        tags = [... new Set(tags)];
+        tags = [...new Set(tags)];
 
         let infos = {
             portrait: {
@@ -95,8 +109,8 @@ router.get('/get-navside-info', function(req, res, next) {
             tags: tags
         };
         res.json({
-			status: 1, 
-			portrait: {
+            status: 1,
+            portrait: {
                 'intro': out[0][0]['value'],
                 'viewCount': out[0][1]['value'],
                 'articleCount': out[5][0]['count']
@@ -104,11 +118,14 @@ router.get('/get-navside-info', function(req, res, next) {
             articles: out[1],
             categories: out[2],
             links: out[3],
-			tags: tags
-		});
+            tags: tags
+        });
 
     }).catch(function(err) {
-        res.json({"status": 0, "message": ''});
+        res.json({
+            "status": 0,
+            "message": ''
+        });
     })
 });
 
@@ -119,7 +136,7 @@ router.get('/get-navside-info', function(req, res, next) {
 
 
 router.get('*', function(req, res, next) {
-	res.sendfile(path.join(__dirname, '../../public/index.html')); // 发送静态文件
+    res.sendfile(path.join(__dirname, '../../public/index.html')); // 发送静态文件
 });
 
 module.exports = router;

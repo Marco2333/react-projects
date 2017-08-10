@@ -16,7 +16,7 @@ module.exports = {
 	},
 	output: {
 		path: __dirname + '/public/script',
-		filename: '[name].js',
+		filename: '[name].[chunkHash:8].js',
 		library: '[name]'
 	},
 	plugins: [
@@ -24,6 +24,14 @@ module.exports = {
 			path: 'manifest.json',
 			name: '[name]',
 			context: __dirname
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			output: {
+				comments: false
+			},
+			compress: {
+				warnings: false
+			}
 		})
 	]
 }
