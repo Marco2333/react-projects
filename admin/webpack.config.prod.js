@@ -62,8 +62,8 @@ module.exports = {
 		}),
 		new ExtractTextPlugin("../style/style.css"),
 		new webpack.optimize.CommonsChunkPlugin({
-			name: 'manifest',
-			chunks: ['vendor']
+			name: ["common", 'vendor'],
+            minChunks: 2
 		})
 	]
 }

@@ -5,17 +5,19 @@ const vendors = [
 	'redux',
 	'react-dom',
 	'react-redux',
-	'redux-thunk'
+	'redux-thunk',
+	'react-router',
+	'react-router-redux'
 ];
 
 module.exports = {
-	output: {
-		path: __dirname + '/public/script',
-		filename: '[name].js',
-		library: '[name]'
-	},
 	entry: {
 		lib: vendors
+	},
+	output: {
+		path: __dirname + '/public/script',
+		filename: '[name].[chunkHash:8].js',
+		library: '[name]'
 	},
 	plugins: [
 		new webpack.DllPlugin({

@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var session = require('express-session');
 
 var db = require('../db.js');
 var Str = require('../common/string');
@@ -89,6 +90,11 @@ module.exports.getArticleDetail = function(req, res, next) {
 		type, views from article join category on article.category = category.id where 
 		article.id = ${mysql.escape(id)} and article.status = 1`;
 
+	if (!session['article_record_' + id]) {
+        session['article_record_' + id] = true;
+        db.query(`update article set views = views + 1 where id = ${id}`, function() {})
+	}
+	
     db.query(sql, function(err, rows) {
         if(err) {
             res.json({"status": 0, "message": err});

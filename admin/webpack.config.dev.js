@@ -40,15 +40,9 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("../style/style.css"), 
-        // new webpack.optimize.CommonsChunkPlugin({
-		// 	names: ['vendor', 'manifest']
-		// })
 		new webpack.optimize.CommonsChunkPlugin({
-			// name: 'manifest',
-			// chunks: ['bundle', 'vendor']
-			// name: ["chunk",'common']
-			name: ["chunk", 'lib','vendor'],//对应于上面的entry的key
-            minChunks:2
+			name: ["common", 'vendor'],
+            minChunks: 2
 		})
     ]
 }

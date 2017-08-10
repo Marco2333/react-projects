@@ -6,8 +6,8 @@ module.exports = {
     entry: __dirname + "/app/index.js",
     output: {
         path: __dirname + "/public/script/",
-        filename: "bundle.js",
-        chunkFilename: 'chunk/[name].chunk.js',
+        filename: "bundle.[chunkHash:8].js",
+        chunkFilename: 'chunk/[name].[chunkHash:8].js',
         publicPath: '/script/'
     },
     module: {
@@ -59,8 +59,8 @@ module.exports = {
         }),
         new ExtractTextPlugin("../style/style.css")，
         new webpack.optimize.CommonsChunkPlugin({
-            name: ' common',
-            filename: 'common.js'
+            name: ['common'],
+            minChunks: 2
         })
     ]
 }
