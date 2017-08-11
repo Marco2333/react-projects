@@ -16,6 +16,8 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "jade": "^1.11.0",
+    "md5": "^2.2.1",
     "morgan": "^1.8.2",
     "mysql": "^2.14.1",
     "react": "^15.6.1",

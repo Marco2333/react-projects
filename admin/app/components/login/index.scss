@@ -1,0 +1,36 @@
+.login-wrap {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 30px;
+	width: 330px;
+	height: 240px;
+	padding: 16px 18px;
+	margin: auto;
+	border-radius: 2px;
+	background-color: #fff;
+	box-shadow: 0 0 20px #b4b4b4;
+}
+
+.login-head {
+	padding: 0 0 10px;
+	margin-bottom: 22px;
+	border-bottom: 1px solid #eee;
+	color: #444;
+	font-size: 16px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.login-form {
+	max-width: 300px;
+}
+
+.login-form-forgot {
+	float: right;
+}
+
+.login-form-button {
+	width: 100%;
+}

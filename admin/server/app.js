@@ -11,6 +11,8 @@ var db = require('./db.js');
 
 var routes = require('./routes/index');
 
+var user = require('./controller/user');
+
 var app = express();
 
 var router = express.Router();
@@ -27,6 +29,8 @@ app.use(cookieParser());
 
 //静态文件目录
 app.use(express.static(path.join(__dirname, '../public')));
+
+// router.get('/toLogin', user.toLogin);
 
 app.use('/', routes);
 
