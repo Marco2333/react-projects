@@ -1,0 +1,21 @@
+@import '../../config/config.scss';
+
+.nav-top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: $nav-top-height;
+	padding: 0 16px;
+	color: #fff;
+	font-size: 14px;
+	line-height: $nav-top-height;
+	background-color: $nav-color;
+	& > .fr {
+		font-size: 12px;
+	}
+	a {
+		color: #f04134;
+		margin-left: 16px;
+	}
+}

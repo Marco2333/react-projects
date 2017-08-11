@@ -1,5 +1,45 @@
+@import '../../config/config.scss';
+
 .nav-side {
-	width: 220px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 210px;
 	height: 100%;
-	font-size: 13px;
+	background-color: $nav-color;
+	border-top: 1px solid #222;
+	transition: width 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+	&.fold {
+		width: $fold-nav-side-width;
+	}
+	.ant-menu-item {
+		padding-left: 41px;
+		.anticon {
+			&:first-child {
+				margin-right: 10px;
+				margin-left: -5px;
+				transform: scale(0.7);
+			}
+			&:last-child  {
+				float: right;
+    			margin-top: 16px;
+				transform: scale(0.9);
+			}
+		}
+	}
+	 
+}
+
+.toggle-button {
+    position: absolute;
+    top: -34px;
+    left: $nav-side-width - 15px;
+    background-color: $nav-color;
+	border: none;
+	&:hover {
+		background-color: $nav-color;
+	}
+	&:focus {
+		background-color: $nav-color;
+	}
 }
