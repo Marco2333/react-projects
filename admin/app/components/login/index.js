@@ -8,11 +8,15 @@ import {SERVER_ADDRESS} from '../../config/config';
 import './index.scss';
 
 class LoginForm extends Component {
+	static contextTypes = {
+        router: React.PropTypes.object
+	}
+	
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-				let url = `${SERVER_ADDRESS}/toLogin?username=${values.username}
+				let url = `${SERVER_ADDRESS}/toLogin?userid=${values.userid}
 						&password=${md5(values.password)}`;
 
                 fetch(url).then((response) => {
@@ -50,7 +54,7 @@ class LoginForm extends Component {
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <FormItem>
                         {
-                            getFieldDecorator('username', {
+                            getFieldDecorator('userid', {
                                 rules: [
                                     {
                                         required: true,
@@ -60,7 +64,7 @@ class LoginForm extends Component {
                             })(
                                 <Input
                                     prefix={<Icon type = "user"/>}
-                                    placeholder="Username"/>
+                                    placeholder="userid"/>
                             )
                         }
                     </FormItem>

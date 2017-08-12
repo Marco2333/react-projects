@@ -32,8 +32,8 @@ app.use(function (req, res, next) {
     if (session.record) {
         next();
     } else {
-        session.record = true;
-        db.query("update config set value = value + 1 where name = 'view_count'", function(err, rows) {
+		session.record = true;
+		db.query("update config set value = value + 1 where name = 'view_count'", function(err, rows) {
 			next();
 		})
     }

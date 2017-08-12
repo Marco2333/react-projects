@@ -30,7 +30,24 @@ app.use(cookieParser());
 //静态文件目录
 app.use(express.static(path.join(__dirname, '../public')));
 
-// router.get('/toLogin', user.toLogin);
+app.get('/login', function(req, res, next) {
+	if (session.userid) {
+       res.redirect('/home');
+	}
+	else {
+		res.sendfile(path.join(__dirname, '../public/index.html')); // 发送静态文件
+	}
+});
+
+app.get('/toLogin', user.toLogin);
+
+app.use(function (req, res, next) {
+    if (session.userid) {
+        next();
+    } else {
+       	res.redirect('/login');
+    }
+})
 
 app.use('/', routes);
 

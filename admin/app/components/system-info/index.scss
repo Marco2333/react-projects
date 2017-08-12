@@ -1,0 +1,18 @@
+.system-info {
+	padding: 20px 30px;
+	color: #000;
+	font-size: 14px;
+    line-height: 26px;
+	> h3 {
+		font-size: 15px;
+		font-weight: bold;
+	}
+	ul {
+		margin-left: 20px;
+	}
+	& li {
+		margin: 10px 0;
+		padding-right: 3px;
+		list-style: disc;
+	}
+}

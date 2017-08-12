@@ -4,7 +4,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 210px;
+	width: $nav-side-width;
 	height: 100%;
 	background-color: $nav-color;
 	border-top: 1px solid #222;
@@ -16,8 +16,8 @@
 		padding-left: 41px;
 		.anticon {
 			&:first-child {
-				margin-right: 10px;
-				margin-left: -5px;
+				margin-right: 15px;
+				margin-left: -15px;
 				transform: scale(0.7);
 			}
 			&:last-child  {

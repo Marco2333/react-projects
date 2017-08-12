@@ -8692,9 +8692,6 @@ form .ant-input-group-addon .ant-cascader-picker:only-child {
 #react-root {
   height: 100%; }
 
-body {
-  background-color: #f9f9f9; }
-
 .wrapper {
   height: 100%;
   padding-top: 40px; }
@@ -8754,7 +8751,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 210px;
+  width: 200px;
   height: 100%;
   background-color: #404040;
   border-top: 1px solid #222;
@@ -8764,8 +8761,8 @@ body {
   .nav-side .ant-menu-item {
     padding-left: 41px; }
     .nav-side .ant-menu-item .anticon:first-child {
-      margin-right: 10px;
-      margin-left: -5px;
+      margin-right: 15px;
+      margin-left: -15px;
       transform: scale(0.7); }
     .nav-side .ant-menu-item .anticon:last-child {
       float: right;
@@ -8784,9 +8781,6 @@ body {
     background-color: #404040; }
 #react-root {
   height: 100%; }
-
-body {
-  background-color: #f9f9f9; }
 
 .wrapper {
   height: 100%;
@@ -8859,3 +8853,17 @@ body {
   .nav-top a {
     color: #f04134;
     margin-left: 16px; }
+.system-info {
+  padding: 20px 30px;
+  color: #000;
+  font-size: 14px;
+  line-height: 26px; }
+  .system-info > h3 {
+    font-size: 15px;
+    font-weight: bold; }
+  .system-info ul {
+    margin-left: 20px; }
+  .system-info li {
+    margin: 10px 0;
+    padding-right: 3px;
+    list-style: disc; }
