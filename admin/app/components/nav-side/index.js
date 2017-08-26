@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import {Link} from 'react-router';
+
 import {Menu, Icon, Button} from 'antd';
 
 import './index.scss';
@@ -40,9 +42,8 @@ class NavSide extends Component {
 							</span>
 						}
 					>
-						<Menu.Item key="1"><Icon type="caret-right" />文章列表<Icon type="right" /></Menu.Item>
+						<Menu.Item key="1"><Link to="/articles"><Icon type="caret-right" /> <Icon type="right" />文章列表</Link></Menu.Item>
 						<Menu.Item key="2"><Icon type="caret-right" />文章添加<Icon type="right" /></Menu.Item>
-						<Menu.Item key="3"><Icon type="caret-right" />文章分类<Icon type="right" /></Menu.Item>
 					</SubMenu>
 					<SubMenu key="sub2" 
 						title={
@@ -52,7 +53,7 @@ class NavSide extends Component {
 							</span>
 						}
 					>
-						<Menu.Item key="4"><Icon type="caret-right" />收藏列表<Icon type="right" /></Menu.Item>
+						<Menu.Item key="4"><Link to="/gather"><Icon type="caret-right" />收藏列表<Icon type="right" /></Link></Menu.Item>
 						<Menu.Item key="5"><Icon type="caret-right" />收藏添加<Icon type="right" /></Menu.Item>
 					</SubMenu>
 					<SubMenu key="sub3" 
@@ -63,7 +64,7 @@ class NavSide extends Component {
 							</span>
 						}
 					>
-						<Menu.Item key="6"><Icon type="caret-right" />说说列表<Icon type="right" /></Menu.Item>
+						<Menu.Item key="6"><Link to="/gossip"><Icon type="caret-right" />说说列表<Icon type="right" /></Link></Menu.Item>
 						<Menu.Item key="7"><Icon type="caret-right" />说说添加<Icon type="right" /></Menu.Item>
 					</SubMenu>
 					<SubMenu key="sub4" 

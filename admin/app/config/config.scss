@@ -16,6 +16,8 @@ $nav-color: #404040;
 .content {
 	position: relative;
 	height: 100%;
+	padding: 25px 30px;
+	overflow: auto;
 }
 
 .main-content {
@@ -57,6 +59,42 @@ $nav-color: #404040;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+/*table*/
+.table {
+	width: 100%;
+	font-size: 14px;
+	table-layout: fixed;
+    border-collapse: collapse;
+}
+.table td,
+.table th {
+	padding: 10px 18px;
+}
+.table-fixed {
+    table-layout: fixed;
+}
+.table a {
+    cursor: pointer;
+}
+.table tbody tr:hover {
+    background-color: #f4f4f4;
+}
+.table-bordered {    
+    border: 1px solid #f4f4f4;
+}
+.table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>td {
+    word-wrap: break-word;
+    border: 1px solid #f4f4f4;
+}
+.table-bordered > thead > tr > th {
+    color: #111;
+    text-align: center;
+    border: none;
+    white-space: nowrap;
+    border-top: none;
 }
 @media (min-width: 768px) {
     .container {

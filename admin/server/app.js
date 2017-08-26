@@ -41,13 +41,13 @@ app.get('/login', function(req, res, next) {
 
 app.get('/toLogin', user.toLogin);
 
-app.use(function (req, res, next) {
-    if (session.userid) {
-        next();
-    } else {
-       	res.redirect('/login');
-    }
-})
+// app.use(function (req, res, next) {
+//     if (session.userid) {
+//         next();
+//     } else {
+//        	res.redirect('/login');
+//     }
+// })
 
 app.use('/', routes);
 

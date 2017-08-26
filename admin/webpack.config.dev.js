@@ -17,9 +17,6 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             }, {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader?limit=40000'
-            }, {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
