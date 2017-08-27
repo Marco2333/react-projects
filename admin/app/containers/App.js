@@ -3,15 +3,18 @@ import React from 'react';
 import NavSide from '../components/nav-side';
 import NavTop from '../components/nav-top';
 
-export default ({children}) => (
-	<div className="wrapper">
-		<NavTop />
-		
-		<div className="content">
-			<NavSide />
-			<div className="main-content">
-				{children}
-			</div>
-		</div>
-	</div>
-)
+import '../common/common.scss';
+
+export default({children}) => {
+    return (
+        <div className="wrapper">
+            <NavTop/>
+            <NavSide/>
+            <div className="content">
+                <div className="main-content">
+                    {children}
+                </div>
+            </div>
+        </div>
+    )
+}

@@ -11,7 +11,7 @@ import store from './Store';
 
 const getArticles = (location, callback) => {
 	require.ensure([], function(require) {
-		const {Articles} = require('./containers/Articles');
+		const {Articles} = require('./components/Articles');
 		callback(null, Articles);
 	}, 'articles')
 }
@@ -38,6 +38,7 @@ const Routes = () => (
 	<Router history={history}>
 		<Route path='/login' component={Login}/>
 		<Route path='/' component={App}>
+			<IndexRoute component={Home}/>
 			<Route path='home' component={Home}/>
 			<Route path='articles' getComponent={getArticles}/>
 			<Route path='gather' getComponent={getGather}/>

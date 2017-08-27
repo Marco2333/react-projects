@@ -1,13 +1,13 @@
 @import '../../config/config.scss';
 
 .nav-side {
-	position: absolute;
-	top: 0;
+	position: fixed;
+	top: $nav-top-height;
 	left: 0;
 	width: $nav-side-width;
 	height: 100%;
 	background-color: $nav-color;
-	border-top: 1px solid #222;
+	border-top: 1px solid #111;
 	transition: width 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 	&.fold {
 		width: $fold-nav-side-width;
@@ -20,21 +20,20 @@
 				margin-left: -15px;
 				transform: scale(0.7);
 			}
-			&:last-child  {
+			&:last-child {
 				float: right;
-    			margin-top: 16px;
+				margin-top: 16px;
 				transform: scale(0.9);
 			}
 		}
 	}
-	 
 }
 
 .toggle-button {
-    position: absolute;
-    top: -34px;
-    left: $nav-side-width - 15px;
-    background-color: $nav-color;
+	position: absolute;
+	top: -34px;
+	left: $nav-side-width - 15px;
+	background-color: $nav-color;
 	border: none;
 	&:hover {
 		background-color: $nav-color;
@@ -42,4 +41,23 @@
 	&:focus {
 		background-color: $nav-color;
 	}
+}
+
+.ant-menu-dark {
+	color: rgba(255, 255, 255, 0.8);
+	background-color: #222;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+	background-color: #1a1a1a;
+}
+
+.nav-side .ant-menu-sub > .ant-menu-item,
+.nav-side .ant-menu-submenu-title {
+	height: 44px;
+	line-height: 44px;
+	font-size: 13px;
+}
+
+.ant-menu-dark .ant-menu-sub {
+	background-color: #222;
 }

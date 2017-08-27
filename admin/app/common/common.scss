@@ -1,0 +1,135 @@
+@import '../config/config.scss';
+
+// layout
+#react-root {
+	height: 100%;
+}
+
+.wrapper {
+	height: 100%;
+	padding-top: $nav-top-height;
+	
+}
+
+.content {
+	height: 100%;
+	padding: 25px 30px;
+	margin-left: $nav-side-width;
+	overflow: auto;
+	transition: margin-left 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.fold + .content {
+	margin-left: $fold-nav-side-width;
+}
+
+.main-content {
+	padding: 26px;
+	box-shadow: 0 0 10px #666;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+// common style
+.text-center {
+    text-align: center;
+}
+
+.none {
+	display: none;
+}
+
+.fl {
+    float: left;
+}
+.fr {
+	float: right;
+}
+
+.pagination {
+    margin: 15px 0;
+    text-align: right;
+}
+.clearfix{
+    *zoom:1;
+}
+.clearfix:after { 
+   content:"";
+   display:table;
+   clear:both;
+}
+
+.operate-delete {
+	font-size: 13px;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+/*table*/
+.table {
+	width: 100%;
+	font-size: 14px;
+    border-collapse: collapse;
+}
+.table td,
+.table th {
+	padding: 10px 18px;
+	word-wrap: break-word;
+}
+.table th {
+	color: #111;
+	text-align: center;
+	white-space: nowrap;
+}
+.table > thead > tr {
+	background-color: #fafafa;
+    border: 1px solid #f8f8f8;
+}
+.table a {
+    cursor: pointer;
+}
+.table tbody tr:hover {
+    background-color: #f4f4f4;
+}
+
+.table-bordered {    
+    border: 1px solid #f4f4f4;
+}
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #f4f4f4;
+}
+.table-bordered th {
+	border: none;
+	border-right:1px solid #f4f4f4;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: rgb(249, 249, 249);
+}
+
+.table-fixed {
+    table-layout: fixed;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1100px;
+    }
+}

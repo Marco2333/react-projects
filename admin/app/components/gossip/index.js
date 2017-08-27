@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
+import {Pagination } from 'antd';
+
+import Alert from '../alert';
 
 import {SERVER_ADDRESS} from '../../config/config.js';
 
@@ -33,12 +38,22 @@ class Gossip extends Component {
 			this.setState({error: "Load Failed"});
 		});
 	}
-	
+
+	handleChange = (page, pageSize) => {
+		this.setState({
+			page: page,
+			pageSize: pageSize
+		});
+	}
+
     render() {
-        
+		const nowrap = {whiteSpace: "nowrap"};
+		const {page = 1, gossips, pageSize = 10} = this.state;
+
         return (
             <div>
-                <table className="table table-bordered table-striped">
+			<Alert status="warning" info="说说列表"/>
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -49,18 +64,20 @@ class Gossip extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.state.gossips.map((gossip) => (
+                            gossips.slice((page - 1) * pageSize, page * pageSize).map((gossip) => (
                                 <tr key={gossip.id}>
-                                    <td>{gossip.id} </td>
-                                    <td>{gossip.detail}</td>
-                                    <td>{gossip.created_at}</td>
-                                    <td><span className="gossip-delete">删除</span></td>
+                                    <td>{gossip.id}</td>
+                                    <td><Link to={`/gossip-detail/${gossip.id}`}>{gossip.detail}</Link></td>
+                                    <td style={nowrap}>{gossip.created_at.split(' ')[0]}</td>
+                                    <td><a className="operate-delete">删除</a></td>
                                 </tr>
                             ))
                         }
                     </tbody>
-
                 </table>
+				<div className="pagination">
+					<Pagination onChange={this.handleChange} defaultPageSize={10} total={gossips.length} />
+				</div>
             </div>
         )
     }

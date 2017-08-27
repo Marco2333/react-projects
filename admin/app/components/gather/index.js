@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
+import {Pagination } from 'antd';
+
+import Alert from '../alert';
 
 import {SERVER_ADDRESS} from '../../config/config.js';
 
@@ -34,11 +39,20 @@ class Gather extends Component {
 		});
 	}
 	
+	handleChange = (page, pageSize) => {
+		this.setState({
+			page: page,
+			pageSize: pageSize
+		});
+	}
+	
     render() {
-        
+		const {page = 1, gathers, pageSize = 10} = this.state;
+
         return (
             <div>
-                <table className="table table-bordered table-striped">
+				<Alert status="info" info="收藏列表"/>
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -50,19 +64,21 @@ class Gather extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.state.gathers.map((gather) => (
+                            gathers.slice((page - 1) * pageSize, page * pageSize).map((gather) => (
                                 <tr key={gather.id}>
                                     <td>{gather.id} </td>
-                                    <td>{gather.title}</td>
+                                    <td><Link to={`/gather-detail/${gather.id}`}>{gather.title}</Link></td>
                                     <td>{gather.tag}</td>
                                     <td>{gather.created_at}</td>
-                                    <td><span className="gather-delete">删除</span></td>
+                                    <td><a className="operate-delete">删除</a></td>
                                 </tr>
                             ))
                         }
                     </tbody>
-
                 </table>
+				<div className="pagination">
+					<Pagination onChange={this.handleChange} defaultPageSize={10} total={gathers.length} />
+				</div>
             </div>
         )
     }

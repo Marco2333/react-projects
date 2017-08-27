@@ -1,0 +1,44 @@
+.alert {
+	padding: 13px;
+    margin-bottom: 25px;
+    border: 1px solid transparent;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 14px;
+	transition: opacity ease-in 446ms;
+}
+
+.alert.info {
+	color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert.warning {
+	color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert.success {
+	color: #3c763d;
+    background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.alert > .close {
+	float: right;
+	margin-top: -3px;
+	color: #000;
+	line-height: 1;
+    font-size: 23px;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #fff;
+	cursor: pointer;
+	opacity: .2;
+	filter: alpha(opacity=20);
+	&:hover {
+		opacity: .5;
+		filter: alpha(opacity=50);
+	}
+}

@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
+
+import {Pagination } from 'antd';
+
+import Alert from '../alert';
 
 import {SERVER_ADDRESS} from '../../config/config.js';
 
@@ -33,12 +38,22 @@ class Articles extends Component {
 			this.setState({error: "Load Failed"});
 		});
 	}
+
+	handleChange = (page, pageSize) => {
+		this.setState({
+			page: page,
+			pageSize: pageSize
+		});
+	}
 	
     render() {
-        
+		const nowrap = {whiteSpace: "nowrap"};
+		const {page = 1, articles, pageSize = 10} = this.state;
+
         return (
             <div>
-                <table className="table table-bordered table-striped">
+				<Alert status="success" info="文章列表"/>
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -52,24 +67,28 @@ class Articles extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.state.articles.map((article) => (
+                            articles.slice((page - 1) * pageSize, page * pageSize).map((article) => (
                                 <tr key={article.id}>
                                     <td>{article.id}</td>
-                                    <td>{article.title}</td>
+                                    <td><Link to={`/article-detail/${article.id}`}>{article.title}</Link></td>
                                     <td>{article.type}</td>
                                     <td>{article.tag}</td>
-                                    <td>{article.created_at}</td>
+                                    <td style={nowrap}>{article.created_at}</td>
                                     <td>{article.views}</td>
-                                    <td><span className="article-delete">删除</span></td>
+                                    <td><a className="operate-delete">删除</a></td>
                                 </tr>
                             ))
                         }
                     </tbody>
-
                 </table>
+				<div className="pagination">
+					<Pagination onChange={this.handleChange} defaultPageSize={10} total={articles.length} />
+				</div>
             </div>
         )
     }
 }
 
-export default Articles;
+export {
+	Articles
+};
