@@ -1,22 +1,9 @@
-import React, {
-    Component
-} from 'react';
-import {
-    connect
-} from 'react-redux';
+import React, {Component} from 'react';
 
-import {
-    Icon
-} from 'antd';
+import {Icon} from 'antd';
+import {connect} from 'react-redux';
 
-// import SyntaxHighlighter from 'syntaxhighlighter';
-// import Highlight from 'react-highlight';
-
-import {
-    getArticleDetail
-} from './actions';
-
-import '../../../node_modules/highlight.js/styles/monokai.css'
+import {getArticleDetail} from './actions';
 
 import './index.scss';
 
@@ -24,80 +11,91 @@ export const stateKey = 'detail';
 
 class ArticleDetail extends Component {
 
-    componentDidMount() {
-        let {
-            id,
-            getDetail
-        } = this.props;
-        getDetail(id);
-        // console.log(SyntaxHighlighter);
-    }
+	componentDidMount() {
+		let style = document.createElement("link");
+		style.setAttribute('rel','stylesheet');
+		style.setAttribute('href', '/static/syntaxhighlighter/styles/shCoreFadeToGrey.css')
+		document.getElementsByTagName('head')[0].appendChild(style);
 
-    componentWillReceiveProps(nextProps) {
-        let {
-            id,
-            getDetail
-        } = this.props;
+		let scriptArr = ["shBrushCss.js", "shBrushPhp.js", "shBrushXml.js", 
+			"shBrushJScript.js", "shBrushPlain.js", "shBrushBash.js", "shBrushCpp.js"];
+		
+		scriptArr.forEach((scriptName) => {
+			let script = document.createElement("script");
+			script.setAttribute('src', `/static/syntaxhighlighter/scripts/${scriptName}`);
+			document.getElementsByTagName('head')[0].appendChild(script);
+		})
 
-        if (id != nextProps.id) {
-            getDetail(nextProps.id);
-        }
-    }
+		let {id, getDetail} = this.props;
+		getDetail(id);
 
-    render() {
-        const {
-            title,
-            body,
-            tag,
-            theme,
-            created_at,
-            updated_at,
-            views,
-            type
-        } = this.props.detail;
-        return (
-            <div className="article-detail">
-                <h3 className="blog-title">
-                    {
-                        type == 2 ? "[转]"
-                        : type == 3 ? "[译]" : ""
-                    }
-                    {title}
-                </h3>
-                <div className="blog-top">
-                    <span>
-                        Last Modified : &nbsp; 
-                        {
-                            updated_at ? updated_at : created_at
-                        }
-                    </span>
+		SyntaxHighlighter.all();
+	}
+
+	componentWillReceiveProps(nextProps) {
+		let {id, getDetail} = this.props;
+
+		if (id != nextProps.id) {
+			getDetail(nextProps.id);
+		}
+	}
+
+	componentDidUpdate() {
+		SyntaxHighlighter.highlight();
+	}
+
+	render() {
+		const {title, body, tag, theme, created_at, updated_at, views, type} = this.props.detail;
+
+		return (
+			<div className="article-detail">
+				<h3 className="blog-title">
+					{
+						type == 2
+						? "[转]"
+						: type == 3
+						? "[译]"
+						: ""
+					}
+					{title}
+				</h3>
+				<div className="blog-top">
+					<span>
+						Last Modified : &nbsp; 
+						{
+							updated_at
+							? updated_at
+							: created_at
+						}
+					</span>
 					<span className="spliter"></span>
-                    <span>{theme}</span>
+					<span>{theme}</span>
 					<span className="spliter"></span>
-                    <span><Icon type="tag" />&nbsp;  {tag}</span>
+					<span><Icon type="tag"/>&nbsp; {tag}</span>
 					<span className="spliter"></span>
-                    <span>浏览&nbsp;  {views}</span>
-                </div>
-				<div className="blog-content" dangerouslySetInnerHTML={{__html: body}}>
-				</div>           
-            </div>
-        )
-    }
+					<span>浏览&nbsp; {views}</span>
+				</div>
+				<div
+					className="blog-content"
+					dangerouslySetInnerHTML={{ __html: body }}></div>
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = (state) => {
-    return {
-        id: state[stateKey].id || null,
-        detail: state[stateKey]
-    }
+	return {
+		id: state[stateKey].id || null,
+		detail: state[stateKey]
+	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        getDetail: (id) => {
-            dispatch(getArticleDetail(id))
-        }
-    }
+	return {
+		getDetail: (id) => {
+			dispatch(getArticleDetail(id))
+		}
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleDetail);

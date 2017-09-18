@@ -45,7 +45,36 @@ class Gather extends Component {
 			pageSize: pageSize
 		});
 	}
-	
+
+	handleCilck = (id) => {
+		if(!confirm("确认删除?")) {
+			return;
+		}
+
+		fetch(`${SERVER_ADDRESS}/gather-delete/${id}`).then((response) => {
+			
+			if(response.status !== 200) {
+				throw new Error('Fail to get response with status ' + response.status);
+				this.setState({error: "Load Failed"});
+			}
+
+			response.json().then((responseJson) => {
+				if(responseJson.status == 0) {
+					this.setState({error: responseJson.message});
+				}
+				this.setState({gathers: this.state.gathers.filter(function(gather) {
+					return gather.id != id
+				})});
+				alert("删除成功");
+			}).catch((error) => {
+				this.setState({error: "Load Failed"});
+			})
+			
+		}).catch((error) => {
+			this.setState({error: "Load Failed"});
+		});
+	}
+
     render() {
 		const {page = 1, gathers, pageSize = 10} = this.state;
 
@@ -70,7 +99,7 @@ class Gather extends Component {
                                     <td><Link to={`/gather-detail/${gather.id}`}>{gather.title}</Link></td>
                                     <td>{gather.tag}</td>
                                     <td>{gather.created_at}</td>
-                                    <td><a className="operate-delete">删除</a></td>
+                                    <td><a className="operate-delete" onClick={() => {this.handleCilck(gather.id)}}>删除</a></td>
                                 </tr>
                             ))
                         }

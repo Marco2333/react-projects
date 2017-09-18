@@ -45,10 +45,39 @@ class Articles extends Component {
 			pageSize: pageSize
 		});
 	}
+
+	handleClick = (id) => {
+		if(!confirm("确认删除?")) {
+			return;
+		}
+
+		fetch(`${SERVER_ADDRESS}/article-delete/${id}`).then((response) => {
+			
+			if(response.status !== 200) {
+				throw new Error('Fail to get response with status ' + response.status);
+				this.setState({error: "Load Failed"});
+			}
+
+			response.json().then((responseJson) => {
+				if(responseJson.status == 0) {
+					this.setState({error: responseJson.message});
+				}
+				this.setState({articles: this.state.articles.filter(function(article) {
+					return article.id != id
+				})});
+				alert("删除成功");
+			}).catch((error) => {
+				this.setState({error: "Load Failed"});
+			})
+			
+		}).catch((error) => {
+			this.setState({error: "Load Failed"});
+		});
+	}
 	
     render() {
 		const nowrap = {whiteSpace: "nowrap"};
-		const {page = 1, articles, pageSize = 10} = this.state;
+		const {page = 1, articles, pageSize = 15} = this.state;
 
         return (
             <div>
@@ -70,19 +99,23 @@ class Articles extends Component {
                             articles.slice((page - 1) * pageSize, page * pageSize).map((article) => (
                                 <tr key={article.id}>
                                     <td>{article.id}</td>
-                                    <td><Link to={`/article-detail/${article.id}`}>{article.title}</Link></td>
-                                    <td>{article.type}</td>
+                                    <td><Link to={`/article-update/${article.id}`}>{article.title}</Link></td>
+                                    <td>
+										{
+											article.type == '3' ? '翻译' : article.type == '2' ? '转载' : '原创'
+										}
+									</td>
                                     <td>{article.tag}</td>
                                     <td style={nowrap}>{article.created_at}</td>
                                     <td>{article.views}</td>
-                                    <td><a className="operate-delete">删除</a></td>
+                                    <td><a className="operate-delete" onClick={() => this.handleClick(article.id)}>删除</a></td>
                                 </tr>
                             ))
                         }
                     </tbody>
                 </table>
 				<div className="pagination">
-					<Pagination onChange={this.handleChange} defaultPageSize={10} total={articles.length} />
+					<Pagination onChange={this.handleChange} defaultPageSize={15} total={articles.length} />
 				</div>
             </div>
         )

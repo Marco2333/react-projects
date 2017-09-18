@@ -1,13 +1,13 @@
 import React from 'react';
-
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-import Login from './components/login';
 import App from './containers/App';
 import Home from './containers/Home';
+import Login from './components/login';
 
 import store from './Store';
+
 
 const getArticles = (location, callback) => {
 	require.ensure([], function(require) {
@@ -30,7 +30,19 @@ const getGossip = (location, callback) => {
 	}, 'gossip')
 }
 
+const newArticle = (location, callback) => {
+	require.ensure([], function(require) {
+		const {NewArticle} = require('./containers/NewArticle');
+		callback(null, NewArticle);
+	}, 'new-article')
+}
 
+const articleUpdate = (location, callback) => {
+	require.ensure([], function(require) {
+		const {ArticleUpdate} = require('./containers/ArticleUpdate');
+		callback(null, ArticleUpdate)
+	}, 'article-update')
+}
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -43,6 +55,8 @@ const Routes = () => (
 			<Route path='articles' getComponent={getArticles}/>
 			<Route path='gather' getComponent={getGather}/>
 			<Route path='gossip' getComponent={getGossip}/>
+			<Route path='new-article' getComponent={newArticle}/>
+			<Route path='article-update/:id' getComponent={articleUpdate}/>
 		</Route>
 	</Router>
 );

@@ -46,6 +46,35 @@ class Gossip extends Component {
 		});
 	}
 
+	handleClick = (id) => {
+		if(!confirm("确认删除?")) {
+			return;
+		}
+
+		fetch(`${SERVER_ADDRESS}/gossip-delete/${id}`).then((response) => {
+			
+			if(response.status !== 200) {
+				throw new Error('Fail to get response with status ' + response.status);
+				this.setState({error: "Load Failed"});
+			}
+
+			response.json().then((responseJson) => {
+				if(responseJson.status == 0) {
+					this.setState({error: responseJson.message});
+				}
+				this.setState({gossips: this.state.gossips.filter(function(gossip) {
+					return gossip.id != id
+				})});
+				alert("删除成功");
+			}).catch((error) => {
+				this.setState({error: "Load Failed"});
+			})
+			
+		}).catch((error) => {
+			this.setState({error: "Load Failed"});
+		});
+	}
+
     render() {
 		const nowrap = {whiteSpace: "nowrap"};
 		const {page = 1, gossips, pageSize = 10} = this.state;
@@ -69,7 +98,7 @@ class Gossip extends Component {
                                     <td>{gossip.id}</td>
                                     <td><Link to={`/gossip-detail/${gossip.id}`}>{gossip.detail}</Link></td>
                                     <td style={nowrap}>{gossip.created_at.split(' ')[0]}</td>
-                                    <td><a className="operate-delete">删除</a></td>
+                                    <td><a className="operate-delete" onClick={() => this.handleClick(gossip.id)}>删除</a></td>
                                 </tr>
                             ))
                         }

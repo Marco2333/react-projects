@@ -19,6 +19,17 @@ router.get('/get-system-info', function(req, res, next) {
 	});
 })
 
+router.get('/get-articles', function(req, res, next) {
+	db.query('select id, title, type, tag, created_at, views from article where status = 1 order by id desc', function(err, rows) {
+		if(err) {
+			res.json({status: 0, message: '查询失败'})
+		}
+		else {
+			res.json({status:1, info: rows});
+		}
+	})
+})
+
 router.get('/article-delete/:id', function(req, res, next) {
 	let {id} = req.params;
 	db.query(`update article set status = 0 where id = ${+id}`, function(err, rows) {
