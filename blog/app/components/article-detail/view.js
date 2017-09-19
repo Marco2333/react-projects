@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-
 import {Icon} from 'antd';
 import {connect} from 'react-redux';
+import React, {Component} from 'react';
 
 import {getArticleDetail} from './actions';
 
@@ -13,23 +12,49 @@ class ArticleDetail extends Component {
 
 	componentDidMount() {
 		let style = document.createElement("link");
-		style.setAttribute('rel','stylesheet');
+		style.setAttribute('rel', 'stylesheet');
 		style.setAttribute('href', '/static/syntaxhighlighter/styles/shCoreFadeToGrey.css')
 		document.getElementsByTagName('head')[0].appendChild(style);
 
-		let scriptArr = ["shBrushCss.js", "shBrushPhp.js", "shBrushXml.js", 
-			"shBrushJScript.js", "shBrushPlain.js", "shBrushBash.js", "shBrushCpp.js"];
-		
-		scriptArr.forEach((scriptName) => {
+		if (typeof SyntaxHighlighter == 'undefined') {
+			let scriptArr = [
+				"shBrushCss.js",
+				"shBrushPhp.js",
+				"shBrushXml.js",
+				"shBrushJScript.js",
+				"shBrushPlain.js",
+				"shBrushBash.js",
+				"shBrushCpp.js"
+			];
+			
 			let script = document.createElement("script");
-			script.setAttribute('src', `/static/syntaxhighlighter/scripts/${scriptName}`);
+			script.setAttribute('src', '/static/syntaxhighlighter/scripts/shCore.js');
 			document.getElementsByTagName('head')[0].appendChild(script);
-		})
 
+			script.onload = script.onreadystatechange = function() {
+				if(!this.readyState || this.readyState == 'complete') {
+					SyntaxHighlighter._count = 0;
+					scriptArr.forEach((scriptName) => {
+						script = document.createElement("script");
+						script.setAttribute('src', `/static/syntaxhighlighter/scripts/${scriptName}`);
+						document.getElementsByTagName('head')[0].appendChild(script);
+
+						script.onload = script.onreadystatechange = function() {
+							if(!this.readyState || this.readyState == 'complete') {
+								SyntaxHighlighter._count++;
+								
+								if(SyntaxHighlighter._count == 7) {
+									SyntaxHighlighter.all();
+								}
+							}
+						}
+					});
+				}
+			}
+		}
+		
 		let {id, getDetail} = this.props;
 		getDetail(id);
-
-		SyntaxHighlighter.all();
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -41,7 +66,9 @@ class ArticleDetail extends Component {
 	}
 
 	componentDidUpdate() {
-		SyntaxHighlighter.highlight();
+		if (typeof SyntaxHighlighter != 'undefined' && SyntaxHighlighter._count == 7) {
+			SyntaxHighlighter.highlight();
+		}
 	}
 
 	render() {
@@ -77,7 +104,8 @@ class ArticleDetail extends Component {
 				</div>
 				<div
 					className="blog-content"
-					dangerouslySetInnerHTML={{ __html: body }}></div>
+					dangerouslySetInnerHTML={{__html: body}}>
+				</div>
 			</div>
 		)
 	}

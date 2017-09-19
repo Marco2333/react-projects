@@ -68,7 +68,7 @@ router.get('/get-gossip', function(req, res, next) {
 router.get('/get-navside-info', function(req, res, next) {
     let sqls = [
         "select value from config where (name = 'intro' or name = 'view_count') and status = 1",
-        "select id, title from article order by created_at desc limit 10",
+        "select id, title from article where status = 1 order by created_at desc limit 10",
         "select id, theme from category where status = 1",
         "select id, text, url from link where status = 1",
         "select distinct tag from article where status = 1 order by created_at desc limit 15",
@@ -130,9 +130,9 @@ router.get('/get-navside-info', function(req, res, next) {
 });
 
 
-router.get('/article-detail/:id', function(req, res, next) {
-	res.sendfile(path.join(__dirname, '../../public/detail.html'));
-});
+// router.get('/article-detail/:id', function(req, res, next) {
+// 	res.sendfile(path.join(__dirname, '../../public/detail.html'));
+// });
 
 
 router.get('*', function(req, res, next) {
