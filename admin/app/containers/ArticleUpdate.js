@@ -1,10 +1,12 @@
 import React from 'react';
 
-import {ArticleDeatil}  from '../components/article-detail';
+import ArticleDeatil from '../components/article-detail';
 
-const ArticleUpdate = () => (
-	<ArticleDeatil />
-)
+const ArticleUpdate = (props) => {
+	return (
+		<ArticleDeatil id={props.params.id}/>
+	)
+}
 
 export {
 	ArticleUpdate
