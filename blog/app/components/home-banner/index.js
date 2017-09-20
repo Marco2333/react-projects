@@ -1,6 +1,9 @@
 import React from 'react';
 
-import {Col, Row} from 'antd';
+import {
+    Col,
+    Row
+} from 'antd';
 
 import Banner from '../banner';
 
@@ -12,7 +15,7 @@ const HomeBanner = () => {
         <div className="container home-banner">
             <Row gutter={12}>
                 <Col sm={24} md={15}>
-                    <Banner/>
+                    <Banner />
                 </Col>
                 <Col xs={0} sm={0} md={9}>
                     <div className="day-word">

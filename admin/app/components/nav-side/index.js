@@ -43,7 +43,7 @@ class NavSide extends Component {
 						}
 					>
 						<Menu.Item key="1"><Link to="/articles"><Icon type="caret-right" /> <Icon type="right" />文章列表</Link></Menu.Item>
-						<Menu.Item key="2"><Icon type="caret-right" />文章添加<Icon type="right" /></Menu.Item>
+						<Menu.Item key="2"><Link to="/new-article"><Icon type="caret-right" />文章添加<Icon type="right" /></Link></Menu.Item>
 					</SubMenu>
 					<SubMenu key="sub2" 
 						title={
@@ -54,7 +54,7 @@ class NavSide extends Component {
 						}
 					>
 						<Menu.Item key="4"><Link to="/gather"><Icon type="caret-right" />收藏列表<Icon type="right" /></Link></Menu.Item>
-						<Menu.Item key="5"><Icon type="caret-right" />收藏添加<Icon type="right" /></Menu.Item>
+						<Menu.Item key="5"><Link to="/new-gather"><Icon type="caret-right" />收藏添加<Icon type="right" /></Link></Menu.Item>
 					</SubMenu>
 					<SubMenu key="sub3" 
 						title={
@@ -65,7 +65,7 @@ class NavSide extends Component {
 						}
 					>
 						<Menu.Item key="6"><Link to="/gossip"><Icon type="caret-right" />说说列表<Icon type="right" /></Link></Menu.Item>
-						<Menu.Item key="7"><Icon type="caret-right" />说说添加<Icon type="right" /></Menu.Item>
+						<Menu.Item key="7"><Link to="/gossip-update"><Icon type="caret-right" />说说添加<Icon type="right" /></Link></Menu.Item>
 					</SubMenu>
 					<SubMenu key="sub4" 
 						title={

@@ -96,7 +96,7 @@ class Gather extends Component {
                             gathers.slice((page - 1) * pageSize, page * pageSize).map((gather) => (
                                 <tr key={gather.id}>
                                     <td>{gather.id} </td>
-                                    <td><Link to={`/gather-detail/${gather.id}`}>{gather.title}</Link></td>
+                                    <td><Link to={`/gather-update/${gather.id}`}>{gather.title}</Link></td>
                                     <td>{gather.tag}</td>
                                     <td>{gather.created_at}</td>
                                     <td><a className="operate-delete" onClick={() => {this.handleCilck(gather.id)}}>删除</a></td>

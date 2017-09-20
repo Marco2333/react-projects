@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {ArticleDeatil}  from '../components/article-detail';
+import ArticleDetail from '../components/article-detail';
 
 const NewArticle = () => (
-	<ArticleDeatil />
+	<ArticleDetail />
 )
 
 export {

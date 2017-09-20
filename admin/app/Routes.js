@@ -44,6 +44,27 @@ const articleUpdate = (location, callback) => {
 	}, 'article-update')
 }
 
+const newGather = (location, callback) => {
+	require.ensure([], function(require) {
+		const {NewGather} = require('./containers/NewGather');
+		callback(null, NewGather);
+	}, 'new-gather')
+}
+
+const gatherUpdate = (location, callback) => {
+	require.ensure([], function(require) {
+		const {GatherUpdate} = require('./containers/GatherUpdate');
+		callback(null, GatherUpdate)
+	}, 'gather-update')
+}
+
+const gossipDetail = (location, callback) => {
+	require.ensure([], function(require) {
+		const {GossipDetail} = require('./containers/GossipDetail');
+		callback(null, GossipDetail)
+	}, 'gossip-detail')
+}
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 const Routes = () => (
@@ -57,6 +78,10 @@ const Routes = () => (
 			<Route path='gossip' getComponent={getGossip}/>
 			<Route path='new-article' getComponent={newArticle}/>
 			<Route path='article-update/:id' getComponent={articleUpdate}/>
+			<Route path='new-gather' getComponent={newGather}/>
+			<Route path='gather-update/:id' getComponent={gatherUpdate}/>
+			<Route path='new-gossip' getComponent={gossipDetail}/>
+			<Route path='gossip-update/:id' getComponent={gossipDetail}/>
 		</Route>
 	</Router>
 );

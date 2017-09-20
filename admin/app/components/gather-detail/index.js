@@ -4,15 +4,16 @@ import {Form, Input, Button, Select} from 'antd';
 import Ueditor from '../ueditor';
 import {SERVER_ADDRESS} from '../../config/config';
 
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-class ArticleDeatil extends Component {
+class GatherDeatil extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			article: {},
-			categories: []
+			gather: {},
+			content: ''
 		}
 	}
 
@@ -21,8 +22,10 @@ class ArticleDeatil extends Component {
 	}
 	
 	componentDidMount() {
-		if(this.props.id != null) {
-			fetch(`${SERVER_ADDRESS}/get-article-detail/${this.props.id}`).then((response) => {
+		let id = this.props.id;
+
+		if(id != null) {
+			fetch(`${SERVER_ADDRESS}/gather/${id}`).then((response) => {
 				
 				if(response.status !== 200) {
 					throw new Error('Load Failed, Status:' + response.status);
@@ -34,7 +37,7 @@ class ArticleDeatil extends Component {
 						this.setState({error: responseJson.message});
 					}
 					else {
-						this.setState({article: responseJson.info});
+						this.setState({gather: responseJson.info});
 					}
 				}).catch((error) => {
 					this.setState({error: "Load Failed"});
@@ -44,28 +47,6 @@ class ArticleDeatil extends Component {
 				this.setState({error: "Load Failed"});
 			});
 		}
-
-		fetch(`${SERVER_ADDRESS}/get-categories`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Load Failed, Status:' + response.status);
-				this.setState({error: "Load Failed"});
-			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
-				}
-				else {
-					this.setState({categories: responseJson.info});
-				}
-			}).catch((error) => {
-				this.setState({error: "Load Failed"});
-			})
-			
-		}).catch((error) => {
-			this.setState({error: "Load Failed"});
-		});
 	}
 	
 	handleChange = (content) => {
@@ -79,14 +60,14 @@ class ArticleDeatil extends Component {
 				let content = this.state.content;
 
 				if(content.trim() == '') {
-					alert('文章内容为空！');
+					alert('收藏内容为空！');
 					return;
 				}
 
 				values.id = this.props.id;
 				values.content = content;
 
-				fetch(`${SERVER_ADDRESS}/article-submit`, {
+				fetch(`${SERVER_ADDRESS}/gather-submit`, {
 					method: 'POST',
 					headers: {
 						"Content-Type": "application/json"
@@ -104,9 +85,9 @@ class ArticleDeatil extends Component {
 							this.setState({error: responseJson.message});
 						}
 						else {
-							alert("文章提交成功！");
+							alert("收藏提交成功！");
 							if(this.props.id == null) {
-								this.context.router.push(`/articles`);
+								this.context.router.push(`/gather`);
 							}
 						}
 					}).catch((error) => {
@@ -121,21 +102,11 @@ class ArticleDeatil extends Component {
 	}
 
 	render() {
-		let {title, tag, type, category, body} = this.state.article;
+		let {title, tag, detail} = this.state.gather;
 		const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
 
 		const tagError = isFieldTouched('tag') && getFieldError('tag');
 		const titleError = isFieldTouched('title') && getFieldError('title');
-
-		const prefixType = getFieldDecorator('type', {
-			initialValue: type ? type + '' : '1'
-		})(
-			<Select>
-				<Option value="1">原创</Option>
-				<Option value="2">转载</Option>
-				<Option value="3">翻译</Option>
-			</Select>
-		);
 
 		return (
 			<div>
@@ -143,21 +114,21 @@ class ArticleDeatil extends Component {
 					<FormItem
 						validateStatus={titleError ? 'error' : ''}
 						help={titleError || ''}
-						label="文章标题"
+						label="标题"
 					>
 					{
 						getFieldDecorator('title', {
 							initialValue: title,
 							rules: [{required: true, message: 'Please input title!'}]
 						})(
-							<Input addonBefore={prefixType} placeholder="title" style={{width: 400}}/>
+							<Input placeholder="title" style={{width: 400}}/>
 						)
 					}
 					</FormItem>
 					<FormItem
 						validateStatus={tagError ? 'error' : ''}
 						help={tagError || ''}
-						label="文章标签"
+						label="标签"
 					>
 					{
 						getFieldDecorator('tag', {
@@ -168,22 +139,7 @@ class ArticleDeatil extends Component {
 						)
 					}
 					</FormItem>
-					<FormItem label="文章分类">
-					{
-						getFieldDecorator('category', {
-							initialValue: category ? category + '' : '1'
-						})(
-							<Select style={{width: 100}}>
-								{
-									this.state.categories.map((cate) => (
-										<Option key={cate.id} value={cate.id + ''}>{cate.theme}</Option>
-									))
-								}
-							</Select>
-						)
-					}
-					</FormItem>
-					<Ueditor content={body} handleChange={this.handleChange} />
+					<Ueditor content={detail} handleChange={this.handleChange} />
 					<div style={{textAlign: "right"}}>
 						<FormItem>
 							<Button type="primary" htmlType="submit">
@@ -197,6 +153,6 @@ class ArticleDeatil extends Component {
 	}
 }
 
-const WrappedArticleDetail = Form.create()(ArticleDeatil);
+const WrappedGatherDetail = Form.create()(GatherDeatil);
 
-export default WrappedArticleDetail;
+export default WrappedGatherDetail;

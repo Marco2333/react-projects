@@ -44,7 +44,7 @@ router.get('/article-delete/:id', function(req, res, next) {
 
 router.get('/get-article-detail/:id', function(req, res, next) {
 	let {id} = req.params;
-	db.query(`select id, title, body, type, tag from article where id = ${+id} and status = 1`, function(err, rows) {
+	db.query(`select id, title, body, type, category, tag from article where id = ${+id} and status = 1`, function(err, rows) {
 		if(err) {
 			res.json({status: 0, message: '查询失败'})
 		}
@@ -55,6 +55,29 @@ router.get('/get-article-detail/:id', function(req, res, next) {
 			else {
 				res.json({status:1, info: {}});
 			}
+		}
+	})
+})
+
+router.post('/article-submit', function(req, res, next) {
+	let {id, content, title, tag, category, type} = req.body;
+
+	let sql = "";
+	if( id != null) {
+		sql = `update article set body = "${content}", title = "${title}", tag = "${tag}", category = ${category}, type = ${type}, updated_at = "${new Date().toLocaleDateString()}" where id = ${id}`;
+	}
+	else {
+		sql = `insert into article(title, tag, category, type, created_at, body) values ("${title}", "${tag}", ${category}, ${type}, "${new Date().toLocaleDateString()}", "${content}")`
+	}
+	
+
+	db.query(sql, function(err, rows) {
+		if(err) {
+			console.log(err);
+			res.json({status: 0, message: '查询失败'})
+		}
+		else {
+			res.json({status:1});
 		}
 	})
 })
@@ -82,7 +105,7 @@ router.get('/gather-delete/:id', function(req, res, next) {
 	})
 })
 
-router.get('/get-gather-detail/:id', function(req, res, next) {
+router.get('/gather/:id', function(req, res, next) {
 	let {id} = req.params;
 	db.query(`select id, title, detail, tag from gather where id = ${+id} and status = 1`, function(err, rows) {
 		if(err) {
@@ -95,6 +118,28 @@ router.get('/get-gather-detail/:id', function(req, res, next) {
 			else {
 				res.json({status:1, info: {}});
 			}
+		}
+	})
+})
+
+router.post('/gather-submit', function(req, res, next) {
+	let {id, content, title, tag} = req.body;
+
+	let sql = "";
+	if( id != null) {
+		sql = `update gather set detail = "${content}", title = "${title}", tag = "${tag}", updated_at = "${new Date().toLocaleDateString()}" where id = ${id}`;
+	}
+	else {
+		sql = `insert into gather(title, tag, created_at, detail) values ("${title}", "${tag}", "${new Date().toLocaleDateString()}", "${content}")`
+	}
+	
+	db.query(sql, function(err, rows) {
+		if(err) {
+			console.log(err);
+			res.json({status: 0, message: '查询失败'})
+		}
+		else {
+			res.json({status:1});
 		}
 	})
 })
@@ -122,7 +167,7 @@ router.get('/gossip-delete/:id', function(req, res, next) {
 	})
 })
 
-router.get('/get-gossip-detail/:id', function(req, res, next) {
+router.get('/gossip/:id', function(req, res, next) {
 	let {id} = req.params;
 	db.query(`select id, detail, img from gossip where id = ${+id}`, function(err, rows) {
 		if(err) {
@@ -138,6 +183,20 @@ router.get('/get-gossip-detail/:id', function(req, res, next) {
 		}
 	})
 })
+
+
+router.get('/get-categories', function(req, res, next) {
+	let {id} = req.params;
+	db.query(`select id, theme from category where status = 1`, function(err, rows) {
+		if(err) {
+			res.json({status: 0, message: '查询失败'})
+		}
+		else {
+			res.json({status:1, info: rows});
+		}
+	})
+})
+
 
 router.get('*', function(req, res, next) {
     res.sendfile(path.join(__dirname, '../../public/index.html')); // 发送静态文件

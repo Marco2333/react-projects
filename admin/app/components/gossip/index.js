@@ -81,7 +81,7 @@ class Gossip extends Component {
 
         return (
             <div>
-			<Alert status="warning" info="说说列表"/>
+				<Alert status="warning" info="说说列表"/>
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -96,7 +96,7 @@ class Gossip extends Component {
                             gossips.slice((page - 1) * pageSize, page * pageSize).map((gossip) => (
                                 <tr key={gossip.id}>
                                     <td>{gossip.id}</td>
-                                    <td><Link to={`/gossip-detail/${gossip.id}`}>{gossip.detail}</Link></td>
+                                    <td><Link to={`/gossip-update/${gossip.id}`}>{gossip.detail}</Link></td>
                                     <td style={nowrap}>{gossip.created_at.split(' ')[0]}</td>
                                     <td><a className="operate-delete" onClick={() => this.handleClick(gossip.id)}>删除</a></td>
                                 </tr>

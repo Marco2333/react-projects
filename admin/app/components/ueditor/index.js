@@ -11,7 +11,7 @@ class Ueditor extends Component {
 		script.setAttribute('src', '/static/ueditor/ueditor.all.min.js');
 		document.getElementsByTagName('head')[0].appendChild(script);
 
-		script.onload = function() {
+		script.onload = () => {
 			var ue = UE.getEditor("container", {
 				UEDITOR_HOME_URL: '/static/ueditor/',
 				serverUrl: '/ueditor',
@@ -72,13 +72,17 @@ class Ueditor extends Component {
 					]
 				]
 			});
+
+			ue.addListener( 'contentChange', () => {
+				this.props.handleChange(ue.getContent())
+			})
 		}
 	}
 	
 
 	render() {
 		return (
-			<textarea id="container" name="blog" type="text/plain" 
+			<textarea id="container" name="blog" type="text/plain"
 				value={this.props.content} style={{margin: "15px 0"}}>
 			</textarea>
 		)
