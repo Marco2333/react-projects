@@ -2,12 +2,8 @@ const webpack = require('webpack');
 
 const vendors = [
 	'react',
-	'redux',
 	'react-dom',
-	'react-redux',
-	'redux-thunk',
-	'react-router',
-	'react-router-redux'
+	'react-router'
 ];
 
 module.exports = {

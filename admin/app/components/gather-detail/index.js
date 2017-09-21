@@ -52,7 +52,7 @@ class GatherDeatil extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			if(error) {
+			if(err) {
 				return;
 			}
 

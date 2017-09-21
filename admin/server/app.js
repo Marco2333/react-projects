@@ -2,11 +2,10 @@ var express = require('express');
 var session = require('express-session');
 
 var path = require('path');
-// var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 var ueditor = require('ueditor');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 var db = require('./db.js');
 var routes = require('./routes/index');
@@ -15,13 +14,13 @@ var user = require('./controller/user');
 var app = express();
 var router = express.Router();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ 
+	"limit": "10000kb"
+}));
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
@@ -42,19 +41,24 @@ app.get('/login', function(req, res, next) {
 
 app.get('/toLogin', user.toLogin);
 
-// app.use(function (req, res, next) {
-//     if (session.userid) {
-//         next();
-//     } else {
-//        	res.redirect('/login');
-//     }
-// })
+app.get('/logout', function(req, res, next) {
+	session.userid = null;
+	res.redirect('/login');
+});
+
+app.use(function (req, res, next) {
+    if (session.userid) {
+        next();
+    } else {
+       	res.redirect('/login');
+    }
+})
 
 app.use("/ueditor", ueditor(path.resolve(__dirname, "../../resource"), function(req, res, next) {
 	// ueditor 客户发起上传图片请求
 	if(req.query.action === 'uploadimage'){
-		var foo = req.ueditor;
-		var img_url = '/images/article';
+		var foo = req.ueditor,
+			img_url = '/images/article';
 
 		res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
 	}
