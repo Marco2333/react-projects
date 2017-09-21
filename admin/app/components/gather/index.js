@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
-
 import {Pagination } from 'antd';
+import {Link} from 'react-router';
+import React, {Component} from 'react';
 
 import Alert from '../alert';
+import {SERVER_ADDRESS} from '../config/config';
 
-import {SERVER_ADDRESS} from '../../config/config.js';
-
-import './index.scss';
 
 class Gather extends Component {
     constructor(props) {
@@ -18,24 +15,21 @@ class Gather extends Component {
     }
 
 	componentDidMount() {
-		fetch(`${SERVER_ADDRESS}/get-gather`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(`${SERVER_ADDRESS}/get-gather`).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status:' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({gathers: responseJson.info});
+				this.setState({gathers: data.info});
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
 			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 	
@@ -51,32 +45,31 @@ class Gather extends Component {
 			return;
 		}
 
-		fetch(`${SERVER_ADDRESS}/gather-delete/${id}`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(`${SERVER_ADDRESS}/gather-delete/${id}`).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status ' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({gathers: this.state.gathers.filter(function(gather) {
-					return gather.id != id
-				})});
+				this.setState({
+					gathers: this.state.gathers.filter((gather) => {
+						return gather.id != id
+					})
+				});
 				alert("删除成功");
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
 			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 
     render() {
-		const {page = 1, gathers, pageSize = 10} = this.state;
+		const {page = 1, gathers, pageSize = 15} = this.state;
 
         return (
             <div>
@@ -106,7 +99,7 @@ class Gather extends Component {
                     </tbody>
                 </table>
 				<div className="pagination">
-					<Pagination onChange={this.handleChange} defaultPageSize={10} total={gathers.length} />
+					<Pagination onChange={this.handleChange} defaultPageSize={15} total={gathers.length} />
 				</div>
             </div>
         )

@@ -29,6 +29,7 @@ app.use(cookieParser());
 
 //静态文件目录
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../../resource')));
 
 app.get('/login', function(req, res, next) {
 	if (session.userid) {
@@ -49,24 +50,18 @@ app.get('/toLogin', user.toLogin);
 //     }
 // })
 
-app.use("/ueditor", ueditor(path.join(__dirname, 'public'), function(req, res, next) {
+app.use("/ueditor", ueditor(path.resolve(__dirname, "../../resource"), function(req, res, next) {
 	// ueditor 客户发起上传图片请求
-	
 	if(req.query.action === 'uploadimage'){
 		var foo = req.ueditor;
-		console.log(foo.filename); // exp.png
-		console.log(foo.encoding); // 7bit
-		console.log(foo.mimetype); // image/png
+		var img_url = '/images/article';
 
-		// 下面填写你要把图片保存到的路径 （ 以 path.join(__dirname, 'public') 作为根路径）
-		var img_url = 'yourpath';
-		console.log(123);
 		res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
 	}
 
 	//  客户端发起图片列表请求
 	else if (req.query.action === 'listimage'){
-		var dir_url = 'your img_dir'; // 要展示给客户端的文件夹路径
+		var dir_url = '/images/article'; // 要展示给客户端的文件夹路径
 		res.ue_list(dir_url) // 客户端会列出 dir_url 目录下的所有图片
 	}
 

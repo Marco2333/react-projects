@@ -1,7 +1,7 @@
 import React from 'react';
 
-import NavSide from '../components/nav-side';
 import NavTop from '../components/nav-top';
+import NavSide from '../components/nav-side';
 
 import '../common/common.scss';
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {SERVER_ADDRESS} from '../../config/config';
+import {SERVER_ADDRESS} from '../config/config';
 
 import './index.scss';
 
@@ -11,24 +11,22 @@ class SystemInfo extends Component {
 	}
 	componentDidMount() {
 		let url = `${SERVER_ADDRESS}/get-system-info`;
-		fetch(url).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(url).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status:' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({...responseJson.info});
+				else {
+					this.setState({...data.info});
+				}
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
-			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 	

@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
+import {Pagination} from 'antd';
 import {Link} from 'react-router';
-
-import {Pagination } from 'antd';
+import React, {Component} from 'react';
 
 import Alert from '../alert';
+import {SERVER_ADDRESS} from '../config/config';
 
-import {SERVER_ADDRESS} from '../../config/config.js';
-
-import './index.scss';
 
 class Gossip extends Component {
     constructor(props) {
@@ -18,24 +15,20 @@ class Gossip extends Component {
     }
 
 	componentDidMount() {
-		fetch(`${SERVER_ADDRESS}/get-gossip`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(`${SERVER_ADDRESS}/get-gossip`).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status:' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({gossips: responseJson.info});
+				this.setState({gossips: data.info});
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
-			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 
@@ -50,34 +43,31 @@ class Gossip extends Component {
 		if(!confirm("确认删除?")) {
 			return;
 		}
-
-		fetch(`${SERVER_ADDRESS}/gossip-delete/${id}`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(`${SERVER_ADDRESS}/gossip-delete/${id}`).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status ' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({gossips: this.state.gossips.filter(function(gossip) {
-					return gossip.id != id
-				})});
+				this.setState({
+					gossips: this.state.gossips.filter(function(gossip) {
+						return gossip.id != id
+					})
+				});
 				alert("删除成功");
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
-			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 
     render() {
 		const nowrap = {whiteSpace: "nowrap"};
-		const {page = 1, gossips, pageSize = 10} = this.state;
+		const {page = 1, gossips, pageSize = 15} = this.state;
 
         return (
             <div>
@@ -105,7 +95,7 @@ class Gossip extends Component {
                     </tbody>
                 </table>
 				<div className="pagination">
-					<Pagination onChange={this.handleChange} defaultPageSize={10} total={gossips.length} />
+					<Pagination onChange={this.handleChange} defaultPageSize={15} total={gossips.length} />
 				</div>
             </div>
         )

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Input, Upload, Icon} from 'antd';
 
-import {SERVER_ADDRESS} from '../../config/config';
+import {SERVER_ADDRESS} from '../config/config';
 
 const {TextArea} = Input;
 
@@ -19,27 +19,23 @@ class GossipDetail extends Component {
 		let id = this.props.id;
 
 		if(id != null) {
-			fetch(`${SERVER_ADDRESS}/gossip/${id}`).then((response) => {
-				
-				if(response.status !== 200) {
-					throw new Error('Load Failed, Status:' + response.status);
-					this.setState({error: "Load Failed"});
+			fetch(`${SERVER_ADDRESS}/gossip/${id}`).then((res) => {
+				if(res.status !== 200) {
+					throw new Error('Load Failed, Status:' + res.status);
 				}
-
-				response.json().then((json) => {
-					if(json.status == 0) {
-						this.setState({error: json.message});
+				res.json().then((data) => {
+					if(data.status == 0) {
+						this.setState({error: data.message});
 					}
 					else {
-						let gossip = json.info;
-						this.setState({detail: gossip.detail});
+						this.setState({detail:  data.info.detail});
 					}
 				}).catch((error) => {
-					this.setState({error: "Load Failed"});
+					console.log(error);
 				})
 				
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			});
 		}
 	}
@@ -48,7 +44,7 @@ class GossipDetail extends Component {
 		this.setState({detail: e.target.value});
 	}
 
-	handleSubmit = (e) => {
+	handleClick = (e) => {
 		e.preventDefault();
 		const {file, detail = ''} = this.state;
 
@@ -58,7 +54,6 @@ class GossipDetail extends Component {
 		}
 
 		const formData = new FormData();
-
 		if(this.props.id != null) {
 			formData.append('id', this.props.id);
 		}
@@ -70,30 +65,25 @@ class GossipDetail extends Component {
 		fetch(`${SERVER_ADDRESS}/gossip-submit`, {
 			method: 'POST',
 			body: formData
-		}).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Load Failed, Status:' + response.status);
-				this.setState({error: "Load Failed"});
+		}).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status:' + res.status);
 			}
-
-			response.json().then((json) => {
-				if(json.status == 0) {
-					this.setState({error: json.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
 				else {
 					alert('提交成功！');
-					console.log(this.props.id);
 					if(this.props.id == null) {
 						this.context.router.push(`/gossip`);
 					}
 				}
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
-			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 
@@ -117,7 +107,7 @@ class GossipDetail extends Component {
 		}
 
 		return (
-			<form action="" onSubmit={this.handleSubmit}>
+			<div>
 				<p style={{...pStyle, marginTop: 0}}>图片上传：</p>
 				<Upload {...props}>
 					<Button>
@@ -127,11 +117,12 @@ class GossipDetail extends Component {
 				<p style={pStyle}>说说内容：</p>
 				<TextArea name="detail" value={detail} style={{minHeight: 100}} onChange={this.handleInput}></TextArea>
 				<div style={{textAlign: "right"}}>
-					<Button type="primary" htmlType="submit" size="large" style={{marginTop: 8}} disabled={this.state.detail ? false : true}>
+					<Button type="primary" size="large" style={{marginTop: 8}} onClick={this.handleClick}
+						disabled={this.state.detail ? false : true}>
 						提交
 					</Button>
 				</div>
-			</form>
+			</div>
 		)
 	}
 }

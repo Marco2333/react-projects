@@ -1,7 +1,5 @@
-import React, {Component} from 'react';
-
 import {Link} from 'react-router';
-
+import React, {Component} from 'react';
 import {Menu, Icon, Button} from 'antd';
 
 import './index.scss';
@@ -67,16 +65,6 @@ class NavSide extends Component {
 						<Menu.Item key="6"><Link to="/gossip"><Icon type="caret-right" />说说列表<Icon type="right" /></Link></Menu.Item>
 						<Menu.Item key="7"><Link to="/new-gossip"><Icon type="caret-right" />说说添加<Icon type="right" /></Link></Menu.Item>
 					</SubMenu>
-					{/* <SubMenu key="sub4" 
-						title={
-							<span>
-								<Icon type="user" />
-								<span>个人中心</span>
-							</span>
-						}
-					>
-						<Menu.Item key="8"><Icon type="caret-right" />密码修改<Icon type="right" /></Menu.Item>
-					</SubMenu> */}
                 </Menu>
             </div>
         )

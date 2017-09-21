@@ -9,7 +9,7 @@ let db = require('../db.js');
 let {getClientIP, getServerIP} = require('../common/system')
 
 let router = express.Router();
-let upload = multer({dest: path.resolve(__dirname, '../../public/image/gossip')});
+let upload = multer({dest: path.resolve(__dirname, '../../../resource/images/gossip')});
 
 router.get('/get-system-info', function(req, res, next) {
 	let clientIP = getClientIP(req),
@@ -45,7 +45,7 @@ router.get('/article-delete/:id', function(req, res, next) {
 	})
 })
 
-router.get('/get-article-detail/:id', function(req, res, next) {
+router.get('/article/:id', function(req, res, next) {
 	let {id} = req.params;
 	db.query(`select id, title, body, type, category, tag from article where id = ${+id} and status = 1`, function(err, rows) {
 		if(err) {

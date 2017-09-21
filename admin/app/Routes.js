@@ -1,12 +1,9 @@
 import React from 'react';
-import {syncHistoryWithStore} from 'react-router-redux';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import App from './containers/App';
 import Home from './containers/Home';
 import Login from './components/login';
-
-import store from './Store';
 
 
 const getArticles = (location, callback) => {
@@ -65,10 +62,9 @@ const gossipDetail = (location, callback) => {
 	}, 'gossip-detail')
 }
 
-const history = syncHistoryWithStore(browserHistory, store);
 
 const Routes = () => (
-	<Router history={history}>
+	<Router history={browserHistory}>
 		<Route path='/login' component={Login}/>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}/>

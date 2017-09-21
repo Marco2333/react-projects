@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Form, Input, Button, Select} from 'antd';
 
 import Ueditor from '../ueditor';
-import {SERVER_ADDRESS} from '../../config/config';
+import {SERVER_ADDRESS} from '../config/config';
 
 
 const FormItem = Form.Item;
@@ -25,26 +25,22 @@ class GatherDeatil extends Component {
 		let id = this.props.id;
 
 		if(id != null) {
-			fetch(`${SERVER_ADDRESS}/gather/${id}`).then((response) => {
-				
-				if(response.status !== 200) {
-					throw new Error('Load Failed, Status:' + response.status);
-					this.setState({error: "Load Failed"});
+			fetch(`${SERVER_ADDRESS}/gather/${id}`).then((res) => {
+				if(res.status !== 200) {
+					throw new Error('Load Failed, Status:' + res.status);
 				}
-
-				response.json().then((responseJson) => {
-					if(responseJson.status == 0) {
-						this.setState({error: responseJson.message});
+				res.json().then((data) => {
+					if(data.status == 0) {
+						this.setState({error: data.message});
 					}
 					else {
-						this.setState({gather: responseJson.info});
+						this.setState({gather: data.info});
 					}
 				}).catch((error) => {
-					this.setState({error: "Load Failed"});
+					console.log(error);
 				})
-				
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			});
 		}
 	}
@@ -56,48 +52,46 @@ class GatherDeatil extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			if (!err) {
-				let content = this.state.content;
-
-				if(content.trim() == '') {
-					alert('收藏内容为空！');
-					return;
-				}
-
-				values.id = this.props.id;
-				values.content = content;
-
-				fetch(`${SERVER_ADDRESS}/gather-submit`, {
-					method: 'POST',
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify(values)
-				}).then((response) => {
-					
-					if(response.status !== 200) {
-						throw new Error('Failed, Status:' + response.status);
-						this.setState({error: "Load Failed"});
-					}
-	
-					response.json().then((responseJson) => {
-						if(responseJson.status == 0) {
-							this.setState({error: responseJson.message});
-						}
-						else {
-							alert("收藏提交成功！");
-							if(this.props.id == null) {
-								this.context.router.push(`/gather`);
-							}
-						}
-					}).catch((error) => {
-						this.setState({error: "Load Failed"});
-					})
-					
-				}).catch((error) => {
-					this.setState({error: "Load Failed"});
-				});
+			if(error) {
+				return;
 			}
+
+			let {content = ''} = this.state;
+			if(content.trim() == '') {
+				alert('收藏内容为空！');
+				return;
+			}
+
+			values.id = this.props.id;
+			values.content = content;
+
+			fetch(`${SERVER_ADDRESS}/gather-submit`, {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(values)
+			}).then((res) => {
+				if(res.status !== 200) {
+					throw new Error('Failed, Status:' + res.status);
+				}
+				res.json().then((data) => {
+					if(data.status == 0) {
+						this.setState({error: data.message});
+					}
+					else {
+						alert("收藏提交成功！");
+						if(this.props.id == null) {
+							this.context.router.push(`/gather`);
+						}
+					}
+				}).catch((error) => {
+					console.log(error);
+				})
+				
+			}).catch((error) => {
+				console.log(error);
+			});
 		});
 	}
 

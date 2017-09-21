@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
-
 import {Pagination } from 'antd';
+import {Link} from 'react-router';
+import React, {Component} from 'react';
 
 import Alert from '../alert';
+import {SERVER_ADDRESS} from '../config/config';
 
-import {SERVER_ADDRESS} from '../../config/config.js';
-
-import './index.scss';
 
 class Articles extends Component {
     constructor(props) {
@@ -18,24 +15,21 @@ class Articles extends Component {
     }
 
 	componentDidMount() {
-		fetch(`${SERVER_ADDRESS}/get-articles`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(`${SERVER_ADDRESS}/get-articles`).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status ' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({articles: responseJson.info});
+				this.setState({articles: data.info});
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
 			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 
@@ -51,27 +45,26 @@ class Articles extends Component {
 			return;
 		}
 
-		fetch(`${SERVER_ADDRESS}/article-delete/${id}`).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(`${SERVER_ADDRESS}/article-delete/${id}`).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status ' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({articles: this.state.articles.filter(function(article) {
-					return article.id != id
-				})});
+				this.setState({
+					articles: this.state.articles.filter(function(article) {
+						return article.id != id
+					})
+				});
 				alert("删除成功");
 			}).catch((error) => {
-				this.setState({error: "Load Failed"});
+				console.log(error);
 			})
 			
 		}).catch((error) => {
-			this.setState({error: "Load Failed"});
+			console.log(error);
 		});
 	}
 	
