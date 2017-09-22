@@ -19,7 +19,8 @@ class LoginForm extends Component {
 			}
 
 			let url = `${SERVER_ADDRESS}/toLogin?userid=${values.userid}
-						&password=${md5(values.password)}`;
+					&password=${md5(values.password)}`;
+
 			fetch(url).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Login Failed, Status:' + res.status);
@@ -29,6 +30,7 @@ class LoginForm extends Component {
 						this.setState({error: data.message});
 					}
 					else {
+						localStorage.user = 1;
 						this.context.router.push("/home");
 					}
 				}).catch((error) => {

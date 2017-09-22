@@ -1,13 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import './index.scss';
 
-export default () => (
-	<div className="nav-top">
-		Marco个人博客管理端
-		<div className="fr">
-			欢迎您，江寒
-			<a href="/logout">退出</a>
-		</div>
-	</div>
-)
+class NavTop extends Component {
+	handleClick = (e) => {
+		e.preventDefault();
+		localStorage.user = 0;
+		location.href="/logout";
+	}
+
+	static contextTypes = {
+		router: React.PropTypes.object
+	}
+
+	render() {
+		return (
+			<div className="nav-top">
+				Marco个人博客管理端
+				<div className="fr">
+					欢迎您，江寒
+					<a href="/logout" onClick={this.handleClick}>退出</a>
+				</div>
+			</div>
+		)
+	}
+}
+
+export default NavTop;

@@ -31,8 +31,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../../resource')));
 
 app.get('/login', function(req, res, next) {
-	if (session.userid) {
-       res.redirect('/home');
+	if(session.userid) {
+		res.redirect('/home');
 	}
 	else {
 		res.sendfile(path.join(__dirname, '../public/index.html')); // 发送静态文件
@@ -47,12 +47,12 @@ app.get('/logout', function(req, res, next) {
 });
 
 app.use(function (req, res, next) {
-    if (session.userid) {
-        next();
-    } else {
-       	res.redirect('/login');
-    }
-})
+	if (session.userid) {
+		next();
+	} else {
+		res.sendfile(path.join(__dirname, '../public/index.html')); // 发送静态文件
+	}
+});
 
 app.use("/ueditor", ueditor(path.resolve(__dirname, "../../resource"), function(req, res, next) {
 	// ueditor 客户发起上传图片请求
@@ -81,7 +81,7 @@ app.use('/', routes);
 
 // development error handler will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
+	app.use(function (err, req, res, next) {
 		res.status(err.status || 500);
 		res.render('error', {
 			message: err.message,

@@ -62,11 +62,20 @@ const gossipDetail = (location, callback) => {
 	}, 'gossip-detail')
 }
 
+const checkAuth = (nextState, replace, next) => {
+	if(localStorage.user == 1) {
+		next();
+	}
+	else {
+		replace("/login");
+		next();
+	}
+}
 
 const Routes = () => (
 	<Router history={browserHistory}>
 		<Route path='/login' component={Login}/>
-		<Route path='/' component={App}>
+		<Route path='/' component={App} onEnter={checkAuth}>
 			<IndexRoute component={Home}/>
 			<Route path='home' component={Home}/>
 			<Route path='articles' getComponent={getArticles}/>
