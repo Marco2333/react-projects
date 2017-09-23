@@ -1,7 +1,5 @@
+import {Link} from 'react-router';
 import React, {Component} from 'react';
-
-import {Link} from 'react-router'
-
 import {Row, Col, Input, Icon, Popover} from 'antd';
 
 import logoImg from "../../../public/image/logo.png";

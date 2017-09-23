@@ -30,7 +30,7 @@ class LoginForm extends Component {
 						this.setState({error: data.message});
 					}
 					else {
-						localStorage.user = 1;
+						sessionStorage.user = 1;
 						this.context.router.push("/home");
 					}
 				}).catch((error) => {

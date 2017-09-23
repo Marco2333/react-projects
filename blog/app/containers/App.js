@@ -1,14 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
-
 import {Row, Col, BackTop} from 'antd';
 
-import Banner from '../components/home-banner';
-
-import Breadcrumb from '../components/bread-crumb';
-import NavSide from '../components/nav-side';
-import NavTop from '../components/nav-top';
 import Footer from '../components/footer';
+import NavTop from '../components/nav-top';
+import NavSide from '../components/nav-side';
+import Banner from '../components/home-banner';
+import Breadcrumb from '../components/bread-crumb';
 
 function itemRender(route, params, routes, paths) {
 	const last = routes.indexOf(route) === routes.length - 1;

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
 import {Modal} from 'antd';
+import React, {Component} from 'react';
 
 import {escape2Html} from '../../common/escape';
 

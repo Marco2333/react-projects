@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	devtool: 'cheap-module-eval-source-map',
@@ -18,23 +18,23 @@ module.exports = {
                 loader: 'babel-loader'
             }, {
                 test: /\.css$/,
-                // use: ExtractTextPlugin.extract({
-                //     fallback: "style-loader",
-                //     use: 'css-loader'
-				// })
-				loader: 'style-loader!css-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: 'css-loader'
+				})
+				// loader: 'style-loader!css-loader'
             }, {
                 test: /\.scss$/,
-                // use: ExtractTextPlugin.extract({
-                //     fallback: 'style-loader',
-                //     use: ['css-loader', 'sass-loader']
-				// })
-				loader: 'style-loader!css-loader!sass-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+				})
+				// loader: 'style-loader!css-loader!sass-loader'
             }
         ]
     },
     plugins: [
-        // new ExtractTextPlugin("../style/style.css"),  
+        new ExtractTextPlugin("../style/style.css"),  
 		new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require('./manifest.json')

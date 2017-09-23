@@ -1,11 +1,9 @@
-import React, {Component}  from 'react';
-
+import WOW from 'wowjs';
 import {Pagination} from 'antd';
+import React, {Component}  from 'react';
 
 import ArticleItem from '../article-item';
 import ListCarousel from '../list-carousel';
-
-import WOW from 'wowjs';
 
 import {SERVER_ADDRESS} from '../../config/config';
 
@@ -76,20 +74,16 @@ class Articles extends Component {
 	getArticles = (params) => {
 		let url = this.getUrl(params);
 	
-		fetch(url).then((response) => {
-			
-			if(response.status !== 200) {
-				throw new Error('Fail to get response with status ' + response.status);
-				this.setState({error: "Load Failed"});
+		fetch(url).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status:' + res.status);
 			}
-
-			response.json().then((responseJson) => {
-				if(responseJson.status == 0) {
-					this.setState({error: responseJson.message});
+			res.json().then((data) => {
+				if(data.status == 0) {
+					this.setState({error: data.message});
 				}
-				this.setState({...responseJson.info});
+				this.setState({...data.info});
 				new WOW().init();
-		
 			}).catch((error) => {
 				this.setState({error: "Load Failed"});
 			})
@@ -106,16 +100,15 @@ class Articles extends Component {
 		});
 
 		const {...params} = this.props;
-
-		params['current'] = page;
 		params['count'] = count;
-
+		params['current'] = page;
+		
 		this.getArticles(params);
 	}
 
     render() {
-        const {pagination = true, carousel = false} = this.props;
 		let {count, current, articles, total} = this.state;
+        const {pagination = true, carousel = false} = this.props;
 		
         return (
             <div>

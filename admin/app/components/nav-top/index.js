@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 
 import './index.scss';
+import '../system-info/index.scss';
 
 class NavTop extends Component {
 	handleClick = (e) => {
 		e.preventDefault();
-		localStorage.user = 0;
+		sessionStorage.user = 0;
 		location.href="/logout";
 	}
 

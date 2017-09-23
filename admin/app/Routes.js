@@ -63,7 +63,7 @@ const gossipDetail = (location, callback) => {
 }
 
 const checkAuth = (nextState, replace, next) => {
-	if(localStorage.user == 1) {
+	if(sessionStorage.user == 1) {
 		next();
 	}
 	else {

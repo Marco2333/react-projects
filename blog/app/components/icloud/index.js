@@ -12,12 +12,6 @@ export default ({tags}) => {
 
 	const colors = ["#f50", "#f8a72a", "#87d068", "#108ee9", "#c761f0"];
 
-	// let total = 0, average = 0, len = tags.length;
-	// for(let i = 0;i < len;i++) {
-	// 	total += strLen(tags[i]);
-	// }
-	// average = total / len;
-
 	tags = tags.sort((str1, str2) => (
 		strLen(str1) - strLen(str2)
 	));

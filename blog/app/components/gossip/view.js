@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import React, {Component} from 'react';
 import {Timeline, Pagination, Icon, Row, Col} from 'antd';
 
 import {getGossip} from './actions';
@@ -8,7 +7,6 @@ import {getGossip} from './actions';
 import "./index.scss";
 
 export const stateKey = 'gossip';
-
 
 class Gossip extends Component {
     constructor(props) {

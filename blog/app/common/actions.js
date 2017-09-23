@@ -1,54 +1,50 @@
 import {SERVER_ADDRESS} from "../config/config";
 
 export const fetchStart = (type) => ({
-    type
+	type
 });
 
 export const fetchSucceed = (type, info) => ({
-    type,
-    info
+	type,
+	info
 });
 
 export const fetchFail = (type, message) => ({
-    type,
-    message
+	type,
+	message
 });
 
 export const fetchInfo = (url, actionTypes, callback) => {
-    return (dispatch) => {
+	return (dispatch) => {
 		if(actionTypes.length !== 3) {
 			throw new Error("Confirm action type");
 		}
-        dispatch(fetchStart(actionTypes[0]));
 
-        fetch(url).then((response) => {
-            
-            if(response.status !== 200) {
-                throw new Error('Fail to get response with status ' + response.status);
-                dispatch(fetchFail(actionTypes[2], "LOADING FAILED! Error code: " + response.status));
-            }
+		dispatch(fetchStart(actionTypes[0]));
 
-            response.json().then((responseJson) => {
-                if(responseJson.status == 0) {
-                    dispatch(fetchFail(actionTypes[2], responseJson.message));
+		fetch(url).then((res) => {
+			if(res.status !== 200) {
+				throw new Error('Load Failed, Status:' + res.status);
+			}
+			res.json().then((data) => {
+				if(data.status == 0) {
+					dispatch(fetchFail(actionTypes[2], data.message));
 				}
 
-				if(responseJson._info) {
-					dispatch(fetchSucceed(actionTypes[1], responseJson._info));
+				if(data._info) {
+					dispatch(fetchSucceed(actionTypes[1], data._info));
 				}
 				else {
-					let {status, message, ...info} = responseJson;
+					let {status, message, ...info} = data;
 					dispatch(fetchSucceed(actionTypes[1], info));
 				}
 				
 				if(callback) callback();
-                
-            }).catch((error) => {
-                dispatch(fetchFail(actionTypes[2], error));
+			}).catch((error) => {
+				dispatch(fetchFail(actionTypes[2], error));
 			})
-			
-        }).catch((error) => {
-            dispatch(fetchFail(actionTypes[2], error));
-        });
-    }
+		}).catch((error) => {
+			dispatch(fetchFail(actionTypes[2], error));
+		});
+	}
 }

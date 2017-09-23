@@ -4,5 +4,6 @@ import {fetchInfo} from "../../common/actions";
 import {SERVER_ADDRESS} from "../../config/config.js";
 
 export const getNavInfo = () => {
-    return fetchInfo(`${SERVER_ADDRESS}/get-navside-info`, [FETCH_START, FETCH_SUCCEED, FETCH_FAIL])
+	let url = `${SERVER_ADDRESS}/get-navside-info`;
+    return fetchInfo(url, [FETCH_START, FETCH_SUCCEED, FETCH_FAIL]);
 }

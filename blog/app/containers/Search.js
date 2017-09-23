@@ -6,7 +6,6 @@ const Search = ({params}) => (
 	<Articles keyword={params.keyword} />
 )
 
-
 export {
 	Search
 }

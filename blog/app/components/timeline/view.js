@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router';
-
+import {connect} from 'react-redux';
+import React, {Component} from 'react';
 import {Select, Timeline, Pagination, Icon} from 'antd';
 
 import {getTimeline} from './actions';

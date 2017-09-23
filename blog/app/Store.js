@@ -1,10 +1,8 @@
+import thunkMiddleware from 'redux-thunk';
+import {routerReducer} from 'react-router-redux';
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 
-import {routerReducer} from 'react-router-redux';
-import thunkMiddleware from 'redux-thunk';
-
 import resetEnhancer from './enhancer/reset.js';
-
 import {reducer as naveSideReducer, stateKey} from './components/nav-side';
 
 let prod = process.env.NODE_ENV === 'production' ? true : false;
