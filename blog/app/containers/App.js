@@ -8,6 +8,8 @@ import NavSide from '../components/nav-side';
 import Banner from '../components/home-banner';
 import Breadcrumb from '../components/bread-crumb';
 
+import '../common/common.scss';
+
 function itemRender(route, params, routes, paths) {
 	const last = routes.indexOf(route) === routes.length - 1;
 
