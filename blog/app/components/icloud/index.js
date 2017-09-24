@@ -10,7 +10,7 @@ export default ({tags}) => {
 		return null;
 	}
 
-	const colors = ["#f50", "#f8a72a", "#87d068", "#108ee9", "#c761f0"];
+	const colors = ["#f50", "#f8a72a", "#87d068", "#108ee9", "#6b61f0"];
 
 	tags = tags.sort((str1, str2) => (
 		strLen(str1) - strLen(str2)

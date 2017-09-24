@@ -42,9 +42,9 @@ class NoteList extends Component {
                 <div className="note-list">
                     <Row gutter={24}>
                         {
-                            notes.map((note) => (
+                            notes.map((note, index) => (
                                 <Col sm={12} key={note.id}>
-                                    <Note {...note} />
+                                    <Note {...note} animate={index % 2 ? "rotateInUpRight" : "rotateInDownLeft"}/>
                                 </Col>
                             ))
                         }

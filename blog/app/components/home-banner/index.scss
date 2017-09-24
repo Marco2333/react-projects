@@ -1,20 +1,22 @@
 .day-word {
-    position: relative;
-	padding: 14px 10px 10px;
-    box-shadow: 0 0 5px #555;
-    > img {
-        width: 100%;
-    }
-    > p {
-        position: absolute;
-        right: 23px;
-        top: 38%;
-        width: 60%;
-        color: #fff;
-        font-size: 15px;
-    }
+	position: relative;
+	padding: 11px 16px 10px;
+	box-shadow: 0 0 5px #555;
+	> img {
+		width: 100%;
+	}
+	> p {
+		position: absolute;
+		font-weight: bold;
+		-webkit-text-fill-color: transparent;
+		text-shadow: 5px -5px #111, 4px -4px white;
+		background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+		-webkit-background-clip: text;
+		// let boxShadow = "0px 1px 0px #333, 0px 1px 0px #222, 0px 1px 0px #222, 0px 2px 0px #111, 0px 2px 0px #222, 0px 2px 0px #444, 0px 1px 0px #333, 0px 26px 7px #555";
+	}
 }
 
 .home-banner {
-    margin: 20px 0 5px;
+	margin: 20px 0 15px;
 }
+
