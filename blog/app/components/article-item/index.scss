@@ -1,39 +1,46 @@
 @import "../../config/config.scss";
+
 .article-item {
-    margin-bottom: 18px;
-    padding: 18px 25px 15px;
-    font-size: 16px;
-    background-color: #fff;
-    box-shadow: 0 0 5px #aaa;
-    transition: box-shadow ease-in 300ms;
-    &:hover {
-        box-shadow: 0 0 15px #333;
-    }
+	margin-bottom: 18px;
+	padding: 18px 25px 15px;
+	font-size: 16px;
+	background-color: #fff;
+	box-shadow: 0 0 5px #aaa;
+	transition: box-shadow ease-in 300ms;
+	&:hover {
+		box-shadow: 0 0 15px #333;
+	}
+	h4:hover {
+		color: #000;
+	}
+	a:focus {
+		text-decoration: none;
+	}
 }
 
 .article-body {
-    h4 {
-        font-size: 16px;
-        font-weight: bold;
-    }
-    >p {
-        margin: 8px 0;
-        color: #999;
-        font-size: 13px;
-    }
+	h4 {
+		font-size: 16px;
+		font-weight: bold;
+	}
+	>p {
+		margin: 8px 0;
+		color: #999;
+		font-size: 13px;
+	}
 }
 
 .article-abstract {
-    color: #333;
-    font-size: 14px;
+	color: #333;
+	font-size: 14px;
 }
 
 .article-link {
-    display: inline-block;
-    margin-top: 9px;
-    font-size: 12px;
-    > a {
-        color: $main-color;
-        font-weight: bold;
-    }
+	display: inline-block;
+	margin-top: 9px;
+	font-size: 12px;
+	> a {
+		color: $main-color;
+		font-weight: bold;
+	}
 }

@@ -27,6 +27,7 @@ app.use(cookieParser());
 
 //静态文件目录
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../../resource')));
 
 app.use(function (req, res, next) {
     if (session.record) {

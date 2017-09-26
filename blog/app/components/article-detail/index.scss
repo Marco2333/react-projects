@@ -1,7 +1,22 @@
 .article-detail {
+	color: #222;
 	padding: 15px 35px;
 	font-size: 14px;
 	box-shadow: 0 0 6px #666;
+	ul, ol {
+		padding-left: 20px;
+	}
+	pre {
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		word-break: break-all;
+		word-wrap: break-word;
+		font-family: "Microsoft Yahei";
+		background-color: rgb(243, 243, 240);
+	}
+	img {
+		max-width: 98%;
+	}
 }
 
 .blog-title {
@@ -33,6 +48,7 @@
 }
 
 .syntaxhighlighter {
+	padding: 6px 0px;
 	margin: 3px 0 6px!important;
 }
 
