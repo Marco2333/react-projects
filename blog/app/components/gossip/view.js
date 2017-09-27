@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Timeline, Pagination, Icon, Row, Col} from 'antd';
 
 import {getGossip} from './actions';
@@ -34,8 +34,8 @@ class Gossip extends Component {
     }
 
     render() {
+		let {count, current} = this.state;
         const {gossips, total, pagination = true} = this.props;
-        let {count, current} = this.state;
 
         return (
             <div className="gossip-wrap">
@@ -46,23 +46,27 @@ class Gossip extends Component {
 								<Timeline.Item key={item.id}>
 									<div className="gossip-item wow fadeInLeft animated">
 										{
-											item.img 
+											item.file_name 
 											?
-											<Row gutter={16}>
+											<Row gutter={12}>
 												<Col xs={24} sm={9}>
 													<div className="gossip-img">
-														<img src={item.img} alt=""/>
+														<img src={`images/gossip/${item.save_name}`} alt=""/>
 													</div>
 												</Col>
 												<Col xs={24} sm={15}>
 													<div className="gossip-detail">
-														{item.detail}
+														<pre>
+															{item.detail}
+														</pre>
 													</div>
 												</Col>
 											</Row>
 											:
 											<div className="gossip-detail">
-												{item.detail}
+												<pre>
+													{item.detail}
+												</pre>
 											</div>
 										}
 										<p className="gossip-author">posted@ {item.created_at} </p>
@@ -84,6 +88,11 @@ class Gossip extends Component {
         )
     }
 }
+
+Gossip.propTypes = {
+	gossips: PropTypes.array.isRequired,
+	getGossip: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state) => {
     return {

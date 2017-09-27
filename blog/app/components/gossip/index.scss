@@ -6,25 +6,37 @@
 }
 
 .gossip-item {
-	position: relative;
-    top: -6px;
-    padding: 20px 28px 15px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    border-radius: 10px;
-    background: #f0f0f0;
+	padding: 16px;
+	margin-bottom: 5px;
+	font-size: 14px;
+	border-radius: 10px;
+	background: #f0f0f0;
 }
 
 .gossip-author {
-	margin-top: 13px;
-	color: #777;
+	margin-top: 5px;
+	color: #888;
 	font-size: 13px;
 	text-align: right;
 }
 
 .gossip-img {
-	padding: 5px 0 10px;
 	> img {
 		width: 100%;
+		border-radius: 4px;
+	}
+}
+
+.gossip-detail {
+	pre {
+		white-space: pre-wrap;
+		font-family: "Microsoft Yahei";
+	}
+}
+
+@media(max-width: 767px) {
+	.gossip-wrap {
+		padding: 15px 12px;
+		box-shadow: 0 0 5px #555;
 	}
 }

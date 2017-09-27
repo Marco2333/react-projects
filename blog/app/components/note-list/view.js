@@ -1,10 +1,8 @@
-import React, {Component}  from 'react';
 import {connect} from 'react-redux';
-
 import { Pagination, Row, Col } from 'antd';
+import React, {Component, PropTypes}  from 'react';
 
 import Note from '../note';
-
 import {getNote} from './actions';
 
 export const stateKey = "notes";
@@ -62,6 +60,11 @@ class NoteList extends Component {
         )
     }
 }
+
+NoteList.propTypes = {
+	notes: PropTypes.array.isRequired,
+	getNote: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state) => {
     return {

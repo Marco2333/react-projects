@@ -1,6 +1,6 @@
 import {Icon} from 'antd';
 import {connect} from 'react-redux';
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import {getArticleDetail} from './actions';
 
@@ -34,16 +34,19 @@ class ArticleDetail extends Component {
 			script.onload = script.onreadystatechange = function() {
 				if(!this.readyState || this.readyState == 'complete') {
 					SyntaxHighlighter._count = 0;
+
 					scriptArr.forEach((scriptName) => {
 						script = document.createElement("script");
-						script.setAttribute('src', `/static/syntaxhighlighter/scripts/${scriptName}`);
+						let url = `/static/syntaxhighlighter/scripts/${scriptName}`;
+
+						script.setAttribute('src', url);
 						document.getElementsByTagName('head')[0].appendChild(script);
 
 						script.onload = script.onreadystatechange = function() {
 							if(!this.readyState || this.readyState == 'complete') {
 								SyntaxHighlighter._count++;
 								
-								if(SyntaxHighlighter._count == 7) {
+								if(SyntaxHighlighter._count >= 7) {
 									SyntaxHighlighter.all();
 								}
 							}
@@ -110,6 +113,11 @@ class ArticleDetail extends Component {
 		)
 	}
 }
+
+ArticleDetail.propTypes = {
+	id: PropTypes.isRequired,
+	getDetail: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state) => {
 	return {

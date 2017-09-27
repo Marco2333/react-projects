@@ -1,5 +1,5 @@
 import {Modal} from 'antd';
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import {escape2Html} from '../../common/escape';
 
@@ -48,5 +48,10 @@ class Note extends Component {
         )
     }
 }
+
+Note.propTypes = {
+	title: PropTypes.string.isRequired,
+	detail: PropTypes.string.isRequired
+};
 
 export default Note;

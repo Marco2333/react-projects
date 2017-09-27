@@ -4,6 +4,7 @@ var mysql = require('mysql');
 let multer = require('multer');
 let express = require('express');
 
+require('../common/date.js');
 let db = require('../db.js');
 let user = require('../controller/user');
 let {getClientIP, getServerIP} = require('../common/system')
@@ -202,13 +203,13 @@ router.post('/gossip-submit', upload.single('file'), function(req, res, next) {
 	}
 	if( id != null) {
 		sql = `update gossip set detail = ${mysql.escape(detail)}, file_name = ${mysql.escape(fileName)}, 
-			save_name = ${mysql.escape(saveName)}, updated_at = "${new Date().toLocaleDateString()}" where id = ${+id}`;
+			save_name = ${mysql.escape(saveName)}, updated_at = "${new Date()._format("yyyy-MM-dd hh:mm:ss")}" where id = ${+id}`;
 	}
 	else {
 		sql = `insert into gossip(detail, created_at, file_name, save_name) values (${mysql.escape(detail)},
-			"${new Date().toLocaleDateString()}", ${mysql.escape(fileName)}, ${mysql.escape(saveName)})`;
+			"${new Date()._format("yyyy-MM-dd hh:mm:ss")}", ${mysql.escape(fileName)}, ${mysql.escape(saveName)})`;
 	}
-
+	console.log(sql);
 	db.query(sql, function(err, rows) {
 		if(err) {
 			console.log(err);

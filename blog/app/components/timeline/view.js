@@ -1,6 +1,6 @@
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Select, Timeline, Pagination, Icon} from 'antd';
 
 import {getTimeline} from './actions';
@@ -48,16 +48,14 @@ class TimeLine extends Component {
     }
 
     render() {
+		let tlItems = [];
+		const Option = Select.Option;
+		let {count, current, category} = this.state;
         const {items, categories, total, pagination = true} = this.props;
-        const Option = Select.Option;
+        
+        categories[0] && categories[0].id != 0 ? categories.unshift({id: 0, theme: "全部"}) : "";
 
-        let {count, current, category} = this.state;
-
-        categories && categories[0].id != 0 ? categories.unshift({id: 0, theme: "全部"}) : "";
-
-        let tlItems = [];
-
-        items && items.forEach((item, index, arr) => {
+        items.forEach((item, index, arr) => {
             let colorArr = ['blue', 'red', 'green'];
             let timeStr = item.created_at.substring(0, item.created_at.lastIndexOf("-"));
                 
@@ -88,7 +86,7 @@ class TimeLine extends Component {
                 <div className="timeline-select">
                     <Select style={{ width: 200}} defaultValue="全部"  onChange={this.onChange}>
                         {
-                            categories && categories.map((item) => (
+                            categories.map((item) => (
                                 <Option value={item.id + ""} key={item.id}>{item.theme}</Option>
                             ))
                         }
@@ -97,7 +95,7 @@ class TimeLine extends Component {
                 <div className="timeline-body">
                     <Timeline>
                         {
-                            items && tlItems.map((item) => (
+                            tlItems.map((item) => (
                                 item.type === 'time' 
                                 ?
                                     <Timeline.Item key={item.key} color="blue"
@@ -127,10 +125,16 @@ class TimeLine extends Component {
     }
 }
 
+TimeLine.propTypes = {
+	items: PropTypes.array.isRequired,
+	categories: PropTypes.array.isRequired,
+	getTimeline: PropTypes.func.isRequired
+};
+
 const mapStateToProps = (state) => {
     return {
-        items: state[stateKey] && state[stateKey]["items"] || null,
-        categories: state[stateKey] && state[stateKey]["categories"] || null,
+        items: state[stateKey] && state[stateKey]["items"] || [],
+        categories: state[stateKey] && state[stateKey]["categories"] || [],
         total: state[stateKey] && state[stateKey]["total"],
     }
 }

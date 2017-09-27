@@ -28,7 +28,7 @@ const resetState = (reducer, initialState, stateKey, setting = {}) => {
 const getHomePage = (location, callback) => {
 	require.ensure([], function (require) {
 		const {Home} = require('./containers/Home.js');
-		
+		document.title = "Marco的个人博客";
 		callback(null, Home);
 	}, 'home');
 }
@@ -37,6 +37,7 @@ const getArticlePage = (location, callback) => {
 	require.ensure([], function (require) {
 		const {Article} = require('./containers/Article');
 		
+		document.title = "文章列表 — Marco";
 		callback(null, Article);
 	}, 'article');
 }
@@ -51,6 +52,7 @@ const getArticleDetailPage = (location, callback) => {
 			resetState(reducer, initialState, stateKey, {'id': location['params']['id']});
 		}
 		
+		document.title = "文章详情 — Marco";
 		callback(null, ArticleDetail);
 	}, 'article-detail');
 }
@@ -62,6 +64,7 @@ const getTimelinePage = (location, callback) => {
 
 		resetState(reducer, initialState, stateKey, {'_cover': false});
 		
+		document.title = "文章归档 — Marco";
 		callback(null, TimeLine);
 	}, 'timeline');
 }
@@ -71,6 +74,7 @@ const getSearchPage = (location, callback) => {
 	require.ensure([], function (require) {
 		const {Search} = require('./containers/Search');
 		
+		document.title = "搜索结果 — Marco";
 		callback(null, Search);
 	}, 'search');
 }
@@ -80,6 +84,7 @@ const getCategoryPage = (location, callback) => {
 	require.ensure([], function (require) {
 		const {Category} = require('./containers/Category');
 		
+		document.title = "文章分类 — Marco";
 		callback(null, Category);
 	}, 'category');
 }
@@ -88,7 +93,8 @@ const getTagPage = (location, callback) => {
 		
 	require.ensure([], function (require) {
 		const {Tag} = require('./containers/Tag');
-		
+
+		document.title = "文章标签 — Marco";
 		callback(null, Tag);
 	}, 'tag');
 }
@@ -100,6 +106,7 @@ const getGatherPage = (location, callback) => {
 
 		resetState(reducer, initialState, stateKey, {'_cover': false});
 		
+		document.title = "点点滴滴 — Marco";
 		callback(null, Gather);
 	}, 'gather');
 }
@@ -111,6 +118,7 @@ const getGossipPage = (location, callback) => {
 
 		resetState(reducer, initialState, stateKey, {'_cover': false});
 
+		document.title = "碎言碎语 — Marco";
 		callback(null, Gossip);
 	}, 'gossip');
 }
