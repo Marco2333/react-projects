@@ -1,17 +1,12 @@
-import React, {Component} from 'react';
+import {Icon} from 'antd';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-
-import {Icon} from 'antd';
+import React, {Component} from 'react';
 
 import ICloud from '../icloud';
-
 import {getNavInfo} from './actions';
 
 import './index.scss';
-
-import bgImg from "../../../public/image/portrait_bg.jpg";
-import meImg from "../../../public/image/me.jpg";
 
 export const stateKey = "nav-side";
 
@@ -26,10 +21,10 @@ class NavSide extends Component {
         return (
             <div className="nav-side">
                 <div className="panel user-introduction">
-                    <img src={bgImg} alt=""/>
+                    <img src="/image/portrait_bg.jpg" alt=""/>
                     <div className="panel-body">
                         <div className="user-portrait">
-                            <img src={meImg} alt=""/>
+                            <img src="/image/me.jpg" alt=""/>
                             <h3>Marco</h3>
                             <p>{portrait ? portrait.intro : ''}</p>
                         </div>

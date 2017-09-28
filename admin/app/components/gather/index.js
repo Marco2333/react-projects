@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 import Alert from '../alert';
 import {SERVER_ADDRESS} from '../config/config';
 
-
 class Gather extends Component {
     constructor(props) {
         super(props);

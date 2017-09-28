@@ -1,18 +1,8 @@
-import {SERVER_ADDRESS} from "../config/config";
+export const fetchStart = (type) => ({ type });
 
-export const fetchStart = (type) => ({
-	type
-});
+export const fetchSucceed = (type, info) => ({ type, info });
 
-export const fetchSucceed = (type, info) => ({
-	type,
-	info
-});
-
-export const fetchFail = (type, message) => ({
-	type,
-	message
-});
+export const fetchFail = (type, message) => ({type, message});
 
 export const fetchInfo = (url, actionTypes, callback) => {
 	return (dispatch) => {

@@ -5,9 +5,6 @@ import React, {Component}  from 'react';
 import ArticleItem from '../article-item';
 import ListCarousel from '../list-carousel';
 
-import {SERVER_ADDRESS} from '../../config/config';
-
-
 class Articles extends Component {
 	constructor(props) {
 		super(props);
@@ -50,7 +47,7 @@ class Articles extends Component {
 	}
 	
 	getUrl = ({current, count = 15, type, category, keyword, tag}) => {
-		let url = `${SERVER_ADDRESS}/get-articles?count=${count}`;
+		let url = `/get-articles?count=${count}`;
 		
 		if(current != null) {
 			url += `&current=${current}`;

@@ -1,4 +1,4 @@
-import * as Status from "../config/status";
+import * as Status from "./status";
 
 export const generateReducer = (initialState, actionTypes) => {
 	return (state = initialState, action) => {
