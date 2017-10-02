@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 import React, {Component} from 'react';
 
 import Alert from '../alert';
-import {SERVER_ADDRESS} from '../config/config';
 
 class Gather extends Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class Gather extends Component {
     }
 
 	componentDidMount() {
-		fetch(`${SERVER_ADDRESS}/get-gather`).then((res) => {
+		fetch("/get-gather").then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}
@@ -44,7 +43,7 @@ class Gather extends Component {
 			return;
 		}
 
-		fetch(`${SERVER_ADDRESS}/gather-delete/${id}`).then((res) => {
+		fetch(`/gather-delete/${id}`).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import {SERVER_ADDRESS} from '../config/config';
-
 import './index.scss';
 
 class SystemInfo extends Component {
@@ -10,8 +8,7 @@ class SystemInfo extends Component {
 		this.state = {};
 	}
 	componentDidMount() {
-		let url = `${SERVER_ADDRESS}/get-system-info`;
-		fetch(url).then((res) => {
+		fetch("/get-system-info").then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}

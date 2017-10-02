@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {Form, Input, Button, Select} from 'antd';
 
 import Ueditor from '../ueditor';
-import {SERVER_ADDRESS} from '../config/config';
-
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -25,7 +23,7 @@ class GatherDeatil extends Component {
 		let id = this.props.id;
 
 		if(id != null) {
-			fetch(`${SERVER_ADDRESS}/gather/${id}`).then((res) => {
+			fetch(`/gather/${id}`).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -65,7 +63,7 @@ class GatherDeatil extends Component {
 			values.id = this.props.id;
 			values.content = content;
 
-			fetch(`${SERVER_ADDRESS}/gather-submit`, {
+			fetch("/gather-submit", {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"

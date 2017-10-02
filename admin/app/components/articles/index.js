@@ -3,8 +3,6 @@ import {Link} from 'react-router';
 import React, {Component} from 'react';
 
 import Alert from '../alert';
-import {SERVER_ADDRESS} from '../config/config';
-
 
 class Articles extends Component {
     constructor(props) {
@@ -15,7 +13,7 @@ class Articles extends Component {
     }
 
 	componentDidMount() {
-		fetch(`${SERVER_ADDRESS}/get-articles`).then((res) => {
+		fetch("/get-articles").then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}
@@ -27,7 +25,6 @@ class Articles extends Component {
 			}).catch((error) => {
 				console.log(error);
 			})
-			
 		}).catch((error) => {
 			console.log(error);
 		});
@@ -45,7 +42,7 @@ class Articles extends Component {
 			return;
 		}
 
-		fetch(`${SERVER_ADDRESS}/article-delete/${id}`).then((res) => {
+		fetch(`/article-delete/${id}`).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}
@@ -62,7 +59,6 @@ class Articles extends Component {
 			}).catch((error) => {
 				console.log(error);
 			})
-			
 		}).catch((error) => {
 			console.log(error);
 		});

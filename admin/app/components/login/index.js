@@ -2,8 +2,6 @@ import md5 from 'md5';
 import React, {Component} from 'react';
 import {Form, Icon, Input, Button, Checkbox} from 'antd';
 
-import {SERVER_ADDRESS} from '../config/config';
-
 import './index.scss';
 
 class LoginForm extends Component {
@@ -18,9 +16,7 @@ class LoginForm extends Component {
 				return;
 			}
 
-			let url = `${SERVER_ADDRESS}/toLogin?userid=${values.userid}
-					&password=${md5(values.password)}`;
-
+			let url = `/toLogin?userid=${values.userid}&password=${md5(values.password)}`;
 			fetch(url).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Login Failed, Status:' + res.status);

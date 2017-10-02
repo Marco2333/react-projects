@@ -23,7 +23,8 @@
     "mysql": "^2.14.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router": "^3.0.5"
+    "react-router": "^3.0.5",
+    "ueditor": "^1.2.3"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

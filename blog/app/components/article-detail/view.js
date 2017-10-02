@@ -45,7 +45,7 @@ class ArticleDetail extends Component {
 						script.onload = script.onreadystatechange = function() {
 							if(!this.readyState || this.readyState == 'complete') {
 								SyntaxHighlighter._count++;
-								console.log(SyntaxHighlighter._count);
+								
 								if(SyntaxHighlighter._count >= 7) {
 									SyntaxHighlighter.all();
 									SyntaxHighlighter.highlight();
@@ -116,7 +116,6 @@ class ArticleDetail extends Component {
 }
 
 ArticleDetail.propTypes = {
-	id: PropTypes.number.isRequired,
 	getDetail: PropTypes.func.isRequired
 };
 

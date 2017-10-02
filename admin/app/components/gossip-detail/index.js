@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Input, Upload, Icon} from 'antd';
 
-import {SERVER_ADDRESS} from '../config/config';
-
 const {TextArea} = Input;
 
 class GossipDetail extends Component {
@@ -19,7 +17,7 @@ class GossipDetail extends Component {
 		let id = this.props.id;
 
 		if(id != null) {
-			fetch(`${SERVER_ADDRESS}/gossip/${id}`).then((res) => {
+			fetch(`/gossip/${id}`).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -62,7 +60,7 @@ class GossipDetail extends Component {
 		}
 		formData.append('detail', detail);
 		
-		fetch(`${SERVER_ADDRESS}/gossip-submit`, {
+		fetch("/gossip-submit", {
 			method: 'POST',
 			body: formData
 		}).then((res) => {

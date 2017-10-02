@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Form, Input, Button, Select} from 'antd';
 
 import Ueditor from '../ueditor';
-import {SERVER_ADDRESS} from '../config/config';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -21,9 +20,7 @@ class ArticleDeatil extends Component {
 	}
 	
 	componentDidMount() {
-		let url = `${SERVER_ADDRESS}/get-categories`;
-
-		fetch(url).then((res) => {
+		fetch("/get-categories").then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}
@@ -43,9 +40,7 @@ class ArticleDeatil extends Component {
 
 		let id = this.props.id;
 		if(id != null) {
-			url = `${SERVER_ADDRESS}/article/${id}`;
-
-			fetch(url).then((res) => {				
+			fetch(`/article/${id}`).then((res) => {				
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -86,7 +81,7 @@ class ArticleDeatil extends Component {
 			values.id = this.props.id;
 			values.content = content;
 
-			fetch(`${SERVER_ADDRESS}/article-submit`, {
+			fetch("/article-submit", {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"

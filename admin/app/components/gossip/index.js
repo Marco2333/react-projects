@@ -3,8 +3,6 @@ import {Link} from 'react-router';
 import React, {Component} from 'react';
 
 import Alert from '../alert';
-import {SERVER_ADDRESS} from '../config/config';
-
 
 class Gossip extends Component {
     constructor(props) {
@@ -15,7 +13,7 @@ class Gossip extends Component {
     }
 
 	componentDidMount() {
-		fetch(`${SERVER_ADDRESS}/get-gossip`).then((res) => {
+		fetch("/get-gossip").then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}
@@ -43,7 +41,7 @@ class Gossip extends Component {
 		if(!confirm("确认删除?")) {
 			return;
 		}
-		fetch(`${SERVER_ADDRESS}/gossip-delete/${id}`).then((res) => {
+		fetch(`/gossip-delete/${id}`).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}
