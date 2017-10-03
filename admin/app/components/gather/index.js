@@ -13,7 +13,9 @@ class Gather extends Component {
     }
 
 	componentDidMount() {
-		fetch("/get-gather").then((res) => {
+		fetch("/get-gather", {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}
@@ -38,12 +40,14 @@ class Gather extends Component {
 		});
 	}
 
-	handleCilck = (id) => {
+	handleClick = (id) => {
 		if(!confirm("确认删除?")) {
 			return;
 		}
 
-		fetch(`/gather-delete/${id}`).then((res) => {
+		fetch(`/gather-delete/${id}`, {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}
@@ -90,7 +94,7 @@ class Gather extends Component {
                                     <td><Link to={`/gather-update/${gather.id}`}>{gather.title}</Link></td>
                                     <td>{gather.tag}</td>
                                     <td>{gather.created_at}</td>
-                                    <td><a className="operate-delete" onClick={() => {this.handleCilck(gather.id)}}>删除</a></td>
+                                    <td><a className="operate-delete" onClick={() => {this.handleClick(gather.id)}}>删除</a></td>
                                 </tr>
                             ))
                         }

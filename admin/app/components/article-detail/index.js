@@ -20,7 +20,9 @@ class ArticleDeatil extends Component {
 	}
 	
 	componentDidMount() {
-		fetch("/get-categories").then((res) => {
+		fetch("/get-categories", {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}
@@ -40,7 +42,9 @@ class ArticleDeatil extends Component {
 
 		let id = this.props.id;
 		if(id != null) {
-			fetch(`/article/${id}`).then((res) => {				
+			fetch(`/article/${id}`, {
+				credentials: 'include'
+			}).then((res) => {				
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -83,6 +87,7 @@ class ArticleDeatil extends Component {
 
 			fetch("/article-submit", {
 				method: 'POST',
+				credentials: 'include',
 				headers: {
 					"Content-Type": "application/json"
 				},

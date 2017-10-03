@@ -23,7 +23,9 @@ class GatherDeatil extends Component {
 		let id = this.props.id;
 
 		if(id != null) {
-			fetch(`/gather/${id}`).then((res) => {
+			fetch(`/gather/${id}`, {
+				credentials: 'include'
+			}).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -65,6 +67,7 @@ class GatherDeatil extends Component {
 
 			fetch("/gather-submit", {
 				method: 'POST',
+				credentials: 'include',
 				headers: {
 					"Content-Type": "application/json"
 				},

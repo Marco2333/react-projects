@@ -8,7 +8,9 @@ class SystemInfo extends Component {
 		this.state = {};
 	}
 	componentDidMount() {
-		fetch("/get-system-info").then((res) => {
+		fetch("/get-system-info", {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}

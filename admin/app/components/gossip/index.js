@@ -13,7 +13,9 @@ class Gossip extends Component {
     }
 
 	componentDidMount() {
-		fetch("/get-gossip").then((res) => {
+		fetch("/get-gossip", {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}
@@ -41,7 +43,9 @@ class Gossip extends Component {
 		if(!confirm("确认删除?")) {
 			return;
 		}
-		fetch(`/gossip-delete/${id}`).then((res) => {
+		fetch(`/gossip-delete/${id}`, {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}

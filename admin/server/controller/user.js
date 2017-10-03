@@ -19,7 +19,7 @@ module.exports.toLogin = function(req, res, next) {
 			});
 		} else {
 			if (rows.length !== 0 && password === rows[0]['password']) {
-				session.userid = userid;
+				req.session.userid = userid;
 				res.json({
 					"status": 1
 				});

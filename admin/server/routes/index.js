@@ -209,7 +209,7 @@ router.post('/gossip-submit', upload.single('file'), function(req, res, next) {
 		sql = `insert into gossip(detail, created_at, file_name, save_name) values (${mysql.escape(detail)},
 			"${new Date()._format("yyyy-MM-dd hh:mm:ss")}", ${mysql.escape(fileName)}, ${mysql.escape(saveName)})`;
 	}
-	console.log(sql);
+
 	db.query(sql, function(err, rows) {
 		if(err) {
 			console.log(err);

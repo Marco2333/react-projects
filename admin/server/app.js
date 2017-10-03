@@ -19,19 +19,28 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(bodyParser.json({ 
-	"limit": "10000kb"
+	"limit": "50000kb"
 }));
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(cookieParser());
+app.use(session({  
+	resave: true, // don't save session if unmodified  
+	saveUninitialized: false, // don't create session until something stored  
+	secret: 'Marco_blog'
+}));
 
 //静态文件目录
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../../resource')));
 
+app.get('/favicon.ico', function(req, res, next) {
+	res.sendfile(path.join(__dirname, '../public/favicon.ico')); // 发送静态文件
+});
+
 app.get('/login', function(req, res, next) {
-	if(session.userid) {
+	if(req.session.userid) {
 		res.redirect('/home');
 	}
 	else {
@@ -39,18 +48,27 @@ app.get('/login', function(req, res, next) {
 	}
 });
 
+app.get('/checkAuth', function(req, res, next) {
+	if(req.session.userid) {
+		res.redirect(`${req.query.url}`);
+	}
+	else {
+		res.redirect('/login');
+	}
+});
+
 app.get('/toLogin', user.toLogin);
 
 app.get('/logout', function(req, res, next) {
-	session.userid = null;
+	req.session.userid = null;
 	res.redirect('/login');
 });
 
-app.use(function (req, res, next) {
-	if (session.userid) {
+app.use(function(req, res, next) {
+	if (req.session.userid) {
 		next();
 	} else {
-		res.sendfile(path.join(__dirname, '../public/index.html')); // 发送静态文件
+		res.redirect('/login');
 	}
 });
 

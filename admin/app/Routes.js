@@ -67,8 +67,8 @@ const checkAuth = (nextState, replace, next) => {
 		next();
 	}
 	else {
-		replace("/login");
-		next();
+		sessionStorage.user = 1;
+		location.href = `/checkAuth?url=${nextState.location.pathname}`;
 	}
 }
 

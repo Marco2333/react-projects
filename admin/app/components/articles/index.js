@@ -13,7 +13,9 @@ class Articles extends Component {
     }
 
 	componentDidMount() {
-		fetch("/get-articles").then((res) => {
+		fetch("/get-articles", {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}
@@ -42,7 +44,9 @@ class Articles extends Component {
 			return;
 		}
 
-		fetch(`/article-delete/${id}`).then((res) => {
+		fetch(`/article-delete/${id}`, {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status ' + res.status);
 			}

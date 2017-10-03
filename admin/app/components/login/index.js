@@ -9,6 +9,10 @@ class LoginForm extends Component {
 		router: React.PropTypes.object
 	}
 	
+	componentDidMount() {
+		sessionStorage.user = 0;
+	}
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
@@ -17,7 +21,7 @@ class LoginForm extends Component {
 			}
 
 			let url = `/toLogin?userid=${values.userid}&password=${md5(values.password)}`;
-			fetch(url).then((res) => {
+			fetch(url, { credentials: 'include' }).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Login Failed, Status:' + res.status);
 				}

@@ -17,7 +17,9 @@ class GossipDetail extends Component {
 		let id = this.props.id;
 
 		if(id != null) {
-			fetch(`/gossip/${id}`).then((res) => {
+			fetch(`/gossip/${id}`, {
+				credentials: 'include'
+			}).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -62,7 +64,8 @@ class GossipDetail extends Component {
 		
 		fetch("/gossip-submit", {
 			method: 'POST',
-			body: formData
+			body: formData,
+			credentials: 'include'
 		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);

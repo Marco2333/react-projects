@@ -7,7 +7,7 @@ class NavTop extends Component {
 	handleClick = (e) => {
 		e.preventDefault();
 		sessionStorage.user = 0;
-		location.href="/logout";
+		location.href = "/logout";
 	}
 
 	static contextTypes = {
