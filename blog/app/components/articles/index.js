@@ -71,7 +71,9 @@ class Articles extends Component {
 	getArticles = (params) => {
 		let url = this.getUrl(params);
 	
-		fetch(url).then((res) => {
+		fetch(url, {
+			credentials: 'include'
+		}).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}

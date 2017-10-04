@@ -12,7 +12,7 @@ export const fetchInfo = (url, actionTypes, callback) => {
 
 		dispatch(fetchStart(actionTypes[0]));
 
-		fetch(url).then((res) => {
+		fetch(url, { credentials: 'include' }).then((res) => {
 			if(res.status !== 200) {
 				throw new Error('Load Failed, Status:' + res.status);
 			}

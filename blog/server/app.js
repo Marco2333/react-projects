@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(session({
-	resave: true, // don't save session if unmodified  
-	saveUninitialized: true, // don't create session until something stored  
+	resave: false, // don't save session if unmodified  
+	saveUninitialized: false, // don't create session until something stored  
 	secret: 'Marco_blog'
 }));
 
@@ -32,11 +32,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../../resource')));
 
 app.use(function (req, res, next) {
-	console.log(req.cookies);
-	if(req.session.record) {
+	if(req.session.record || req.url === '/get-navside-info') {
 		next();
 	} else {
-		console.log(123);
 		req.session.record = true;
 		db.query("update config set value = value + 1 where name = 'view_count'", function(err, rows) {
 			next();

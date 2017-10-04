@@ -24,30 +24,30 @@ function itemRender(route, params, routes, paths) {
 			: <Link to={"/" + paths.join('/')}>{route.breadcrumbName}</Link>
 }
 
-export default({children, ...rest}) => {    
-    let isHome = rest.routes.length === 2 && rest.routes[1].name === 'home';
+export default({children, ...rest}) => {
+	let isHome = rest.routes.length === 2 && rest.routes[1].name === 'home';
 
-    return (
-        <div>
-            <NavTop/> 
-            <div className="container">                    
-                <Breadcrumb {...rest} itemRender={itemRender} />
-            </div>
-            {isHome ? <Banner/> : null}
+	return (
+		<div>
+			<NavTop/> 
+			<div className="container">
+				<Breadcrumb {...rest} itemRender={itemRender} />
+			</div>
+			{isHome ? <Banner/> : null}
 
-            <div className="container">
-                <Row gutter={32}>
-                    <Col xs={24} sm={18}>
-                        {children}
-                    </Col>
-                    <Col xs={24} sm={6}>
-                        <NavSide />
-                    </Col>
-                </Row>
-            </div>
-            <Footer/>
-            
-            <BackTop />  
-        </div>
-    )
+			<div className="container">
+				<Row gutter={32}>
+					<Col xs={24} sm={18}>
+						{children}
+					</Col>
+					<Col xs={24} sm={6}>
+						<NavSide />
+					</Col>
+				</Row>
+			</div>
+			<Footer/>
+			
+			<BackTop />  
+		</div>
+	)
 }

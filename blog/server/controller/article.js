@@ -19,7 +19,7 @@ module.exports.getArticles = function(req, res, next) {
 	if(keyword != null && keyword.trim() !== '') {
 		keyword = mysql.escape(`%${keyword}%`);
 		condition += ` and (body like ${keyword} or title like 
-        ${keyword} or tag like ${keyword})`;
+		${keyword} or tag like ${keyword})`;
 	}
 	if(category != null && +category !== 0) {
 		condition += ` and category = ${+category}`;
@@ -85,75 +85,74 @@ module.exports.getArticles = function(req, res, next) {
 
 module.exports.getArticleDetail = function(req, res, next) {
 	let {id} = req.params;
-    
-    let sql = `select article.id, title, body, tag, theme, created_at, updated_at, 
+	let sql = `select article.id, title, body, tag, theme, created_at, updated_at, 
 		type, views from article join category on article.category = category.id where 
 		article.id = ${mysql.escape(id)} and article.status = 1`;
 
-	if (!session['article_record_' + id]) {
-        session['article_record_' + id] = true;
-        db.query(`update article set views = views + 1 where id = ${id}`, function() {})
+	if (!req.session['article_record_' + id]) {
+		req.session['article_record_' + id] = true;
+		db.query(`update article set views = views + 1 where id = ${id}`, function() {})
 	}
 	
-    db.query(sql, function(err, rows) {
-        if(err) {
-            res.json({"status": 0, "message": err});
-        }
+	db.query(sql, function(err, rows) {
+		if(err) {
+			res.json({"status": 0, "message": err});
+		}
 		else {
 			res.json({"status": 1, "_info": rows ? rows[0] : {}});
 		}
-    })
+	})
 }
 
 module.exports.getTimeline = function(req, res, next) {
 	let sqls = [
-        "select id, theme from category where status = 1"
-    ];
+		"select id, theme from category where status = 1"
+	];
 
-    let {current = 1, count = 30, category = 0} = req.query;
-    
-    let sql = "";
+	let {current = 1, count = 30, category = 0} = req.query;
+		
+	let sql = "";
 	let field = "article.id, title, created_at";
 
-    if(category == 0) {
-        sql = `select ${field} from article where article.status = 1
-            order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
-        sqls.push(sql);
+	if(category == 0) {
+		sql = `select ${field} from article where article.status = 1
+			order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
+		sqls.push(sql);
 
-        sql = 'select count(*) as total from article where status = 1';
-        sqls.push(sql);
-    } else{
-        sql = `select ${field} from article where category = ${+category} and article.status = 1 
-            order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
-        sqls.push(sql);
+		sql = 'select count(*) as total from article where status = 1';
+		sqls.push(sql);
+	} else{
+		sql = `select ${field} from article where category = ${+category} and article.status = 1 
+			order by created_at desc limit ${(+current - 1) * +count}, ${+count}`;
+		sqls.push(sql);
 
-        sql = `select count(*) as total from article where status = 1 and category = ${+category}`;
+		sql = `select count(*) as total from article where status = 1 and category = ${+category}`;
 
-        sqls.push(sql);
-    }
+		sqls.push(sql);
+	}
 
-    let ps = [];
-    for (sql of sqls) {
-        ps.push(new Promise(function(resolve, reject) {
-            db.query(sql, function(err, rows) {
-                if(err) {
-                    reject(err);
-                }
-                resolve(rows);
-            })
-        }))
-    }
+	let ps = [];
+	for (sql of sqls) {
+		ps.push(new Promise(function(resolve, reject) {
+			db.query(sql, function(err, rows) {
+				if(err) {
+					reject(err);
+				}
+				resolve(rows);
+			})
+		}))
+	}
 
-    let p = Promise.all(ps);
-    p.then(function(out) {
+	let p = Promise.all(ps);
+	p.then(function(out) {
 		res.json({
 			status: 1,  
 			categories: out[0],
-            items: out[1],
+			items: out[1],
 			total: out[2][0]['total']
 		});
-    }).catch(function(err) {
-        console.log(err);
-        res.json({"status": 0, "message": ''});
-    })
+	}).catch(function(err) {
+		console.log(err);
+		res.json({"status": 0, "message": ''});
+	})
 }
