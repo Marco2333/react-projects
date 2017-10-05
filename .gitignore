@@ -48,3 +48,4 @@ Temporary Items
 */node_modules
 */.vscode
 *.chunk.js
+chunk/

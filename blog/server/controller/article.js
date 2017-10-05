@@ -13,8 +13,11 @@ module.exports.getArticles = function(req, res, next) {
 		totalSql = '';
 
 	if(tag != null) {
-		tag = mysql.escape(`%${tag}%`);
-		condition += ` and tag like ${tag}`;
+		let likeTag1 = mysql.escape(`%${tag + " "}%`),
+			likeTag2 = mysql.escape(`%${" " + tag}%`);
+		tag = mysql.escape(`${tag}`);
+		
+		condition += ` and (tag = ${tag} or tag like ${likeTag1} or tag like ${likeTag2})`;
 	}
 	if(keyword != null && keyword.trim() !== '') {
 		keyword = mysql.escape(`%${keyword}%`);
@@ -41,6 +44,7 @@ module.exports.getArticles = function(req, res, next) {
 		}
 	}
 	
+	console.log(sql);
 	db.query(sql, function(err, rows) {
 		let info = {};
 		let articles = [];
