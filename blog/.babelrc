@@ -4,8 +4,15 @@
 		"es2015",
 		"stage-0"
 	],
-  	"plugins": [["import", {
-		"libraryName": "antd",
-		"style": "css"
-	}]]
+	"plugins": [
+		["import", {
+			"libraryName": "antd",
+			"style": "css"
+		}]
+	],
+	"env": {
+		"production": {
+			"presets": ["react-optimize"]
+		}
+	}
 }

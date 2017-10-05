@@ -9,41 +9,42 @@ import "./index.scss";
 export const stateKey = 'gossip';
 
 class Gossip extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            current: 1,
-            count: 30
-        }
+	constructor(props) {
+		super(props);
+		this.state = {
+			current: 1,
+			count: 30
+		}
 
-        this.onPageChange = this.onPageChange.bind(this);
-    }
+		this.onPageChange = this.onPageChange.bind(this);
+	}
 
-    componentDidMount() {
-        let {current, count} = this.state;
-        this.props.getGossip(current, count);
-    }
+	componentDidMount() {
+		let {current, count} = this.state;
+		this.props.getGossip(current, count);
+	}
 
-    onPageChange(page, count) {
-        this.setState({
-            current: page,
-            count: count
-        });
+	onPageChange(page, count) {
+		this.setState({
+			current: page,
+			count: count
+		});
 
-        this.props.getGossip(page, count);
-    }
+		this.props.getGossip(page, count);
+	}
 
-    render() {
+	render() {
+		let Item = Timeline.Item;
 		let {count, current} = this.state;
-        const {gossips, total, pagination = true} = this.props;
+		const {gossips, total, pagination = true} = this.props;
 
-        return (
-            <div className="gossip-wrap">
-                <div className="gossip-body">
-                    <Timeline>
-                        {
-                            gossips && gossips.map((item, index) => (
-								<Timeline.Item key={item.id}>
+		return (
+			<div className="gossip-wrap">
+				<div className="gossip-body">
+					<Timeline>
+						{
+							gossips && gossips.map((item, index) => (
+								<Item key={item.id}>
 									<div className="gossip-item wow fadeInLeft animated">
 										{
 											item.file_name 
@@ -71,22 +72,22 @@ class Gossip extends Component {
 										}
 										<p className="gossip-author">posted@ {item.created_at} </p>
 									</div>
-								</Timeline.Item>
-                            ))
-                        }
-                    </Timeline>
-                </div>
-                {
-                    pagination && total ?
-                    <div className="pagination">
-                        <Pagination defaultCurrent={1} pageSize={count} current={current} 
-                        total={total} onChange={this.onPageChange}/> 
-                    </div>
-                    : null
-                }
-            </div>
-        )
-    }
+								</Item>
+							))
+						}
+					</Timeline>
+				</div>
+				{
+					pagination && total ?
+					<div className="pagination">
+						<Pagination defaultCurrent={1} pageSize={count} current={current} 
+						total={total} onChange={this.onPageChange}/> 
+					</div>
+					: null
+				}
+			</div>
+		)
+	}
 }
 
 Gossip.propTypes = {
@@ -95,18 +96,18 @@ Gossip.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-    return {
-        gossips: state[stateKey]["gossips"],
-        total: state[stateKey]["total"],
-    }
+	return {
+		gossips: state[stateKey]["gossips"],
+		total: state[stateKey]["total"],
+	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        getGossip: (current, count) => {
-            dispatch(getGossip(current, count))
-        }
-    }
+	return {
+		getGossip: (current, count) => {
+			dispatch(getGossip(current, count))
+		}
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gossip);

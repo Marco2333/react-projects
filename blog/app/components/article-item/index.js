@@ -5,11 +5,11 @@ import React, {Component, PropTypes} from 'react';
 import './index.scss';
 
 class ArticleItem extends Component {
-    render() {
-        const {id, title, theme, tag, created_at, abstract, views} = this.props;
+	render() {
+		const {id, title, theme, tag, created_at, abstract, views} = this.props;
 
-        return (
-            <div className="article-item wow zoomIn animated">
+		return (
+			<div className="article-item wow zoomIn animated">
 				<div className="article-body">
 					<Link to={`/article-detail/${id}`}><h4>{title}</h4></Link>
 					<p>
@@ -24,9 +24,9 @@ class ArticleItem extends Component {
 					</div>
 					<span className="article-link"><Link to={`/article-detail/${id}`}>阅读全文 >></Link></span> 
 				</div>
-            </div>
-        )
-    }
+			</div>
+		)
+	}
 }
 
 ArticleItem.propTypes = {

@@ -53,8 +53,9 @@ class NavTop extends Component {
             {key: "gather", text: '点滴'},
             {key: "gossip", text: '慢生活'},
             // {key: "gossip", text: '碎言碎语'}
-        ];
-
+		];
+		
+		let Search = Input.Search;
         let currLink = this.state.link;
         const content = (
             <Col sm={0}>
@@ -67,7 +68,7 @@ class NavTop extends Component {
                         ))
                     }
                     <div style={{padding: "10px"}}>
-                        <Input.Search
+                        <Search
                             size="large"
                             placeholder="Search"
                             value={this.state.keyword}
@@ -112,7 +113,7 @@ class NavTop extends Component {
                                         ))
                                     }
                                     <div className="nav-top-search">
-                                        <Input.Search
+                                        <Search
                                             size="large"
                                             placeholder="Search"
                                             value={this.state.keyword}

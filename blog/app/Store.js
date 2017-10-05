@@ -11,21 +11,21 @@ const middleware = [thunkMiddleware];
 const win = window;
 
 const originalReducers = {
-    routing: routerReducer,
-    [stateKey]: naveSideReducer
+	routing: routerReducer,
+	[stateKey]: naveSideReducer
 }
 const reducer = combineReducers(originalReducers);
 
 if (!prod) {
-    const Perf = require('react-addons-perf');
-    win.Perf = Perf;
-    middleware.push(require('redux-immutable-state-invariant').default());
+	const Perf = require('react-addons-perf');
+	win.Perf = Perf;
+	middleware.push(require('redux-immutable-state-invariant').default());
 }
 
 const storeEnhancers = compose(
-    resetEnhancer, 
-    applyMiddleware(...middleware), 
-    (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
+	resetEnhancer, 
+	applyMiddleware(...middleware), 
+	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
 )
 
 const store = createStore(reducer, {}, storeEnhancers);
