@@ -22,9 +22,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(session({
+	name: 'blog.sid',
 	resave: false, // don't save session if unmodified  
 	saveUninitialized: false, // don't create session until something stored  
-	secret: 'Marco_blog'
+	secret: '5A16C79BDE24BCFF'
 }));
 
 //静态文件目录

@@ -25,10 +25,11 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(cookieParser());
-app.use(session({  
+app.use(session({
+	name: 'admin.sid',
 	resave: true, // don't save session if unmodified  
 	saveUninitialized: false, // don't create session until something stored  
-	secret: 'Marco_blog'
+	secret: 'FD7A2B5FAC263248'
 }));
 
 //静态文件目录
