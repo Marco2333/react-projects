@@ -95,17 +95,6 @@ router.get('/get-navside-info', function(req, res, next) {
 
 		tags = [...new Set(tags)];
 
-		let infos = {
-			portrait: {
-				'intro': out[0][0]['value'],
-				'viewCount': out[0][1]['value'],
-				'articleCount': out[5][0]['count']
-			},
-			articles: out[1],
-			categories: out[2],
-			links: out[3],
-			tags: tags
-		};
 		res.json({
 			status: 1,
 			portrait: {

@@ -11,7 +11,8 @@
     opacity: 0;
     transition: opacity ease-in 600ms;
     > img {
-        width: 100%;
+		width: 100%;
+		height: auto;
     }
 }
 
@@ -21,7 +22,8 @@
 .banner-preview-item {
     margin: 1px 0;
     > img {
-        width: 100%;
+		width: 100%;
+		height: auto;
     }
 }
 

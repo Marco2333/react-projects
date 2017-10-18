@@ -24,8 +24,7 @@ class Articles extends Component {
 			params['current'] = 1;
 
 		this.getArticles(params);
-		
-    }
+	}
 
 	componentWillReceiveProps(nextProps) {
 		if(this.props.category != null && 

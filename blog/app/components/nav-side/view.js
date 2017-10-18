@@ -16,7 +16,7 @@ class NavSide extends Component {
     }
 
     render() {
-        const {portrait, articles, categories, tags, links} = this.props;
+        const {portrait = {}, articles, categories, tags, links} = this.props;
 
         return (
             <div className="nav-side">
@@ -26,12 +26,14 @@ class NavSide extends Component {
                         <div className="user-portrait">
                             <img src="/image/me.jpg" alt=""/>
                             <h3>Marco</h3>
-                            <p>{portrait ? portrait.intro : ''}</p>
+                            <p>{portrait.intro}</p>
                         </div>
                         <div className="statistics">
-                            <span className="statistic-item">随笔 - {portrait ? portrait.articleCount : ''}</span>
+                            <span className="statistic-item">随笔 - {portrait.articleCount}</span>
                             <span className="spliter"></span>
-                            <span className="statistic-item">访问 - {portrait ? portrait.viewCount : ''}</span>
+                            <span className="statistic-item">
+								访问 - {portrait.viewCount > 10000 ? (portrait.viewCount / 1000).toFixed(2) + "k" : portrait.viewCount}
+							</span>
                         </div>
                     </div>
                 </div>

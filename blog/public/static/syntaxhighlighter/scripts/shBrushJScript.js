@@ -26,7 +26,7 @@
 						'for function if in instanceof ' +
 						'new null return super switch ' +
 						'this throw true try typeof var while with ' + 
-						'class extends'
+						'class extends let const'
 						;
 
 		var r = SyntaxHighlighter.regexLib;
