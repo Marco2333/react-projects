@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --config webpack.config.dev.js --watch",
     "dll": "cross-env NODE_ENV=production webpack --config dll.config.prod.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --watch"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
   },
   "author": "Marco",
   "license": "ISC",
