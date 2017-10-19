@@ -35,3 +35,9 @@ $list-head-height: 36px;
         transition: opacity ease-in 1000ms;
     }
 }
+
+@media (max-width: 767px) {
+	.list-head-carousel-title {
+		margin-left: 15px;
+	}
+}

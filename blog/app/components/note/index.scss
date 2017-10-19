@@ -15,7 +15,7 @@
 }
 
 .note-abstract {
-	margin: 10px 0;
+	margin: 6px 0;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -37,4 +37,14 @@
 	margin: 13px 0 6px;
 	color: #555;
 	font-size: 14px;
+}
+
+.ant-modal-content {
+	word-break: break-all;
+}
+
+@media (max-width: 767px) {
+	.note-wrap {
+		margin-bottom: 10px;
+	}
 }

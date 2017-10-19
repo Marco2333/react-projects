@@ -1,31 +1,40 @@
 @import '../../config/config.scss';
 
 .timeline-wrap {
-    padding: 15px 35px;
-    box-shadow: 0 0 8px #666;
-    background-color: #fff;
+	padding: 15px 35px;
+	box-shadow: 0 0 8px #666;
+	background-color: #fff;
 }
 
 .timeline-select {
-    padding: 10px 0 20px;
-    margin-bottom: 40px;
-    border-bottom: 1px dashed #ddd;
+	padding: 10px 0 20px;
+	margin-bottom: 30px;
+	border-bottom: 1px dashed #ddd;
 }
 
 .timeline-body {
-    margin: 20px 5px;
+	margin: 20px 5px 5px;
 }
 
 .timeline-item {
-    margin-top: 8px;
-    font-size: 14px;
+	margin-top: 8px;
+	font-size: 14px;
 }
 
 .timeline-time {
-    position: relative;
-    top: -4px;
-    margin-top: 10px;
-    color: $main-color;
-    font-weight: bold;
-    font-size: 17px;
+	position: relative;
+	top: -4px;
+	margin-top: 10px;
+	color: $main-color;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+@media (max-width: 767px) {
+	.timeline-wrap {
+		padding: 12px 15px;
+	}
+	.ant-timeline-item {
+		padding-bottom: 8px;
+	}
 }

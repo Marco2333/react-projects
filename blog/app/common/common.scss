@@ -64,6 +64,19 @@ blockquote {
 	margin-right: auto;
 	margin-left: auto;
 }
+@media (max-width: 767px) {
+	.container {
+		padding-right: 8px;
+		padding-left: 8px;
+	}
+	.ant-back-top {
+		right: 46px;
+		bottom: 36px;
+	}
+	.content-wrap {
+		overflow-x: hidden;
+	}
+}
 @media (min-width: 768px) {
 	.container {
 		width: 750px;

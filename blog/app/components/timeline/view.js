@@ -114,7 +114,7 @@ class TimeLine extends Component {
 				</div>
 				{
 					pagination && total ?
-					<div className="pagination">
+					<div className="pagination" style={{marginTop: 0}}>
 						<Pagination defaultCurrent={1} pageSize={count} current={current} 
 						total={total} onChange={this.onPageChange}/> 
 					</div>

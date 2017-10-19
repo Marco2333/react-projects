@@ -1,109 +1,123 @@
 @import '../../config/config.scss';
 
 $nav-top-height: 40px;
-$pop-item-height: 52px;
+$pop-item-height: 44px;
 $nav-top-color: #56adf9;
+$xs-nav-top-wrap: 72px;
 
 .nav-top-wrap {
 	position: relative;
 	background: #555\0;
-    background: linear-gradient(#444,#666);
+	background: linear-gradient(#444,#666);
 }
 
-.nav-top-popover {
-    position: absolute;
-    top: 25px;
-    right: 15px;
-    color: #fff;
-    font-size: 20px;
+.navbar-collapse {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	color: #fff;
+	font-size: 20px;
 }
-.popover-item {
-    width: 190px;
-    height: $pop-item-height;
-    line-height: $pop-item-height;
-    font-size: 15px;
-    text-align: center;
-    max-width: 100%;
-    > a {
-        display: inline-block;
-        width: 100%;
-        height: $pop-item-height;
-        color: #444;
-        &:hover {
-            background-color: #ecf6fd;
-        }
-    }
-    &.active {
-        > a {
-            color: $main-color;
-            border-right: 3px solid $main-color;
-            background-color: #ecf6fd;
-        }
-    }
+.navbar-collapse-button {
+	margin-top: 25px;
+	margin-right: 15px;
+	text-align: right;
 }
-.ant-popover-inner-content {
-    padding: 0; 
+.navbar-collapse-body {
+	position: absolute;
+	top: $xs-nav-top-wrap;
+	left: 0;
+	width: 100%;
+	background-color: rgba(69, 67, 67, 0.96);
+	z-index: 9;
+	font-size: 14px;
+	overflow: hidden;
+	transition: height ease-in 300ms;
+}
+.navbar-item {
+	height: $pop-item-height;
+	line-height: $pop-item-height + 1;
+	> a {
+		display: inline-block;
+		width: 100%;
+		height: $pop-item-height;
+		color: #fff;
+		padding-left: 15px; 
+		&:hover {
+			background-color: #63b5fd;
+		}
+	}
+	&.active {
+		> a {
+			background-color: $main-color;
+		}
+	}
 }
 
 .site-logo {
-    height: 110px;
-    > h2 {
-        font-size: 38px;
-        color: #fff;
-    }
-    span:first-child {
-        margin-right: 1px;
-        color: $main-color;
-    }
-    > p {
-        margin: -3px 0 0 3px;
-        color: #fff;
-    }
+	height: 110px;
+	> h2 {
+		font-size: 38px;
+		color: #fff;
+	}
+	span:first-child {
+		margin-right: 1px;
+		color: $main-color;
+	}
+	> p {
+		margin: -3px 0 0 3px;
+		color: #fff;
+	}
 }
 
 .nav-top {
-    height: $nav-top-height;
-    background-color: #444;
-    box-shadow: 0 0 3px #3a3a3a;
+	height: $nav-top-height;
+	background-color: #444;
+	box-shadow: 0 0 3px #3a3a3a;
 }
 .nav-top-item {
-    float: left;
-    > a {
-        display: inline-block;
-        height: $nav-top-height;
-        padding: 0 26px;
-        color: #fff;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: $nav-top-height;
-        &:hover {
-            color: $nav-top-color;
-            background-color: #333;
-            border-color: #333; 
-        } 
-    }
+	float: left;
+	> a {
+		display: inline-block;
+		height: $nav-top-height;
+		padding: 0 26px;
+		color: #fff;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: $nav-top-height;
+		&:hover {
+			color: $nav-top-color;
+			background-color: #333;
+			border-color: #333; 
+		} 
+	}
 }
 
 .nav-top-search {
-    float: right;
-    height: $nav-top-height;
-    line-height: $nav-top-height;
-    text-align: right;
-    input {
-        max-width: 300px;
-        border-radius: 1px;
-    }
+	float: right;
+	height: $nav-top-height;
+	line-height: $nav-top-height;
+	text-align: right;
+	input {
+		max-width: 300px;
+		border-radius: 1px;
+	}
 }
 
 @media (max-width: 767px) {
-    .nav-top-wrap {
-        box-shadow: 0 0 10px #666;  
-    }
-    .site-logo {
-        height: 80px;
-        text-align: center;
-        > h2 {
-            font-size: 30px;
-        } 
-    }
+	.nav-top-wrap {
+		box-shadow: 0 0 10px #666;  
+	}
+	.site-logo {
+		height: $xs-nav-top-wrap;
+		padding-left: 7px;
+		> h2 {
+			padding-top: 5px;
+			font-size: 25px;
+		}
+		> p {
+			margin-top: -6px;
+		}
+	}
 }

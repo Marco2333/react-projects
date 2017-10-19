@@ -35,8 +35,8 @@ export default({children, ...rest}) => {
 			</div>
 			{isHome ? <Banner/> : null}
 
-			<div className="container">
-				<Row gutter={32}>
+			<div className="container content-wrap">
+				<Row gutter={24}>
 					<Col xs={24} sm={18}>
 						{children}
 					</Col>

@@ -83,3 +83,11 @@
         color: #333;
     }
 }
+
+@media (max-width: 767px) {
+	.nav-side {
+		> .panel {
+			margin-bottom: 12px;
+		}
+	}
+}

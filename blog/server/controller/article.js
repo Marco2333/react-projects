@@ -44,7 +44,10 @@ module.exports.getArticles = function(req, res, next) {
 		}
 	}
 	
-	console.log(sql);
+	var deviceAgent = req.headers["user-agent"].toLowerCase(),
+		agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/),
+		absLen = agentID ? 86 : 130;
+	
 	db.query(sql, function(err, rows) {
 		let info = {};
 		let articles = [];
@@ -60,7 +63,7 @@ module.exports.getArticles = function(req, res, next) {
 					'id': item.id,
 					'title': item.title,
 					'tag': item.tag,
-					'abstract': Str.escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, 130),
+					'abstract': Str.escape2Html(item.body.replace(/<\/?[^>]+(>|$)/g, "")).substr(0, absLen),
 					'created_at': item.created_at,
 					'views': item.views,
 					'theme': item.theme

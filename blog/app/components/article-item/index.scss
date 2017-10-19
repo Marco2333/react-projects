@@ -18,12 +18,19 @@
 	}
 }
 
+@media (max-width: 767px) {
+	.article-item {
+		margin-bottom: 12px;
+		padding: 10px 15px;
+	}
+}
+
 .article-body {
 	h4 {
 		font-size: 16px;
 		font-weight: bold;
 	}
-	>p {
+	> p {
 		margin: 8px 0;
 		color: #999;
 		font-size: 13px;

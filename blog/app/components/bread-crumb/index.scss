@@ -6,3 +6,10 @@
     font-size: 14px;
     box-shadow: 0 0 8px #444;
 }
+@media (max-width: 767px) {
+	.bread-crumb {
+		margin: 13px 0 13px;
+		padding-left: 15px;
+	}
+	
+}
