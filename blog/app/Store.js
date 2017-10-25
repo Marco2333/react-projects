@@ -25,7 +25,7 @@ if (!prod) {
 const storeEnhancers = compose(
 	resetEnhancer, 
 	applyMiddleware(...middleware), 
-	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f
+	(win && win.devToolsExtension && !prod) ? win.devToolsExtension() : (f) => f
 )
 
 const store = createStore(reducer, {}, storeEnhancers);
