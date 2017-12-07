@@ -43,7 +43,7 @@ module.exports.getArticles = function(req, res, next) {
 			sql += ` limit ${+count}`;
 		}
 	}
-	
+
 	var deviceAgent = req.headers["user-agent"].toLowerCase(),
 		agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/),
 		absLen = agentID ? 86 : 130;
@@ -92,8 +92,8 @@ module.exports.getArticles = function(req, res, next) {
 
 module.exports.getArticleDetail = function(req, res, next) {
 	let {id} = req.params;
-	let sql = `select article.id, title, body, tag, theme, created_at, updated_at, 
-		type, views from article join category on article.category = category.id where 
+	let sql = `select article.id, title, body, tag, theme, created_at, updated_at, type, 
+		views, markdown from article join category on article.category = category.id where 
 		article.id = ${mysql.escape(id)} and article.status = 1`;
 
 	if (!req.session['article_record_' + id]) {

@@ -6,7 +6,7 @@ import Ueditor from '../ueditor';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-class ArticleDeatil extends Component {
+class ArticleDetail extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -57,13 +57,13 @@ class ArticleDeatil extends Component {
 					}
 				}).catch((error) => {
 					console.log(error);
-				})				
+				})
 			}).catch((error) => {
 				console.log(error);
 			});
 		}
 	}
-	
+
 	handleChange = (content) => {
 		this.state.content = content;
 	}
@@ -190,6 +190,6 @@ class ArticleDeatil extends Component {
 	}
 }
 
-const WrappedArticleDetail = Form.create()(ArticleDeatil);
+const WrappedArticleDetail = Form.create()(ArticleDetail);
 
 export default WrappedArticleDetail;

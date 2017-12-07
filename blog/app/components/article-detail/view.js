@@ -1,4 +1,5 @@
 import {Icon} from 'antd';
+import marked from 'marked';
 import {connect} from 'react-redux';
 import React, {Component, PropTypes} from 'react';
 
@@ -56,7 +57,7 @@ class ArticleDetail extends Component {
 				}
 			}
 		}
-		
+
 		let {id, getDetail} = this.props;
 		getDetail(id);
 	}
@@ -76,7 +77,16 @@ class ArticleDetail extends Component {
 	}
 
 	render() {
-		const {title, body, tag, theme, created_at, updated_at, views, type} = this.props.detail;
+		let {title, body = '', tag, theme, created_at, updated_at, views, type, markdown = false} = this.props.detail;
+
+		if(markdown == '1') {
+			marked.setOptions({
+				highlight: function (code) {
+					return require('highlight.js').highlightAuto(code).value;
+				}
+			});
+			body = marked(body);
+		}
 
 		return (
 			<div className="article-detail">
@@ -107,7 +117,7 @@ class ArticleDetail extends Component {
 					<span>浏览&nbsp; {views}</span>
 				</div>
 				<div
-					className="blog-content"
+					className={`blog-content ${markdown == '1' ? "markdown-wrap" : ""}`}
 					dangerouslySetInnerHTML={{__html: body}}>
 				</div>
 			</div>
