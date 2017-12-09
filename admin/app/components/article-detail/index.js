@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Form, Input, Button, Select} from 'antd';
+import {Form, Input, Button, Select, Checkbox} from 'antd';
 
-import Ueditor from '../ueditor';
+import UEditor from '../ueditor';
+import Markdown from '../markdown';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -10,6 +11,8 @@ class ArticleDetail extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			content: '',
+			markdown: '0',
 			article: {},
 			categories: []
 		}
@@ -18,7 +21,7 @@ class ArticleDetail extends Component {
 	static contextTypes = {
  		router: React.PropTypes.object
 	}
-	
+
 	componentDidMount() {
 		fetch("/get-categories", {
 			credentials: 'include'
@@ -44,7 +47,7 @@ class ArticleDetail extends Component {
 		if(id != null) {
 			fetch(`/article/${id}`, {
 				credentials: 'include'
-			}).then((res) => {				
+			}).then((res) => {
 				if(res.status !== 200) {
 					throw new Error('Load Failed, Status:' + res.status);
 				}
@@ -53,6 +56,8 @@ class ArticleDetail extends Component {
 						this.setState({error: data.message});
 					}
 					else {
+						this.setState({content: data.info.body || ''});
+						this.setState({markdown: data.info.markdown || '0'});
 						this.setState({article: data.info});
 					}
 				}).catch((error) => {
@@ -64,8 +69,29 @@ class ArticleDetail extends Component {
 		}
 	}
 
+	editorHandle = (ue) => {
+		this.ue = ue;
+	}
+
 	handleChange = (content) => {
+		// console.log(content + "123");
 		this.state.content = content;
+		// this.setState({content: content})
+	}
+
+	handleTypeChange = (value) => {
+		this.setState({markdown: value});
+
+		let ue = this.ue;
+		if(ue) {
+			value == '1' ? ue.setHide() : ue.setShow();
+		}
+	}
+
+	handlePreview = (e) => {
+		this.setState({
+			preview: e.target.checked
+		})
 	}
 
 	handleSubmit = (e) => {
@@ -116,7 +142,8 @@ class ArticleDetail extends Component {
 	}
 
 	render() {
-		let {title, tag, type, category, body} = this.state.article;
+		let {markdown, content, preview} = this.state;
+		let {title, tag, type, category} = this.state.article;
 		const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
 
 		const tagError = isFieldTouched('tag') && getFieldError('tag');
@@ -144,7 +171,7 @@ class ArticleDetail extends Component {
 						initialValue: title,
 						rules: [{required: true, message: 'Please input title!'}]
 					})(
-						<Input addonBefore={prefixType} placeholder="title" style={{width: 400}}/>
+						<Input addonBefore={prefixType} placeholder="title" style={{width: 320}}/>
 					)
 				}
 				</FormItem>
@@ -158,7 +185,7 @@ class ArticleDetail extends Component {
 						initialValue: tag,
 						rules: [{required: true, message: 'Please input tag!'}]
 					})(
-						<Input placeholder="tag" style={{width: 250}}/>
+						<Input placeholder="tag" style={{width: 180}}/>
 					)
 				}
 				</FormItem>
@@ -169,15 +196,46 @@ class ArticleDetail extends Component {
 					})(
 						<Select style={{width: 100}}>
 							{
-								this.state.categories.map((cate) => (
-									<Option key={cate.id} value={cate.id + ''}>{cate.theme}</Option>
+								this.state.categories.map((item) => (
+									<Option key={item.id} value={item.id + ''}>{item.theme}</Option>
 								))
 							}
 						</Select>
 					)
 				}
 				</FormItem>
-				<Ueditor content={body} handleChange={this.handleChange} />
+				{
+					this.props.id != null ? '' :
+					<FormItem label="文章格式">
+					{
+						getFieldDecorator('markdown', {
+							initialValue: markdown ? markdown + '' : '0'
+						})(
+							<Select style={{width: 100}} onChange={this.handleTypeChange}>
+								<Option value='0'>富文本</Option>
+								<Option value='1'>Markdown</Option>
+							</Select>
+						)
+					}
+					</FormItem>
+				}
+				{
+					markdown == '1' ?
+					<FormItem>
+						<Checkbox onChange={this.handlePreview} checked={preview ? true : false}>开启预览</Checkbox>
+					</FormItem>
+					:
+					''
+				}
+				{
+					this.props.id && !title ?
+					null
+					:
+					markdown == '0' ?
+					<UEditor content={content} onChange={this.handleChange} editorHandle={this.editorHandle} ue={this.ue} />
+					:
+					<Markdown content={content} onChange={this.handleChange} preview={preview} />
+				}
 				<div style={{textAlign: "right"}}>
 					<FormItem>
 						<Button type="primary" htmlType="submit">

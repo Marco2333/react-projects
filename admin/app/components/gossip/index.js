@@ -5,12 +5,12 @@ import React, {Component} from 'react';
 import Alert from '../alert';
 
 class Gossip extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            'gossips': []
-        }
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			'gossips': []
+		}
+	}
 
 	componentDidMount() {
 		fetch("/get-gossip", {
@@ -67,41 +67,41 @@ class Gossip extends Component {
 		});
 	}
 
-    render() {
+	render() {
 		const nowrap = {whiteSpace: "nowrap"};
 		const {page = 1, gossips, pageSize = 15} = this.state;
 
-        return (
-            <div>
+		return (
+			<div>
 				<Alert status="warning" info="说说列表"/>
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Detail</th>
-                            <th>创建时间</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            gossips.slice((page - 1) * pageSize, page * pageSize).map((gossip) => (
-                                <tr key={gossip.id}>
-                                    <td>{gossip.id}</td>
-                                    <td><Link to={`/gossip-update/${gossip.id}`}>{gossip.detail}</Link></td>
-                                    <td style={nowrap}>{gossip.created_at.split(' ')[0]}</td>
-                                    <td><a className="operate-delete" onClick={() => this.handleClick(gossip.id)}>删除</a></td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
+				<table className="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Detail</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							gossips.slice((page - 1) * pageSize, page * pageSize).map((gossip) => (
+								<tr key={gossip.id}>
+									<td>{gossip.id}</td>
+									<td><Link to={`/gossip-update/${gossip.id}`}>{gossip.detail}</Link></td>
+									<td style={nowrap}>{gossip.created_at.split(' ')[0]}</td>
+									<td><a className="operate-delete" onClick={() => this.handleClick(gossip.id)}>删除</a></td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
 				<div className="pagination">
 					<Pagination onChange={this.handleChange} defaultPageSize={15} total={gossips.length} />
 				</div>
-            </div>
-        )
-    }
+			</div>
+		)
+	}
 }
 
 export {

@@ -49,7 +49,7 @@ router.get('/article-delete/:id', function(req, res, next) {
 
 router.get('/article/:id', function(req, res, next) {
 	let {id} = req.params;
-	db.query(`select id, title, body, type, category, tag from article 
+	db.query(`select id, title, body, type, category, tag, markdown from article 
 		where id = ${+id} and status = 1`, function(err, rows) {
 		if(err) {
 			res.json({status: 0, message: '查询失败'})

@@ -4,6 +4,9 @@ import './style.scss';
 
 class Ueditor extends Component {
 	componentDidMount() {
+		if(this.props.ue) {
+			return;
+		}
 		let script = document.createElement("script");
 		script.setAttribute('src', '/static/ueditor/ueditor.config.js');
 		document.getElementsByTagName('head')[0].appendChild(script);
@@ -74,17 +77,20 @@ class Ueditor extends Component {
 			});
 
 			ue.addListener( 'contentChange', () => {
-				this.props.handleChange(ue.getContent())
+				this.props.onChange(ue.getContent())
 			})
+
+			this.props.editorHandle && this.props.editorHandle(ue);
 		}
 	}
 	
 
 	render() {
 		return (
-			<textarea id="container" name="blog" type="text/plain"
-				value={this.props.content} style={{margin: "15px 0"}}>
-			</textarea>
+			this.props.ue ? null
+			:	<textarea id="container" name="blog" type="text/plain" onChange={()=>{}}
+					value={this.props.content} style={{margin: "15px 0"}}>
+				</textarea>
 		)
 	}
 }
