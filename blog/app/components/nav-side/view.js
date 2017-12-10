@@ -32,7 +32,7 @@ class NavSide extends Component {
                             <span className="statistic-item">随笔 - {portrait.articleCount}</span>
                             <span className="spliter"></span>
                             <span className="statistic-item">
-								访问 - {portrait.viewCount > 10000 ? (portrait.viewCount / 1000).toFixed(2) + "k" : portrait.viewCount}
+								访问 - {portrait.viewCount > 10000 ? (portrait.viewCount / 1000).toFixed(1) + "k" : portrait.viewCount}
 							</span>
                         </div>
                     </div>

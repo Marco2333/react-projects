@@ -66,16 +66,15 @@ router.get('/article/:id', function(req, res, next) {
 })
 
 router.post('/article-submit', function(req, res, next) {
-	let {id, content, title, tag, category, type} = req.body;
-
+	let {id, content, title, tag, category, type, markdown} = req.body;
 	let sql = "";
 	if( id != null) {
 		sql = `update article set body = ${mysql.escape(content)}, title = ${mysql.escape(title)}, tag = ${mysql.escape(tag)}, 
 			category = ${category}, type = ${type}, updated_at = "${new Date().toLocaleDateString()}" where id = ${+id}`;
 	}
 	else {
-		sql = `insert into article(title, tag, category, type, created_at, body) values (${mysql.escape(title)}, 
-			${mysql.escape(tag)}, ${category}, ${type}, "${new Date().toLocaleDateString()}", ${mysql.escape(content)})`
+		sql = `insert into article(title, tag, category, type, created_at, body, markdown) values (${mysql.escape(title)}, 
+			${mysql.escape(tag)}, ${category}, ${type}, "${new Date().toLocaleDateString()}", ${mysql.escape(content)}, ${markdown})`
 	}
 
 	db.query(sql, function(err, rows) {

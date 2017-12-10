@@ -19,7 +19,7 @@
 	color: #111;
 	font-size: 15px;
 	p, ol, ul, table, pre {
-		margin-bottom: 10px;
+		margin-bottom: 8px;
 	}
 	code {
 		margin: 0;
@@ -46,7 +46,7 @@
 		color: #505050;
 		padding: 13px 10px;
 		margin-top: 3px;
-		margin-bottom: 10px;
+		margin-bottom: 13px;
 		background-color: #f1f1f1;
 		border-left: 0.25em solid #ccc;
 		font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
@@ -91,6 +91,9 @@
 	}
 	ul {
 		list-style: inside circle;
+	}
+	ol, ul {
+		padding-left: 2px;
 	}
 }
 

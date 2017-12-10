@@ -61,7 +61,7 @@
 	margin-top: 16px;
 	
 	p, ol, ul, table, pre {
-		margin-bottom: 10px;
+		margin-bottom: 8px;
 	}
 	code {
 		margin: 0;
@@ -132,6 +132,9 @@
 	}
 	ul {
 		list-style: inside circle;
+	}
+	ul, ol {
+		padding-left: 2px;
 	}
 }
 
