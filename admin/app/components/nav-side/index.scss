@@ -6,6 +6,7 @@
 	left: 0;
 	width: $nav-side-width;
 	height: 100%;
+	z-index: 999;
 	background-color: $nav-color;
 	border-top: 1px solid #111;
 	transition: width 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
