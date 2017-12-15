@@ -1,12 +1,13 @@
 ## Marco的个人博客
 
-### 使用 React + Redux + React Router + webpack 搭建个人博客
-
 ### 技术栈
-#### react + redux + react-router + ES6/7 + webpack + express
+
+```
+react + redux + react-router + ES6/7 + webpack + express
+```
 
 ### 演示地址
-[Marco的个人博客](http://www.hanyuehui.site)
+__[Marco的个人博客](http://www.hanyuehui.site)__
 
 
 ## Usage
