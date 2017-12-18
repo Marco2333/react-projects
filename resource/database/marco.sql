@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-10-25 10:41:54
+Date: 2017-12-18 17:06:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,8 +30,9 @@ CREATE TABLE `article` (
   `status` tinyint(1) DEFAULT '1' COMMENT '1表示正常  0表示删除 ',
   `type` tinyint(3) DEFAULT '1' COMMENT '1：原创； 0：转载',
   `views` int(11) DEFAULT '0',
+  `markdown` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for category
@@ -69,7 +70,7 @@ CREATE TABLE `gather` (
   `updated_at` date DEFAULT NULL,
   `status` tinyint(2) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for gossip
@@ -83,7 +84,7 @@ CREATE TABLE `gossip` (
   `save_name` varchar(100) DEFAULT NULL,
   `file_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for link
@@ -100,3 +101,11 @@ CREATE TABLE `link` (
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `userid` varchar(30) NOT NULL,
+  `username` varchar(30) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
