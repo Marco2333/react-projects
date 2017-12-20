@@ -3,14 +3,22 @@ import {Link} from 'react-router';
 import React, {Component, PropTypes} from 'react';
 
 import './index.scss';
+import {showMessage} from '../common/show';
 
 class ArticleItem extends Component {
+	handleMouseOver = () => {
+		if(loadlive2d) {
+			showMessage(document.querySelector('.live2d-message'), 
+				`要看看 <a href="/article-detail/${this.props.id}">${this.props.title}</a> 么？`);
+		}
+	}
+
 	render() {
 		const {id, title, theme, tag, created_at, abstract, views} = this.props;
 
 		return (
 			<div className="article-item wow zoomIn animated">
-				<div className="article-body">
+				<div className="article-body" onMouseOver={this.handleMouseOver}>
 					<Link to={`/article-detail/${id}`}><h4>{title}</h4></Link>
 					<p>
 						<span>post @ {created_at}</span>

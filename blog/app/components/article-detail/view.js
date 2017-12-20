@@ -17,7 +17,7 @@ class ArticleDetail extends Component {
 		style.setAttribute('href', '/static/syntaxhighlighter/styles/shCoreFadeToGrey.css')
 		document.getElementsByTagName('head')[0].appendChild(style);
 
-		if (typeof SyntaxHighlighter == 'undefined') {
+		if (typeof SyntaxHighlighter === 'undefined') {
 			let scriptArr = [
 				"shBrushCss.js",
 				"shBrushPhp.js",

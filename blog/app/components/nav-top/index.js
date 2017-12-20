@@ -5,6 +5,7 @@ import {Row, Col, Input, Icon, Popover} from 'antd';
 import logoImg from "../../../public/image/logo.png";
 
 import "./index.scss";
+import {showMessage} from '../common/show';
 
 class NavTop extends Component {
 	constructor(props, context) {
@@ -14,18 +15,13 @@ class NavTop extends Component {
 			link: '',
 			visible: false
 		};
-
-		this.onSearch = this.onSearch.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.onClick = this.onClick.bind(this);
-		this.handleVisibleChange = this.handleVisibleChange.bind(this);
 	}
 
 	static contextTypes = {
 		router: React.PropTypes.object
 	}
 
-	onSearch(keyword) {
+	onSearch = (keyword) => {
 		if(keyword.trim() == '') {
 			return;
 		}
@@ -35,18 +31,24 @@ class NavTop extends Component {
 		this.context.router.push(`/search/${keyword}`);
 	}
 
-	handleChange(event) {
+	handleChange = (event) => {
 		this.setState({keyword: event.target.value});
 	}
 
-	onClick(event) {
+	onClick = (event) => {
 		 this.setState({
 			 link: event.target.getAttribute('data-key')
 		 })
 	}
 
-	handleVisibleChange(visible) {
+	handleVisibleChange = (visible) => {
 		this.setState({ visible: !this.state.visible });
+	}
+
+	handleMouseOver = () => {
+		if(loadlive2d) {
+			showMessage(document.querySelector('.live2d-message'), '在找什么东西呢，需要帮忙吗？', 3000);
+		}
 	}
 
 	render() {
@@ -119,7 +121,7 @@ class NavTop extends Component {
 											</li>
 										))
 									}
-									<div className="nav-top-search">
+									<div className="nav-top-search" onMouseOver={this.handleMouseOver}>
 										<Search
 											size="large"
 											placeholder="Search"

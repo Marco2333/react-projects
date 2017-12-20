@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {Row, Col, BackTop} from 'antd';
 
+import Live2d from '../components/live2d';
 import Footer from '../components/footer';
 import NavTop from '../components/nav-top';
 import NavSide from '../components/nav-side';
@@ -45,9 +46,9 @@ export default({children, ...rest}) => {
 					</Col>
 				</Row>
 			</div>
-			<Footer/>
-			
-			<BackTop />  
+			<Footer />
+			<Live2d />
+			<BackTop />
 		</div>
 	)
 }
