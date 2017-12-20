@@ -23,10 +23,16 @@ npm install
 
 #### 开发模式：
 ```
+webpack --config .\dll.config.dev.js
+
 npm run dev
 ```
 
 #### 产品模式：
 ```
+webpack --config .\dll.config.prod.js
+
 npm run build
 ```
+
+在public/index.html中引入正确的`bundle.js`和`lib.js`。
