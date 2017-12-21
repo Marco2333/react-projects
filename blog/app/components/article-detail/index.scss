@@ -63,10 +63,15 @@
 	p, ol, ul, table, pre {
 		margin-bottom: 8px;
 	}
+	p + ul {
+		margin-top: -7px;
+	}
 	code {
 		margin: 0;
-		padding: 0.2em 0.4em;
-		background-color: rgba(27,31,35,0.05);
+		padding: 0.168em 0.4em;
+		border-radius: 3px;
+		background-color: rgba(27,31,35,0.1);
+		font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
 	}
 	pre {
 		color: #eee;
@@ -77,7 +82,7 @@
 		> code {
 			padding: 0;
 			background-color: inherit;
-			font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
+			// font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
 		}
 	}
 	blockquote {

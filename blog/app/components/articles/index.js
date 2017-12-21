@@ -17,7 +17,7 @@ class Articles extends Component {
 		}
 	}
 
-    componentDidMount() {
+	componentDidMount() {
 		const {pagination = true, ...params} = this.props;
 
 		if(pagination === true)
@@ -104,23 +104,23 @@ class Articles extends Component {
 		this.getArticles(params);
 	}
 
-    render() {
+	render() {
 		let {count, current, articles, total} = this.state;
-        const {pagination = true, carousel = false} = this.props;
+		const {pagination = true, carousel = false} = this.props;
 		
-        return (
-            <div>
+		return (
+			<div>
 				 { 
 					carousel 
-                    ? <ListCarousel links={
-                        articles.map(article => {
-                            return {
-                                link: `/article-detail/${article.id}`,
-                                value: `${article.title}`
-                            } 
-                      })} /> : null 
-                }
-                <div className="article-list">
+					? <ListCarousel links={
+						articles.map(article => {
+							return {
+								link: `/article-detail/${article.id}`,
+								value: `${article.title}`
+							} 
+					  })} /> : null 
+				}
+				<div className="article-list">
 					{
 						articles.map(article => {
 							return (
@@ -139,9 +139,9 @@ class Articles extends Component {
 					</div>
 					: null
 				}
-            </div>
-        )
-    }
+			</div>
+		)
+	}
 }
 
 export default Articles;

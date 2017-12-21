@@ -9,7 +9,7 @@ class ArticleItem extends Component {
 	handleMouseOver = () => {
 		if(loadlive2d) {
 			showMessage(document.querySelector('.live2d-message'), 
-				`要看看 <a href="/article-detail/${this.props.id}">${this.props.title}</a> 么？`);
+				`要看看 <a href="/article-detail/${this.props.id}">${this.props.title}</a> 么？`, 3500);
 		}
 	}
 

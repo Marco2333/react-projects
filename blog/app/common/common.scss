@@ -13,7 +13,8 @@ body {
 	text-align: center;
 }
 .block-link {
-	box-shadow: 0 0 6px #999;
+	background-color: #fff;
+	box-shadow: 0 0 5px #a8a8a8;
 	transition: box-shadow ease-in 300ms;
 	> a {
 		display: inline-block;
@@ -27,7 +28,6 @@ body {
 		}
 	}
 	&:hover {
-		background-color: #f8f8f8;
 		box-shadow: 0 0 16px #aaa;
 	}
 }
