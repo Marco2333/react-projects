@@ -6,7 +6,7 @@ import Ueditor from '../ueditor';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-class GatherDeatil extends Component {
+class GatherDetail extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,9 +16,9 @@ class GatherDeatil extends Component {
 	}
 
 	static contextTypes = {
- 		router: React.PropTypes.object
+		router: React.PropTypes.object
 	}
-	
+
 	componentDidMount() {
 		let id = this.props.id;
 
@@ -130,11 +130,11 @@ class GatherDeatil extends Component {
 							initialValue: tag,
 							rules: [{required: true, message: 'Please input tag!'}]
 						})(
-							<Input placeholder="tag" style={{width: 250}}/>
+							<Input placeholder="tag" style={{width: 250}} />
 						)
 					}
 					</FormItem>
-					<Ueditor content={detail} handleChange={this.handleChange} />
+					<Ueditor content={detail} onChange={this.handleChange} />
 					<div style={{textAlign: "right"}}>
 						<FormItem>
 							<Button type="primary" htmlType="submit">
@@ -148,6 +148,6 @@ class GatherDeatil extends Component {
 	}
 }
 
-const WrappedGatherDetail = Form.create()(GatherDeatil);
+const WrappedGatherDetail = Form.create()(GatherDetail);
 
 export default WrappedGatherDetail;

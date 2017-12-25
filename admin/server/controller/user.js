@@ -26,7 +26,7 @@ module.exports.toLogin = function(req, res, next) {
 			} else {
 				res.json({
 					"status": 0,
-					"message": "用户名或者密码错误"
+					"message": "用户名或密码错误！"
 				});
 			}
 		}

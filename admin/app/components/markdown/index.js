@@ -17,15 +17,37 @@ class Markdown extends Component {
 		if(this.props.preview) {
 			this.ele.innerHTML = marked(this.props.content);
 		}
+
+		window.addEventListener("beforeunload", this.handleWindowClose);
 	}
 
 	handleChange = (content) => {
 		this.props.onChange(content);
-		this.ele.innerHTML = marked(content);
+
+		if(window.localStorage) {
+			localStorage.markdown_content = content;
+		}
+
+		if(this.props.preview) {
+			this.ele.innerHTML = marked(content);
+		}
 	}
 
 	componentDidUpdate() {
-		this.ele.innerHTML = marked(this.props.content);
+		if(this.props.preview) {
+			this.ele.innerHTML = marked(this.props.content);
+		}
+	}
+
+	handleWindowClose = (event) => {
+		var confirmationMessage = "\o/";
+		(event || window.event).returnValue = confirmationMessage;
+
+		return confirmationMessage;
+	}
+
+	componentWillUnmount = () => {
+		window.removeEventListener("beforeunload", this.handleWindowClose)
 	}
 
 	render() {
@@ -34,10 +56,10 @@ class Markdown extends Component {
 		return (
 			<div className="markdown-wrap">
 				<Row gutter={16}>
-					<Col xs={preview ? 12 : 24}>
+					<Col xs={preview ? 13 : 24}>
 						<ContentEditable handleChange={this.handleChange} content={this.props.content} />
 					</Col>
-					<Col xs={preview ? 12 : 0}>
+					<Col xs={preview ? 11 : 0}>
 						<div className="markdown-preview" ref={(ele) => {this.ele = ele}}></div>
 					</Col>
 				</Row>

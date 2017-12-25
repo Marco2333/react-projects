@@ -7,6 +7,7 @@ class SystemInfo extends Component {
 		super(props);
 		this.state = {};
 	}
+
 	componentDidMount() {
 		fetch("/get-system-info", {
 			credentials: 'include'
@@ -29,12 +30,12 @@ class SystemInfo extends Component {
 		});
 	}
 	
-    render() {
+	render() {
 		const {serverIP, serverVersion, clientIP, clientVersion, dbVersion} = this.state;
 
-        return (
-            <div className="system-info">
-                <h3>系统信息 v1.0</h3>
+		return (
+			<div className="system-info">
+				<h3>系统信息 v1.0</h3>
 				<ul>
 					<li>
 						<span>数据库信息</span>
@@ -51,9 +52,9 @@ class SystemInfo extends Component {
 						<p>客户端信息: {clientVersion}</p>
 					</li>
 				</ul>
-            </div>
-        )
-    }
+			</div>
+		)
+	}
 }
 
 export default SystemInfo;

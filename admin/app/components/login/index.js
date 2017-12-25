@@ -27,7 +27,7 @@ class LoginForm extends Component {
 				}
 				res.json().then((data) => {
 					if(data.status == 0) {
-						this.setState({error: data.message});
+						alert(data.message);
 					}
 					else {
 						sessionStorage.user = 1;

@@ -21,19 +21,19 @@ class Alert extends Component {
 		});
 	}
 
-    render() {
+	render() {
 		const {status = 'info', info = ''} = this.props;
 		const {show, opacity = 1} = this.state;
 
-        return (
-            <div className={`alert ${status} ${show}`} style={{opacity: opacity}}>
-                {info}
-                <span className="close" onClick={this.handleClick}>
-                    ×
-                </span>
-            </div>
-        )
-    }
+		return (
+			<div className={`alert ${status} ${show}`} style={{opacity: opacity}}>
+				{info}
+				<span className="close" onClick={this.handleClick}>
+					×
+				</span>
+			</div>
+		)
+	}
 }
 
 export default Alert;

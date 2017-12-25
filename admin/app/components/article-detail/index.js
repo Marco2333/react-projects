@@ -19,7 +19,7 @@ class ArticleDetail extends Component {
 	}
 
 	static contextTypes = {
- 		router: React.PropTypes.object
+		router: React.PropTypes.object
 	}
 
 	componentDidMount() {
@@ -69,23 +69,12 @@ class ArticleDetail extends Component {
 		}
 	}
 
-	editorHandle = (ue) => {
-		this.ue = ue;
-	}
-
 	handleChange = (content) => {
-		// console.log(content + "123");
 		this.state.content = content;
-		// this.setState({content: content})
 	}
 
 	handleTypeChange = (value) => {
 		this.setState({markdown: value});
-
-		let ue = this.ue;
-		if(ue) {
-			value == '1' ? ue.setHide() : ue.setShow();
-		}
 	}
 
 	handlePreview = (e) => {
@@ -128,6 +117,7 @@ class ArticleDetail extends Component {
 					}
 					else {
 						alert("文章提交成功！");
+
 						if(this.props.id == null) {
 							this.context.router.push(`/articles`);
 						}
@@ -171,7 +161,7 @@ class ArticleDetail extends Component {
 						initialValue: title,
 						rules: [{required: true, message: 'Please input title!'}]
 					})(
-						<Input addonBefore={prefixType} placeholder="title" style={{width: 320}}/>
+						<Input addonBefore={prefixType} placeholder="title" style={{width: 290}}/>
 					)
 				}
 				</FormItem>
@@ -185,7 +175,7 @@ class ArticleDetail extends Component {
 						initialValue: tag,
 						rules: [{required: true, message: 'Please input tag!'}]
 					})(
-						<Input placeholder="tag" style={{width: 180}}/>
+						<Input placeholder="tag" style={{width: 160}}/>
 					)
 				}
 				</FormItem>
@@ -211,7 +201,7 @@ class ArticleDetail extends Component {
 						getFieldDecorator('markdown', {
 							initialValue: markdown ? markdown + '' : '0'
 						})(
-							<Select style={{width: 100}} onChange={this.handleTypeChange}>
+							<Select style={{width: 90}} onChange={this.handleTypeChange}>
 								<Option value='0'>富文本</Option>
 								<Option value='1'>Markdown</Option>
 							</Select>

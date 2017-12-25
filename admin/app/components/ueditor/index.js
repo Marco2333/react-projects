@@ -4,9 +4,6 @@ import './style.scss';
 
 class Ueditor extends Component {
 	componentDidMount() {
-		if(this.props.ue) {
-			return;
-		}
 		let script = document.createElement("script");
 		script.setAttribute('src', '/static/ueditor/ueditor.config.js');
 		document.getElementsByTagName('head')[0].appendChild(script);
@@ -29,14 +26,11 @@ class Ueditor extends Component {
 						'strikethrough', //删除线 
 						'subscript', //下标 
 						'superscript', //上标 
-						//'formatmatch', //格式刷 
 						'source', //源代码 
 						'blockquote', //引用 
 						'pasteplain', //纯文本粘贴模式 
 						'horizontal', //分隔线 
 						'removeformat', //清除格式 
-						//'time', //时间 
-						//'date', //日期 
 						'unlink', //取消链接 
 						'inserttitle', //插入标题 
 						'simpleupload', //单图上传 
@@ -76,21 +70,26 @@ class Ueditor extends Component {
 				]
 			});
 
+			this.editor = ue;
+
 			ue.addListener( 'contentChange', () => {
 				this.props.onChange(ue.getContent())
 			})
-
-			this.props.editorHandle && this.props.editorHandle(ue);
 		}
 	}
-	
+
+	componentWillUnmount() {
+		this.editor.destroy();
+		
+		let child = document.getElementById("edui_fixedlayer")
+		child.parentNode.removeChild(child);
+	}
 
 	render() {
 		return (
-			this.props.ue ? null
-			:	<textarea id="container" name="blog" type="text/plain" onChange={()=>{}}
-					value={this.props.content} style={{margin: "15px 0"}}>
-				</textarea>
+			<textarea id="container" name="blog" type="text/plain" onChange={()=>{}}
+				value={this.props.content} style={{margin: "15px 0"}}>
+			</textarea>
 		)
 	}
 }

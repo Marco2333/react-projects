@@ -19,7 +19,16 @@ class ContentEditable extends Component {
 
 	render() {
 		let content = this.props.content ? this.props.content : '';
-		
+
+		content = content.replace(/[<>&"]/g, function(c) {
+			return {
+				'<': '&lt;',
+				'>': '&gt;',
+				'&': '&amp;',
+				'"': '&quot;'
+			}[c];
+		});
+
 		return (
 			<div className="content-editable"
 				onInput={this.emitChange}

@@ -18,13 +18,20 @@
 .markdown-preview {
 	color: #111;
 	font-size: 15px;
+	font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
+	
 	p, ol, ul, table, pre {
 		margin-bottom: 8px;
 	}
+	p + ul {
+		margin-top: -7px;
+	}
 	code {
 		margin: 0;
-		padding: 0.2em 0.4em;
-		background-color: rgba(27,31,35,0.05);
+		padding: 0.168em 0.4em;
+		border-radius: 3px;
+		background-color: rgba(27,31,35,0.1);
+		
 	}
 	pre {
 		font-size: 14px;
@@ -36,7 +43,6 @@
 		> code {
 			padding: 0;
 			background-color: inherit;
-			font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
 		}
 	}
 	blockquote {
@@ -49,7 +55,6 @@
 		margin-bottom: 13px;
 		background-color: #f1f1f1;
 		border-left: 0.25em solid #ccc;
-		font-family: Consolas,"Microsoft YaHei",Menlo,Courier,monospace;
 	}
 	h1, h2 {
 		padding-bottom: 5px;
@@ -87,13 +92,25 @@
 		font-size: 13px;
 	}
 	ol {
-		list-style: inside decimal;
+		list-style: decimal;
 	}
 	ul {
-		list-style: inside circle;
+		list-style: circle;
 	}
 	ol, ul {
-		padding-left: 2px;
+		padding-left: 20px;
+		ul {
+			list-style: disc;
+			ul, ol {
+				list-style: square;
+			}
+		}
+		ol {
+			list-style: lower-alpha;
+			ul, ol {
+				list-style: square;
+			}
+		}
 	}
 }
 
