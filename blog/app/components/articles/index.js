@@ -110,7 +110,7 @@ class Articles extends Component {
 		
 		return (
 			<div>
-				 { 
+				{
 					carousel 
 					? <ListCarousel links={
 						articles.map(article => {
@@ -118,7 +118,7 @@ class Articles extends Component {
 								link: `/article-detail/${article.id}`,
 								value: `${article.title}`
 							} 
-					  })} /> : null 
+					})} /> : null 
 				}
 				<div className="article-list">
 					{

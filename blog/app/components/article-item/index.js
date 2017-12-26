@@ -13,6 +13,10 @@ class ArticleItem extends Component {
 		}
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		return this.props.id != nextProps.id;
+	}
+
 	render() {
 		const {id, title, theme, tag, created_at, abstract, views} = this.props;
 
